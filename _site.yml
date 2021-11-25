@@ -2,8 +2,8 @@ name: "Metodebib"
 title: "Metodebiblioteket"
 description: |
   Metodebibliotek
-output_dir: "docs"
-base_url: https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html
+output_dir: "."
+base_url: https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/index.html
 repository_url: https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse
 theme: theme.css
 navbar:
