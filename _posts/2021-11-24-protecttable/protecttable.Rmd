@@ -1,0 +1,18 @@
+---
+title: "protectTable"
+description: |
+  Function protectTable() is used to protect primary sensitive table cells (that usually have been identified and set using primarySuppression()). The function protects primary sensitive table cells according to the method that has been chosen and the parameters that have been set.
+author:
+  - name: easySdcTable
+    url: https://cran.r-project.org/web/packages/easySdcTable/vignettes/easySdcTableVignette.html
+date: 2021-11-24
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - R
+  - confidentiality
+---
+For more information:
+https://cran.r-project.org/web/packages/easySdcTable/vignettes/easySdcTableVignette.html 
+

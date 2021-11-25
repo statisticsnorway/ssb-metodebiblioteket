@@ -1,0 +1,22 @@
+name: "Metodebib"
+title: "Metodebibliotek"
+description: |
+  Metodebibliotek
+output_dir: "docs"
+navbar:
+  logo:
+    image: pictures/codelibrary.png
+    href: index.html
+  left:
+    - text: "Bla gjennom"
+      href: browse.html
+    - text: "Katalog"
+      menu:
+      - text: "Dataeditering"
+        href: catalogue_edit.html
+      - text: "Konfidensialitet"
+        href: catalogue_conf.html
+output: 
+  distill::distill_article
+
+
