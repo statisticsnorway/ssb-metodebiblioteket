@@ -1,12 +1,9 @@
 ---
-title: " "
+title: "Metodebiblioteket"
 site: distill::distill_website
 ---
-<br>
-
-```{r, fig.align='left', out.width='20%'}
+```{r, fig.align='center', out.width='20%', echo = FALSE}
 knitr::include_graphics("pictures/codelibrary_ssb.png")
 ```
-# Velkommen til Metodebiblioteket
 
-Metodebiblioteket er SSBs bibliotek for statistiske funksjoner for bruk i produksjon av offisielle statistikk. Alle funksjoner beskrevet er testet av seksjon for metode. Alle funksjoner beskrevet er i bruk i en produksjonsprosess eller brukt i metodekurs.
+Metodebiblioteket er SSBs bibliotek for statistiske metodiske funksjoner for bruk i produksjon av offisielle statistikk. Alle funksjoner beskrevet er testet av seksjon for metode. Alle funksjoner beskrevet er i bruk i en produksjonsprosess på SSB eller brukt i et metodekurs.

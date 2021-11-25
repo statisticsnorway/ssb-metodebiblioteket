@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Metodebiblioteket</title>
+    <link>https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html</link>
+    <atom:link href="https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html/browse.xml" rel="self" type="application/rss+xml"/>
+    <description>Metodebibliotek
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Thu, 25 Nov 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>HierarchyCompute</title>
+      <dc:creator>SSBtools</dc:creator>
+      <link>https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html/posts/2021-11-25-hierarchycompute</link>
+      <description>This function computes aggregates by crossing several hierarchical specifications and factorial variables.</description>
+      <category>R</category>
+      <category>confidentiality</category>
+      <guid>https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html/posts/2021-11-25-hierarchycompute</guid>
+      <pubDate>Thu, 25 Nov 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>ApplyKlass</title>
+      <dc:creator>klassR</dc:creator>
+      <link>https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html/posts/2021-11-25-applyklass</link>
+      <description>Apply a classification to a variable/vector.</description>
+      <category>R</category>
+      <category>dataediting</category>
+      <category>classification</category>
+      <guid>https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html/posts/2021-11-25-applyklass</guid>
+      <pubDate>Wed, 24 Nov 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>CalibrateSSB</title>
+      <dc:creator>CalibrateSSB</dc:creator>
+      <link>https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html/posts/2021-11-24-calibratessb</link>
+      <description>Functions to calculate weights, estimates of changes and corresponding variance estimates for panel data with non-response. Partially overlapping samples are handled. Initially, weights are calculated by linear calibration.</description>
+      <category>R</category>
+      <category>estimation</category>
+      <guid>https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html/posts/2021-11-24-calibratessb</guid>
+      <pubDate>Wed, 24 Nov 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>LmImpute</title>
+      <dc:creator>Kostra</dc:creator>
+      <link>https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html/posts/2021-11-24-lmimpute</link>
+      <description>Imputation by weighted regeression, using lm, allowing multiple explanatory variables and multiple response variables. Impute missing and wrong values (category 3) by the model based on representative data (category 1). Some data are considered correct but not representative (category 2)</description>
+      <category>R</category>
+      <category>dataediting</category>
+      <category>imputation</category>
+      <guid>https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html/posts/2021-11-24-lmimpute</guid>
+      <pubDate>Wed, 24 Nov 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>protectTable</title>
+      <dc:creator>easySdcTable</dc:creator>
+      <link>https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html/posts/2021-11-24-protecttable</link>
+      <description>Function protectTable() is used to protect primary sensitive table cells (that usually have been identified and set using primarySuppression()). The function protects primary sensitive table cells according to the method that has been chosen and the parameters that have been set.</description>
+      <category>R</category>
+      <category>confidentiality</category>
+      <guid>https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html/posts/2021-11-24-protecttable</guid>
+      <pubDate>Wed, 24 Nov 2021 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

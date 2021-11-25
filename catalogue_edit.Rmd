@@ -2,7 +2,7 @@
 title: "Data editing"
 listing: 
   posts:
-    - 2021-11-24-applyklass
+    - 2021-11-25-applyklass
     - 2021-11-24-lmimpute
 site: distill::distill_website
 ---

@@ -5,28 +5,28 @@
       "title": "Welcome to Metodebiblioteket",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-11-25T10:09:10+01:00"
+      "last_modified": "2021-11-25T14:11:09+01:00"
     },
     {
       "path": "catalogue_conf.html",
       "title": "Confidentiality",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-11-25T09:27:58+01:00"
+      "last_modified": "2021-11-25T14:02:13+01:00"
     },
     {
       "path": "catalogue_edit.html",
       "title": "Data editing",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-11-25T09:46:21+01:00"
+      "last_modified": "2021-11-25T14:10:21+01:00"
     },
     {
       "path": "index.html",
-      "title": " ",
+      "title": "Metodebiblioteket",
       "author": [],
-      "contents": "\r\n\r\n\r\n\r\nknitr::include_graphics(\"pictures/codelibrary_ssb.png\")\r\n\r\n\r\n\r\n\r\nVelkommen til Metodebiblioteket\r\nMetodebiblioteket er SSBs bibliotek for statistiske funksjoner for bruk i produksjon av offisielle statistikk. Alle funksjoner beskrevet er testet av seksjon for metode. Alle funksjoner beskrevet er i bruk i en produksjonsprosess eller brukt i metodekurs.\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-11-25T10:23:29+01:00"
+      "contents": "\r\n\r\n\r\n\r\nMetodebiblioteket er SSBs bibliotek for statistiske metodiske funksjoner for bruk i produksjon av offisielle statistikk. Alle funksjoner beskrevet er testet av seksjon for metode. Alle funksjoner beskrevet er i bruk i en produksjonsprosess eller brukt i metodekurs.\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-11-25T14:11:28+01:00"
     }
   ],
   "collections": ["posts/posts.json"]

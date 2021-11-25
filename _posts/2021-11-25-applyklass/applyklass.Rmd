@@ -1,11 +1,11 @@
 ---
 title: "ApplyKlass"
 description: |
-  Apply a klassification to a variable/vector.
+  Apply a classification to a variable/vector.
 author:
   - name: klassR 
-    url: https://github.com/statisticsnorway/klassR
-date: 2021-11-24
+    url: http://github.com/statisticsnorway/klassR
+date: 2021-11-25
 output: 
   distill::distill_article:
     toc: true
@@ -20,7 +20,14 @@ categories:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-`ApplyKlass` is designed to provide an easy interface to applying  classifications from Statistic Norway's classification database. It can be used on a vector. 
+`ApplyKlass` is designed to provide an easy interface to applying  classifications from Statistic Norway's classification database. It can be used on a vector.
+
+See <https://www.ssb.no/klass/> for details on Statistic Norway's classifications and codelist.
+
+```{r, echo = FALSE}
+knitr::include_graphics("../../pictures/klass.png")
+```
+
 
 ### 1. Retrieving classification name
 `ApplyKlass` can be used to retreive the name of a classification vector.
@@ -34,8 +41,7 @@ dt
 ```
 
 ```{r}
-library(knitr)
-kable(dt)
+knitr::kable(dt)
 ```
 
 ### 2. Language
@@ -47,12 +53,11 @@ dt
 ```
 
 ```{r}
-library(knitr)
-kable(dt)
+knitr::kable(dt)
 ```
 
 ### 3. Change level
-Sometimes a different level is desired. In this case we specify using th e `output_level` parameter. 
+Sometimes a different level is desired. In this case we specify using the `output_level` parameter. 
 
 ```{r, echo = T, results="hide"}
 dt$hoved_naering <- ApplyKlass(dt$naering, 
@@ -63,17 +68,10 @@ dt
 ```
 
 ```{r}
-library(knitr)
-kable(dt)
+knitr::kable(dt)
 ```
 
 
 ### 4. More help
 See <https://www.ssb.no/klass/> for details on Statistic Norway's classifications and codelist.
-
-
-
-
-
-
 

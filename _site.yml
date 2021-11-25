@@ -1,11 +1,14 @@
 name: "Metodebib"
-title: "Metodebibliotek"
+title: "Metodebiblioteket"
 description: |
   Metodebibliotek
 output_dir: "docs"
+base_url: https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/docs/index.html
+repository_url: https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse
+theme: theme.css
 navbar:
   logo:
-    image: pictures/codelibrary.png
+    image: pictures/logo_kule.jpg
     href: index.html
   left:
     - text: "Bla gjennom"
@@ -16,6 +19,9 @@ navbar:
         href: catalogue_edit.html
       - text: "Konfidensialitet"
         href: catalogue_conf.html
+  right:
+    - icon: fab fa-github
+      href: https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse
 output: 
   distill::distill_article
 

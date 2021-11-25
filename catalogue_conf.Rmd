@@ -3,6 +3,7 @@ title: "Confidentiality"
 listing: 
   posts:
     - 2021-11-24-protecttable
+    - 2021-11-25-hierarchycompute    
 site: distill::distill_website
 ---
 
