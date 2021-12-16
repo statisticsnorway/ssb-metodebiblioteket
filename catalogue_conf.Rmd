@@ -1,9 +1,11 @@
 ---
-title: "Confidentiality"
+title: "Disclosure control"
 listing: 
   posts:
-    - 2021-11-24-protecttable
-    - 2021-11-25-hierarchycompute    
+    - hierarchycompute
+    - plsrounding
+    - protectkostra
+    - protecttable
 site: distill::distill_website
 ---
 
