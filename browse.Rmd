@@ -1,5 +1,0 @@
----
-title: "Welcome to Metodebiblioteket"
-site: distill::distill_website
-listing: posts
----
