@@ -3,8 +3,8 @@ title: "Metodebiblioteket"
 description: |
   Metodebibliotek
 output_dir: "docs"
-base_url: https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse/index.html
-repository_url: https://git-adm.ssb.no/projects/RMET/repos/metodebib/browse
+base_url: https://github.com/statisticsnorway/metodebibliotek/docs/index.html
+repository_url: https://github.com/statisticsnorway/metodebibliotek
 theme: theme.css
 navbar:
   logo:
