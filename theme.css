@@ -76,6 +76,15 @@ d-appendix {
 /*-- Additional custom styles --*/
 /* Add any additional CSS rules below                      */
 
+.kodebox {
+  padding: 1em;
+  background-color: #e3f1e6;
+}
 
-
-
+.highlight {
+  border-radius: 0.4rem;
+  background: #9582bb;
+  color: white;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
