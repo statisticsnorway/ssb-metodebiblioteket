@@ -5,5 +5,4 @@ site: distill::distill_website
 ```{r, fig.align='center', out.width='20%', echo = FALSE}
 knitr::include_graphics("pictures/codelibrary_ssb.png")
 ```
-
-Metodebiblioteket er SSBs bibliotek for statistiske metodiske funksjoner for bruk i produksjon av offisielle statistikk. Alle funksjoner beskrevet er testet av seksjon for metode. Alle funksjoner beskrevet er i bruk i en produksjonsprosess på SSB eller brukt i et metodekurs.
+Metodebiblioteket is Statistics Norway's library for statistical methods. Methods listed provide the names of R or python functions which can be used in statistical production. All functions are described and tested by the division for methods and are currently in used in at least one production process.
