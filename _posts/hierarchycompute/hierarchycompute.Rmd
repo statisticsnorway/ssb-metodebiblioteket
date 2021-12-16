@@ -1,0 +1,33 @@
+---
+title: "HierarchyCompute"
+description: |
+  This function computes aggregates by crossing several hierarchical specifications and factorial variables.
+author:
+  - name: SSBtools
+    url: https://cran.r-project.org/web/packages/SSBtools/index.html
+date: 11-25-2021
+preview: ../../pictures/heirarchy.png
+output:
+  distill::distill_article:
+    self_contained: false
+categories:
+  - R
+  - confidentiality
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(SSBtools)
+
+# Data and hierarchies used in the examples
+x <- SSBtoolsData("sprt_emp") # Employment in sport in thousand persons from Eurostat database
+geoHier <- SSBtoolsData("sprt_emp_geoHier")
+ageHier <- SSBtoolsData("sprt_emp_ageHier")
+# Two hierarchies and year as rowFactor
+HierarchyCompute(x, list(age = ageHier, geo = geoHier, year = "rowFactor"), "ths_per")
+```
+

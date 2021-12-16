@@ -1,0 +1,49 @@
+---
+title: "ProtectKostra"
+description: |
+ Table suppression according to a frequency rule following the standards in the Kostra project.
+author:
+  - name: Kostra
+    affiliation: 1.3.0
+date: 2021-12-07
+preview: ../../pictures/protect.jpg
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+categories:
+  - R
+  - confidentiality
+---
+
+
+<div><span class='highlight'>[Go to source code](https://github.com/statisticsnorway/Kostra/blob/main/R/ProtectKostra.R) </span></div>
+
+## Parameters
+```{r, echo = FALSE}
+library(knitr)
+source('../../R/auto_test.r')
+dt <- get_parameters('Kostra', 'ProtectKostra')
+kable(dt)
+```
+## Values
+```{r, echo = FALSE}
+library(knitr)
+source('../../R/auto_test.r')
+                    
+
+dt_val <- get_value('Kostra', 'ProtectKostra')
+
+```
+`r dt_val$text`
+
+```{r, echo = FALSE}
+if(nrow(dt_val$dt)>0) kable(dt_val$dt)
+```
+
+## Examples
+```{r, echo = F, comment = '', class.output='kodebox'}
+print_examples('Kostra', 'ProtectKostra')
+```
+

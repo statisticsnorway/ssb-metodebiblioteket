@@ -1,0 +1,48 @@
+---
+title: "PLSrounding"
+description: |
+ Small count rounding of necessary inner cells are performed so that all small frequencies of cross-classifications to be published (publishable cells) are rounded. The publishable cells can be defined from a model formula, hierarchies or automatically from data.
+author:
+  - name: SmallCountRounding
+    affiliation: 0.9.0
+date: 2021-12-07
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+categories:
+  - R
+  - confidentiality
+---
+
+
+<div><span class='highlight'>[Go to source code](https://github.com/statisticsnorway/SmallCountRounding/blob/master/R/PLSrounding.R) </span></div>
+
+## Parameters
+```{r, echo = FALSE}
+library(knitr)
+source('../../R/auto_test.r')
+dt <- get_parameters('SmallCountRounding', 'PLSrounding')
+kable(dt)
+```
+## Values
+```{r, echo = FALSE}
+library(knitr)
+source('../../R/auto_test.r')
+                    
+
+dt_val <- get_value('SmallCountRounding', 'PLSrounding')
+
+```
+`r dt_val$text`
+
+```{r, echo = FALSE}
+if(nrow(dt_val$dt)>0) kable(dt_val$dt)
+```
+
+## Examples
+```{r, echo = F, comment = '', class.output='kodebox'}
+print_examples('SmallCountRounding', 'PLSrounding')
+```
+

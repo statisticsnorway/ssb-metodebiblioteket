@@ -1,0 +1,55 @@
+---
+title: "LmImpute"
+description: |
+  Imputation by weighted regeression, using lm, allowing multiple explanatory variables and multiple response variables. Impute missing and wrong values (category 3) by the model based on representative data (category 1). Some data are considered correct but not representative (category 2).
+author:
+  - name: Kostra
+    url: https://github.com/statisticsnorway/Kostra
+    affiliation: 1.3.0
+preview: ../../pictures/regression.png
+date: 2021-11-24
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+categories:
+  - R
+  - dataediting
+  - imputation
+---
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tools)
+source("../../R/auto_test.R")
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<div><span class='highlight'>[Go to source code](https://github.com/statisticsnorway/Kostra/blob/main/R/LmImpute.r) </span></div>
+
+### 1. Arguments
+```{r, echo = FALSE}
+dt <- get_parameters("Kostra", "LmImpute")
+kable(dt)
+```
+
+### 2. Value
+```{r, echo = FALSE}
+dt <- get_value("Kostra", "LmImpute")
+
+```
+`r dt$text`
+
+
+```{r, echo = FALSE}
+kable(dt$dt)
+```
+
+### 3. Examples
+```{r, echo = F, comment = "", class.output="kodebox"}
+print_examples("Kostra", "LmImpute")
+
+```
+

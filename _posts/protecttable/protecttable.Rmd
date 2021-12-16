@@ -1,0 +1,49 @@
+---
+title: "ProtectTable"
+description: |
+ 'GaussSuppression', 'protectTable' or 'protect_linked_tables' is run with a data set as the only required input. One (stacked) or several (unstacked) input variables can hold cell counts. 'ProtectTableData' is a tidy wrapper function, which returns a single data frame instead of a list ('info' omitted).
+author:
+  - name: easySdcTable
+    affiliation: 1.0.0
+date: 2021-12-07
+preview: ../../pictures/protect2.jpg
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 3
+categories:
+  - R
+  - confidentiality
+---
+
+
+<div><span class='highlight'>[Go to source code](https://github.com/statisticsnorway/easySdcTable/blob/master/R/ProtectTable.R) </span></div>
+
+## Parameters
+```{r, echo = FALSE}
+library(knitr)
+source('../../R/auto_test.r')
+dt <- get_parameters('easySdcTable', 'ProtectTable')
+kable(dt)
+```
+## Values
+```{r, echo = FALSE}
+library(knitr)
+source('../../R/auto_test.r')
+                    
+
+dt_val <- get_value('easySdcTable', 'ProtectTable')
+
+```
+`r dt_val$text`
+
+```{r, echo = FALSE}
+if(nrow(dt_val$dt)>0) kable(dt_val$dt)
+```
+
+## Examples
+```{r, echo = F, comment = '', class.output='kodebox'}
+print_examples('easySdcTable', 'ProtectTable')
+```
+
