@@ -1,0 +1,33 @@
+{
+  "articles": [
+    {
+      "path": "catalog.html",
+      "title": "Metodebiblioteket functions",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-12-16T14:54:52+01:00"
+    },
+    {
+      "path": "catalogue_conf.html",
+      "title": "Disclosure control",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-12-16T14:54:53+01:00"
+    },
+    {
+      "path": "catalogue_edit.html",
+      "title": "Dataeditiering funksjoner",
+      "author": [],
+      "contents": "\r\n\r\nDataeditering\r\nDataeditering er kontroll, granskning og retting av data. Det omfatter editering av populasjon, editering av åpenbare og systematiske feil, seleksjon av verdier med stort avvik og høy innflytelse og kontroll av aggregater som skal bli publisert. Metodene som blir brukt til dataeditering spenner fra logisk kontroll av gyldig verdiområde til maskinlæring. All statistikk som publiseres er basert på data som har blitt kontrollert og i de fleste tilfeller også korrigert.\r\nDu kan finne mer information om dataediteringsprosess på Byrånettet.\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-12-16T14:54:54+01:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Metodebiblioteket",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\nMetodebiblioteket is Statistics Norway’s library for statistical methods. Methods listed provide the names of R or python functions which can be used in statistical production. All functions are described and tested by the division for methods and are currently in used in at least one production process.\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-12-16T14:54:55+01:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}
