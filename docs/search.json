@@ -5,34 +5,28 @@
       "title": "Metodebiblioteket functions",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-16T15:20:41+01:00"
+      "last_modified": "2022-02-28T11:20:05+01:00"
     },
     {
       "path": "catalogue_conf.html",
       "title": "Disclosure control",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-16T15:20:41+01:00"
+      "last_modified": "2022-02-28T11:20:05+01:00"
     },
     {
       "path": "catalogue_edit.html",
       "title": "Dataeditiering funksjoner",
       "author": [],
       "contents": "\r\n\r\nDataeditering\r\nDataeditering er kontroll, granskning og retting av data. Det omfatter editering av populasjon, editering av åpenbare og systematiske feil, seleksjon av verdier med stort avvik og høy innflytelse og kontroll av aggregater som skal bli publisert. Metodene som blir brukt til dataeditering spenner fra logisk kontroll av gyldig verdiområde til maskinlæring. All statistikk som publiseres er basert på data som har blitt kontrollert og i de fleste tilfeller også korrigert.\r\nDu kan finne mer information om dataediteringsprosess på Byrånettet.\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-16T15:20:42+01:00"
+      "last_modified": "2022-02-28T11:20:06+01:00"
     },
     {
       "path": "index.html",
       "title": "Metodebiblioteket",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\nMetodebiblioteket is Statistics Norway’s library for statistical methods. Methods listed provide the names of R or python functions which can be used in statistical production. All functions are described and tested by the division for methods and are currently in used in at least one production process.\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-16T15:20:43+01:00"
-    },
-    {
-      "path": "README.html",
-      "author": [],
-      "contents": "\r\nMetodebiblioteket\r\nThis repository holds information on the functions included in Statistics Norway’s methods library Metodebiblioteket. You can view the library here: - https://statisticsnorway.github.io/metodebibliotek/\r\n\r\n\r\n",
-      "last_modified": "2021-12-16T15:20:43+01:00"
+      "last_modified": "2022-02-28T11:20:07+01:00"
     }
   ],
   "collections": ["posts/posts.json"]

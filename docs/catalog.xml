@@ -7,7 +7,18 @@
     <description>Metodebibliotek
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 07 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 28 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>LinearSVC</title>
+      <dc:creator>sklearn.svm</dc:creator>
+      <link>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/posts/linearsvc</link>
+      <description>Linear Support Vector Classification. Similar to SVC with parameter kernel=’linear’, but implemented in terms of liblinear rather than libsvm, so it has more flexibility in the choice of penalties and loss functions and should scale better to large numbers of samples.</description>
+      <category>python</category>
+      <category>imputation</category>
+      <category>classification</category>
+      <guid>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/posts/linearsvc</guid>
+      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>PLSrounding</title>
       <dc:creator>SmallCountRounding</dc:creator>

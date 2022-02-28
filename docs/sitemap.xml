@@ -2,46 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/catalog.html</loc>
-    <lastmod>2021-12-07T11:22:19+01:00</lastmod>
+    <lastmod>2022-02-28T10:46:40+01:00</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/catalogue_conf.html</loc>
-    <lastmod>2021-12-07T12:43:02+01:00</lastmod>
+    <lastmod>2022-02-28T10:46:40+01:00</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/catalogue_edit.html</loc>
-    <lastmod>2021-12-07T09:23:55+01:00</lastmod>
+    <lastmod>2022-02-28T10:46:40+01:00</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/</loc>
-    <lastmod>2021-12-07T13:00:55+01:00</lastmod>
+    <lastmod>2022-02-28T10:46:40+01:00</lastmod>
   </url>
   <url>
-    <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/README.html</loc>
-    <lastmod>2021-12-16T15:13:50+01:00</lastmod>
+    <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/posts/linearsvc/</loc>
+    <lastmod>2022-02-28T11:19:55+01:00</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/posts/plsrounding/</loc>
-    <lastmod>2021-12-07T12:26:03+01:00</lastmod>
+    <lastmod>2022-02-28T10:46:40+01:00</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/posts/protectkostra/</loc>
-    <lastmod>2021-12-07T12:55:18+01:00</lastmod>
+    <lastmod>2022-02-28T10:46:40+01:00</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/posts/protecttable/</loc>
-    <lastmod>2021-12-07T12:55:44+01:00</lastmod>
+    <lastmod>2022-02-28T10:46:40+01:00</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/posts/applyklass/</loc>
-    <lastmod>2021-12-07T11:21:21+01:00</lastmod>
+    <lastmod>2022-02-28T10:46:40+01:00</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/posts/hierarchycompute/</loc>
-    <lastmod>2021-12-07T12:54:36+01:00</lastmod>
+    <lastmod>2022-02-28T10:46:40+01:00</lastmod>
   </url>
   <url>
     <loc>https://github.com/statisticsnorway/metodebibliotek/docs/index.html/posts/lmimpute/</loc>
-    <lastmod>2021-12-07T11:22:01+01:00</lastmod>
+    <lastmod>2022-02-28T10:46:40+01:00</lastmod>
   </url>
 </urlset>
