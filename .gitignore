@@ -38,8 +38,12 @@ rsconnect/
 
 # Datasets
 *.csv
+!katalogdata.csv
 *.zip
 *.shp
 *.dbf
 *.sbn
 *.shx
+
+# Quarto
+/website/.quarto/
