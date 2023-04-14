@@ -11,6 +11,9 @@ get_description <- function(package, func){
   descr <- gsub("\\s+", " ", str_trim(descr))
   trimws(descr, which = "both")
 }
+
+
+
 #txt <- descr[20]
 check_bullet <- function(txt){
   if(is.na(txt)){
