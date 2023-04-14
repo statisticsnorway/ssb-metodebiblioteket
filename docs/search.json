@@ -1,33 +1,30 @@
-{
-  "articles": [
-    {
-      "path": "catalog.html",
-      "title": "Metodebiblioteket functions",
-      "author": [],
-      "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-02-28T11:26:34+01:00"
-    },
-    {
-      "path": "catalogue_conf.html",
-      "title": "Disclosure control",
-      "author": [],
-      "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-02-28T11:26:34+01:00"
-    },
-    {
-      "path": "catalogue_edit.html",
-      "title": "Dataeditiering funksjoner",
-      "author": [],
-      "contents": "\r\n\r\nDataeditering\r\nDataeditering er kontroll, granskning og retting av data. Det omfatter editering av populasjon, editering av åpenbare og systematiske feil, seleksjon av verdier med stort avvik og høy innflytelse og kontroll av aggregater som skal bli publisert. Metodene som blir brukt til dataeditering spenner fra logisk kontroll av gyldig verdiområde til maskinlæring. All statistikk som publiseres er basert på data som har blitt kontrollert og i de fleste tilfeller også korrigert.\r\nDu kan finne mer information om dataediteringsprosess på Byrånettet.\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-02-28T11:26:35+01:00"
-    },
-    {
-      "path": "index.html",
-      "title": "Metodebiblioteket",
-      "author": [],
-      "contents": "\r\n\r\n\r\n\r\nMetodebiblioteket is Statistics Norway’s library for statistical methods. Methods listed provide the names of R or python functions which can be used in statistical production. All functions are described and tested by the division for methods and are currently in used in at least one production process.\r\n\r\n\r\n\r\n",
-      "last_modified": "2022-02-28T11:26:35+01:00"
-    }
-  ],
-  "collections": ["posts/posts.json"]
-}
+[
+  {
+    "objectID": "catalog.html",
+    "href": "catalog.html",
+    "title": "Katalog",
+    "section": "",
+    "text": "Her finner du en liste over alle funksjoner i Metodebiblioteket.\n\n\n\n\n// Read in data\ntestdata = JSON.parse(my_ojs_data)\n\n\n\n\n\n\n\nviewof lang = Inputs.checkbox([\"r\", \"python\"],\n  {label: \"Språk: \"}\n)\n\n\nviewof tema = Inputs.checkbox( [\"kontrollere\", \"imputering\", \"strukturere\", \"vektberegning\", \"indeksberegning\", \"usikkerhetsberegning\", \"sesongjustering\", \"konfidensialitet\", \"analyse\"],\n  {label: \"Metodeområde: \"}\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n// Filter data based on check boxes\nfiltered = testdata.filter(function(data) {\n  \n  return lang.every(r=> data.keyword.includes(r)) &&\n    tema.every(r=> data.keyword.includes(r))\n    ;\n})\n\n\n\n\n\n\n\nfunction overflow_large(words) {\n  return (x) => htl.html`<div style=\"\n    display: inline-block;\n    width: 450px;\n    white-space: pre-line;\n    break-text: auto;\n    overflow-wrap: normal;\n    height: auto;\n    word-wrap: break-word;\n    overflow: auto;\n\">${x.toLocaleString(\"en\")}`;\n}\n\n// Function for formatting names\nfunction overflow_names(words) {\n  return (x) => htl.html`<div style=\"\n    display: inline-block;\n    width: 250px;\n    white-space: pre-line;\n    break-text: auto;\n    overflow-wrap: normal;\n    height: auto;\n    word-wrap: break-word;\n    overflow: auto;\n\">${x.toLocaleString(\"en\")}`;\n}\n\n// Function for adding hyperlinks\nfunction get_url(new_url) {\n  return (x) => htl.html`<a href=${x.split(\";\")[1]} target=_blank>${x.split(\";\")[0]} </a>`;\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nviewof filter_dt = Inputs.search(filtered)\n\ntable_out = Inputs.table(filter_dt, { columns: [\n    \"func_link\",\n    \"pack\",\n    \"navn\",\n    \"description\"\n  ],\n  header: {\n    func_link: \"Funksjon\",\n    pack: \"Pakke\",\n    navn: \"Navn\",\n    description: \"Beskrivelse\"\n  },\n  format: {\n  func_link: get_url(\n      filter_dt, \n      (d) => d[\"func_lnk\"]\n      ),\n  navn: overflow_names(\n  filter_dt,\n    (x) => x[\"navn\"]\n      ),\n  description: overflow_large(\n      filter_dt,\n      (x) => x[\"description\"]\n      ),\n  },\n  rows: 100\n})"
+  },
+  {
+    "objectID": "catalogue_conf.html",
+    "href": "catalogue_conf.html",
+    "title": "Konfidensialitet",
+    "section": "",
+    "text": "Statistikkloven § 7. Statistisk konfidensialitet ved formidling av offisiell statistikk pålegger at vi ikke publiserer statistikk slik at statistisk informasjon kan føres tilbake til enkeltpersoner eller andre typer statistiske enheter. Hvis dette likevel skjer sier vi at det har funnet sted en avsløring.\nHvis hensynet til oppbyggingen av statistikken krever det, kan det i noen tilfeller gjøres unntak. Slik publisering må ikke være til skade for de statistiske enhetene som inngår i statistikken.\nAt vi i SSB følger dette er avgjørende for oppgavegivernes tillit til oss og for at vi skal kunne utføre vårt samfunnsoppdrag."
+  },
+  {
+    "objectID": "catalogue_edit.html",
+    "href": "catalogue_edit.html",
+    "title": "Dataeditiering",
+    "section": "",
+    "text": "Dataeditering er kontroll, granskning og retting av data. Det omfatter editering av populasjon, editering av åpenbare og systematiske feil, seleksjon av verdier med stort avvik og høy innflytelse og kontroll av aggregater som skal bli publisert. Metodene som blir brukt til dataeditering spenner fra logisk kontroll av gyldig verdiområde til maskinlæring. All statistikk som publiseres er basert på data som har blitt kontrollert og i de fleste tilfeller også korrigert.\nDu kan finne mer information om dataediteringsprosess på Byrånettet."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Metodebiblioteket",
+    "section": "",
+    "text": "Metodebiblioteket is Statistics Norway’s library for statistical methods. Methods listed provide the names of R or python functions which can be used in statistical production. All functions are described and tested by the division for methods and are currently in used in at least one production process."
+  }
+]
