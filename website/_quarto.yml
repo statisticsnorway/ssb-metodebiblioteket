@@ -1,0 +1,35 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "Metodebiblioteket"
+  description: |
+    Metodebibliotek
+  repo-url: https://github.com/statisticsnorway/metodebibliotek
+
+  navbar:
+    background: primary
+    logo: "pictures/logo_kule.jpg"
+    logo-href: index.html
+    left:
+      - text: "Katalog"
+        href: catalog.html
+      - text: "Metodeområde"
+        menu:
+        - text: "Dataeditering"
+          href: catalogue_edit.html
+        - text: "Konfidensialitet"
+          href: catalogue_conf.html
+    right:
+      - icon: github
+        href: https://github.com/statisticsnorway/metodebibliotek
+        
+        
+format: 
+  html: 
+    theme: ssb.scss
+  
+editor: source  
+
+
