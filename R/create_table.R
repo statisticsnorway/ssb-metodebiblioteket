@@ -2,7 +2,7 @@
 
 #### Install packages if missing ####
 devtools::install_github("statisticsnorway/struktuR")
-devtools::install_github("statisticsnorway/Kostra")y
+devtools::install_github("statisticsnorway/Kostra")
 devtools::install_github("statisticsnorway/SmallCountRounding")
 devtools::install_github("statisticsnorway/easySdcTable")
 devtools::install_github("statisticsnorway/SSBpris")
@@ -36,9 +36,9 @@ add_func('LmImpute', 'Kostra', keyword = "r imputere modellbasert kontrollere")
 add_func("HierarchyCompute", "SSBtools", keyword = "r strukturere")
 
 # Konfidensialitet
-add_func("PLSrounding", "SmallCountRounding", keyword = "r konfidensialitet")
-add_func("ProtectKostra", "Kostra", keyword = "r konfidensialitet", github = T)
-add_func("ProtectTable", "easySdcTable", keyword = "r konfidensialitet", github = T)
+add_func("PLSrounding", "SmallCountRounding", keyword = "r konfidensialitet avrunding")
+add_func("ProtectKostra", "Kostra", keyword = "r konfidensialitet undertrykking", github = T)
+add_func("ProtectTable", "easySdcTable", keyword = "r konfidensialitet undertrykking", github = T)
 
 # Sesongjustering
 
