@@ -41,7 +41,7 @@ testdata = JSON.parse(my_ojs_data)
 ```{ojs}
 //| panel: input
 
-viewof tema = Inputs.checkbox( ["undertrykking", "tilfeldig", "støylegging"],
+viewof tema = Inputs.checkbox( ["undertrykking", "avrunding", "støylegging"],
   {label: "Metodeområde: "}
 )
 
