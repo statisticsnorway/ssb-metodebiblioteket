@@ -23,8 +23,12 @@ website:
           href: catalogue_conf.html
     right:
       - icon: github
-        href: https://github.com/statisticsnorway/metodebibliotek
-        
+        menu:
+          - text: "Source Code"
+            url:  https://github.com/statisticsnorway/metodebibliotek
+          - text: "Report a Bug"
+            url:  https://github.com/statisticsnorway/metodebibliotek/issues
+    pinned: true    
         
 format: 
   html: 
