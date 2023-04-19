@@ -2,10 +2,11 @@
 
 #### Install packages if missing ####
 devtools::install_github("statisticsnorway/struktuR")
-devtools::install_github("statisticsnorway/Kostra")
+devtools::install_github("statisticsnorway/Kostra")y
 devtools::install_github("statisticsnorway/SmallCountRounding")
 devtools::install_github("statisticsnorway/easySdcTable")
 devtools::install_github("statisticsnorway/SSBpris")
+install.packages("GISSB")
 
 
 #### Add functions ####
@@ -29,6 +30,7 @@ add_func('impute_knn', 'simputation', keyword = "r imputere donor")
 add_func('lm', 'stats', keyword = "r imputere analyse modellbasert")
 add_func('impute_pmm', 'simputation', keyword = "r imputere donor")
 add_func('impute_rhd', 'simputation', keyword = "r imputere donor")
+add_func('LmImpute', 'Kostra', keyword = "r imputere modellbasert kontrollere")
 
 # Strukturere
 add_func("HierarchyCompute", "SSBtools", keyword = "r strukturere")
@@ -38,19 +40,21 @@ add_func("PLSrounding", "SmallCountRounding", keyword = "r konfidensialitet")
 add_func("ProtectKostra", "Kostra", keyword = "r konfidensialitet", github = T)
 add_func("ProtectTable", "easySdcTable", keyword = "r konfidensialitet", github = T)
 
-# sesongjustering
+# Sesongjustering
 
 
 # Analyse
+add_func("shortest_path_igraph", "GISSB", keyword = "r analyse nettverksanalyse romlig gis")
+add_func("shortest_path_cppRouting", "GISSB", keyword = "r analyse nettverksanalyse romlig gis")
 
-
-# indeksberegning
+# Indeksberegning
 add_func("CalcInd", "SSBpris", keyword = "r indeksberegning", github = T)
 add_func("CalcIndS2", "SSBpris", keyword = "r indeksberegning usikkerhetsberegning", github = T)
 
 # Vektberegning
-add_func("struktur_model", "struktuR", keyword = "r vektberegning modellbasert", github = T)
+add_func("struktur_model", "struktuR", keyword = "r vektberegning modellbasert", github = T, 
+         url = "https://statisticsnorway.github.io/struktuR/reference/struktur_model.html")
 
 
-# usikkerhetsberegning
+# Usikkerhetsberegning
 
