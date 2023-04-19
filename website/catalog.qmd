@@ -34,7 +34,7 @@ viewof lang = Inputs.checkbox(["r", "python"],
 )
 
 
-viewof tema = Inputs.checkbox( ["kontrollere", "imputering", "strukturere", "vektberegning", "indeksberegning", "usikkerhetsberegning", "sesongjustering", "konfidensialitet", "analyse"],
+viewof tema = Inputs.checkbox( ["kontrollere", "imputere", "strukturere", "vektberegning", "indeksberegning", "usikkerhetsberegning", "sesongjustering", "konfidensialitet", "analyse"],
   {label: "Metodeområde: "}
 )
 

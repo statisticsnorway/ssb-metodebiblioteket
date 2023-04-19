@@ -9,4 +9,5 @@ format:
 knitr::include_graphics("pictures/codelibrary_ssb.png")
 ```
 
-Metodebiblioteket is Statistics Norway's library for statistical methods. Methods listed provide the names of R or python functions which can be used in statistical production. All functions are described and tested by the division for methods and are currently in used in at least one production process.
+Metodebiblioteket er SSBs bibliotek for statistiske metode funksjoner. Metodene på liste er funksjoner skrevet i R eller python som passer i SSBs IT-platform. Alle funksjoner er testet av Seksjon for Metode for bruk i produksjon av offisielle statistikk. Alle er brukt i minst én produksjonsløp/eller brukt i SSBs interne metodekurs. 
+

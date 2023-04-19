@@ -3,6 +3,7 @@ title: "Dataeditiering"
 format:
   html:
     echo: false
+    page-layout: full
 ---
 <br>
 
@@ -10,4 +11,123 @@ Dataeditering er kontroll, granskning og retting av data. Det omfatter editering
 
 Du kan finne mer information om dataediteringsprosess på [Byrånettet](https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Dataeditering.aspx). 
 
+
+```{r}
+library(stringr)
+library(rmarkdown)
+
+# Read in data
+dt <- read.csv("../katalogdata.csv")
+
+# filter for dataediterings functions
+dt <- dt[grepl("impute", dt$keyword) | grepl("kontrollere", dt$keyword), ]
+
+# Add column for language
+dt["språk"] <- stringr::word(dt$keyword)[1]
+
+# Add column for combination of function name and link
+dt["func_link"] <- str_trim(do.call(paste, c(dt[c("func", "url")], sep = ";")))
+
+jsonlite::toJSON(dt) -> dt_json
+ojs_define(my_ojs_data = dt_json)
+```
+
+```{ojs}
+// Read in data
+testdata = JSON.parse(my_ojs_data)
+```
+
+```{ojs}
+//| panel: input
+
+viewof tema = Inputs.checkbox( ["kontrollere", "imputere", "donor", "modellbasert"],
+  {label: "Metodeområde: "}
+)
+
+```
+
+
+
+```{ojs}
+// Filter data based on check boxes
+filtered = testdata.filter(function(data) {
+  
+  return tema.every(r=> data.keyword.includes(r))
+    ;
+})
+
+```
+
+```{ojs}
+
+// Function for formatting long descriptions
+function overflow_large(words) {
+  return (x) => htl.html`<div style="
+    display: inline-block;
+    width: 450px;
+    white-space: pre-line;
+    break-text: auto;
+    overflow-wrap: normal;
+    height: auto;
+    word-wrap: break-word;
+    overflow: auto;
+">${x.toLocaleString("en")}`;
+}
+
+// Function for formatting names
+function overflow_names(words) {
+  return (x) => htl.html`<div style="
+    display: inline-block;
+    width: 250px;
+    white-space: pre-line;
+    break-text: auto;
+    overflow-wrap: normal;
+    height: auto;
+    word-wrap: break-word;
+    overflow: auto;
+">${x.toLocaleString("en")}`;
+}
+
+// Function for adding hyperlinks
+function get_url(new_url) {
+  return (x) => htl.html`<a href=${x.split(";")[1]} target=_blank>${x.split(";")[0]} </a>`;
+}
+
+```
+
+```{ojs}
+viewof filter_dt = Inputs.search(filtered)
+
+table_out = Inputs.table(filter_dt, { columns: [
+    "func_link",
+    "pack",
+    "språk",
+    "navn",
+    "description"
+  ],
+  header: {
+    func_link: "Funksjon",
+    pack: "Pakke",
+    språk: "Språk",
+    navn: "Navn",
+    description: "Beskrivelse"
+  },
+  format: {
+  func_link: get_url(
+      filter_dt, 
+      (d) => d["func_lnk"]
+      ),
+  navn: overflow_names(
+  filter_dt,
+    (x) => x["navn"]
+      ),
+  description: overflow_large(
+      filter_dt,
+      (x) => x["description"]
+      ),
+  },
+  rows: 100
+})
+
+```
 
