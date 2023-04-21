@@ -1,10 +1,26 @@
-# Functions for adding new functiond
+# Functions for adding new function to library
+
+# Run add_func() for function
+# Add unittest (new file if package not listed)
+# Add to imports if a new R package
+# Add to remotes if only on github
 
 #func ="validator"
 #package="validate"
 
+#'Add function to Metodebiblioteket
+#'
+#'
+#' @param func Function name
+#' @param package Package name
+#' @param keyword keywords to use seperated by a space
+#' @param url Url address to help files (if not on CRAN or available on github)
+#' @param github T or F for if it is a github only package
+#' @param update T or F on whether to update the function in the dataset
+#' 
+#' @export
 add_func <- function(func, package, keyword = "r", url = NULL, github = F, update=F){
-  kat <- read.csv('katalogdata.csv', header = T, stringsAsFactors = FALSE)
+  kat <- read.csv('data/katalogdata.csv', header = T, stringsAsFactors = FALSE)
   
   if (check_func(func, package, kat) > 0) {
     if (!update) {
@@ -25,8 +41,20 @@ add_func <- function(func, package, keyword = "r", url = NULL, github = F, updat
                        url = url)
   kat <- rbind(kat, new_row)
   kat <- kat[order(kat$func), ]
-  write.csv(kat, file = "katalogdata.csv",row.names=F)
+  write.csv(kat, file = "data/katalogdata.csv",row.names=F)
+  
+  # Add to reexports list
+  write_reexport(func, package)
 }
+
+
+write_reexport <- function(func, package){
+  write(paste("#' @importFrom", package, func), "./R/reexports.R", append = T)
+  write("# @export", "./R/reexports.R", append = T)
+  write(paste0(package,"::", func), "R/reexports.R", append = T) 
+  write("\n", "./R/reexports.R", append=T)
+}
+
 
 
 check_func <- function(func, package, kat){
