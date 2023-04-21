@@ -12,9 +12,10 @@ Imports:
   CalibrateSSB,
   dcmodify,
   easySdcTable,
+  GaussSuppression,
   GISSB,
-  Kostra, 
-  PxWebApiData, 
+  Kostra,
+  sdcForetakPerson,
   simputation,
   SmallCountRounding, 
   SSBtools,
@@ -23,6 +24,7 @@ Imports:
   struktuR,
   validate
 Remotes:
+  statisticsnorway/sdcForetakPerson
   statisticsnorway/Kostra
   statisticsnorway/struktuR
   statisticsnorway/SSBpris
