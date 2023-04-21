@@ -32,7 +32,10 @@ save(df_quartile_strata, file = "../data/df_quartile_strata.RData")
 
 
 #### AKU data ####
+
 library(CalibrateSSB)
+suppressWarnings(RNGversion("3.5.0"))
+
 set.seed(1234)
 aku_testdata <- AkuData(100)
 aku_testpop <- AkuData(200)[, 1:7]
