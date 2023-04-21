@@ -1,0 +1,13 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.github$
+^.*\.Rproj$
+^\.Rproj\.user$ 
+^_pkgdown\.yml$
+^\.github$
+^python$
+^viz$
+^Pipfile$
+^Pipfile\.lock$
+^website$
+^create_check$

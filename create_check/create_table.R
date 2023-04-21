@@ -6,7 +6,11 @@ devtools::install_github("statisticsnorway/Kostra")
 devtools::install_github("statisticsnorway/SmallCountRounding")
 devtools::install_github("statisticsnorway/easySdcTable")
 devtools::install_github("statisticsnorway/SSBpris")
+devtools::install_github("statisticsnorway/pickmdl")
+devtools::install_github("statisticsnorway/SdcForetakPerson")
 install.packages("GISSB")
+install.packages("RJDemetra")
+install.packages("GaussSupression")
 
 
 #### Add functions ####
@@ -34,13 +38,29 @@ add_func('LmImpute', 'Kostra', keyword = "r imputere modellbasert kontrollere")
 
 # Strukturere
 add_func("HierarchyCompute", "SSBtools", keyword = "r strukturere")
+add_func("model_aggregate", "SSBtools", keyword = "r strukturere 6.2")
 
 # Konfidensialitet
-add_func("PLSrounding", "SmallCountRounding", keyword = "r konfidensialitet avrunding")
+add_func("PLSroundingPublish", "SmallCountRounding", keyword = "r konfidensialitet avrunding")
 add_func("ProtectKostra", "Kostra", keyword = "r konfidensialitet undertrykking", github = T)
-add_func("ProtectTable", "easySdcTable", keyword = "r konfidensialitet undertrykking", github = T)
+add_func("ProtectTableData", "easySdcTable", keyword = "r konfidensialitet undertrykking", github = T)
+add_func("SdcForetakPerson", "SdcForetakPerson", keyword = "r konfidensialitet undertrykking avrunding", github = T)
 
-# Sesongjustering
+add_func("SuppressSmallCounts", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
+add_func("SuppressDominantCells", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
+add_func("SuppressFewContributors", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
+add_func("SuppressKDisclosure", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
+add_func("GaussSuppressionFromData", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
+add_func("GaussSuppressDec", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
+add_func("SuppressionFromDecimals", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
+
+
+# Sesongjustering - missing html for functions in pickmdl. Can't install with Java
+#add_func("x13", "RJDemetra", keyword = "r sesongjustering")
+#add_func("x13_spec", "RJDemetra", keyword = "r sesongjustering")
+#add_func("x13_pickmdl", "pickmdl", keyword = "r sesongjustering", github = T, url="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_pickmdl.Rd")
+#add_func("x13_automdl", "pickmdl", keyword = "r sesongjustering", github = T, url="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_pickmdl.Rd")
+#add_func("x13_both", "pickmdl", keyword = "r sesongjustering", github = T, url="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_both.Rd")
 
 
 # Analyse
@@ -54,7 +74,12 @@ add_func("CalcIndS2", "SSBpris", keyword = "r indeksberegning usikkerhetsberegni
 # Vektberegning
 add_func("struktur_model", "struktuR", keyword = "r vektberegning modellbasert", github = T, 
          url = "https://statisticsnorway.github.io/struktuR/reference/struktur_model.html")
+add_func("quantile_weighted", "SSBtools", keyword = "r analyse vektberegning")
 
 
 # Usikkerhetsberegning
+add_func("CalibrateSSB", "CalibrateSSB", keyword = "r vektberegning usikkerhetberegning designbasert")
+add_func("PanelEstimation", "CalibrateSSB", keyword = "r vektberegning usikkerhetberegning designbasert")
+
+
 

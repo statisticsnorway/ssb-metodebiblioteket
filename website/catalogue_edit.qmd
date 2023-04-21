@@ -17,7 +17,7 @@ library(stringr)
 library(rmarkdown)
 
 # Read in data
-dt <- read.csv("../katalogdata.csv")
+dt <- read.csv("../data/katalogdata.csv")
 
 # filter for dataediterings functions
 dt <- dt[grepl("impute", dt$keyword) | grepl("kontrollere", dt$keyword), ]

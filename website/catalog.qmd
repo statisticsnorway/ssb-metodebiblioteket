@@ -13,7 +13,7 @@ library(stringr)
 library(rmarkdown)
 
 # Read in data
-dt <- read.csv("../katalogdata.csv")
+dt <- read.csv("../data/katalogdata.csv")
 
 # Add column for combination of function name and link
 dt["func_link"] <- str_trim(do.call(paste, c(dt[c("func", "url")], sep = ";")))

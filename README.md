@@ -1,8 +1,13 @@
+[![R-CMD-check](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/R-CMD-check.yaml)
+[![pytest](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/pytest-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/pytest.yaml)
+
+
 # Metodebiblioteket
 
 Denne repo-en inneholde informasjon om funksjoner som danne SSBs Metodebiblioteket. Du kan se på biblioteket her:
 
 **<https://statisticsnorway.github.io/metodebibliotek/>**
+
 
 #### Nøkkelord
 Nøkkelørd som brukes i Metodebiblioteket er baserte på dokumentet [Metodikk for modernisering av
