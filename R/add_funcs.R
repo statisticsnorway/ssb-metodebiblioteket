@@ -19,7 +19,8 @@
 #' @param update T or F on whether to update the function in the dataset
 #' 
 #' @export
-add_func <- function(func, package, keyword = "r", url = NULL, github = F, update=F){
+add_func <- function(func, package, keyword = "r", url = NULL, github = F, update=F, 
+                     descrip=NULL, name=NULL){
   kat <- read.csv('data/katalogdata.csv', header = T, stringsAsFactors = FALSE)
   
   if (check_func(func, package, kat) > 0) {
@@ -33,10 +34,16 @@ add_func <- function(func, package, keyword = "r", url = NULL, github = F, updat
   if (missing(url)){
     url <- get_url(func, package, github)
   }
+  if (is.null(descrip)){
+    descrip <- get_description(func, package)
+  } 
+  if (is.null(name)){
+    name <- get_name(func, package)
+  }
   new_row = data.frame(func = func, 
                        pack = package, 
-                       navn = get_name(func, package),
-                       description = get_description(func, package),
+                       navn = name,
+                       description = descrip,
                        keyword = keyword,
                        url = url)
   kat <- rbind(kat, new_row)
