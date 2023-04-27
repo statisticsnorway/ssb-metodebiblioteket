@@ -7,8 +7,10 @@ devtools::install_github("statisticsnorway/SmallCountRounding")
 devtools::install_github("statisticsnorway/easySdcTable")
 devtools::install_github("statisticsnorway/SSBpris")
 devtools::install_github("statisticsnorway/SdcForetakPerson")
+devtools::install_github("DiegoZardetto/ReGenesees")
 install.packages("GISSB")
 install.packages("GaussSupression")
+
 
 # RJDemetra litt vanskelig å installere pga avhengighet på java versjon
 # devtools::install_github("statisticsnorway/pickmdl")
@@ -43,35 +45,35 @@ add_func("HierarchyCompute", "SSBtools", keyword = "r strukturere")
 add_func("model_aggregate", "SSBtools", keyword = "r strukturere 6.2")
 
 # Konfidensialitet
-add_func("PLSroundingPublish", "SmallCountRounding", keyword = "r konfidensialitet avrunding")
-add_func("ProtectKostra", "Kostra", keyword = "r konfidensialitet undertrykking", github = T)
-add_func("ProtectTableData", "easySdcTable", keyword = "r konfidensialitet undertrykking", github = T)
-add_func("SdcForetakPerson", "SdcForetakPerson", keyword = "r konfidensialitet undertrykking avrunding", github = T)
+add_func("PLSroundingPublish", "SmallCountRounding", keyword = "r konfidensialitet avrunding 6.4")
+add_func("ProtectKostra", "Kostra", keyword = "r konfidensialitet undertrykking 6.4", github = T)
+add_func("ProtectTableData", "easySdcTable", keyword = "r konfidensialitet undertrykking 6.4", github = T)
+add_func("SdcForetakPerson", "SdcForetakPerson", keyword = "r konfidensialitet undertrykking avrunding 6.4", github = T)
 
-add_func("SuppressSmallCounts", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
-add_func("SuppressDominantCells", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
-add_func("SuppressFewContributors", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
-add_func("SuppressKDisclosure", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
-add_func("GaussSuppressionFromData", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
-add_func("GaussSuppressDec", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
-add_func("SuppressionFromDecimals", "GaussSuppression", keyword = "r konfidensialitet undertrykking")
+add_func("SuppressSmallCounts", "GaussSuppression", keyword = "r konfidensialitet undertrykking 6.4")
+add_func("SuppressDominantCells", "GaussSuppression", keyword = "r konfidensialitet undertrykking 6.4")
+add_func("SuppressFewContributors", "GaussSuppression", keyword = "r konfidensialitet undertrykking 6.4")
+add_func("SuppressKDisclosure", "GaussSuppression", keyword = "r konfidensialitet undertrykking 6.4")
+add_func("GaussSuppressionFromData", "GaussSuppression", keyword = "r konfidensialitet undertrykking 6.4")
+add_func("GaussSuppressDec", "GaussSuppression", keyword = "r konfidensialitet undertrykking 6.4")
+add_func("SuppressionFromDecimals", "GaussSuppression", keyword = "r konfidensialitet undertrykking 6.4")
 
 
 # Sesongjustering - missing html for functions in pickmdl. Can't install with Java so use manual
 
-add_func("x13", "RJDemetra", keyword = "r sesongjustering", url="https://rdrr.io/cran/RJDemetra/man/x13.html",
+add_func("x13", "RJDemetra", keyword = "r sesongjustering 6.1", url="https://rdrr.io/cran/RJDemetra/man/x13.html",
          name = "Seasonal Adjustment with X13-ARIMA",
          descrip = "Functions to estimate the seasonally adjusted series (sa) with the X13-ARIMA method. This is achieved by decomposing the time series (y) into the trend-cycle (t), the seasonal component (s) and the irregular component (i). The final seasonally adjusted series shall be free of seasonal and calendar-related movements. x13 returns a preformatted result while jx13 returns the Java objects resulting from the seasonal adjustment.")
-add_func("x13_spec", "RJDemetra", keyword = "r sesongjustering", url = "https://rdrr.io/cran/RJDemetra/man/x13_spec.html",
+add_func("x13_spec", "RJDemetra", keyword = "r sesongjustering 6.1", url = "https://rdrr.io/cran/RJDemetra/man/x13_spec.html",
         name = "X-13ARIMA model specification, SA/X13",
         descrip = 'Function to create (and/or modify) a c("SA_spec", "X13") class object with the SA model specification for the X13 method. It can be done from a pre-defined "JDemetra+" model specification (a character), a previous specification (c("SA_spec", "X13") object) or a seasonal adjustment model (c("SA", "X13") object).')
-add_func("x13_pickmdl", "pickmdl", keyword = "r sesongjustering", github = T, url="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_pickmdl.Rd",
+add_func("x13_pickmdl", "pickmdl", keyword = "r sesongjustering 6.1", github = T, url="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_pickmdl.Rd",
       name = "x13 with PICKMDL and partial concurrent possibilities",
       descrip="x13 can be run as usual (automdl) or with a PICKMDL specification. The ARIMA model, outliers and filters can be identified at a certain date and then held fixed (with a new outlier-span).")
-add_func("x13_automdl", "pickmdl", keyword = "r sesongjustering", github = T, url="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_pickmdl.Rd",
+add_func("x13_automdl", "pickmdl", keyword = "r sesongjustering 6.1", github = T, url="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_pickmdl.Rd",
     name = "x13 with PICKMDL and partial concurrent possibilities",
     descrip = "x13 can be run as usual (automdl) or with a PICKMDL specification. The ARIMA model, outliers and filters can be identified at a certain date and then held fixed (with a new outlier-span).")
-add_func("x13_both", "pickmdl", keyword = "r sesongjustering", github = T, url="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_both.Rd",
+add_func("x13_both", "pickmdl", keyword = "r sesongjustering 6.1", github = T, url="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_both.Rd",
          name = "x13_spec and x13_pickmdl wrapped as a single function",
          descrip = "Output is determined by the parameter: both_output.")
 
