@@ -4,7 +4,16 @@
 \alias{add_func}
 \title{Add function to Metodebiblioteket}
 \usage{
-add_func(func, package, keyword = "r", url = NULL, github = F, update = F)
+add_func(
+  func,
+  package,
+  keyword = "r",
+  url = NULL,
+  github = F,
+  update = F,
+  descrip = NULL,
+  name = NULL
+)
 }
 \arguments{
 \item{func}{Function name}

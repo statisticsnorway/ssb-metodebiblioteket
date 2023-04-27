@@ -204,3 +204,12 @@ SSBtools::model_aggregate
 SSBtools::quantile_weighted
 
 
+#' @importFrom SmallCountRounding PLSroundingPublish
+# @export
+SmallCountRounding::PLSroundingPublish
+
+
+
+
+
+

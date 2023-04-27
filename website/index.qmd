@@ -3,10 +3,11 @@ title: "Metodebiblioteket"
 format:
   html:
     echo: false
+sidebar: false
 ---
 
 ```{r, fig.align='center', out.width='20%', echo = FALSE}
-knitr::include_graphics("pictures/codelibrary_ssb.png")
+knitr::include_graphics("pictures/logo.png")
 ```
 
 Metodebiblioteket er SSBs bibliotek for statistiske metode funksjoner. Metodene på liste er funksjoner skrevet i R eller python som passer i SSBs IT-platform. Alle funksjoner er testet av Seksjon for Metode for bruk i produksjon av offisielle statistikk. Alle er brukt i minst én produksjonsløp/eller brukt i SSBs interne metodekurs. 
