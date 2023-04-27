@@ -40,6 +40,8 @@
 \alias{CalcInd}
 \alias{CalcIndS2}
 \alias{struktur_model}
+\alias{model_aggregate}
+\alias{quantile_weighted}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -49,23 +51,23 @@ below to see their documentation.
 \describe{
   \item{CalibrateSSB}{\code{\link[CalibrateSSB]{CalibrateSSB}}, \code{\link[CalibrateSSB]{CalibrateSSB}}, \code{\link[CalibrateSSB]{PanelEstimation}}, \code{\link[CalibrateSSB]{PanelEstimation}}}
 
-  \item{easySdcTable}{\code{\link[easySdcTable]{EasyData}}, \code{\link[easySdcTable:ProtectTable]{ProtectTableData}}}
-
-  \item{GaussSuppression}{\code{\link[GaussSuppression]{GaussSuppressDec}}, \code{\link[GaussSuppression]{GaussSuppressionFromData}}, \code{\link[GaussSuppression]{SuppressDominantCells}}, \code{\link[GaussSuppression]{SuppressFewContributors}}, \code{\link[GaussSuppression]{SuppressionFromDecimals}}, \code{\link[GaussSuppression]{SuppressKDisclosure}}, \code{\link[GaussSuppression]{SuppressSmallCounts}}}
-
   \item{GISSB}{\code{\link[GISSB]{shortest_path_cppRouting}}, \code{\link[GISSB]{shortest_path_igraph}}}
+
+  \item{GaussSuppression}{\code{\link[GaussSuppression]{GaussSuppressDec}}, \code{\link[GaussSuppression]{GaussSuppressionFromData}}, \code{\link[GaussSuppression]{SuppressDominantCells}}, \code{\link[GaussSuppression]{SuppressFewContributors}}, \code{\link[GaussSuppression]{SuppressKDisclosure}}, \code{\link[GaussSuppression]{SuppressSmallCounts}}, \code{\link[GaussSuppression]{SuppressionFromDecimals}}}
 
   \item{Kostra}{\code{\link[Kostra]{AggrSml2NumVar}}, \code{\link[Kostra]{Diff2NumVar}}, \code{\link[Kostra]{Hb}}, \code{\link[Kostra]{LmImpute}}, \code{\link[Kostra:OutlierRegression]{OutlierRegressionMicro}}, \code{\link[Kostra]{ProtectKostra}}, \code{\link[Kostra]{Quartile}}, \code{\link[Kostra]{Rank2NumVar}}, \code{\link[Kostra]{ThError}}}
 
-  \item{SdcForetakPerson}{\code{\link[SdcForetakPerson]{SdcForetakPerson}}}
-
-  \item{simputation}{\code{\link[simputation:impute_hotdeck]{impute_knn}}, \code{\link[simputation:impute_hotdeck]{impute_pmm}}, \code{\link[simputation]{impute_proxy}}, \code{\link[simputation:impute_hotdeck]{impute_rhd}}}
-
-  \item{SmallCountRounding}{\code{\link[SmallCountRounding]{PLSrounding}}, \code{\link[SmallCountRounding:PLSrounding]{PLSroundingPublish}}}
-
   \item{SSBpris}{\code{\link[SSBpris]{CalcInd}}, \code{\link[SSBpris]{CalcIndS2}}}
 
-  \item{SSBtools}{\code{\link[SSBtools]{HierarchyCompute}}}
+  \item{SSBtools}{\code{\link[SSBtools]{HierarchyCompute}}, \code{\link[SSBtools]{model_aggregate}}, \code{\link[SSBtools]{quantile_weighted}}}
+
+  \item{SdcForetakPerson}{\code{\link[SdcForetakPerson]{SdcForetakPerson}}}
+
+  \item{SmallCountRounding}{\code{\link[SmallCountRounding]{PLSrounding}}, \code{\link[SmallCountRounding:PLSrounding]{PLSroundingPublish}}, \code{\link[SmallCountRounding:PLSrounding]{PLSroundingPublish}}}
+
+  \item{easySdcTable}{\code{\link[easySdcTable]{EasyData}}, \code{\link[easySdcTable:ProtectTable]{ProtectTableData}}}
+
+  \item{simputation}{\code{\link[simputation:impute_hotdeck]{impute_knn}}, \code{\link[simputation:impute_hotdeck]{impute_pmm}}, \code{\link[simputation]{impute_proxy}}, \code{\link[simputation:impute_hotdeck]{impute_rhd}}}
 
   \item{stats}{\code{\link[stats]{lm}}}
 
