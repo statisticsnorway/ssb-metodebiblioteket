@@ -14,13 +14,14 @@ website:
     logo-href: index.html
     left:
       - text: "Katalog"
-        href: catalog.html
+        href: catalog.qmd
       - text: "Metodeområde"
         menu:
         - text: "Dataeditering"
           href: catalogue_edit.html
         - text: "Konfidensialitet"
           href: catalogue_conf.html
+
     right:
       - icon: github
         menu:
@@ -28,11 +29,26 @@ website:
             url:  https://github.com/statisticsnorway/metodebibliotek
           - text: "Report a Bug"
             url:  https://github.com/statisticsnorway/metodebibliotek/issues
-    pinned: true    
+    pinned: true
+
+  sidebar:
+    id: Katalog
+    title: "Katalog"
+    style: "docked"
+    background: light
+    search: false
+    contents:
+      - text: "Katalog"
+        href: catalog.qmd
+      - text: "Prosessmodell"
+        href: prosess.qmd
         
 format: 
   html: 
     theme: ssb.scss
+    grid:
+      sidebar-width: 250px
+      margin-width: 250px
   
 editor: source  
 
