@@ -1,0 +1,143 @@
+---
+title: "Prosessmodell"
+format:
+  html:
+    echo: false
+    page-layout: full
+
+---
+
+
+```{r setup}
+# Les inn data for alle
+suppressMessages(library(stringr))
+suppressMessages(library(rmarkdown))
+suppressMessages(library(magrittr))
+suppressMessages(library(knitr))
+suppressMessages(library(dplyr))
+suppressMessages(library(kableExtra))
+
+# Read in data
+dt <- read.csv("../data/katalogdata.csv")
+
+# Add columns for language and new names
+dt["Språk"] <- stringr::word(dt$keyword)[1]
+dt$Funksjon = kableExtra::cell_spec(dt$func, link = dt$url, new_tab = T)
+dt$Pakke <- dt$pack
+dt$Navn <- dt$navn
+dt$Beskrivelse <- dt$description
+
+# Select columns for table
+dt <- dt[, c("Funksjon", "Pakke", "Navn", "Språk", "Beskrivelse", "keyword")]
+
+```
+
+
+Når vi skal beskrive produksjonsprosessen for offisiell statistikk bruker vi [FNs prosessmodell](https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Prosessmodell-for-statistikkproduksjon.aspx), Generic Statistical Business Process Model (GSBPM). Den beskriver og definerer prosessene som er nødvendige for å produsere offisiell statistikk. 
+
+Vi har samlet funksjoner i Metodebiblioteket etter prosessen de vanligvis benyttes i. Dette er kun ment som en hjelpemidle. Det er mulig at funksjonene kan benyttes i andre prosesser enn det som er beskrivet her.
+
+
+::: {.panel-tabset}
+
+## 1 Avklare behov
+Ingen funksjoner enda.
+
+## 2 Planlegge
+Ingen funksjoner enda.
+
+## 3 Bygge
+Ingen funksjoner enda.
+
+## 4 Samle inn
+Ingen funksjoner enda.
+
+## 5 Klargjøre
+Ved klargjøring tenker vi mest ofte for [dataediting](https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Dataeditering.aspx) men det inkludere også [data integrering](https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Dataintegrering.aspx), klassifisering, beregning av vekter og aggregering. Her finner du funksjoner som kan benyttes i klargjørings steget
+
+:::{.panel-tabset}
+## *5.1 Integrere Data*
+Ingen funksjoner enda.
+
+## *5.2 Klassifisere og kode*
+Ingen funksjoner enda.
+
+## *5.3 Kontrollere og validere*
+
+```{r}
+# filter for dataediterings functions
+dt_kon <- dt[grepl("kontrollere", dt$keyword) | grepl("5.3", dt$keyword), -match("keyword", names(dt))]
+row.names(dt_kon) <- NULL
+kable(dt_kon, escape = F, allign="lllcl") %>%
+kable_styling()
+```
+
+
+## *5.4 Editere og imputere*
+```{r}
+# filter for dataediterings functions
+dt_kon <- dt[grepl("imputere", dt$keyword) | grepl("5.4", dt$keyword), -match("keyword", names(dt))]
+row.names(dt_kon) <- NULL
+kable(dt_kon, escape = F, allign="lllcl") %>%
+kable_styling()
+```
+
+## *5.5 Avlede nye variabler*
+Ingen funksjoner enda
+
+## *5.6 Beregne vekter*
+```{r}
+# filter for dataediterings functions
+dt_kon <- dt[grepl("vektberegning", dt$keyword) | grepl("5.6", dt$keyword), -match("keyword", names(dt))]
+row.names(dt_kon) <- NULL
+kable(dt_kon, escape = F, allign="lllcl") %>%
+kable_styling()
+```
+
+## *5.7 Beregne aggregater*
+Ingen funksjoner enda
+
+## *5.8 Ferdigstille datafiler*
+Ingen funksjoner enda
+
+:::
+
+## 6 Analyse
+:::{.panel-tabset}
+## *6.1 Utarbeid produktutkast*
+Ingen funksjoner enda.
+
+## *6.2 Kvalitetssikre produkter*
+```{r}
+# filter for dataediterings functions
+dt_kon <- dt[grepl("6.2", dt$keyword), -match("keyword", names(dt))]
+row.names(dt_kon) <- NULL
+kable(dt_kon, escape = F, allign="lllcl") %>%
+kable_styling()
+```
+
+## *6.3 Tolke og forklarer produkter*
+Ingen funksjoner enda.
+
+## *6.4 Gjennomføre avslørings kontroll*
+```{r}
+# filter for dataediterings functions
+dt_kon <- dt[grepl("6.4", dt$keyword), -match("keyword", names(dt))]
+row.names(dt_kon) <- NULL
+kable(dt_kon, escape = F, allign="lllcl") %>%
+kable_styling()
+```
+
+## *6.5 Ferdigstille produkter*
+Ingen funksjoner enda.
+
+:::
+
+
+## 7 Formidle
+Ingen funksjoner enda
+
+## 8 Evaluare
+Ingen funksjoner enda
+:::
+
