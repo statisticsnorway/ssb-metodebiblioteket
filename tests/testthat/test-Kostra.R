@@ -4,6 +4,7 @@ data("df_empty")
 data("df_strata")
 data("df_quartile")
 data("df_quartile_strata")
+data("df_out_reg_mic")
 
 #### AggrSml2NumVar ####
 
@@ -211,9 +212,7 @@ test_that("Tests if outlier calculation is correct", {
 
 #### OutlierRegressionMicro ####
 
-
 #### Rank2NumVar ####
-
 
 df_n <- df_quartile_strata[,-c(4, 5)]
 
@@ -224,14 +223,6 @@ r_result <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_20
 # med strata
 r_result_strata <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
                                strataVar = "strata", antall = 5, identiske = FALSE)
-
-# med identiske = TRUE
-r_result_id <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
-                           strataVar = "strata", antall = 4, grense = NULL, identiske = TRUE)
-
-# med grense (overstyrer antall)
-r_result_grense <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
-                               strataVar = "strata", antall = 5, grense = 10000, identiske = FALSE)
 
 test_that("Tests that 'identiske' gives only values on both x and y", {
   #Test without antall
@@ -245,9 +236,10 @@ test_that("Tests that 'identiske' gives only values on both x and y", {
   expect_true(all(r_result_identiske$x %in% region_list) & 
                 all(region_list %in% r_result_identiske$x))
   
-  #Test with strata antall
+  #Test with strata, antall
   ant_r_result_identiske <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
                                         strataVar = "strata", antall = 5, grense = NULL, identiske = TRUE)
+  
   expected_str1 <- c(0, 16299, 25306, 3179, 1205, 5400, 970, 4867, 2000)
   
   values_str1 <- ant_r_result_identiske[ant_r_result_identiske$strata == 1, "x"]
@@ -258,6 +250,7 @@ test_that("Tests that 'identiske' gives only values on both x and y", {
 test_that("Tests the ratio between x and y, 'forh'", {
   #Test without strata
   expect_equal(r_result$forh[1], 1.00054, tolerance = 0.0001)
+  
   #Test with strata
   expect_equal(r_result_strata$forh[1], 1.000, tolerance = 0.0001)
   
@@ -267,36 +260,57 @@ test_that("Tests the ratio between x and y, 'forh'", {
   expect_true(all(sapply(tmp, function(x) is.infinite(x) || is.nan(x) || is.na(x))))
 })
 
-# Note: the rank calculation of xRank does not work for strata 1, 
-# something similar to what happens with 'identiske', see implementation
-# Rank2SumVar
 
-#test_that("Tests the xRank and yRank", {
+test_that("Tests the xRank and yRank", {
   #Test without strata
-  
-  #Test with strata
-#})
-
-# test_that("Tests the rank of xProsAvSumx and yProsAvSumy", {
-#   #Test without strata
-#   #Test with strata
-#   
-# })
-# 
-# 
-
-test_that("Tests 'antall' and 'grense'", {
-  #Test without strata
-  #Test with strata
+  n_list <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 
+              14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 
+              25, 26, 27, 28, 29, NA)
+  expect_true(all(r_result$xRank %in% n_list) & 
+                all(n_list %in% r_result$xRank))
   
 })
-# 
-# 
-# test_that("Tests identiske", {
-#   #Test without strata
-#   #Test with strata
-#   
-# })
+
+test_that("Tests the rank of xProsAvSumx and yProsAvSumy", {
+  expect_equal(r_result$xProsAvSumx[1], 14.946566, tolerance = 0.0001)
+})
+
+test_that("Tests 'antall', 'grense', and 'identiske'", {
+  ant_r_result_identiske_2 <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
+                                          strataVar = "strata", antall = 2, grense = NULL, identiske = TRUE)
+  expect_equal(length(ant_r_result_identiske_2$strata[ant_r_result_identiske_2$strata == 1]), 2)
+  expect_equal(ant_r_result_identiske_2$xRank[ant_r_result_identiske_2$strata == 1], c(1, 2))
+  
+  ant_r_result_identiske_7 <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
+                                          strataVar = "strata", antall = 7, grense = NULL, identiske = TRUE)
+  
+  #when we have a division by zero the forh becomes infinite and the rank of that becomes the highest count of the strata, no matter the 
+  #stated limit (here 9 and 7). We get 1 extra element in the strata for each inf
+  expect_equal(length(ant_r_result_identiske_7$strata[ant_r_result_identiske_7$strata == 1]), 7)
+  n_list <- c(1, 2, 3, 4, 5, 6, 7)
+  expect_true(all(ant_r_result_identiske_7$xRank[ant_r_result_identiske_7$strata == 3] %in% n_list) & 
+                all(n_list %in% ant_r_result_identiske_7$xRank[ant_r_result_identiske_7$strata == 3]))  
+  
+  ant_r_result_2 <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
+                                strataVar = "strata", antall = 2, grense = NULL, identiske = FALSE)
+  expect_equal(length(ant_r_result_2$strata[ant_r_result_2$strata == 1]), 2)
+  expect_equal(ant_r_result_2$xRank[ant_r_result_2$strata == 1], c(1, 2))
+  
+  ant_r_result_10 <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
+                                 strataVar = "strata", antall = 10, grense = NULL, identiske = FALSE)
+  expect_equal(length(ant_r_result_10$strata[ant_r_result_10$strata == 1]), 10)
+  n_list <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+  expect_true(all(ant_r_result_10$xRank[ant_r_result_10$strata == 3] %in% n_list) & 
+                all(n_list %in% ant_r_result_10$xRank[ant_r_result_10$strata == 3]))  
+  # 'grense' should overrule 'antall' 
+  gre_r_result_identiske <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
+                                        strataVar = "strata", antall = 5, grense = 10000, identiske = TRUE)
+  expect_true(all(ant_gre_r_result_identiske$x > 10000))
+  ant_gre_r_result_identiske <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
+                                            strataVar = "strata", antall = 2, grense = 10000, identiske = TRUE)
+  expect_equal(ant_gre_r_result_identiske$x, gre_r_result_identiske$x)
+})
+
 
 
 #### Diff2NumVar ####
@@ -411,10 +425,12 @@ test_that("Tests that input 'antall' and 'grense' works",{
                                    strataVar = "strata", antall = 30, grense = 200, zVar = "z", kommentarVar = "kommentar")
   diff_list <- d_result_grense$AbsDiff
   expect_true(all(diff_list > 200))
+  
   # 'grense' overules 'antall'
   d_result_grense_2 <- Diff2NumVar(data = df_new, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
                                    strataVar = "strata", antall = 2, grense = 200, zVar = "z", kommentarVar = "kommentar")
   expect_true(all(d_result_grense_2$id %in% d_result_grense_1$id))
+  
   #specifying 'antall'
   d_result_antall <- Diff2NumVar(data = df_new, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
                                  strataVar = "strata", antall = 2, grense = NULL, zVar = "z", kommentarVar = "kommentar")
