@@ -29,13 +29,23 @@ testdata = JSON.parse(my_ojs_data)
 
 ```{ojs}
 //| panel: input
-viewof lang = Inputs.checkbox(["r", "python"],
-  {label: "Språk: "}
+
+
+viewof lang = Inputs.radio(new Map([["R", "r"], ["python", "python"]]),
+  {label: "Språk: ", value: "r"}
 )
 
 
-viewof tema = Inputs.checkbox( ["kontrollere", "imputere", "strukturere", "vektberegning", "indeksberegning", "usikkerhetsberegning", "sesongjustering", "konfidensialitet", "analyse"],
-  {label: "Metodeområde: "}
+viewof tema = Inputs.radio(new Map([["ALLE", " "], ["kontrollere","kontrollere"],
+["imputere","imputere"],
+["strukturere","strukturere"],
+["vektberegning","vektberegning"],
+["indeksberegning","indeksberegning"],
+["usikkerhetsberegning","usikkerhetsberegning"],
+["sesongjustering","sesongjustering"],
+["konfidensialitet","konfidensialitet"],
+["analyse","analyse"]]),
+  {label: "Metodeområde: ", value: " "} 
 )
 
 ```
@@ -44,12 +54,17 @@ viewof tema = Inputs.checkbox( ["kontrollere", "imputere", "strukturere", "vektb
 
 ```{ojs}
 // Filter data based on check boxes
+/*
 filtered = testdata.filter(function(data) {
   
   return lang.every(r=> data.keyword.includes(r)) &&
     tema.every(r=> data.keyword.includes(r))
     ;
 })
+*/
+
+filtered = testdata.filter(r => r.keyword.includes(lang) &&
+    r.keyword.includes(tema));
 
 ```
 

@@ -42,8 +42,8 @@ testdata = JSON.parse(my_ojs_data)
 ```{ojs}
 //| panel: input
 
-viewof tema = Inputs.checkbox( ["undertrykking", "avrunding", "støylegging"],
-  {label: "Metodeområde: "}
+viewof tema = Inputs.radio( ["undertrykking", "avrunding", "støylegging"],
+  {label: "Metodeområde: ", value: "undertrykking"}
 )
 
 ```
@@ -52,11 +52,7 @@ viewof tema = Inputs.checkbox( ["undertrykking", "avrunding", "støylegging"],
 
 ```{ojs}
 // Filter data based on check boxes
-filtered = testdata.filter(function(data) {
-  
-  return tema.every(r=> data.keyword.includes(r))
-    ;
-})
+filtered = testdata.filter(r=> r.keyword.includes(tema));
 
 ```
 
