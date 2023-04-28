@@ -1,5 +1,5 @@
 ---
-title: "Dataeditiering"
+title: "Dataeditering"
 format:
   html:
     echo: false
@@ -41,21 +41,25 @@ testdata = JSON.parse(my_ojs_data)
 ```{ojs}
 //| panel: input
 
-viewof tema = Inputs.checkbox( ["kontrollere", "imputere", "donor", "modellbasert"],
-  {label: "Metodeområde: "}
+//viewof tema = Inputs.checkbox( ["kontrollere", "imputere", "donor", "modellbasert"],
+//  {label: "Metodeområde: "}
+  
+viewof tema = Inputs.radio(["kontrollere", "imputere"],
+  {label: "Metodeområde: ", value: "kontrollere"} 
 )
+
+viewof metode = Inputs.radio(tema === "imputere" ? ["donor", "modellbasert"] : ["logisk", "fordeling", "innflytelse"],
+{label: "Metode: ", value: "logisk"}
+)
+
 
 ```
 
 
 
 ```{ojs}
-// Filter data based on check boxes
-filtered = testdata.filter(function(data) {
-  
-  return tema.every(r=> data.keyword.includes(r))
-    ;
-})
+
+filtered = testdata.filter(r => r.keyword.includes(metode) && r.keyword.includes(tema))
 
 ```
 

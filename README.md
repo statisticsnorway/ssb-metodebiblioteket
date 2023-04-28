@@ -1,12 +1,12 @@
-[![R-CMD-check](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/R-CMD-check.yaml)
-[![pytest](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/pytest-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/pytest.yaml)
+[![R-CMD-check](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/R-CMD-check.yaml)
+[![pytest](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/pytest.yaml)
 
 
 # Metodebiblioteket
 
 Denne repo-en inneholde informasjon om funksjoner som danne SSBs Metodebiblioteket. Du kan se på biblioteket her:
 
-**<https://statisticsnorway.github.io/metodebibliotek/>**
+**<https://statisticsnorway.github.io/metodebiblioteket/>**
 
 
 #### Nøkkelord
@@ -19,6 +19,7 @@ statistikkproduksjonen](https://www.ssb.no/teknologi-og-innovasjon/artikler-og-p
 |kontrollere |logisk <br> fordelings <br> innflytelses|
 |imputere |modelbasert <br> donor |
 |vektberegning | modelbasert <br> designbasert |
+|konfidensialitet| undertrykking <br> avrunding <br> støylegging|
 
 
 
