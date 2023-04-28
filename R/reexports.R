@@ -184,16 +184,6 @@ SSBpris::CalcIndS2
 struktuR::struktur_model
 
 
-#' @importFrom CalibrateSSB CalibrateSSB
-# @export
-CalibrateSSB::CalibrateSSB
-
-
-#' @importFrom CalibrateSSB PanelEstimation
-# @export
-CalibrateSSB::PanelEstimation
-
-
 #' @importFrom SSBtools model_aggregate
 # @export
 SSBtools::model_aggregate
@@ -207,9 +197,6 @@ SSBtools::quantile_weighted
 #' @importFrom SmallCountRounding PLSroundingPublish
 # @export
 SmallCountRounding::PLSroundingPublish
-
-
-
 
 
 
