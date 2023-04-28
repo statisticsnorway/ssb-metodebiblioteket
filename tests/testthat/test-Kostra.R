@@ -1,4 +1,3 @@
-
 # Call in data in package
 data("df")
 data("df_empty")
@@ -8,10 +7,16 @@ data("df_quartile_strata")
 
 #### AggrSml2NumVar ####
 
+#NOTE! change data to kostra data, check identiske
 #Save the result of the functions in different results
 result_n <- AggrSml2NumVar(data = df, xVar = "x", yVar = "y", identiske = FALSE)
 result_empty <- AggrSml2NumVar(data = df_empty, xVar = "x", yVar = "y", identiske = FALSE)
 result_strata <- AggrSml2NumVar(data = df_strata, xVar = "x", yVar = "y", strataVar = "strata", identiske = FALSE)
+
+#create test when changing the data used 
+test_that("Tests that correct values are included", {
+  
+})
 
 test_that("Tests that Sumx and Sumy works", {
   #Test without strata
@@ -29,6 +34,7 @@ test_that("Tests that Sumx and Sumy works", {
   expect_identical(result_strata$Sumx, as.integer(c(24, 15, 18, 14)))
   expect_identical(result_strata$Sumy, as.integer(c(23, 28, 27, 34)))
 })
+
 
 test_that("Tests that SumxProsAvTotx and SumxProsAvToty works", {
   #test without strata
@@ -196,17 +202,10 @@ test_that("Tests the ratio aggregated over the stratum", {
   expect_equal(ratioStr2_strata4[1], expected_ratioStr2_str4, tolerance = 0.001)
 })
 
-#test_that("Tests the lower and upper limit of the ratio", {
-  #Test without strata
-  #Test with strata
-#  
-#})
-
-# test_that("Tests if outlier calculation is correct", {
-#   #Test without strata
-#   #Test with strata
-#   
-# })
+test_that("Tests if outlier calculation is correct", {
+  expect_equal(q_result_x1Y1_x2y2$outlier[q_result_x1Y1_x2y2$id %in% c(12200, 21700)], c(1, 1))
+  
+})
 
 
 
