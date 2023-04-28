@@ -19,7 +19,7 @@
 #' @param update T or F on whether to update the function in the dataset
 #' 
 #' @export
-add_func <- function(func, package, keyword = "r", url = NULL, github = F, update=F, 
+add_func <- function(func, package, keyword = "r", url = NULL, github = F, update=T, 
                      descrip=NULL, name=NULL){
   kat <- read.csv('data/katalogdata.csv', header = T, stringsAsFactors = FALSE)
   
@@ -56,10 +56,13 @@ add_func <- function(func, package, keyword = "r", url = NULL, github = F, updat
 
 
 write_reexport <- function(func, package){
-  write(paste("#' @importFrom", package, func), "./R/reexports.R", append = T)
-  write("# @export", "./R/reexports.R", append = T)
-  write(paste0(package,"::", func), "R/reexports.R", append = T) 
-  write("\n", "./R/reexports.R", append=T)
+  txt <- readLines("./R/reexports.R")
+  if (!any(grepl(func, txt))){
+    write(paste("#' @importFrom", package, func), "./R/reexports.R", append = T)
+    write("# @export", "./R/reexports.R", append = T)
+    write(paste0(package,"::", func), "R/reexports.R", append = T) 
+    write("\n", "./R/reexports.R", append=T)
+  }
 }
 
 
