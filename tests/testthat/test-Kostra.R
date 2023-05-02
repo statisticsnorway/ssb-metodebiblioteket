@@ -211,9 +211,31 @@ test_that("Tests if outlier calculation is correct", {
 })
 
 
-
 #### OutlierRegressionMicro ####
-
+result_Out_Reg_Mic <- OutlierRegressionMicro(
+  out_reg_mic,
+  strataName = "k",
+)
+# 
+# test_that("Tests if outlier calculation is correct", {
+#   
+# })
+# 
+# test_that("Tests if 'yHat' calculation is correct", {
+#   
+# })
+# 
+# test_that("Tests if 'rStud' calculation is correct", {
+#   
+# })
+# 
+# test_that("Tests if 'dffits' calculation is correct", {
+#   
+# })
+# 
+# test_that("Tests if 'leaveOutResid' calculation is correct", {
+#   
+})
 #### Rank2NumVar ####
 
 df_n <- df_quartile_strata[,-c(4, 5)]
@@ -483,44 +505,40 @@ result_hb3 <- Hb(data = df_Hb, id = "Region",
 
 
 #### ThError ####
+#### ThError ####
 df_n <- df_quartile_strata[,-c(4, 5)]
 
 df_n$areal_130_eier_2015[c(1, 4, 5, 10, 15)] <- 1000 * df_n$areal_130_eier_2015[c(1, 4, 5, 10, 15)]
 
-result1 <- ThError(data = df_n, id = "Region", x1 = "areal_130_eier_2015", x2 = "areal_130_eier_2014")
-result2 <- ThError(data = df_n, id = "Region", x1 = "areal_130_eier_2015", x2 = "areal_130_eier_2014",
-                   ll = -2, ul = 2)
+result <- ThError(data = df_n, id = "Region", x1 = "areal_130_eier_2015", x2 = "areal_130_eier_2014")
 
-test_that("Test that correct values are included", {
-  region_list <- c(16299, 25306, 3179, 1205, 5400, 970, 0, 4867, 2000, 0, 
-                   4640, 2650, 4769, 942, 10562, 3345, 1250, 3082, 7626, 
-                   2516, 4877, 4950, 14450, 28000, 16708, 7950, 1532, 
-                   2554, 5705)
-  
-  expect_true(all(result1$x1 %in% region_list) & 
-                all(region_list %in% result1$x1))
+# note that output includes values with 0 and NA values but that the 1000-error is not 
+# checked for this values
+# test_that("Test that correct values are included", {
+#   region_list <- c(16299, 25306, 3179, 1205, 5400, 970, 0, 4867, 2000, 0, 
+#                    4640, 2650, 4769, 942, 10562, 3345, 1250, 3082, 7626, 
+#                    2516, 4877, 4950, 14450, 28000, 16708, 7950, 1532, 
+#                    2554, 5705)
+#   
+#   expect_true(all(result1$x1 %in% region_list) & 
+#                 all(region_list %in% result1$x1))
+# })
+
+
+
+test_that("Test that 'diffLog10' is correct", {
+  expect_equal(result1$diffLog10[result$id == 10500], -0.00031986, tolerance= 0.0001)
+  expect_equal(result1$diffLog10[result$id == 10600], 3, tolerance= 0.0001)
 })
+
 
 test_that("Test that 'outlier' indication is correct", {
-  region_id <- as.character(factor(df_n$Region[c(1, 4, 5, 10, 15)]))
-  region_id <- as.integer(region_id)
-  outlier_r <- as.list(result1$outlier[result1$id %in% region_id])
-  outlier_r <- unlist(outlier_r[!is.na(outlier_r)])
-  for(i in range(1:length(outlier_r))){
-    print(outlier_r[i])
-    #expect_identical(result_row[i], 1)
-  }
-  result_not_in_outlier <- as.list(result1$outlier[!(result1$id %in% region_id)])
-  result_not_in_outlier <- result_not_in_outlier[!is.na(result_not_in_outlier)]
-  expect_identical(result_not_in_outlier$outlier, rep(0, nrow(result_not_in_outlier)))
+  expect_true(all(result1$outlier[result$id %in% c(10600, 11100, 12300, 13500)] == 1))
+  
 })
 
-# test_that("Test that 'diffLog10' is correct", {
-#   
-# })
-
-# test_that("Test that 'lowerLimit' and 'upperLimit' is correct", {
-#   
-# })
+test_that("Test that 'lowerLimit' and 'upperLimit' is correct", {
+  expect_true(all(result$lowerLimit == -2.5))
+})
 
 
