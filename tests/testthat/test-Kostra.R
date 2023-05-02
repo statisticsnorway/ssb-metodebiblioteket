@@ -1,4 +1,6 @@
-# Call in data in package
+#### Data ####
+
+#Call in data in package
 data("df")
 data("df_empty")
 data("df_strata")
@@ -513,9 +515,9 @@ test_that("Test that 'outlier' indication is correct", {
   expect_identical(result_not_in_outlier$outlier, rep(0, nrow(result_not_in_outlier)))
 })
 
-test_that("Test that 'diffLog10' is correct", {
-  
-})
+# test_that("Test that 'diffLog10' is correct", {
+#   
+# })
 
 # test_that("Test that 'lowerLimit' and 'upperLimit' is correct", {
 #   
