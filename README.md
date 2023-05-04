@@ -15,7 +15,7 @@ statistikkproduksjonen](https://www.ssb.no/teknologi-og-innovasjon/artikler-og-p
 
 |Område |Nøkkelord |
 |:------|:---------|
-|hovedområde | kontrollere <br> imputere <br>konfidensialitet <br>indeksberegning <br>vektberegning<br> usikkerhetsberegning|
+|hovedområde | kontrollere <br> imputere <br> struktuere <br> konfidensialitet <br>indeksberegning <br> vektberegning<br> usikkerhetsberegning <br> sesongjustering <br> analyse|
 |kontrollere |logisk <br> fordelings <br> innflytelses|
 |imputere |modelbasert <br> donor |
 |vektberegning | modelbasert <br> designbasert |
