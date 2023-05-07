@@ -7,6 +7,7 @@ data("df_strata")
 data("df_quartile")
 data("df_quartile_strata")
 data("df_out_reg_mic")
+data("df_Hb")
 
 #### AggrSml2NumVar ####
 
