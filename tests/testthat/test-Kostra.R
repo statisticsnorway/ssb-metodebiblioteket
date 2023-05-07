@@ -468,44 +468,42 @@ test_that("Tests that input 'antall' and 'grense' works",{
 
 
 #### Hb ####
-df_Hb <- df_quartile_strata
+df_Hb <- minedata[c("Region", "areal_130_eier_2014", "areal_130_eier_2015", "strata")]
+#save(df_Hb, file = "./data/df_Hb.Rdata")
 
-result_hb1 <- Hb(data = df_Hb, id = "Region", x1 = "areal_130_eier_2015", x2 = "areal_130_eier_2014")
-
-result_hb2 <- Hb(data = df_Hb, id = "Region", 
+result_hb1 <- Hb(data = df_Hb, id = "Region", 
                  x1 = "areal_130_eier_2015", 
-                 x2 = "areal_130_eier_2014",
-                 strataName = "strata")
+                 x2 = "areal_130_eier_2014")
 
-result_hb3 <- Hb(data = df_Hb, id = "Region", 
-                 x1 = "areal_130_eier_2015", 
-                 x2 = "areal_130_eier_2014",
-                 pU = 0.5, pA = 0.05, pC = 20, 
-                 strataName = "strata")
 
-#test_that("x1 = x2 values included only if less than 50%", {
-#  
-#})
-# 
-# test_that("x1, x2 not missing and greater than 0", {
-#   
-# })
-# 
-# test_that("Tests that maxX and ratio works", {
-#   
-# })
-# 
-# test_that("Tests that lowerLimit and upperLimit of ratio works", {
-#   
-# })
-# 
+test_that("Tests that maxX and ratio works", {
+  expect_equal(result_hb1$maxX[result_hb1$id == 10500], 16299)
+  expect_equal(result_hb1$maxX[result_hb1$id == 11100], 3179)
+})
+
+# all units should be returned  
+test_that("tests that correct values are included", {
+  expect_equal(length(df_Hb$Region), length(result_hb1$id))
+})
+
+
+test_that("Test that outlier indication works", {
+  regions <- as.character(result_hb1$id[result_hb1$outlier == 1])
+  regions <- regions[!is.na(regions)] 
+  regions <- as.list(regions)
+  for (i in regions){
+    expect_equal(result_hb1$outlier[result_hb1$id == i], 1)   
+  }
+})
+
+
+# # performed only on the values with both x1 and x2 not missing, greater than zero and if the 
+# # x1 = x2 cover less than 50%
 # test_that("Test that outlier indication works", {
-#   
+#    
 # })
 
 
-
-#### ThError ####
 #### ThError ####
 df_n <- df_quartile_strata[,-c(4, 5)]
 
