@@ -17,11 +17,11 @@ test_that("GaussSuppression functions", {
   
   a <- SuppressDominantCells(data = d2, maxN = 2, numVar = "v", contributorVar = "family_id", 
                              dimVar = c("region","county", "k_group"), n = c(1, 2), k = c(65, 85), printInc = printInc)
-  expect_equal(sum(a$suppressed), 15)
+  expect_equal(sum(a$suppressed), 16)
   
   a <- SuppressFewContributors(data = d2, maxN = 2, numVar = "v", contributorVar = "family_id", 
                                dimVar = c("region", "county", "k_group"), printInc = printInc)
-  expect_equal(sum(a$suppressed), 13)
+  expect_equal(sum(a$suppressed), 15)
   
   
   a <- GaussSuppressDec(d2, dimVar = 1:4, freqVar = "freq", maxN = 4, printInc = printInc)
