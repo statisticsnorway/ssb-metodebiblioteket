@@ -1,11 +1,20 @@
 Package: Metodebibliotek
 Type: Package
 Title: SSBs library for method functions
-Version: 0.1.0
-Author: Division for methods
+Version: 0.1.1
+Author: Authors@R: 
+  c(person(given = "Susie",
+           family = "Jentoft",
+           role = c("aut", "cre"),
+           email = "susie.jentoft@ssb.no"),
+    person(given = "Øyvind",
+           family = "Langsrud",
+           role = "ctb"),
+    person(given = "SSB",
+           role = "chp"))
 Maintainer: Susie Jentoft <Susie.Jentoft@ssb.no>
 Description: This is a package for presenting and testing R and python functions useful for official statistics.
-License: Apache License 2.0
+License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 Imports: 
