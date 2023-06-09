@@ -1,4 +1,4 @@
-Package: Metodebibliotek
+Package: metodebiblioteket
 Type: Package
 Title: SSBs library for method functions
 Version: 0.1.1
@@ -30,7 +30,9 @@ Imports:
   SSBtools,
   SSBpris,
   stats,
+  stringr,
   struktuR,
+  tools,
   validate
 Remotes:
   statisticsnorway/SdcForetakPerson
