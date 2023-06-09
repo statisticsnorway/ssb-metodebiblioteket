@@ -1,9 +1,5 @@
 
-#' @importFrom easySdcTable EasyData
-# @export
-easySdcTable::EasyData
  
-
 #' @importFrom CalibrateSSB CalibrateSSB
 # @export
 CalibrateSSB::CalibrateSSB
@@ -12,16 +8,60 @@ CalibrateSSB::CalibrateSSB
 #' @importFrom CalibrateSSB PanelEstimation
 # @export
 CalibrateSSB::PanelEstimation
+
+
+#' @importFrom easySdcTable EasyData
+# @export
+easySdcTable::EasyData
  
-
-#' @importFrom validate validator
+#' @importFrom easySdcTable ProtectTableData
 # @export
-validate::validator
+easySdcTable::ProtectTableData
 
 
-#' @importFrom validate confront
+#' @importFrom GaussSuppression SuppressSmallCounts
 # @export
-validate::confront
+GaussSuppression::SuppressSmallCounts
+
+
+#' @importFrom GaussSuppression SuppressDominantCells
+# @export
+GaussSuppression::SuppressDominantCells
+
+
+#' @importFrom GaussSuppression SuppressFewContributors
+# @export
+GaussSuppression::SuppressFewContributors
+
+
+#' @importFrom GaussSuppression SuppressKDisclosure
+# @export
+GaussSuppression::SuppressKDisclosure
+
+
+#' @importFrom GaussSuppression GaussSuppressDec
+# @export
+GaussSuppression::GaussSuppressDec
+
+
+#' @importFrom GaussSuppression GaussSuppressionFromData
+# @export
+GaussSuppression::GaussSuppressionFromData
+
+
+#' @importFrom GaussSuppression SuppressionFromDecimals
+# @export
+GaussSuppression::SuppressionFromDecimals
+
+
+#' @importFrom GISSB shortest_path_igraph
+# @export
+GISSB::shortest_path_igraph
+
+
+#' @importFrom GISSB shortest_path_cppRouting
+# @export
+GISSB::shortest_path_cppRouting
 
 
 #' @importFrom Kostra ThError
@@ -32,6 +72,15 @@ Kostra::ThError
 #' @importFrom Kostra Hb
 # @export
 Kostra::Hb
+
+#' @importFrom Kostra LmImpute
+# @export
+Kostra::LmImpute
+
+
+#' @importFrom Kostra ProtectKostra
+# @export
+Kostra::ProtectKostra
 
 
 #' @importFrom Kostra Quartile
@@ -89,84 +138,9 @@ simputation::impute_pmm
 simputation::impute_rhd
 
 
-#' @importFrom Kostra LmImpute
-# @export
-Kostra::LmImpute
-
-
-#' @importFrom SSBtools HierarchyCompute
-# @export
-SSBtools::HierarchyCompute
-
-
-#' @importFrom SmallCountRounding PLSrounding
-# @export
-SmallCountRounding::PLSrounding
-
-
-#' @importFrom SmallCountRounding PLSroundingPublish
-# @export
-SmallCountRounding::PLSroundingPublish
-
-
-#' @importFrom Kostra ProtectKostra
-# @export
-Kostra::ProtectKostra
-
-
-#' @importFrom easySdcTable ProtectTableData
-# @export
-easySdcTable::ProtectTableData
-
-
 #' @importFrom SdcForetakPerson SdcForetakPerson
 # @export
 SdcForetakPerson::SdcForetakPerson
-
-
-#' @importFrom GaussSuppression SuppressSmallCounts
-# @export
-GaussSuppression::SuppressSmallCounts
-
-
-#' @importFrom GaussSuppression SuppressDominantCells
-# @export
-GaussSuppression::SuppressDominantCells
-
-
-#' @importFrom GaussSuppression SuppressFewContributors
-# @export
-GaussSuppression::SuppressFewContributors
-
-
-#' @importFrom GaussSuppression SuppressKDisclosure
-# @export
-GaussSuppression::SuppressKDisclosure
-
-
-#' @importFrom GaussSuppression GaussSuppressDec
-# @export
-GaussSuppression::GaussSuppressDec
-
-
-#' @importFrom GaussSuppression GaussSuppressionFromData
-# @export
-GaussSuppression::GaussSuppressionFromData
-
-
-#' @importFrom GaussSuppression SuppressionFromDecimals
-# @export
-GaussSuppression::SuppressionFromDecimals
-
-
-#' @importFrom GISSB shortest_path_igraph
-# @export
-GISSB::shortest_path_igraph
-
-
-#' @importFrom GISSB shortest_path_cppRouting
-# @export
-GISSB::shortest_path_cppRouting
 
 
 #' @importFrom SSBpris CalcInd
@@ -193,10 +167,27 @@ SSBtools::model_aggregate
 # @export
 SSBtools::quantile_weighted
 
+#' @importFrom SSBtools HierarchyCompute
+# @export
+SSBtools::HierarchyCompute
+
+
+#' @importFrom SmallCountRounding PLSrounding
+# @export
+SmallCountRounding::PLSrounding
+
+
 
 #' @importFrom SmallCountRounding PLSroundingPublish
 # @export
 SmallCountRounding::PLSroundingPublish
 
 
+#' @importFrom validate validator
+# @export
+validate::validator
 
+
+#' @importFrom validate confront
+# @export
+validate::confront

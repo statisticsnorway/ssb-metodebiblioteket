@@ -10,7 +10,7 @@ add_func(
   keyword = "r",
   url = NULL,
   github = F,
-  update = F,
+  update = T,
   descrip = NULL,
   name = NULL
 )
@@ -27,6 +27,10 @@ add_func(
 \item{github}{T or F for if it is a github only package}
 
 \item{update}{T or F on whether to update the function in the dataset}
+
+\item{name}{Name of the function (if not automatically fetched)}
+
+\item{description}{A description of the function (if not automatically fetched)}
 }
 \description{
 Add function to Metodebiblioteket

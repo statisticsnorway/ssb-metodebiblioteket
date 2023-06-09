@@ -1,6 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^\.github$
 ^.*\.Rproj$
 ^\.Rproj\.user$ 
 ^_pkgdown\.yml$
@@ -11,3 +10,6 @@
 ^Pipfile\.lock$
 ^website$
 ^create_check$
+^docs$
+^\.git$
+^data/katalogdata\.csv$

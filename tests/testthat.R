@@ -1,4 +1,4 @@
 library(testthat)
-library(metodebibliotek)
+library(metodebiblioteket)
 
-test_check("metodebibliotek")
+test_check("metodebiblioteket")
