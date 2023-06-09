@@ -47,3 +47,4 @@ rsconnect/
 
 # Quarto
 /website/.quarto/
+docs/
