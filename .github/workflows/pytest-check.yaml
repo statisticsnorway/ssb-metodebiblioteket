@@ -13,13 +13,13 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # Setup Python (faster than using Python container)
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.9.7"
+          python-version: "3.10.9"
 
       - name: Install pipenv
         run: |
@@ -34,6 +34,11 @@ jobs:
         if: steps.cache-pipenv.outputs.cache-hit != 'true'
         run: |
           pipenv install --deploy --dev
+          
       - name: Run test suite
         run: |
           pipenv run pytest -v
+          
+      - name: Generate Coverage Report  
+        run: |  
+          coverage report -m
