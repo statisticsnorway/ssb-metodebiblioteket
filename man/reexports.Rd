@@ -3,13 +3,23 @@
 \docType{import}
 \name{reexports}
 \alias{reexports}
-\alias{EasyData}
 \alias{CalibrateSSB}
 \alias{PanelEstimation}
-\alias{validator}
-\alias{confront}
+\alias{EasyData}
+\alias{ProtectTableData}
+\alias{SuppressSmallCounts}
+\alias{SuppressDominantCells}
+\alias{SuppressFewContributors}
+\alias{SuppressKDisclosure}
+\alias{GaussSuppressDec}
+\alias{GaussSuppressionFromData}
+\alias{SuppressionFromDecimals}
+\alias{shortest_path_igraph}
+\alias{shortest_path_cppRouting}
 \alias{ThError}
 \alias{Hb}
+\alias{LmImpute}
+\alias{ProtectKostra}
 \alias{Quartile}
 \alias{OutlierRegressionMicro}
 \alias{Rank2NumVar}
@@ -21,27 +31,17 @@
 \alias{lm}
 \alias{impute_pmm}
 \alias{impute_rhd}
-\alias{LmImpute}
-\alias{HierarchyCompute}
-\alias{PLSrounding}
-\alias{PLSroundingPublish}
-\alias{ProtectKostra}
-\alias{ProtectTableData}
 \alias{SdcForetakPerson}
-\alias{SuppressSmallCounts}
-\alias{SuppressDominantCells}
-\alias{SuppressFewContributors}
-\alias{SuppressKDisclosure}
-\alias{GaussSuppressDec}
-\alias{GaussSuppressionFromData}
-\alias{SuppressionFromDecimals}
-\alias{shortest_path_igraph}
-\alias{shortest_path_cppRouting}
 \alias{CalcInd}
 \alias{CalcIndS2}
 \alias{struktur_model}
 \alias{model_aggregate}
 \alias{quantile_weighted}
+\alias{HierarchyCompute}
+\alias{PLSrounding}
+\alias{PLSroundingPublish}
+\alias{validator}
+\alias{confront}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -49,7 +49,7 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{CalibrateSSB}{\code{\link[CalibrateSSB]{CalibrateSSB}}, \code{\link[CalibrateSSB]{CalibrateSSB}}, \code{\link[CalibrateSSB]{PanelEstimation}}, \code{\link[CalibrateSSB]{PanelEstimation}}}
+  \item{CalibrateSSB}{\code{\link[CalibrateSSB]{CalibrateSSB}}, \code{\link[CalibrateSSB]{PanelEstimation}}}
 
   \item{GISSB}{\code{\link[GISSB]{shortest_path_cppRouting}}, \code{\link[GISSB]{shortest_path_igraph}}}
 
@@ -63,7 +63,7 @@ below to see their documentation.
 
   \item{SdcForetakPerson}{\code{\link[SdcForetakPerson]{SdcForetakPerson}}}
 
-  \item{SmallCountRounding}{\code{\link[SmallCountRounding]{PLSrounding}}, \code{\link[SmallCountRounding:PLSrounding]{PLSroundingPublish}}, \code{\link[SmallCountRounding:PLSrounding]{PLSroundingPublish}}}
+  \item{SmallCountRounding}{\code{\link[SmallCountRounding]{PLSrounding}}, \code{\link[SmallCountRounding:PLSrounding]{PLSroundingPublish}}}
 
   \item{easySdcTable}{\code{\link[easySdcTable]{EasyData}}, \code{\link[easySdcTable:ProtectTable]{ProtectTableData}}}
 
