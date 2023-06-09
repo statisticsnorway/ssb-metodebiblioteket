@@ -17,11 +17,14 @@
 #' @param url Url address to help files (if not on CRAN or available on github)
 #' @param github T or F for if it is a github only package
 #' @param update T or F on whether to update the function in the dataset
+#' @param description A description of the function (if not automatically fetched)
+#' @param name Name of the function (if not automatically fetched)
+#' 
 #' 
 #' @export
 add_func <- function(func, package, keyword = "r", url = NULL, github = F, update=T, 
                      descrip=NULL, name=NULL){
-  kat <- read.csv('data/katalogdata.csv', header = T, stringsAsFactors = FALSE)
+  kat <- utils::read.csv('data/katalogdata.csv', header = T, stringsAsFactors = FALSE)
   
   if (check_func(func, package, kat) > 0) {
     if (!update) {
@@ -48,7 +51,7 @@ add_func <- function(func, package, keyword = "r", url = NULL, github = F, updat
                        url = url)
   kat <- rbind(kat, new_row)
   kat <- kat[order(kat$func), ]
-  write.csv(kat, file = "data/katalogdata.csv",row.names=F)
+  utils::write.csv(kat, file = "data/katalogdata.csv",row.names=F)
   
   # Add to reexports list
   write_reexport(func, package)
