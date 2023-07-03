@@ -13,7 +13,7 @@ result_n <- AggrSml2NumVar(data = df, xVar = "x", yVar = "y", identiske = FALSE)
 result_empty <- AggrSml2NumVar(data = df_empty, xVar = "x", yVar = "y", identiske = FALSE)
 result_strata <- AggrSml2NumVar(data = df_strata, xVar = "x", yVar = "y", strataVar = "strata", identiske = FALSE)
 
-test_that("Tests that Sumx and Sumy works", {
+test_that("Tests that Sumx and Sumy works for AggrSml2NumVar", {
   #Test without strata
   expect_equal(result_n$Sumx, 71)
   expect_equal(result_n$Sumy, 112)
@@ -30,7 +30,7 @@ test_that("Tests that Sumx and Sumy works", {
   expect_identical(result_strata$Sumy, as.integer(c(23, 28, 27, 34)))
 })
 
-test_that("Tests that SumxProsAvTotx and SumxProsAvToty works", {
+test_that("Tests that SumxProsAvTotx and SumxProsAvToty works for AggrSml2NumVar", {
   #test without strata
   expect_equal(result_n$SumxProsAvTotx, 100)
   expect_equal(result_n$SumyProsAvToty, 100)
@@ -48,7 +48,7 @@ test_that("Tests that SumxProsAvTotx and SumxProsAvToty works", {
   #expect_error(AggrSml2NumVar(data = 3, xVar = "x", yVar = "y", identiske = FALSE), "invalid data")
 })
 
-test_that("Tests that Diff and AbsDiff works", {
+test_that("Tests that Diff and AbsDiff works for AggrSml2NumVar", {
   #tests without strata
   expect_equal(result_n$Diff, 41)
   expect_equal(result_n$AbsDiff, 41)
@@ -64,7 +64,7 @@ test_that("Tests that Diff and AbsDiff works", {
   expect_equal(result_strata$AbsDiff[[1]], as.integer(1))
 })
 
-test_that("Tests that DiffProsAvSumx and AbsDiffProsAvSumx works", {
+test_that("Tests that DiffProsAvSumx and AbsDiffProsAvSumx works for AggrSml2NumVar", {
   
   #tests without strata
   expect_lte(result_n$DiffProsAvSumx, 57.74+0.01)
@@ -84,7 +84,7 @@ test_that("Tests that DiffProsAvSumx and AbsDiffProsAvSumx works", {
   
 })
 
-test_that("Tests that DiffProsAvTotx and AbsDiffProsAvTotx works", {
+test_that("Tests that DiffProsAvTotx and AbsDiffProsAvTotx works for AggrSml2NumVar", {
   
   #tests without strata
   expect_lte(result_n$DiffProsAvTotx, 57.74+0.01)
@@ -126,7 +126,7 @@ q_result_strata <- Quartile(data = df_quartile_strata,
                             strataName = "strata")
 
 #Only units with both x1 and y1 not missing and greater than zero should be included
-test_that("Tests that the correct units are included", {
+test_that("Tests that the correct units are included in Quartile", {
   #Test without strata
   region_list <- c(3956, 25306, 4867, 5252, 5648, 2516, 4877, 14450, 28015, 16708)
   expect_true(all(q_result_x1Y1$x1 %in% region_list)& all(region_list %in% q_result_x1Y1$x1))
@@ -136,7 +136,7 @@ test_that("Tests that the correct units are included", {
   expect_true(all(q_result_strata$x1 %in% region_list)& all(region_list %in% q_result_strata$x1))
 })
 
-test_that("Tests the ratio between x1 and y1, and x2 and y2", {
+test_that("Tests the ratio between x1 and y1, and x2 and y2 for Quartile", {
   #Test without strata (same with and without)
   expected_values_x1y1 <- c(0.47292, 6.26386, 24.33500, 8.31013, 3.17482, 2.82379, 
                             3.81911, 15.42156, 9.95558, 6.04924)
@@ -155,14 +155,14 @@ test_that("Tests the ratio between x1 and y1, and x2 and y2", {
 })
 
 
-test_that("Tests the ratio between the sum of x1 and y1, and x2 and y2", {
+test_that("Tests the ratio between the sum of x1 and y1, and x2 and y2 for Quartile", {
   #Test without strata
   expected_ratioAll <- 4.70911929
   expected_ratioAll2 <- 3.69672
   expect_equal(q_result_x1Y1_x2y2$ratioAll[1], expected_ratioAll, tolerance = 0.001)
   expect_equal(q_result_x1Y1_x2y2$ratioAll2[1], expected_ratioAll2, tolerance = 0.001)
 })
-test_that("Tests the ratio aggregated over the stratum", {
+test_that("Tests the ratio aggregated over the stratum for Quartile", {
   
   #Test with strata
   ratioStr_strata1 <- q_result_strata[q_result_strata$strata == 1, "ratioStr"]
@@ -234,7 +234,7 @@ r_result_id <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier
 r_result_grense <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
                                strataVar = "strata", antall = 5, grense = 10000, identiske = FALSE)
 
-test_that("Tests that 'identiske' gives only values on both x and y", {
+test_that("Tests that 'identiske' gives only values on both x and y for Rank2NumVar", {
   #Test without antall
   r_result_identiske <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
                                     strataVar = NULL, antall = 30, grense = NULL, identiske = TRUE)
@@ -256,7 +256,7 @@ test_that("Tests that 'identiske' gives only values on both x and y", {
                 all(expected_str1 %in% values_str1))
 })
 
-test_that("Tests the ratio between x and y, 'forh'", {
+test_that("Tests the ratio between x and y, 'forh' in function Rank2NumVar", {
   #Test without strata
   expect_equal(r_result$forh[1], 1.00054, tolerance = 0.0001)
   #Test with strata
@@ -286,11 +286,11 @@ test_that("Tests the ratio between x and y, 'forh'", {
 # 
 # 
 
-test_that("Tests 'antall' and 'grense'", {
+#test_that("Tests 'antall' and 'grense'", {
   #Test without strata
   #Test with strata
   
-})
+#})
 # 
 # 
 # test_that("Tests identiske", {
@@ -334,7 +334,7 @@ test_that("Tests that correct values are included", {
                 all(region_list %in% d_result$x))
 })
 
-test_that("Tests that 'Forh', ratio between x and y works", {
+test_that("Tests that 'Forh', ratio between x and y works for Diff2NumVar", {
   expected_values_yx <- c(0.5347, Inf, 0.6818, 0.7362, 0.8179)
   ratios_yx <- d_result1$Forh
   
@@ -343,7 +343,7 @@ test_that("Tests that 'Forh', ratio between x and y works", {
   }
 })
 
-test_that("Tests that 'Diff', difference between x and y works", {
+test_that("Tests that 'Diff', difference between x and y works for Diff2NumVar", {
   expected_values_Diff <- c(-4914, 3956, -1575, -813, -579)
   diff_yx <- d_result1$Diff
   
@@ -352,7 +352,7 @@ test_that("Tests that 'Diff', difference between x and y works", {
   }
 })
 
-test_that("Tests that 'AbsDiff' works", {
+test_that("Tests that 'AbsDiff' works for Diff2NumVar", {
   expected_values_Diff <- c(-4914, 3956, -1575, -813, -579)
   expected_values_AbsDiff <- lapply(expected_values_Diff, abs)
   expected_values_AbsDiff <- unlist(expected_values_AbsDiff)
@@ -365,12 +365,12 @@ test_that("Tests that 'AbsDiff' works", {
   
 })
 
-test_that("Tests that 'DiffProsAvx' works", {
+test_that("Tests that 'DiffProsAvx' works for Diff2NumVar", {
   expect_equal(d_result1$DiffProsAvx[1], -46.52528, tolerance = 0.001)
   expect_equal(d_result1$DiffProsAvx[2], Inf)
 })
 
-test_that("Tests that 'DiffProsAvSumx' and 'DiffProsAvTotx' works",{
+test_that("Tests that 'DiffProsAvSumx' and 'DiffProsAvTotx' works for Diff2NumVar",{
   #DiffProsAvSumx
   #without strata
   expect_equal(d_result1$DiffProsAvSumx[1], -2.62312, tolerance = 0.001)
@@ -385,7 +385,7 @@ test_that("Tests that 'DiffProsAvSumx' and 'DiffProsAvTotx' works",{
   expect_equal(d_result_str$DiffProsAvTotx[1], 2.11174, tolerance = 0.001)
 })
 
-test_that("Tests that 'SumDiffProsAvSumx' and 'SumDiffProsAvTotx' works",{
+test_that("Tests that 'SumDiffProsAvSumx' and 'SumDiffProsAvTotx' works for Diff2NumVar",{
   #SumDiffProsAvSumx, with strata
   expect_equal(d_result1$SumDiffProsAvSumx[1], -1.80910, tolerance = 0.001)
   #SumDiffProsAvSumx, without strata
@@ -401,16 +401,16 @@ test_that("Tests that 'SumDiffProsAvSumx' and 'SumDiffProsAvTotx' works",{
 
 
 
-test_that("Tests that 'EdEndring' works",{
+test_that("Tests that 'EdEndring' works for Diff2NumVar",{
   expect_equal(d_result_str$y[1] - d_result_str$z[1], 0, tolerance = 0.001)
 })
 
 
-test_that("Tests that input 'antall' and 'grense' works",{
+test_that("Tests that input 'antall' and 'grense' works for Diff2NumVar",{
   #specifying 'grense'
   d_result_grense_1 <- Diff2NumVar(data = df_new, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
                                    strataVar = "strata", antall = 30, grense = 200, zVar = "z", kommentarVar = "kommentar")
-  diff_list <- d_result_grense$AbsDiff
+  diff_list <- d_result_grense_1$AbsDiff
   expect_true(all(diff_list > 200))
   # 'grense' overules 'antall'
   d_result_grense_2 <- Diff2NumVar(data = df_new, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
@@ -428,20 +428,20 @@ test_that("Tests that input 'antall' and 'grense' works",{
 
 
 #### Hb ####
-df_Hb <- df_quartile_strata
+#df_Hb <- df_quartile_strata
 
-result_hb1 <- Hb(data = df_Hb, id = "Region", x1 = "areal_130_eier_2015", x2 = "areal_130_eier_2014")
+#result_hb1 <- Hb(data = df_Hb, id = "Region", x1 = "areal_130_eier_2015", x2 = "areal_130_eier_2014")
 
-result_hb2 <- Hb(data = df_Hb, id = "Region", 
-                 x1 = "areal_130_eier_2015", 
-                 x2 = "areal_130_eier_2014",
-                 strataName = "strata")
+#result_hb2 <- Hb(data = df_Hb, id = "Region", 
+#                 x1 = "areal_130_eier_2015", 
+#                 x2 = "areal_130_eier_2014",
+#                 strataName = "strata")
 
-result_hb3 <- Hb(data = df_Hb, id = "Region", 
-                 x1 = "areal_130_eier_2015", 
-                 x2 = "areal_130_eier_2014",
-                 pU = 0.5, pA = 0.05, pC = 20, 
-                 strataName = "strata")
+#result_hb3 <- Hb(data = df_Hb, id = "Region", 
+#                 x1 = "areal_130_eier_2015", 
+#                 x2 = "areal_130_eier_2014",
+#                 pU = 0.5, pA = 0.05, pC = 20, 
+#                 strataName = "strata")
 
 #test_that("x1 = x2 values included only if less than 50%", {
 #  
@@ -474,7 +474,7 @@ result1 <- ThError(data = df_n, id = "Region", x1 = "areal_130_eier_2015", x2 = 
 result2 <- ThError(data = df_n, id = "Region", x1 = "areal_130_eier_2015", x2 = "areal_130_eier_2014",
                    ll = -2, ul = 2)
 
-test_that("Test that correct values are included", {
+test_that("Test that correct values are included from ThError", {
   region_list <- c(16299, 25306, 3179, 1205, 5400, 970, 0, 4867, 2000, 0, 
                    4640, 2650, 4769, 942, 10562, 3345, 1250, 3082, 7626, 
                    2516, 4877, 4950, 14450, 28000, 16708, 7950, 1532, 
@@ -484,23 +484,23 @@ test_that("Test that correct values are included", {
                 all(region_list %in% result1$x1))
 })
 
-test_that("Test that 'outlier' indication is correct", {
+test_that("Test that 'outlier' indication is correct for ThError", {
   region_id <- as.character(factor(df_n$Region[c(1, 4, 5, 10, 15)]))
   region_id <- as.integer(region_id)
   outlier_r <- as.list(result1$outlier[result1$id %in% region_id])
   outlier_r <- unlist(outlier_r[!is.na(outlier_r)])
-  for(i in range(1:length(outlier_r))){
-    print(outlier_r[i])
-    #expect_identical(result_row[i], 1)
-  }
+  #for(i in range(1:length(outlier_r))){
+  #  print(outlier_r[i])
+  #  #expect_identical(result_row[i], 1)
+  #}
   result_not_in_outlier <- as.list(result1$outlier[!(result1$id %in% region_id)])
-  result_not_in_outlier <- result_not_in_outlier[!is.na(result_not_in_outlier)]
-  expect_identical(result_not_in_outlier$outlier, rep(0, nrow(result_not_in_outlier)))
+  result_not_in_outlier <- unlist(result_not_in_outlier[!is.na(result_not_in_outlier)])
+  expect_identical(result_not_in_outlier, rep(0, length(result_not_in_outlier)))
 })
 
-test_that("Test that 'diffLog10' is correct", {
-  
-})
+#test_that("Test that 'diffLog10' is correct", {
+#  
+#})
 
 # test_that("Test that 'lowerLimit' and 'upperLimit' is correct", {
 #   
