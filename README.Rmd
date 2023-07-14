@@ -109,4 +109,3 @@ kableExtra::kbl(bb, format = "pipe")
 
 ```
 
-
