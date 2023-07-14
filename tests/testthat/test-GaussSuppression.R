@@ -1,3 +1,4 @@
+
 test_that("GaussSuppression functions", {
   
   printInc <- FALSE
