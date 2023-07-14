@@ -9,7 +9,6 @@ add_func(
   package,
   keyword = "r",
   url = NULL,
-  github = F,
   update = T,
   descrip = NULL,
   name = NULL
@@ -22,9 +21,7 @@ add_func(
 
 \item{keyword}{keywords to use seperated by a space}
 
-\item{url}{Url address to help files (if not on CRAN or available on github)}
-
-\item{github}{T or F for if it is a github only package}
+\item{url}{Url address to help files (if not on CRAN or available on github/pkgdown)}
 
 \item{update}{T or F on whether to update the function in the dataset}
 
