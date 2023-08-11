@@ -46,6 +46,8 @@ jobs:
           install.packages("remotes")
           remotes::install_github("https://github.com/statisticsnorway/Kostra/", 
                         dependencies = T)
+          remotes::install_github("https://github.com/statisticsnorway/struktur/", 
+                        dependencies = T)
           package_depends <- rbind(
             pak::pkg_deps("CalibrateSSB"),
             pak::pkg_deps("easySdcTable"),

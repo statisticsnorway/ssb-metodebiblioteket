@@ -14,15 +14,14 @@
 #' @param func Function name
 #' @param package Package name
 #' @param keyword keywords to use seperated by a space
-#' @param url Url address to help files (if not on CRAN or available on github)
-#' @param github T or F for if it is a github only package
+#' @param url Url address to help files (if not on CRAN or available on github/pkgdown)
 #' @param update T or F on whether to update the function in the dataset
 #' @param description A description of the function (if not automatically fetched)
 #' @param name Name of the function (if not automatically fetched)
 #' 
 #' 
 #' @export
-add_func <- function(func, package, keyword = "r", url = NULL, github = F, update=T, 
+add_func <- function(func, package, keyword = "r", url = NULL, update=T, 
                      descrip=NULL, name=NULL){
   kat <- utils::read.csv('data/katalogdata.csv', header = T, stringsAsFactors = FALSE)
   
@@ -35,7 +34,7 @@ add_func <- function(func, package, keyword = "r", url = NULL, github = F, updat
     }
   } 
   if (missing(url)){
-    url <- get_url(func, package, github)
+    url <- get_url(func, package)
   }
   if (is.null(descrip)){
     descrip <- get_description(func, package)
@@ -100,16 +99,28 @@ get_description <- function(func, package){
   trimws(descr, which = "both")
 }
 
-
-get_url <- function(func, package, github=F){
+#func <- "ThError"
+#package <- "Kostra"
+get_url <- function(func, package){
   navn <- get_alias(func, package)
-  if (github){
-    url <- paste0("https://rdrr.io/github/statisticsnorway/", package, "/man/", navn, ".html")
-  } else {
+  
+  # try pkgdown first
+  url <- paste0("https://statisticsnorway.github.io/", package, "/reference/", navn, ".html")
+  if (status_code(GET(url)) == 404){
     url <- paste0("https://rdrr.io/cran/", package, "/man/", navn, ".html")
+  }
+  if (status_code(GET(url)) == 404){
+    url <- paste0("https://rdrr.io/r/", package, "/", navn, ".html")
+  }
+  if (status_code(GET(url)) == 404){
+    url <- paste0("https://rdrr.io/github/statisticsnorway/", package, "/man/", navn, ".html")
+  }
+  if (status_code(GET(url)) == 404){ 
+    print(paste0("No valid url found for ", func, " in package ", package, "."))
   }
   url
 }
+
 
 get_name <- function(func, package){
   db = tools::Rd_db(package)
@@ -118,5 +129,44 @@ get_name <- function(func, package){
   navn <- trimws(txt[3])
   navn
 }
+
+get_bad_links <- function(){
+  katalog <- read.csv("./data/katalogdata.csv")
+  bad_links <- NULL
+  for (i in 1:nrow(katalog)){
+    r <- httr::GET(katalog$url[i])
+    if (httr::status_code(r) == 404){
+      bad_links <- c(bad_links, i)
+    }
+  }
+  katalog[bad_links, c("func", "pack")]
+}
+
+
+get_failing <- function(){
+  suppressMessages(
+    capture.output(
+      tt <- devtools::test()
+    )
+  )
+  tt <- as.data.frame(tt)
+  tt <- tt[tt$failed > 0, c("context", "test") ]
+  if (nrow(tt) > 0) {
+    tt$func <- ""
+    katalog <- read.csv("./data/katalogdata.csv")
+    for (i in 1:nrow(tt)){
+      funcs <- katalog$func[katalog$pack == tt$context[i]]
+      for (f in funcs){
+        if (grepl(f, tt$test[i])) tt$func[i] <- f
+      }
+    }
+    tt <- tt[, c(1, 3, 2)]
+  } else {
+    tt <- data.frame(matrix(ncol = 3, nrow = 0))
+  }
+  names(tt) <- c("pack", "func", "test")
+  tt
+}
+
 
 

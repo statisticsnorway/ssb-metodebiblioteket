@@ -13,3 +13,4 @@
 ^docs$
 ^\.git$
 ^data/katalogdata\.csv$
+^README\.Rmd$
