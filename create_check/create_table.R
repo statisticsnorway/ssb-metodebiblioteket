@@ -21,8 +21,8 @@ install.packages("GaussSupression")
 source("R/add_funcs.R")
 
 # Kontrollere funksjoner
-add_func('validator', 'validate', keyword = "r kontrollere logisk regelbasert")
-add_func('confront', 'validate', keyword = "r kontrollere logisk regelbasert")
+add_func('validator', 'validate', keyword = "r kontrollere regelbasert")
+add_func('confront', 'validate', keyword = "r kontrollere regelbasert")
 add_func('ThError', 'Kostra', keyword = "r kontrollere statistisk")
 add_func('Hb', 'Kostra', keyword = "r kontrollere statistisk")
 add_func('Quartile', 'Kostra', keyword = "r kontrollere statistisk")

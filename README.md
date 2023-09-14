@@ -31,7 +31,7 @@ statistikkproduksjonen](https://www.ssb.no/teknologi-og-innovasjon/artikler-og-p
 
 | Hovednøkkelord       | Nøkkelord                                     |
 |:---------------------|:----------------------------------------------|
-| kontrollere          | logisk <br> statistikk                        |
+| kontrollere          | regelbasert <br> statistikk                   |
 | imputere             | modelbasert <br> donor                        |
 | struktuere           |                                               |
 | indeksberegning      |                                               |

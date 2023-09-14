@@ -44,8 +44,8 @@ viewof tema = Inputs.radio(["kontrollere", "imputere"],
   {label: "Metodeområde: ", value: "kontrollere"} 
 )
 
-viewof metode = Inputs.radio(tema === "imputere" ? ["donor", "modellbasert"] : ["logisk", "statistikk"],
-{label: "Metode: ", value: "logisk"}
+viewof metode = Inputs.radio(tema === "imputere" ? ["donor", "modellbasert"] : ["regelbasert", "statistikk"],
+{label: "Metode: ", value: "regelbasert"}
 )
 
 
