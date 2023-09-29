@@ -40,9 +40,7 @@ jobs:
 
       - name: Activate virtual environment
         run: |
-          source venv/bin/activate  # Linux/macOS
-          # or
-          venv\Scripts\activate  # Windows
+          source venv/bin/activate
 
       - name: Install dependencies
         run: pip install -r python/requirements.txt
