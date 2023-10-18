@@ -33,6 +33,7 @@ add_func("AggrSml2NumVar", "Kostra", keyword = "r kontrollere statistisk" )
 add_func("get_extremes", "struktuR", keyword = "r kontrollere statistisk" )
 
 # Imputere
+add_func('modifier', 'dcmodify', keyword = "r imputere regelbasert")
 add_func('impute_proxy', 'simputation', keyword = "r imputere donor")
 add_func('impute_knn', 'simputation', keyword = "r imputere donor")
 add_func('lm', 'stats', keyword = "r imputere analyse modellbasert")
