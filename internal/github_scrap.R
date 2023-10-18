@@ -4,7 +4,7 @@ library(httr)
 library(base64enc)
 library(stringr)
 
-source("R/scrape_funcs.R")
+source("create_check/scrape_funcs.R")
 
 org <- "statisticsnorway"
 github_token <- getPass::getPass()
