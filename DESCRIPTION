@@ -17,6 +17,7 @@ Description: This is a package for presenting and testing R and python functions
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.2.3
+Depends: R (>= 3.5.0)
 Imports: 
   CalibrateSSB,
   dcmodify,
@@ -40,5 +41,8 @@ Remotes:
   statisticsnorway/struktuR
   statisticsnorway/SSBpris
 Suggests: 
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    base64enc,
+    devtools,
+    httr
 Config/testthat/edition: 3
