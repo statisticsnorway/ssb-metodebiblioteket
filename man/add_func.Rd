@@ -25,9 +25,9 @@ add_func(
 
 \item{update}{T or F on whether to update the function in the dataset}
 
-\item{name}{Name of the function (if not automatically fetched)}
+\item{descrip}{A description of the function (if not automatically fetched)}
 
-\item{description}{A description of the function (if not automatically fetched)}
+\item{name}{Name of the function (if not automatically fetched)}
 }
 \description{
 Add function to Metodebiblioteket
