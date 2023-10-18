@@ -191,3 +191,8 @@ validate::validator
 #' @importFrom validate confront
 # @export
 validate::confront
+#' @importFrom dcmodify modifier
+# @export
+dcmodify::modifier
+
+
