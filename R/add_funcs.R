@@ -106,16 +106,16 @@ get_url <- function(func, package){
   
   # try pkgdown first
   url <- paste0("https://statisticsnorway.github.io/", package, "/reference/", navn, ".html")
-  if (status_code(GET(url)) == 404){
+  if (httr::status_code(httr::GET(url)) == 404){
     url <- paste0("https://rdrr.io/cran/", package, "/man/", navn, ".html")
   }
-  if (status_code(GET(url)) == 404){
+  if (httr::status_code(httr::GET(url)) == 404){
     url <- paste0("https://rdrr.io/r/", package, "/", navn, ".html")
   }
-  if (status_code(GET(url)) == 404){
+  if (httr::status_code(httr::GET(url)) == 404){
     url <- paste0("https://rdrr.io/github/statisticsnorway/", package, "/man/", navn, ".html")
   }
-  if (status_code(GET(url)) == 404){ 
+  if (httr::status_code(httr::GET(url)) == 404){ 
     print(paste0("No valid url found for ", func, " in package ", package, "."))
   }
   url

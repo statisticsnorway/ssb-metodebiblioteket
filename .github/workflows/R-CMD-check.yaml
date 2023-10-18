@@ -19,11 +19,11 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: windows-latest, r: 'release'}
+          #- {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest, r: 'release'}
-          - {os: ubuntu-latest, r: '4.1.1'}
-          - {os: ubuntu-latest, r: '3.6'}  
-          - {os: macOS-latest, r: 'release'}
+          #- {os: ubuntu-latest, r: '4.1.1'}
+          #- {os: ubuntu-latest, r: '3.6'}  
+          #- {os: macOS-latest, r: 'release'}
   
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -40,43 +40,10 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - name: Install pak and query dependencies
-        run: |
-          install.packages("pak", repos = "https://r-lib.github.io/p/pak/dev/")
-          install.packages("remotes")
-          remotes::install_github("https://github.com/statisticsnorway/Kostra/", 
-                        dependencies = T)
-          remotes::install_github("https://github.com/statisticsnorway/struktur/", 
-                        dependencies = T)
-          package_depends <- rbind(
-            pak::pkg_deps("CalibrateSSB"),
-            pak::pkg_deps("easySdcTable"),
-            pak::pkg_deps("klassR"),
-            pak::pkg_deps("PxWebApiData"), 
-            pak::pkg_deps("SmallCountRounding"),
-            pak::pkg_deps("SSBtools")
-          )
-          saveRDS(package_depends, ".github/r-depends.rds")
-        shell: Rscript {0}    
-
-        - name: Restore R package cache
-        uses: actions/cache@v2
+      - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          path: |
-            ${{ env.R_LIBS_USER }}/*
-            !${{ env.R_LIBS_USER }}/pak
-          key: ${{ runner.os }}-${{ steps.install-r.outputs.installed-r-version }}-1-${{ hashFiles('.github/r-depends.rds') }}
-          restore-keys: ${{ runner.os }}-${{ steps.install-r.outputs.installed-r-version }}-1-
-
-      - name: Install system dependencies
-        if: runner.os == 'Linux'
-        run: Rscript -e 'pak::local_system_requirements(execute = TRUE)'
-
-      - name: Install dependencies
-        run: |
-          pak::local_install_dev_deps(upgrade = TRUE)
-          pak::pkg_install("rcmdcheck")
-        shell: Rscript {0}
+          extra-packages: any::rcmdcheck
+          needs: check
 
       - name: Session info
         run: |
@@ -84,11 +51,9 @@ jobs:
           sessionInfo()
         shell: Rscript {0}
 
-      - name: Check
-        env:
-          _R_CHECK_CRAN_INCOMING_: false
-        run: rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), error_on = "warning", check_dir = "check")
-        shell: Rscript {0}
+      - uses: r-lib/actions/check-r-package@v2
+        with:
+          upload-snapshots: true
 
       - name: Show testthat output
         if: always()

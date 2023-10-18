@@ -3,8 +3,8 @@
 
 # metodebiblioteket
 
-[![R-CMD-check](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/R-CMD-check.yaml)
-[![pytest](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebibliotek/actions/workflows/pytest.yaml)
+[![R-CMD-check](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml)
+[![pytest](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest.yaml)
 
 Denne repo-en inneholder informasjon om funksjoner som danne SSBs
 Metodebiblioteket. Du kan se på biblioteket her:
@@ -31,7 +31,7 @@ statistikkproduksjonen](https://www.ssb.no/teknologi-og-innovasjon/artikler-og-p
 
 | Hovednøkkelord       | Nøkkelord                                     |
 |:---------------------|:----------------------------------------------|
-| kontrollere          | logisk <br> fordelings <br> innflytelses      |
+| kontrollere          | regelbasert <br> statistikk                   |
 | imputere             | modelbasert <br> donor                        |
 | struktuere           |                                               |
 | indeksberegning      |                                               |
@@ -77,6 +77,5 @@ enhetstester som feiler
 Metodebiblioteket innholder mange linker til dokumentasjon av
 funksjoner. Følgende funksjoner har linker som feiler:
 
-| funksjon_navn    | pakke            |
-|:-----------------|:-----------------|
-| SdcForetakPerson | SdcForetakPerson |
+| funksjon_navn | pakke |
+|:--------------|:------|

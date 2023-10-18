@@ -39,17 +39,13 @@ testdata = JSON.parse(my_ojs_data)
 ```
 
 ```{ojs}
-//| panel: input
 
-//viewof tema = Inputs.checkbox( ["kontrollere", "imputere", "donor", "modellbasert"],
-//  {label: "Metodeområde: "}
-  
 viewof tema = Inputs.radio(["kontrollere", "imputere"],
   {label: "Metodeområde: ", value: "kontrollere"} 
 )
 
-viewof metode = Inputs.radio(tema === "imputere" ? ["donor", "modellbasert"] : ["logisk", "fordeling", "innflytelse"],
-{label: "Metode: ", value: "logisk"}
+viewof metode = Inputs.radio(tema === "imputere" ? ["donor", "modellbasert"] : ["regelbasert", "statistikk"],
+{label: "Metode: ", value: "regelbasert"}
 )
 
 
