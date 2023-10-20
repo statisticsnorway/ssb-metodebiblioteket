@@ -22,38 +22,71 @@
 #' 
 #' @export
 add_func <- function(func, package, keyword = "r", url = NULL, update=T, 
-                     descrip=NULL, name=NULL){
-  kat <- utils::read.csv('data/katalogdata.csv', header = T, stringsAsFactors = FALSE)
+                     descrip=NULL, name=NULL, export = TRUE, pack_url=NULL){
+  if (file.exists('data/katalogdata.csv')){
+    kat <- utils::read.csv('data/katalogdata.csv', header = T, stringsAsFactors = FALSE)
+  } else {
+    kat <- data.frame(func = character(), 
+                     pack = character(), 
+                     navn = character(),
+                     description = character(),
+                     keyword = character(),
+                     url = character(),
+                     pack_url=character())
+  }
+  python = FALSE
   
+  if (unlist(strsplit(keyword, " "))[1] == "python"){
+    export = FALSE
+    python = TRUE
+  }
+  
+
   if (check_func(func, package, kat) > 0) {
     if (!update) {
-      stop("Function already in library. Use parameter 'update=T' to override")
+       stop("Function already in library. Use parameter 'update=T' to override")
     } else {
-      m <- which(package == kat$pack & func == kat$func)
-      kat <- kat[-m, ]
+       m <- which(package == kat$pack & func == kat$func)
+       kat <- kat[-m, ]
     }
   } 
+
+  
   if (missing(url)){
+    if (python) stop("An url is required for python functions")
     url <- get_url(func, package)
   }
   if (is.null(descrip)){
+    if (python) stop("An description is required for python functions")
     descrip <- get_description(func, package)
   } 
   if (is.null(name)){
+    if (python) stop("A name is required for python functions")
     name <- get_name(func, package)
   }
+  if(missing(pack_url)){
+    if (python) stop("An package url is required for python functions")
+    pack_url <- get_pack_url(package)
+  }
+  
   new_row = data.frame(func = func, 
                        pack = package, 
                        navn = name,
                        description = descrip,
                        keyword = keyword,
-                       url = url)
+                       url = url,
+                       pack_url=pack_url)
   kat <- rbind(kat, new_row)
   kat <- kat[order(kat$func), ]
   utils::write.csv(kat, file = "data/katalogdata.csv",row.names=F)
   
   # Add to reexports list
-  write_reexport(func, package)
+
+  
+  if (export) {
+    write_reexport(func, package)
+  }
+  
 }
 
 
@@ -66,7 +99,6 @@ write_reexport <- function(func, package){
     write("\n", "./R/reexports.R", append=T)
   }
 }
-
 
 
 check_func <- function(func, package, kat){
@@ -117,6 +149,23 @@ get_url <- function(func, package){
   }
   if (httr::status_code(httr::GET(url)) == 404){ 
     print(paste0("No valid url found for ", func, " in package ", package, "."))
+  }
+  url
+}
+
+get_pack_url <- function(package){
+  
+  # Try github.io
+  url <- paste0("https://statisticsnorway.github.io/", package, "/")
+  
+  # Check and try cran
+  if (httr::status_code(httr::GET(url)) == 404){
+  url <- paste0("https://cran.r-project.org/web/packages/", package, "/index.html")
+  }
+  
+  # Check and try github
+  if (httr::status_code(httr::GET(url)) == 404){
+    url <- paste0("https://github.com/statisticsnorway/", package, "/")
   }
   url
 }
