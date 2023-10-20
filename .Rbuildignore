@@ -9,7 +9,7 @@
 ^Pipfile$
 ^Pipfile\.lock$
 ^website$
-^create_check$
+^internal$
 ^docs$
 ^\.git$
 ^data/katalogdata\.csv$

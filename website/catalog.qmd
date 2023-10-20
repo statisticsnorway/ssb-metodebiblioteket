@@ -18,6 +18,10 @@ dt <- read.csv("../data/katalogdata.csv")
 # Add column for combination of function name and link
 dt["func_link"] <- str_trim(do.call(paste, c(dt[c("func", "url")], sep = ";")))
 
+# Add column for combination of pacakge name and link
+dt["pack_link"] <- str_trim(do.call(paste, c(dt[c("pack", "pack_url")], sep = ";")))
+
+
 jsonlite::toJSON(dt) -> dt_json
 ojs_define(my_ojs_data = dt_json)
 ```
@@ -44,7 +48,8 @@ viewof tema = Inputs.radio(new Map([["ALLE", " "], ["kontrollere","kontrollere"]
 ["usikkerhetsberegning","usikkerhetsberegning"],
 ["sesongjustering","sesongjustering"],
 ["konfidensialitet","konfidensialitet"],
-["analyse","analyse"]]),
+["analyse","analyse"],
+["maskinlæring", "maskinlaering"]]),
   {label: "Metodeområde: ", value: " "} 
 )
 
@@ -110,13 +115,13 @@ viewof filter_dt = Inputs.search(filtered)
 
 table_out = Inputs.table(filter_dt, { columns: [
     "func_link",
-    "pack",
+    "pack_link",
     "navn",
     "description"
   ],
   header: {
     func_link: "Funksjon",
-    pack: "Pakke",
+    pack_link: "Pakke",
     navn: "Navn",
     description: "Beskrivelse"
   },
@@ -124,6 +129,10 @@ table_out = Inputs.table(filter_dt, { columns: [
   func_link: get_url(
       filter_dt, 
       (d) => d["func_lnk"]
+      ),
+  pack_link: get_url(
+      filter_dt,
+      (d) =>d["pack_lnk"]
       ),
   navn: overflow_names(
   filter_dt,
