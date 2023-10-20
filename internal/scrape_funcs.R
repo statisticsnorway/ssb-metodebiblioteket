@@ -4,13 +4,20 @@
 #'
 #' @param repo Name of the repo (at StatisticsNorway)
 #' @param github_token Token so can find internal sites
+#' @param silent Logic for if printing should be repressed.
 #'
 #' @return list of 3 elements: R files, python files and notebook files.
-get_repo_urls <- function(repo, github_token){
+get_repo_urls <- function(repo, github_token, silent = TRUE){
   url <- paste0("https://api.github.com/repos/statisticsnorway/", repo, "/contents")
-  response <- httr::GET(url, add_headers(Authorization = paste0("Bearer ", github_token)))
-  contents <- content(response)
-  all_files <- traverse_directory(contents)
+  response <- httr::GET(url, httr::add_headers(Authorization = paste0("Bearer ", github_token)))
+  contents <- httr::content(response)
+  if (!is.null(contents$message)){
+    if (!silent){
+      print(paste("No files found in repo: ", repo))
+    }
+    return(list(r_files = character(), py_files=character(), nb_files=character()))
+  }
+  all_files <- traverse_directory(contents, github_token = github_token)
   
   r_files <- all_files[grepl("\\.R\\?ref\\=ma", all_files, ignore.case = TRUE)]
   py_files <- all_files[grepl("\\.py\\?ref\\=ma", all_files, ignore.case = TRUE)]
@@ -27,13 +34,15 @@ get_repo_urls <- function(repo, github_token){
 #'
 #' @return dataset with urls
 #' @export
-get_urls <- function(repos, github_token){
+get_urls <- function(repos, github_token, silent=TRUE){
   url_data <- data.frame(repo = character(), url = character(), format = character())
   n <- length(repos)
   nr <- 1
   for (r in repos){
+    if (!silent){
     print(paste0("Getting urls for repo nr ", nr, " of ", n, ": " , r))
-    u <- get_repo_urls(r, github_token)
+  }
+    u <- get_repo_urls(r, github_token, silent = silent)
     if (length(u$r_files) > 0){
       url_data <- rbind(url_data, data.frame(repo = r, url = u$r_files, format = "R"))
     }
@@ -50,21 +59,21 @@ get_urls <- function(repos, github_token){
 
 
 
-traverse_directory <- function(contents) {
+traverse_directory <- function(contents, github_token) {
   #file_names <- character()
   file_url <- character()
   for (item in contents) {
     if (item[["type"]] == "file") {
       #file_names <- c(file_names, item[["name"]])
       file_url <- c(file_url, item[["url"]])
-    } else if (item[["type"]] == "dir") {
+    } else if ((item[["type"]] == "dir") & (!item[["name"]] %in% c(".poetry", ".renv"))) {
       # Fetch the contents of the nested folder
       nested_url <- item[["url"]]
-      nested_response <- httr::GET(nested_url, add_headers(Authorization = paste0("Bearer ", github_token)))
-      nested_contents <- content(nested_response)
+      nested_response <- httr::GET(nested_url, httr::add_headers(Authorization = paste0("Bearer ", github_token)))
+      nested_contents <- httr::content(nested_response)
       
       # Recursively traverse the nested folder
-      nested_files <- traverse_directory(nested_contents)
+      nested_files <- traverse_directory(nested_contents, github_token)
       #file_names <- c(file_names, nested_files)
       file_url <- c(file_url, nested_files)
     }
@@ -84,7 +93,7 @@ traverse_directory <- function(contents) {
 #'
 #' @return Data frame
 #' @export
-check_func <- function(func, url_data, github_token, type = "R"){
+check_func <- function(func, url_data, github_token, type = "R", silent = TRUE){
   if (type == "R"){
     urls <- url_data[url_data$format %in% c("R", "nb"),]
   }
@@ -94,8 +103,8 @@ check_func <- function(func, url_data, github_token, type = "R"){
   urls$count <- 0
   counts <- matrix(data=NA, nrow=nrow(urls), length(func))
   for (i in 1:nrow(urls)){
-    print(i)
-    response <- httr::GET(urls$url[i], add_headers(Authorization = paste0("Bearer ", github_token)))
+    if (!silent) print(paste0("Checking url: ", urls$url[i]))
+    response <- httr::GET(urls$url[i], httr::add_headers(Authorization = paste0("Bearer ", github_token)))
     if (status_code(response) == 404) next()
     file_content <- content(response)$content
     function_code <- rawToChar(base64enc::base64decode(file_content))
@@ -128,12 +137,12 @@ get_repos <- function(org, github_token, type = "all"){
   while (TRUE) {
     
     # Send the GET request to retrieve the organization's repositories for the current page
-    response <- httr::GET(url, add_headers(Authorization = paste0("Bearer ", github_token)),
+    response <- httr::GET(url, httr::add_headers(Authorization = paste0("Bearer ", github_token)),
                     query = list(per_page = 100, page = page))
     
     # Extract names
-    if (http_type(response) == "application/json") {
-      repositories <- content(response)
+    if (httr::http_type(response) == "application/json") {
+      repositories <- httr::content(response)
       page_repository_names <- sapply(repositories, function(repo) repo[["name"]])
       repository_names <- c(repository_names, page_repository_names)
       
@@ -158,5 +167,5 @@ get_repos <- function(org, github_token, type = "all"){
   if (type == "kurs"){
     return(repository_names[grepl("^kurs-", repository_names)])
   }
-  
 }
+
