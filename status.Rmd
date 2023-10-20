@@ -1,0 +1,178 @@
+---
+output: 
+  github_document:
+    html_preview: false
+    toc: true
+    toc_depth: 2
+always_allow_html: true
+title: Status på Metodebiblioteket
+params:
+  pwd:
+    label: "Enter the github token"
+    value: ""
+    input: password
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+
+library(rvest)
+library(httr)
+library(base64enc)
+library(stringr)
+library(magrittr)
+library(kableExtra)
+library(metodebiblioteket)
+
+source("internal/add_funcs.R")
+source("internal/scrape_funcs.R")
+```
+
+
+# Status på metodebiblioteket
+
+[![R-CMD-check](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml)
+[![pytest](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest.yaml)
+
+Denne siden inneholder informasjon om status på funksjoner i SSBs Metodebiblioteket. Den er status som er genererte `r Sys.Date()`. 
+
+For å genere en ny rapport, åpne status.Rmd fil og velg "Knit with parameters..".
+
+## Oversikt
+```{r, echo=FALSE}
+met <- read.csv("data/katalogdata.csv")
+
+```
+Det er **`r nrow(met)`** funksjoner i Metodebiblioteket
+
+
+## Nøkkelord
+Nøkkelord brukes til å organisere Metodebiblioteket. Følgende ord brukes i Metodebiblioteket. GSDPM steg nummer ikke inkluderes her.
+```{r, echo=FALSE}
+nokkel <- c("r","python",
+            "kontrollere","regelbasert" , "statistisk",
+            "imputere", "modellbasert", "donor",
+            "strukturere",   
+            "indeksberegning",  
+            "vektberegning", "modelbasert" , "designbasert",
+            "usikkerhetsberegning",      
+            "sesongjustering",  
+            "analyse", "romlig",
+            "maskinlaering",
+            "konfidensialitet", "undertrykking", "avrunding" ,"støylegging")
+
+keywords <- read.csv("data/katalogdata.csv")$keyword
+keywords <- unlist(strsplit(keywords, " "))             # Split into words
+keywords <- keywords[!grepl("^[0-9]", keywords)]        # Remove numberseywords, " "))
+
+kw_tab <- data.frame(table(keywords))
+row.names(kw_tab) <- NULL
+kw_tab <- data.frame(table(keywords))
+names(kw_tab) <- c("Nokkelord", "Antall")
+kableExtra::kbl(kw_tab, format = "pipe")
+
+```
+
+Følgende ord er nøkkelord knyttet til en funksjon men er ikke inn i standardlisten
+
+```{r, echo=FALSE}
+cond <- keywords %in% nokkel
+kw <- data.frame(keywords[!cond])
+row.names(kw) <- NULL
+names(kw) <- "Nokkelord:"
+
+kableExtra::kbl(kw, format = "pipe")
+```
+
+
+## Enhetstester
+Hver funksjon i Metodebiblioteket skal ha minst en enhetstest knyttet til den. Dette er for å forsikre kvalitet og kunne tester funksjoner på nye og gamle R installasjoner. 
+
+Følgende tabellen viser hvilke funksjoner mangler enhetstester eller har enhetstester som feiler
+
+
+```{r, echo=FALSE}
+
+all_funcs <- read.csv("data/katalogdata.csv")$func
+func_tab <- data.frame(funksjon_navn = all_funcs, status = "mangler", detaljer = "")
+test_files <- list.files("tests/testthat/")
+test_files <- test_files[test_files != "_snaps"]
+
+for (t in test_files){
+  con <- file(file.path("./tests/testthat", t))
+  line <- readLines(con)
+  
+  for (i in 1:nrow(func_tab)){
+    f <-  func_tab$funksjon_navn[i]
+    func_patt <- paste0(f, "\\(")
+    found <- grep(func_patt, line)
+    if (length(found) != 0){
+      for (l in line[found]){
+        if (!grepl('^\\#', l)) {
+          func_tab$status[i] <- "testet"
+        }
+      }
+    }
+  }
+  close(con)
+}
+failed <- get_failing()
+m <- match(failed$func, func_tab$funksjon_navn)
+func_tab[m, "status"] <- "feil"
+func_tab[m, "detaljer"] <- failed$test
+func_tab <- func_tab[func_tab$status %in% c("mangler", "feil"),]
+suppressWarnings(
+  func_tab$status <- cell_spec(func_tab$status, color = "white", background = ifelse(func_tab$status == "testet", "#48BF91", ifelse(func_tab$status == "mangler", "orange", "red")))
+)
+row.names(func_tab) <- NULL
+suppressWarnings(
+kableExtra::kbl(func_tab, format = "pipe") %>%
+  kableExtra::kable_paper("striped", full_width = F)
+)
+```
+
+## Linker
+Metodebiblioteket innholder mange linker til dokumentasjon av funksjoner. Følgende funksjoner har linker som feiler:
+
+```{r, echo = FALSE}
+
+bb <- get_bad_links()
+row.names(bb) <- NULL
+names(bb) <- c("funksjon_navn", "pakke")
+kableExtra::kbl(bb, format = "pipe")
+```
+
+
+## Antall som bruker funksjoner på github
+Følgende funksjoner ble sjekket om de finnes på SSBs github (under "stat-" repoer). Det sjekkes på både interne og public repoer (men ikke de med mer begrenset tilgang).
+- LmImpute
+- struktur_model
+- Hb
+
+
+Tabellen under viser hvor mange ganger de finnes og på hvilke repoer.
+
+```{r, echo=FALSE}
+org <- "statisticsnorway"
+
+repo_stat <- get_repos(org, github_token = params$pwd, type = "stat")
+repo_urls <- get_urls(repo_stat, github_token = params$pwd)
+
+tab <- check_func(
+                  func = c("LmImpute", "struktur_model", "Hb", "SupressSmallCounts"), 
+                  url_data=repo_urls, 
+                  github_token=params$pwd, 
+                  type="R")
+row.names(tab) <- NULL
+mask <- apply(tab[,2:4], MARGIN=1, FUN=sum) > 0
+kableExtra::kbl(tab[mask,])
+
+```
+
+
+[Tilbake til metodebiblioteket](https://www.github.com/statisticsnorway/metodebiblioteket)
