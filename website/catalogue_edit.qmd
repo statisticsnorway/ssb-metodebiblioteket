@@ -109,7 +109,7 @@ table_out = Inputs.table(filter_dt, { columns: [
   ],
   header: {
     func_link: "Funksjon",
-    pack: "Pakke",
+    pack_link: "Pakke",
     språk: "Språk",
     navn: "Navn",
     description: "Beskrivelse"

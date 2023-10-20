@@ -29,6 +29,7 @@ dt["språk"] <- stringr::word(dt$keyword)[1]
 
 # Add column for combination of function name and link
 dt["func_link"] <- str_trim(do.call(paste, c(dt[c("func", "url")], sep = ";")))
+dt["pack_link"] <- str_trim(do.call(paste, c(dt[c("pack", "pack_url")], sep = ";")))
 
 jsonlite::toJSON(dt) -> dt_json
 ojs_define(my_ojs_data = dt_json)
@@ -105,7 +106,7 @@ table_out = Inputs.table(filter_dt, { columns: [
   ],
   header: {
     func_link: "Funksjon",
-    pack: "Pakke",
+    pack_link: "Pakke",
     språk: "Språk",
     navn: "Navn",
     description: "Beskrivelse"
@@ -114,6 +115,10 @@ table_out = Inputs.table(filter_dt, { columns: [
   func_link: get_url(
       filter_dt, 
       (d) => d["func_lnk"]
+      ),
+  pack_link: get_url(
+      filter_dt, 
+      (d) => d["pack_lnk"]
       ),
   navn: overflow_names(
   filter_dt,
