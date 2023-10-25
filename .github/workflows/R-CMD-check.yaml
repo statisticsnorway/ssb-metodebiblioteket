@@ -42,13 +42,8 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: |
-            remotes::install_github("statisticsnorway//Kostra")
-            remotes::install_github("statisticsnorway//struktuR")
-            remotes::install_github("statisticsnorway//SSBpris")
-            remotes::install_github("statisticsnorway//SdcForetakPerson")
+          extra-packages: 'remotes::install_github("statisticsnorway/Kostra"),remotes::install_github("statisticsnorway/struktuR"),remotes::install_github("statisticsnorway/SSBpris"),remotes::install_github("statisticsnorway/SdcForetakPerson")'
           needs: check
-          update: TRUE
 
       - name: Session info
         run: |
