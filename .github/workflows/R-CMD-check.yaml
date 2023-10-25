@@ -49,6 +49,7 @@ jobs:
             any::SSBpris
             any::SdcForetakPerson
           needs: check
+          update: TRUE
 
       - name: Session info
         run: |
