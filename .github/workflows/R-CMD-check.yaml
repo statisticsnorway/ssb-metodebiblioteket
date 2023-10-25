@@ -42,7 +42,12 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck
+          extra-packages: |
+            any::rcmdcheck
+            any::Kostra
+            any::struktuR
+            any::SSBpris
+            any::SdcForetakPerson
           needs: check
 
       - name: Session info
