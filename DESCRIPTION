@@ -31,18 +31,18 @@ Imports:
   SSBtools,
   SSBpris,
   stats,
-  stringr,
   struktuR,
-  tools,
   validate
 Remotes:
-  statisticsnorway/SdcForetakPerson
-  statisticsnorway/Kostra
-  statisticsnorway/struktuR
+  statisticsnorway/SdcForetakPerson,
+  statisticsnorway/Kostra,
+  statisticsnorway/struktuR,
   statisticsnorway/SSBpris
 Suggests: 
     testthat (>= 3.0.0),
     base64enc,
     devtools,
-    httr
+    httr,
+    stringr,
+    tools
 Config/testthat/edition: 3
