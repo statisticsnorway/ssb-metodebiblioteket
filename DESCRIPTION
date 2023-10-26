@@ -34,9 +34,9 @@ Imports:
   struktuR,
   validate
 Remotes:
-  statisticsnorway/SdcForetakPerson
-  statisticsnorway/Kostra
-  statisticsnorway/struktuR
+  statisticsnorway/SdcForetakPerson,
+  statisticsnorway/Kostra,
+  statisticsnorway/struktuR,
   statisticsnorway/SSBpris
 Suggests: 
     testthat (>= 3.0.0),
