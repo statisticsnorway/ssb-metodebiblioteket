@@ -40,7 +40,13 @@ statistikkproduksjonen](https://www.ssb.no/teknologi-og-innovasjon/artikler-og-p
 | maskinlæring         |                                               |
 | konfidensialitet     | undertrykking <br> avrunding <br> støylegging |
 
+## Legg inn en ny funksjon
+
+Har du en metodiske funksjon som du mener bør ligge inn i Metodebiblioteket? Her finne du [instruks om hvordan å legge inn en ny funkjson](https://github.com/statisticsnorway/metodebiblioteket/blob/master/bidra.md). Husk at et av kravene er at funksjoner brukes i minst et produksjonsløp eller i et av SSBs metode-kursene. Funksjoner kan være i R eller python. 
+
 
 ## Status
 
 Status på Metodebiblioteket ligger på [status siden](https://github.com/statisticsnorway/metodebiblioteket/blob/master/status.md)
+
+
