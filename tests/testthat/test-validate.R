@@ -1,6 +1,0 @@
-
-
-#### validator ####
-
-
-#### confront ####
