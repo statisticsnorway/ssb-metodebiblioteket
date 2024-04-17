@@ -24,6 +24,8 @@ website:
           href: catalogue_edit.html
         - text: "Konfidensialitet"
           href: catalogue_conf.html
+        - text: "Sesongjustering og tidsserieanalyse"
+          href: catalogue_sesong.html
 
     right:
       - icon: github

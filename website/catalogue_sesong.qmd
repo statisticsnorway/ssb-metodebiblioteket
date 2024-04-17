@@ -1,0 +1,10 @@
+---
+title: "Sesongjustering og tidsserieanalyse"
+format: 
+  html:
+    echo: false
+    page-layout: full
+sidebar: false
+---
+
+Sesongjustering er å bruke statistiske metoder for å fjerne systematiske sesongvariasjoner fra en månedlig eller kvartalsvis tidsserie, slik at tidsserien i størst mulig grad uttrykker den reelle utviklingen over tid. I tillegg forsøker man å fjerne kalendereffektene som varierer fra år til år, slik som påske. I sesongjusteringsprosessen spaltes den prekorrigerte (kalenderjusterte) tidsserien opp i tre komponenter: sesong, en irregulær og trend-syklus. Når dataene er korrigert for de sesongrelaterte forholdene, vil man stå igjen med et klarere bilde av den underliggende utviklingen i tidsserien som består av trend-syklus og irregulær komponent. Sesongjusterte data brukes ofte som utgangspunkt for opprettelse eller revidering av økonomisk politikk og økonomisk forskning på høyt nivå. Trend-syklus-komponenten er glattere enn sesongjusterte tall, og kan evt. formidles til brukerne i tillegg. I tidsserieanalyse kan en også justere tidsseriene for evt. brudd. Du kan finne mer informasjon om Sesongjustering og tidsserieanalyse på [Byrånettet](https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Sesongjustering.aspx).

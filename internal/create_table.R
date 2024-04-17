@@ -102,6 +102,18 @@ add_func("x13_both", "pickmdl", keyword = "r sesongjustering 6.1", url="https://
     descrip = "Output is determined by the parameter: both_output.",
     export = FALSE)
 
+add_func("x13_text_frame", "pickmdl", keyword = "r sesongjustering 6.1", url="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_text_frame.Rd",
+         pack_url="https://github.com/statisticsnorway/pickmdl/",
+         name = "Multiple x13_both runs with code input from a data frame",
+         descrip = "Gjør det mulig med sesongjustering av mange serier basert på parametere i en data.frame (f.eks lest inn fra en excel-fil).",
+         export = FALSE)
+add_func("konstruksjon", "pickmdl", keyword = "r sesongjustering 6.1", url="https://github.com/statisticsnorway/pickmdl/blob/main/man/konstruksjon.Rd",
+         pack_url="https://github.com/statisticsnorway/pickmdl/",
+         name = "Lage faktorer for kalendereffekter",
+         descrip = "Fleksibel funksjon som lager ulike kalendervariable, som f.eks. TD-, WD- og påskevariable, tilpasset norske forhold.",
+         export = FALSE)
+
+
 # Analyse
 add_func("shortest_path_igraph", "GISSB", keyword = "r analyse romlig")
 add_func("shortest_path_cppRouting", "GISSB", keyword = "r analyse romlig")

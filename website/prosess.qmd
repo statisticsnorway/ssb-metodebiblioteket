@@ -105,7 +105,14 @@ Ingen funksjoner enda
 ## 6 Analyse
 :::{.panel-tabset}
 ## *6.1 Utarbeid produktutkast*
-Ingen funksjoner enda.
+```{r}
+# filter for dataediterings functions
+dt_sesong <- dt[grepl("6.1", dt$keyword), -match("keyword", names(dt))]
+row.names(dt_sesong) <- NULL
+kable(dt_sesong, escape = F, allign="lllcl") %>%
+kable_styling()
+```
+
 
 ## *6.2 Kvalitetssikre produkter*
 ```{r}
