@@ -44,5 +44,7 @@ Suggests:
     devtools,
     httr,
     stringr,
-    tools
+    tools,
+    rmarkdown,
+    knitr
 Config/testthat/edition: 3
