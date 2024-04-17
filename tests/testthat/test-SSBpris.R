@@ -1,4 +1,5 @@
 # Testing of price index calculations
+library(SSBpris)
 
 test_that("CalcInd returns correct value in consumVar groups", {
   data(priceData)
@@ -11,6 +12,7 @@ test_that("CalcInd returns correct value in consumVar groups", {
 
 
 test_that("CalcInd throws a warning if weights must be adjusted, otherwise no warning", {
+  data(priceData)
   priceData <- priceData[priceData$varenr %in% c(1,2),]
   expect_warning(
     CalcInd(data = priceData, baseVar = "b1", pVar = "p1", groupVar = "varenr", wVar = "weight", 
