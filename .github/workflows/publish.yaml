@@ -29,6 +29,9 @@ jobs:
             any::knitr
             any::rmarkdown
             any::stringr
+            any::dplyr
+            any::magritta
+            any::kableExtra
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
