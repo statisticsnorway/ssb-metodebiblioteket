@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -44,7 +44,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -53,12 +59,12 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
@@ -69,9 +75,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="index.html" class="navbar-brand navbar-brand-logo">
     <img src="./pictures/logo_kule.jpg" alt="" class="navbar-logo">
     </a>
@@ -86,64 +92,68 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./catalog.html" rel="" target="" aria-current="page">
- <span class="menu-text">Katalog</span></a>
+    <a class="nav-link active" href="./catalog.html" aria-current="page"> 
+<span class="menu-text">Katalog</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-metodeområde" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-metodeområde" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Metodeområde</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-metodeområde">    
         <li>
-    <a class="dropdown-item" href="./catalogue_edit.html" rel="" target="">
+    <a class="dropdown-item" href="./catalogue_edit.html">
  <span class="dropdown-text">Dataeditering</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./catalogue_conf.html" rel="" target="">
+    <a class="dropdown-item" href="./catalogue_conf.html">
  <span class="dropdown-text">Konfidensialitet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./catalogue_sesong.html">
+ <span class="dropdown-text">Sesongjustering og tidsserieanalyse</span></a>
   </li>  
     </ul>
   </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-github">    
         <li>
-    <a class="dropdown-item" href="https://github.com/statisticsnorway/metodebibliotek" rel="" target="">
+    <a class="dropdown-item" href="https://github.com/statisticsnorway/metodebibliotek">
  <span class="dropdown-text">Source Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://github.com/statisticsnorway/metodebibliotek/issues" rel="" target="">
+    <a class="dropdown-item" href="https://github.com/statisticsnorway/metodebibliotek/issues">
  <span class="dropdown-text">Report a Bug</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./prosess.html">Prosessmodell</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./prosess.html">Prosessmodell</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -161,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
@@ -174,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -182,7 +192,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>Når vi skal beskrive produksjonsprosessen for offisiell statistikk bruker vi <a href="https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Prosessmodell-for-statistikkproduksjon.aspx">FNs prosessmodell</a>, Generic Statistical Business Process Model (GSBPM). Den beskriver og definerer prosessene som er nødvendige for å produsere offisiell statistikk.</p>
 <p>Vi har samlet funksjoner i Metodebiblioteket etter prosessen de vanligvis benyttes i. Dette er kun ment som en hjelpemidle. Det er mulig at funksjonene kan benyttes i andre prosesser enn det som er beskrivet her.</p>
@@ -215,6 +227,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
@@ -227,77 +240,77 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/AggrSml2NumVar.html" style="     " target="_blank">AggrSml2NumVar</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/github/statisticsnorway/Kostra/man/AggrSml2NumVar.html" style=" " target="_blank" &gt;AggrSml2NumVar&lt;/a&gt;</td>
 <td style="text-align: left;">Kostra</td>
 <td style="text-align: left;">Aggregated comparison of two numerical variables</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Calculating aggregated values for two numerical variables, useful for comparison of the variables</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/validate/man/confront.html" style="     " target="_blank">confront</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/validate/man/confront.html" style=" " target="_blank" &gt;confront&lt;/a&gt;</td>
 <td style="text-align: left;">validate</td>
 <td style="text-align: left;">Confront data with a (set of) expressionset(s)</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">An expressionset is a general class storing rich expressions (basically expressions and some meta data) which we call 'rules'. Examples of expressionset implementations are 'validator' objects, storing validation rules and 'indicator' objects, storing data quality indicators. The 'confront' function evaluates the expressions one by one on a dataset while recording some process meta data. All results are stored in a (subclass of a) 'confrontation' object.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/Diff2NumVar.html" style="     " target="_blank">Diff2NumVar</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/github/statisticsnorway/Kostra/man/Diff2NumVar.html" style=" " target="_blank" &gt;Diff2NumVar&lt;/a&gt;</td>
 <td style="text-align: left;">Kostra</td>
 <td style="text-align: left;">Difference between two numerical variables</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Calculating the difference between two numerical variables Listing units with big difference, either the k units with the biggest absolute difference, or units with a absolute difference greater than a threshold Only units with value on both variables are used in the calculations</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://statisticsnorway.github.io/struktuR/reference/get_extremes.html" style="     " target="_blank">get_extremes</a></td>
+<td style="text-align: left;">&lt;a href="https://statisticsnorway.github.io/struktuR/reference/get_extremes.html" style=" " target="_blank" &gt;get_extremes&lt;/a&gt;</td>
 <td style="text-align: left;">struktuR</td>
 <td style="text-align: left;">Get extreme values Get extreme values in the sample dataset</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Get extreme values Get extreme values in the sample dataset</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/Hb.html" style="     " target="_blank">Hb</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/github/statisticsnorway/Kostra/man/Hb.html" style=" " target="_blank" &gt;Hb&lt;/a&gt;</td>
 <td style="text-align: left;">Kostra</td>
 <td style="text-align: left;">Detection of outliers using the Hidiroglou-Berthelot (HB) method</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Detects possible outliers of a variable in period t by comparing it with revised values from period t-1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/LmImpute.html" style="     " target="_blank">LmImpute</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/github/statisticsnorway/Kostra/man/LmImpute.html" style=" " target="_blank" &gt;LmImpute&lt;/a&gt;</td>
 <td style="text-align: left;">Kostra</td>
 <td style="text-align: left;">INTERNAL FUNCTION: Regeression imputation.</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Imputation by weighted regeression, using lm, allowing multiple explanatory variables and multiple response variables. Impute missing and wrong values (category 3) by the model based on representative data (category 1). Some data are considered correct but not representative (category 2).</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/OutlierRegression.html" style="     " target="_blank">OutlierRegressionMicro</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/github/statisticsnorway/Kostra/man/OutlierRegression.html" style=" " target="_blank" &gt;OutlierRegressionMicro&lt;/a&gt;</td>
 <td style="text-align: left;">Kostra</td>
 <td style="text-align: left;">Finding outliers of a sigle variable (y) by a regression model</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">outliers are found by using a limit for studentized residuals.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/Quartile.html" style="     " target="_blank">Quartile</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/github/statisticsnorway/Kostra/man/Quartile.html" style=" " target="_blank" &gt;Quartile&lt;/a&gt;</td>
 <td style="text-align: left;">Kostra</td>
 <td style="text-align: left;">Detection of outliers using quartiles and by comparing with other</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Detection of outliers using quartiles and by comparing with other data in same or previous period.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/Rank2NumVar.html" style="     " target="_blank">Rank2NumVar</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/github/statisticsnorway/Kostra/man/Rank2NumVar.html" style=" " target="_blank" &gt;Rank2NumVar&lt;/a&gt;</td>
 <td style="text-align: left;">Kostra</td>
 <td style="text-align: left;">Comparing the biggest units with respect to two numerical</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Calculating rank and share for two numerical variables, and the ratio between the variables Listing big units, either the k biggest units or units with value greater than a threshold</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/ThError.html" style="     " target="_blank">ThError</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/github/statisticsnorway/Kostra/man/ThError.html" style=" " target="_blank" &gt;ThError&lt;/a&gt;</td>
 <td style="text-align: left;">Kostra</td>
 <td style="text-align: left;">Detection of 1000-error</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Detects units with possible 1000-error by comparing values in period t with revised values from period t-1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/validate/man/validator.html" style="     " target="_blank">validator</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/validate/man/validator.html" style=" " target="_blank" &gt;validator&lt;/a&gt;</td>
 <td style="text-align: left;">validate</td>
 <td style="text-align: left;">Define validation rules for data</td>
 <td style="text-align: left;">r</td>
@@ -310,9 +323,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
@@ -325,77 +340,63 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/simputation/man/impute_hotdeck.html" style="     " target="_blank">impute_knn</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/simputation/man/impute_hotdeck.html" style=" " target="_blank" &gt;impute_knn&lt;/a&gt;</td>
 <td style="text-align: left;">simputation</td>
 <td style="text-align: left;">Hot deck imputation</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Hot-deck imputation methods include random and sequential hot deck, k-nearest neighbours imputation and predictive mean matching.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/simputation/man/impute_hotdeck.html" style="     " target="_blank">impute_pmm</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/simputation/man/impute_hotdeck.html" style=" " target="_blank" &gt;impute_pmm&lt;/a&gt;</td>
 <td style="text-align: left;">simputation</td>
 <td style="text-align: left;">Hot deck imputation</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Hot-deck imputation methods include random and sequential hot deck, k-nearest neighbours imputation and predictive mean matching.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/simputation/man/impute_proxy.html" style="     " target="_blank">impute_proxy</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/simputation/man/impute_proxy.html" style=" " target="_blank" &gt;impute_proxy&lt;/a&gt;</td>
 <td style="text-align: left;">simputation</td>
 <td style="text-align: left;">Impute by variable derivation</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Impute missing values by a constant, by copying another variable computing transformations from other variables.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/simputation/man/impute_hotdeck.html" style="     " target="_blank">impute_rhd</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/simputation/man/impute_hotdeck.html" style=" " target="_blank" &gt;impute_rhd&lt;/a&gt;</td>
 <td style="text-align: left;">simputation</td>
 <td style="text-align: left;">Hot deck imputation</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Hot-deck imputation methods include random and sequential hot deck, k-nearest neighbours imputation and predictive mean matching.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/r/stats/lm.html" style="     " target="_blank">lm</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/r/stats/lm.html" style=" " target="_blank" &gt;lm&lt;/a&gt;</td>
 <td style="text-align: left;">stats</td>
 <td style="text-align: left;">Fitting Linear Models</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">'lm' is used to fit linear models, including multivariate ones. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance (although 'aov' may provide a more convenient interface for these).</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/LmImpute.html" style="     " target="_blank">LmImpute</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/github/statisticsnorway/Kostra/man/LmImpute.html" style=" " target="_blank" &gt;LmImpute&lt;/a&gt;</td>
 <td style="text-align: left;">Kostra</td>
 <td style="text-align: left;">INTERNAL FUNCTION: Regeression imputation.</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Imputation by weighted regeression, using lm, allowing multiple explanatory variables and multiple response variables. Impute missing and wrong values (category 3) by the model based on representative data (category 1). Some data are considered correct but not representative (category 2).</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/dcmodify/man/modifier.html" style="     " target="_blank">modifier</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/dcmodify/man/modifier.html" style=" " target="_blank" &gt;modifier&lt;/a&gt;</td>
 <td style="text-align: left;">dcmodify</td>
 <td style="text-align: left;">Create or read a set of data modification rules</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Create or read a set of data modification rules</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html" style="     " target="_blank">OLS</a></td>
+<td style="text-align: left;">&lt;a href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html" style=" " target="_blank" &gt;OLS&lt;/a&gt;</td>
 <td style="text-align: left;">statsmodels.regression.linear_model</td>
 <td style="text-align: left;">Ordinary Least Squares</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Convert a collection of text documents to a matrix of token counts.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html" style="     " target="_blank">OLS</a></td>
-<td style="text-align: left;">statsmodels.regression.linear_model</td>
-<td style="text-align: left;">Ordinary Least Squares</td>
-<td style="text-align: left;">r</td>
-<td style="text-align: left;">Convert a collection of text documents to a matrix of token counts.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC" style="     " target="_blank">SVC</a></td>
-<td style="text-align: left;">sklearn.svm</td>
-<td style="text-align: left;">C-Support Vector Classification.</td>
-<td style="text-align: left;">r</td>
-<td style="text-align: left;">The implementation is based on libsvm. The fit time scales at least quadratically with the number of samples and may be impractical beyond tens of thousands of samples.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC" style="     " target="_blank">SVC</a></td>
+<td style="text-align: left;">&lt;a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC" style=" " target="_blank" &gt;SVC&lt;/a&gt;</td>
 <td style="text-align: left;">sklearn.svm</td>
 <td style="text-align: left;">C-Support Vector Classification.</td>
 <td style="text-align: left;">r</td>
@@ -405,6 +406,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 
 
+</div>
 </div>
 </div>
 </div>
@@ -414,6 +416,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
@@ -426,35 +429,35 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/CalibrateSSB/man/CalibrateSSB.html" style="     " target="_blank">CalibrateSSB</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/CalibrateSSB/man/CalibrateSSB.html" style=" " target="_blank" &gt;CalibrateSSB&lt;/a&gt;</td>
 <td style="text-align: left;">CalibrateSSB</td>
 <td style="text-align: left;">Calibration weighting and estimation</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Compute weights by calibration and corresponding estimates, totals and residuals</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html" style="     " target="_blank">OLS</a></td>
+<td style="text-align: left;">&lt;a href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html" style=" " target="_blank" &gt;OLS&lt;/a&gt;</td>
 <td style="text-align: left;">statsmodels.regression.linear_model</td>
 <td style="text-align: left;">Ordinary Least Squares</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Convert a collection of text documents to a matrix of token counts.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/CalibrateSSB/man/PanelEstimation.html" style="     " target="_blank">PanelEstimation</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/CalibrateSSB/man/PanelEstimation.html" style=" " target="_blank" &gt;PanelEstimation&lt;/a&gt;</td>
 <td style="text-align: left;">CalibrateSSB</td>
 <td style="text-align: left;">Variance estimation for panel data</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Variance estimation of linear combinations of totals and ratios based on output from wideFromCalibrate</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/SSBtools/man/quantile_weighted.html" style="     " target="_blank">quantile_weighted</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/SSBtools/man/quantile_weighted.html" style=" " target="_blank" &gt;quantile_weighted&lt;/a&gt;</td>
 <td style="text-align: left;">SSBtools</td>
 <td style="text-align: left;">Weighted quantiles</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">The default method ('type=2') corresponds to weighted percentiles in SAS.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://statisticsnorway.github.io/struktuR/reference/struktur_model.html" style="     " target="_blank">struktur_model</a></td>
+<td style="text-align: left;">&lt;a href="https://statisticsnorway.github.io/struktuR/reference/struktur_model.html" style=" " target="_blank" &gt;struktur_model&lt;/a&gt;</td>
 <td style="text-align: left;">struktuR</td>
 <td style="text-align: left;">Run a struktur model</td>
 <td style="text-align: left;">r</td>
@@ -464,6 +467,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 
 
+</div>
 </div>
 </div>
 </div>
@@ -481,11 +485,9 @@ ul.task-list li input[type="checkbox"] {
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><em>6.1 Utarbeid produktutkast</em></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><em>6.2 Kvalitetssikre produkter</em></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false"><em>6.3 Tolke og forklarer produkter</em></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false"><em>6.4 Gjennomføre avslørings kontroll</em></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false"><em>6.5 Ferdigstille produkter</em></a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>Ingen funksjoner enda.</p>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
@@ -498,7 +500,79 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/SSBtools/man/model_aggregate.html" style="     " target="_blank">model_aggregate</a></td>
+<td style="text-align: left;">&lt;a href="https://github.com/statisticsnorway/pickmdl/blob/main/man/konstruksjon.Rd" style=" " target="_blank" &gt;konstruksjon&lt;/a&gt;</td>
+<td style="text-align: left;">pickmdl</td>
+<td style="text-align: left;">Lage faktorer for kalendereffekter</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Fleksibel funksjon som lager ulike kalendervariable, som f.eks. TD-, WD- og påskevariable, tilpasset norske forhold.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/RJDemetra/man/x13.html" style=" " target="_blank" &gt;x13&lt;/a&gt;</td>
+<td style="text-align: left;">RJDemetra</td>
+<td style="text-align: left;">Seasonal Adjustment with X13-ARIMA</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Functions to estimate the seasonally adjusted series (sa) with the X13-ARIMA method. This is achieved by decomposing the time series (y) into the trend-cycle (t), the seasonal component (s) and the irregular component (i). The final seasonally adjusted series shall be free of seasonal and calendar-related movements. x13 returns a preformatted result while jx13 returns the Java objects resulting from the seasonal adjustment.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&lt;a href="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_pickmdl.Rd" style=" " target="_blank" &gt;x13_automdl&lt;/a&gt;</td>
+<td style="text-align: left;">pickmdl</td>
+<td style="text-align: left;">x13 with PICKMDL and partial concurrent possibilities</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">x13 can be run as usual (automdl) or with a PICKMDL specification. The ARIMA model, outliers and filters can be identified at a certain date and then held fixed (with a new outlier-span).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;a href="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_both.Rd" style=" " target="_blank" &gt;x13_both&lt;/a&gt;</td>
+<td style="text-align: left;">pickmdl</td>
+<td style="text-align: left;">x13_spec and x13_pickmdl wrapped as a single function</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Output is determined by the parameter: both_output.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&lt;a href="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_pickmdl.Rd" style=" " target="_blank" &gt;x13_pickmdl&lt;/a&gt;</td>
+<td style="text-align: left;">pickmdl</td>
+<td style="text-align: left;">x13 with PICKMDL and partial concurrent possibilities</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">x13 can be run as usual (automdl) or with a PICKMDL specification. The ARIMA model, outliers and filters can be identified at a certain date and then held fixed (with a new outlier-span).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/RJDemetra/man/x13_spec.html" style=" " target="_blank" &gt;x13_spec&lt;/a&gt;</td>
+<td style="text-align: left;">RJDemetra</td>
+<td style="text-align: left;">X-13ARIMA model specification, SA/X13</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Function to create (and/or modify) a c("SA_spec", "X13") class object with the SA model specification for the X13 method. It can be done from a pre-defined "JDemetra+" model specification (a character), a previous specification (c("SA_spec", "X13") object) or a seasonal adjustment model (c("SA", "X13") object).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&lt;a href="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_text_frame.Rd" style=" " target="_blank" &gt;x13_text_frame&lt;/a&gt;</td>
+<td style="text-align: left;">pickmdl</td>
+<td style="text-align: left;">Multiple x13_both runs with code input from a data frame</td>
+<td style="text-align: left;">r</td>
+<td style="text-align: left;">Gjør det mulig med sesongjustering av mange serier basert på parametere i en data.frame (f.eks lest inn fra en excel-fil).</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Funksjon</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Pakke</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Navn</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Språk</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Beskrivelse</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/SSBtools/man/model_aggregate.html" style=" " target="_blank" &gt;model_aggregate&lt;/a&gt;</td>
 <td style="text-align: left;">SSBtools</td>
 <td style="text-align: left;">Hierarchical aggregation via model specification</td>
 <td style="text-align: left;">r</td>
@@ -511,12 +585,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>Ingen funksjoner enda.</p>
 </div>
 <div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
 <div class="cell">
 <div class="cell-output-display">
+<div>
 <table class="table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
@@ -529,77 +605,77 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/GaussSuppression/man/GaussSuppressDec.html" style="     " target="_blank">GaussSuppressDec</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/GaussSuppression/man/GaussSuppressDec.html" style=" " target="_blank" &gt;GaussSuppressDec&lt;/a&gt;</td>
 <td style="text-align: left;">GaussSuppression</td>
 <td style="text-align: left;">Cell suppression with synthetic decimal numbers</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">'GaussSuppressionFromData' is run and decimal numbers are added to output by a modified (for sparse matrix efficiency) version of 'SuppressDec'.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/GaussSuppression/man/GaussSuppressionFromData.html" style="     " target="_blank">GaussSuppressionFromData</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/GaussSuppression/man/GaussSuppressionFromData.html" style=" " target="_blank" &gt;GaussSuppressionFromData&lt;/a&gt;</td>
 <td style="text-align: left;">GaussSuppression</td>
 <td style="text-align: left;">Cell suppression from input data containing inner cells</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Aggregates are generated followed by primary suppression followed by secondary suppression by Gaussian elimination by 'GaussSuppression'</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/SmallCountRounding/man/PLSrounding.html" style="     " target="_blank">PLSroundingPublish</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/SmallCountRounding/man/PLSrounding.html" style=" " target="_blank" &gt;PLSroundingPublish&lt;/a&gt;</td>
 <td style="text-align: left;">SmallCountRounding</td>
 <td style="text-align: left;">PLS inspired rounding</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Small count rounding of necessary inner cells are performed so that all small frequencies of cross-classifications to be published (publishable cells) are rounded. The publishable cells can be defined from a model formula, hierarchies or automatically from data.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/ProtectKostra.html" style="     " target="_blank">ProtectKostra</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/github/statisticsnorway/Kostra/man/ProtectKostra.html" style=" " target="_blank" &gt;ProtectKostra&lt;/a&gt;</td>
 <td style="text-align: left;">Kostra</td>
 <td style="text-align: left;">Table suppression according to a frequency rule following the</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Table suppression according to a frequency rule following the standards in the Kostra project.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/easySdcTable/man/ProtectTable.html" style="     " target="_blank">ProtectTableData</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/easySdcTable/man/ProtectTable.html" style=" " target="_blank" &gt;ProtectTableData&lt;/a&gt;</td>
 <td style="text-align: left;">easySdcTable</td>
 <td style="text-align: left;">Easy interface to sdcTable: Table suppression according to a</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">'GaussSuppression', 'protectTable' or 'protect_linked_tables' is run with a data set as the only required input. One (stacked) or several (unstacked) input variables can hold cell counts. 'ProtectTableData' is a tidy wrapper function, which returns a single data frame instead of a list ('info' omitted).</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://statisticsnorway.github.io/SdcForetakPerson/reference/SdcForetakPerson.html" style="     " target="_blank">SdcForetakPerson</a></td>
+<td style="text-align: left;">&lt;a href="https://statisticsnorway.github.io/SdcForetakPerson/reference/SdcForetakPerson.html" style=" " target="_blank" &gt;SdcForetakPerson&lt;/a&gt;</td>
 <td style="text-align: left;">SdcForetakPerson</td>
 <td style="text-align: left;">Prikking av foretak og avrunding eller prikking av personer</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Prikking av foretak og avrunding eller prikking av personer. Sett parameteren 'allowTotal' til 'TRUE' for at kategorier innen ('within') foretak skal prikkes samtidig som totalverdier over disse grupperingene tillates publisert.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressDominantCells.html" style="     " target="_blank">SuppressDominantCells</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/GaussSuppression/man/SuppressDominantCells.html" style=" " target="_blank" &gt;SuppressDominantCells&lt;/a&gt;</td>
 <td style="text-align: left;">GaussSuppression</td>
 <td style="text-align: left;">Suppress volume tables using dominant cell primary suppression.</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Suppress volume tables using dominant cell primary suppression.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressFewContributors.html" style="     " target="_blank">SuppressFewContributors</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/GaussSuppression/man/SuppressFewContributors.html" style=" " target="_blank" &gt;SuppressFewContributors&lt;/a&gt;</td>
 <td style="text-align: left;">GaussSuppression</td>
 <td style="text-align: left;">Few contributors suppression</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">This function provides functionality for suppressing volume tables based on the few contributors rule ('NContributorsRule').</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressionFromDecimals.html" style="     " target="_blank">SuppressionFromDecimals</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/GaussSuppression/man/SuppressionFromDecimals.html" style=" " target="_blank" &gt;SuppressionFromDecimals&lt;/a&gt;</td>
 <td style="text-align: left;">GaussSuppression</td>
 <td style="text-align: left;">Cell suppression from synthetic decimal numbers</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">Decimal numbers, as calculated by 'GaussSuppressDec', are used to decide suppression (whole numbers or not). Technically, the calculations are done via 'GaussSuppressionFromData', but without running 'GaussSuppression'. All suppressed cells are primary suppressed.</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressKDisclosure.html" style="     " target="_blank">SuppressKDisclosure</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/GaussSuppression/man/SuppressKDisclosure.html" style=" " target="_blank" &gt;SuppressKDisclosure&lt;/a&gt;</td>
 <td style="text-align: left;">GaussSuppression</td>
 <td style="text-align: left;">K-disclosure suppression</td>
 <td style="text-align: left;">r</td>
 <td style="text-align: left;">A function for suppressing frequency tables using the k-disclosure method.</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressSmallCounts.html" style="     " target="_blank">SuppressSmallCounts</a></td>
+<td style="text-align: left;">&lt;a href="https://rdrr.io/cran/GaussSuppression/man/SuppressSmallCounts.html" style=" " target="_blank" &gt;SuppressSmallCounts&lt;/a&gt;</td>
 <td style="text-align: left;">GaussSuppression</td>
 <td style="text-align: left;">Small count frequency table suppression.</td>
 <td style="text-align: left;">r</td>
@@ -609,6 +685,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 
 
+</div>
 </div>
 </div>
 </div>
@@ -709,10 +786,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/statisticsnorway\.github\.io\/metodebiblioteket\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -722,8 +816,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -735,7 +838,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -779,6 +1005,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -804,6 +1031,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -864,6 +1117,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

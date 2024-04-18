@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -78,7 +78,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -87,6 +93,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -94,7 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
 <link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
-
 <script type="ojs-define">
 {"contents":[{"name":"my_ojs_data","value":"[{\"func\":\"GaussSuppressDec\",\"pack\":\"GaussSuppression\",\"navn\":\"Cell suppression with synthetic decimal numbers\",\"description\":\"'GaussSuppressionFromData' is run and decimal numbers are added to output by a modified (for sparse matrix efficiency) version of 'SuppressDec'.\",\"keyword\":\"r konfidensialitet undertrykking 6.4\",\"url\":\"https://rdrr.io/cran/GaussSuppression/man/GaussSuppressDec.html\",\"pack_url\":\"https://cran.r-project.org/web/packages/GaussSuppression/index.html\",\"språk\":\"r\",\"func_link\":\"GaussSuppressDec;https://rdrr.io/cran/GaussSuppression/man/GaussSuppressDec.html\",\"pack_link\":\"GaussSuppression;https://cran.r-project.org/web/packages/GaussSuppression/index.html\"},{\"func\":\"GaussSuppressionFromData\",\"pack\":\"GaussSuppression\",\"navn\":\"Cell suppression from input data containing inner cells\",\"description\":\"Aggregates are generated followed by primary suppression followed by secondary suppression by Gaussian elimination by 'GaussSuppression'\",\"keyword\":\"r konfidensialitet undertrykking 6.4\",\"url\":\"https://rdrr.io/cran/GaussSuppression/man/GaussSuppressionFromData.html\",\"pack_url\":\"https://cran.r-project.org/web/packages/GaussSuppression/index.html\",\"språk\":\"r\",\"func_link\":\"GaussSuppressionFromData;https://rdrr.io/cran/GaussSuppression/man/GaussSuppressionFromData.html\",\"pack_link\":\"GaussSuppression;https://cran.r-project.org/web/packages/GaussSuppression/index.html\"},{\"func\":\"PLSroundingPublish\",\"pack\":\"SmallCountRounding\",\"navn\":\"PLS inspired rounding\",\"description\":\"Small count rounding of necessary inner cells are performed so that all small frequencies of cross-classifications to be published (publishable cells) are rounded. The publishable cells can be defined from a model formula, hierarchies or automatically from data.\",\"keyword\":\"r konfidensialitet avrunding 6.4\",\"url\":\"https://rdrr.io/cran/SmallCountRounding/man/PLSrounding.html\",\"pack_url\":\"https://cran.r-project.org/web/packages/SmallCountRounding/index.html\",\"språk\":\"r\",\"func_link\":\"PLSroundingPublish;https://rdrr.io/cran/SmallCountRounding/man/PLSrounding.html\",\"pack_link\":\"SmallCountRounding;https://cran.r-project.org/web/packages/SmallCountRounding/index.html\"},{\"func\":\"ProtectKostra\",\"pack\":\"Kostra\",\"navn\":\"Table suppression according to a frequency rule following the\",\"description\":\"Table suppression according to a frequency rule following the standards in the Kostra project.\",\"keyword\":\"r konfidensialitet undertrykking 6.4\",\"url\":\"https://rdrr.io/github/statisticsnorway/Kostra/man/ProtectKostra.html\",\"pack_url\":\"https://github.com/statisticsnorway/Kostra/\",\"språk\":\"r\",\"func_link\":\"ProtectKostra;https://rdrr.io/github/statisticsnorway/Kostra/man/ProtectKostra.html\",\"pack_link\":\"Kostra;https://github.com/statisticsnorway/Kostra/\"},{\"func\":\"ProtectTableData\",\"pack\":\"easySdcTable\",\"navn\":\"Easy interface to sdcTable: Table suppression according to a\",\"description\":\"'GaussSuppression', 'protectTable' or 'protect_linked_tables' is run with a data set as the only required input. One (stacked) or several (unstacked) input variables can hold cell counts. 'ProtectTableData' is a tidy wrapper function, which returns a single data frame instead of a list ('info' omitted).\",\"keyword\":\"r konfidensialitet undertrykking 6.4\",\"url\":\"https://rdrr.io/cran/easySdcTable/man/ProtectTable.html\",\"pack_url\":\"https://cran.r-project.org/web/packages/easySdcTable/index.html\",\"språk\":\"r\",\"func_link\":\"ProtectTableData;https://rdrr.io/cran/easySdcTable/man/ProtectTable.html\",\"pack_link\":\"easySdcTable;https://cran.r-project.org/web/packages/easySdcTable/index.html\"},{\"func\":\"SdcForetakPerson\",\"pack\":\"SdcForetakPerson\",\"navn\":\"Prikking av foretak og avrunding eller prikking av personer\",\"description\":\"Prikking av foretak og avrunding eller prikking av personer. Sett parameteren 'allowTotal' til 'TRUE' for at kategorier innen ('within') foretak skal prikkes samtidig som totalverdier over disse grupperingene tillates publisert.\",\"keyword\":\"r konfidensialitet undertrykking avrunding 6.4\",\"url\":\"https://statisticsnorway.github.io/SdcForetakPerson/reference/SdcForetakPerson.html\",\"pack_url\":\"https://statisticsnorway.github.io/SdcForetakPerson/\",\"språk\":\"r\",\"func_link\":\"SdcForetakPerson;https://statisticsnorway.github.io/SdcForetakPerson/reference/SdcForetakPerson.html\",\"pack_link\":\"SdcForetakPerson;https://statisticsnorway.github.io/SdcForetakPerson/\"},{\"func\":\"SuppressDominantCells\",\"pack\":\"GaussSuppression\",\"navn\":\"Suppress volume tables using dominant cell primary suppression.\",\"description\":\"Suppress volume tables using dominant cell primary suppression.\",\"keyword\":\"r konfidensialitet undertrykking 6.4\",\"url\":\"https://rdrr.io/cran/GaussSuppression/man/SuppressDominantCells.html\",\"pack_url\":\"https://cran.r-project.org/web/packages/GaussSuppression/index.html\",\"språk\":\"r\",\"func_link\":\"SuppressDominantCells;https://rdrr.io/cran/GaussSuppression/man/SuppressDominantCells.html\",\"pack_link\":\"GaussSuppression;https://cran.r-project.org/web/packages/GaussSuppression/index.html\"},{\"func\":\"SuppressFewContributors\",\"pack\":\"GaussSuppression\",\"navn\":\"Few contributors suppression\",\"description\":\"This function provides functionality for suppressing volume tables based on the few contributors rule ('NContributorsRule').\",\"keyword\":\"r konfidensialitet undertrykking 6.4\",\"url\":\"https://rdrr.io/cran/GaussSuppression/man/SuppressFewContributors.html\",\"pack_url\":\"https://cran.r-project.org/web/packages/GaussSuppression/index.html\",\"språk\":\"r\",\"func_link\":\"SuppressFewContributors;https://rdrr.io/cran/GaussSuppression/man/SuppressFewContributors.html\",\"pack_link\":\"GaussSuppression;https://cran.r-project.org/web/packages/GaussSuppression/index.html\"},{\"func\":\"SuppressionFromDecimals\",\"pack\":\"GaussSuppression\",\"navn\":\"Cell suppression from synthetic decimal numbers\",\"description\":\"Decimal numbers, as calculated by 'GaussSuppressDec', are used to decide suppression (whole numbers or not). Technically, the calculations are done via 'GaussSuppressionFromData', but without running 'GaussSuppression'. All suppressed cells are primary suppressed.\",\"keyword\":\"r konfidensialitet undertrykking 6.4\",\"url\":\"https://rdrr.io/cran/GaussSuppression/man/SuppressionFromDecimals.html\",\"pack_url\":\"https://cran.r-project.org/web/packages/GaussSuppression/index.html\",\"språk\":\"r\",\"func_link\":\"SuppressionFromDecimals;https://rdrr.io/cran/GaussSuppression/man/SuppressionFromDecimals.html\",\"pack_link\":\"GaussSuppression;https://cran.r-project.org/web/packages/GaussSuppression/index.html\"},{\"func\":\"SuppressKDisclosure\",\"pack\":\"GaussSuppression\",\"navn\":\"K-disclosure suppression\",\"description\":\"A function for suppressing frequency tables using the k-disclosure method.\",\"keyword\":\"r konfidensialitet undertrykking 6.4\",\"url\":\"https://rdrr.io/cran/GaussSuppression/man/SuppressKDisclosure.html\",\"pack_url\":\"https://cran.r-project.org/web/packages/GaussSuppression/index.html\",\"språk\":\"r\",\"func_link\":\"SuppressKDisclosure;https://rdrr.io/cran/GaussSuppression/man/SuppressKDisclosure.html\",\"pack_link\":\"GaussSuppression;https://cran.r-project.org/web/packages/GaussSuppression/index.html\"},{\"func\":\"SuppressSmallCounts\",\"pack\":\"GaussSuppression\",\"navn\":\"Small count frequency table suppression.\",\"description\":\"This is a wrapper function of 'GaussSuppressionFromData' for small count frequency suppression. For common applications, the 'spec' parameter can be adjusted, see 'PackageSpecs' for more information. See Details for more information on function call customization.\",\"keyword\":\"r konfidensialitet undertrykking 6.4\",\"url\":\"https://rdrr.io/cran/GaussSuppression/man/SuppressSmallCounts.html\",\"pack_url\":\"https://cran.r-project.org/web/packages/GaussSuppression/index.html\",\"språk\":\"r\",\"func_link\":\"SuppressSmallCounts;https://rdrr.io/cran/GaussSuppression/man/SuppressSmallCounts.html\",\"pack_link\":\"GaussSuppression;https://cran.r-project.org/web/packages/GaussSuppression/index.html\"}]"}]}
 </script>
@@ -106,9 +112,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a href="index.html" class="navbar-brand navbar-brand-logo">
     <img src="./pictures/logo_kule.jpg" alt="" class="navbar-logo">
     </a>
@@ -123,47 +129,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./catalog.html" rel="" target="">
- <span class="menu-text">Katalog</span></a>
+    <a class="nav-link" href="./catalog.html"> 
+<span class="menu-text">Katalog</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-metodeområde" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-metodeområde" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Metodeområde</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-metodeområde">    
         <li>
-    <a class="dropdown-item" href="./catalogue_edit.html" rel="" target="">
+    <a class="dropdown-item" href="./catalogue_edit.html">
  <span class="dropdown-text">Dataeditering</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./catalogue_conf.html" rel="" target="">
+    <a class="dropdown-item" href="./catalogue_conf.html">
  <span class="dropdown-text">Konfidensialitet</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./catalogue_sesong.html">
+ <span class="dropdown-text">Sesongjustering og tidsserieanalyse</span></a>
   </li>  
     </ul>
   </li>
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bi-github" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-bi-github">    
         <li>
-    <a class="dropdown-item" href="https://github.com/statisticsnorway/metodebibliotek" rel="" target="">
+    <a class="dropdown-item" href="https://github.com/statisticsnorway/metodebibliotek">
  <span class="dropdown-text">Source Code</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://github.com/statisticsnorway/metodebibliotek/issues" rel="" target="">
+    <a class="dropdown-item" href="https://github.com/statisticsnorway/metodebibliotek/issues">
  <span class="dropdown-text">Report a Bug</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-            <div class="quarto-navbar-tools">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -182,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -190,7 +200,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
+
 
 <p>Statistikkloven <a href="https://lovdata.no/lov/2019-06-21-32/§7">§ 7. Statistisk konfidensialitet ved formidling av offisiell statistikk</a> pålegger at vi ikke publiserer statistikk slik at statistisk informasjon kan føres tilbake til enkeltpersoner eller andre typer statistiske enheter. Hvis dette likevel skjer sier vi at det har funnet sted en avsløring.</p>
 <p>Hvis hensynet til oppbyggingen av statistikken krever det, kan det i noen tilfeller gjøres unntak. Slik publisering må ikke være til skade for de statistiske enhetene som inngår i statistikken.</p>
@@ -333,9 +345,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </main> <!-- /main -->
-
 <script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"// Read in data\ntestdata = JSON.parse(my_ojs_data)\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"\nviewof tema = Inputs.radio( [\"undertrykking\", \"avrunding\", \"støylegging\"],\n  {label: \"Metodeområde: \", value: \"undertrykking\"}\n)\n\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"// Filter data based on check boxes\nfiltered = testdata.filter(r=> r.keyword.includes(tema));\n\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"\n// Function for formatting long descriptions\nfunction overflow_large(words) {\n  return (x) => htl.html`<div style=\"\n    display: inline-block;\n    width: 450px;\n    white-space: pre-line;\n    break-text: auto;\n    overflow-wrap: normal;\n    height: auto;\n    word-wrap: break-word;\n    overflow: auto;\n\">${x.toLocaleString(\"en\")}`;\n}\n\n// Function for formatting names\nfunction overflow_names(words) {\n  return (x) => htl.html`<div style=\"\n    display: inline-block;\n    width: 250px;\n    white-space: pre-line;\n    break-text: auto;\n    overflow-wrap: normal;\n    height: auto;\n    word-wrap: break-word;\n    overflow: auto;\n\">${x.toLocaleString(\"en\")}`;\n}\n\n// Function for adding hyperlinks\nfunction get_url(new_url) {\n  return (x) => htl.html`<a href=${x.split(\";\")[1]} target=_blank>${x.split(\";\")[0]} </a>`;\n}\n\n"},{"methodName":"interpret","cellName":"ojs-cell-5","inline":false,"source":"viewof filter_dt = Inputs.search(filtered)\n\ntable_out = Inputs.table(filter_dt, { columns: [\n    \"func_link\",\n    \"pack\",\n    \"språk\",\n    \"navn\",\n    \"description\"\n  ],\n  header: {\n    func_link: \"Funksjon\",\n    pack_link: \"Pakke\",\n    språk: \"Språk\",\n    navn: \"Navn\",\n    description: \"Beskrivelse\"\n  },\n  format: {\n  func_link: get_url(\n      filter_dt, \n      (d) => d[\"func_lnk\"]\n      ),\n  pack_link: get_url(\n      filter_dt, \n      (d) => d[\"pack_lnk\"]\n      ),\n  navn: overflow_names(\n  filter_dt,\n    (x) => x[\"navn\"]\n      ),\n  description: overflow_large(\n      filter_dt,\n      (x) => x[\"description\"]\n      ),\n  },\n  rows: 100\n})\n\n"},{"methodName":"interpretQuiet","source":"shinyInput('tema')"},{"methodName":"interpretQuiet","source":"shinyInput('filter_dt')"}]}
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIFJlYWQgaW4gZGF0YVxudGVzdGRhdGEgPSBKU09OLnBhcnNlKG15X29qc19kYXRhKVxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0yIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG52aWV3b2YgdGVtYSA9IElucHV0cy5yYWRpbyggW1widW5kZXJ0cnlra2luZ1wiLCBcImF2cnVuZGluZ1wiLCBcInN0w7h5bGVnZ2luZ1wiXSxcbiAge2xhYmVsOiBcIk1ldG9kZW9tcsOlZGU6IFwiLCB2YWx1ZTogXCJ1bmRlcnRyeWtraW5nXCJ9XG4pXG5cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMyIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6Ii8vIEZpbHRlciBkYXRhIGJhc2VkIG9uIGNoZWNrIGJveGVzXG5maWx0ZXJlZCA9IHRlc3RkYXRhLmZpbHRlcihyPT4gci5rZXl3b3JkLmluY2x1ZGVzKHRlbWEpKTtcblxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC00IiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiXG4vLyBGdW5jdGlvbiBmb3IgZm9ybWF0dGluZyBsb25nIGRlc2NyaXB0aW9uc1xuZnVuY3Rpb24gb3ZlcmZsb3dfbGFyZ2Uod29yZHMpIHtcbiAgcmV0dXJuICh4KSA9PiBodGwuaHRtbGA8ZGl2IHN0eWxlPVwiXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgIHdpZHRoOiA0NTBweDtcbiAgICB3aGl0ZS1zcGFjZTogcHJlLWxpbmU7XG4gICAgYnJlYWstdGV4dDogYXV0bztcbiAgICBvdmVyZmxvdy13cmFwOiBub3JtYWw7XG4gICAgaGVpZ2h0OiBhdXRvO1xuICAgIHdvcmQtd3JhcDogYnJlYWstd29yZDtcbiAgICBvdmVyZmxvdzogYXV0bztcblwiPiR7eC50b0xvY2FsZVN0cmluZyhcImVuXCIpfWA7XG59XG5cbi8vIEZ1bmN0aW9uIGZvciBmb3JtYXR0aW5nIG5hbWVzXG5mdW5jdGlvbiBvdmVyZmxvd19uYW1lcyh3b3Jkcykge1xuICByZXR1cm4gKHgpID0+IGh0bC5odG1sYDxkaXYgc3R5bGU9XCJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gICAgd2lkdGg6IDI1MHB4O1xuICAgIHdoaXRlLXNwYWNlOiBwcmUtbGluZTtcbiAgICBicmVhay10ZXh0OiBhdXRvO1xuICAgIG92ZXJmbG93LXdyYXA6IG5vcm1hbDtcbiAgICBoZWlnaHQ6IGF1dG87XG4gICAgd29yZC13cmFwOiBicmVhay13b3JkO1xuICAgIG92ZXJmbG93OiBhdXRvO1xuXCI+JHt4LnRvTG9jYWxlU3RyaW5nKFwiZW5cIil9YDtcbn1cblxuLy8gRnVuY3Rpb24gZm9yIGFkZGluZyBoeXBlcmxpbmtzXG5mdW5jdGlvbiBnZXRfdXJsKG5ld191cmwpIHtcbiAgcmV0dXJuICh4KSA9PiBodGwuaHRtbGA8YSBocmVmPSR7eC5zcGxpdChcIjtcIilbMV19IHRhcmdldD1fYmxhbms+JHt4LnNwbGl0KFwiO1wiKVswXX0gPC9hPmA7XG59XG5cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtNSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBmaWx0ZXJfZHQgPSBJbnB1dHMuc2VhcmNoKGZpbHRlcmVkKVxuXG50YWJsZV9vdXQgPSBJbnB1dHMudGFibGUoZmlsdGVyX2R0LCB7IGNvbHVtbnM6IFtcbiAgICBcImZ1bmNfbGlua1wiLFxuICAgIFwicGFja1wiLFxuICAgIFwic3Byw6VrXCIsXG4gICAgXCJuYXZuXCIsXG4gICAgXCJkZXNjcmlwdGlvblwiXG4gIF0sXG4gIGhlYWRlcjoge1xuICAgIGZ1bmNfbGluazogXCJGdW5rc2pvblwiLFxuICAgIHBhY2tfbGluazogXCJQYWtrZVwiLFxuICAgIHNwcsOlazogXCJTcHLDpWtcIixcbiAgICBuYXZuOiBcIk5hdm5cIixcbiAgICBkZXNjcmlwdGlvbjogXCJCZXNrcml2ZWxzZVwiXG4gIH0sXG4gIGZvcm1hdDoge1xuICBmdW5jX2xpbms6IGdldF91cmwoXG4gICAgICBmaWx0ZXJfZHQsIFxuICAgICAgKGQpID0+IGRbXCJmdW5jX2xua1wiXVxuICAgICAgKSxcbiAgcGFja19saW5rOiBnZXRfdXJsKFxuICAgICAgZmlsdGVyX2R0LCBcbiAgICAgIChkKSA9PiBkW1wicGFja19sbmtcIl1cbiAgICAgICksXG4gIG5hdm46IG92ZXJmbG93X25hbWVzKFxuICBmaWx0ZXJfZHQsXG4gICAgKHgpID0+IHhbXCJuYXZuXCJdXG4gICAgICApLFxuICBkZXNjcmlwdGlvbjogb3ZlcmZsb3dfbGFyZ2UoXG4gICAgICBmaWx0ZXJfZHQsXG4gICAgICAoeCkgPT4geFtcImRlc2NyaXB0aW9uXCJdXG4gICAgICApLFxuICB9LFxuICByb3dzOiAxMDBcbn0pXG5cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgndGVtYScpIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdmaWx0ZXJfZHQnKSJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -424,10 +435,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/statisticsnorway\.github\.io\/metodebiblioteket\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -437,8 +465,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -450,7 +487,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -494,6 +654,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -519,6 +680,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -579,6 +766,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

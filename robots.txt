@@ -1,1 +1,1 @@
-Sitemap: https://github.com/statisticsnorway/metodebiblioteket/sitemap.xml
+Sitemap: https://statisticsnorway.github.io/metodebiblioteket/sitemap.xml

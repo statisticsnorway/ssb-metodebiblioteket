@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/statisticsnorway/metodebiblioteket/catalog.html</loc>
-    <lastmod>2023-11-08T12:19:37.274Z</lastmod>
+    <loc>https://statisticsnorway.github.io/metodebiblioteket/prosess.html</loc>
+    <lastmod>2024-04-18T05:52:15.679Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/statisticsnorway/metodebiblioteket/index.html</loc>
-    <lastmod>2023-11-08T12:19:35.806Z</lastmod>
+    <loc>https://statisticsnorway.github.io/metodebiblioteket/catalogue_sesong.html</loc>
+    <lastmod>2024-04-18T05:52:15.679Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/statisticsnorway/metodebiblioteket/catalogue_conf.html</loc>
-    <lastmod>2023-11-08T12:19:34.662Z</lastmod>
+    <loc>https://statisticsnorway.github.io/metodebiblioteket/catalog.html</loc>
+    <lastmod>2024-04-18T05:52:15.679Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/statisticsnorway/metodebiblioteket/catalogue_edit.html</loc>
-    <lastmod>2023-11-08T12:19:35.526Z</lastmod>
+    <loc>https://statisticsnorway.github.io/metodebiblioteket/catalogue_edit.html</loc>
+    <lastmod>2024-04-18T05:52:15.679Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/statisticsnorway/metodebiblioteket/prosess.html</loc>
-    <lastmod>2023-11-08T12:19:36.734Z</lastmod>
+    <loc>https://statisticsnorway.github.io/metodebiblioteket/catalogue_conf.html</loc>
+    <lastmod>2024-04-18T05:52:15.679Z</lastmod>
+  </url>
+  <url>
+    <loc>https://statisticsnorway.github.io/metodebiblioteket/index.html</loc>
+    <lastmod>2024-04-18T05:52:15.679Z</lastmod>
   </url>
 </urlset>
