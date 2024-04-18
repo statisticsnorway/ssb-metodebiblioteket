@@ -35,8 +35,8 @@ testdata = JSON.parse(my_ojs_data)
 //| panel: input
 
 
-viewof lang = Inputs.radio(new Map([["R", "r"], ["python", "python"]]),
-  {label: "Språk: ", value: "r"}
+viewof lang = Inputs.radio(new Map([["R", "rfunc"], ["python", "python"]]),
+  {label: "Språk: ", value: "rfunc"}
 )
 
 

@@ -26,6 +26,7 @@ dt <- dt[grepl("konfidensialitet", dt$keyword), ]
 
 # Add column for language
 dt["språk"] <- stringr::word(dt$keyword)[1]
+dt["språk"] <- ifelse(dt["språk"] == "rfunc", "R", "Python")
 
 # Add column for combination of function name and link
 dt["func_link"] <- str_trim(do.call(paste, c(dt[c("func", "url")], sep = ";")))
