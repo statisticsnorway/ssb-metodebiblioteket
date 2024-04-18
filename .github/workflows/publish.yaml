@@ -30,7 +30,7 @@ jobs:
             any::rmarkdown
             any::stringr
             any::dplyr
-            any::magritta
+            any::magrittr
             any::kableExtra
 
       - name: Render and Publish
