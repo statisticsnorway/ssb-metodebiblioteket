@@ -17,20 +17,44 @@ suppressMessages(library(knitr))
 suppressMessages(library(dplyr))
 suppressMessages(library(kableExtra))
 
-# Read in data
-dt <- read.csv("../data/katalogdata.csv")
+# Create main table
+create_table <- function(){
+  # Read in data
+  dt <- read.csv("../data/katalogdata.csv")
 
-# Add columns for language and new names
-dt["Språk"] <- stringr::word(dt$keyword)[1]
-dt["Språk"] <- ifelse(dt["Språk"] == "rfunc", "R", "Python")
+  # Add columns for language and new names
+  dt["Språk"] <- stringr::word(dt$keyword)[1]
+  dt["Språk"] <- ifelse(dt["Språk"] == "rfunc", "R", "Python")
+  
+  # Add column for combination of function name and link
+  dt$Funksjon <- sprintf('<a href="%s">%s</a>', dt$url, dt$func)
+  dt$Pakke <- sprintf('<a href="%s">%s</a>',dt$pack_url, dt$pack)
 
-dt$Funksjon = kableExtra::cell_spec(dt$func, link = dt$url, new_tab = T)
-dt$Pakke <- dt$pack
-dt$Navn <- dt$navn
-dt$Beskrivelse <- dt$description
+  dt$Navn <- dt$navn
+  dt$Beskrivelse <- dt$description
+  
+  # Select columns for table
+  dt <- dt[, c("Funksjon", "Pakke", "Navn", "Språk", "Beskrivelse", "keyword")]
+}
+dt <- create_table()
 
-# Select columns for table
-dt <- dt[, c("Funksjon", "Pakke", "Navn", "Språk", "Beskrivelse", "keyword")]
+# Function for filtering and formatting tables
+create_keyword_table <- function(dt, keywords){
+  matches <- sapply(keywords, function(k) grepl(k, dt$keyword, ignore.case = T))
+  
+  # Combine matches across keywords (any keyword matches)
+  row_matches <- rowSums(matches) > 0
+  
+  # Get table rows
+  dt_filtered <- dt[row_matches, -match("keyword", names(dt))]
+  
+  row.names(dt_filtered) <- NULL
+  
+  return(kable(dt_filtered, escape = F, allign="lllcl", format = "html") %>%
+    kable_styling() %>%
+    column_spec(1, extra_css = "white-space: nowrap;") %>%
+    column_spec(2, extra_css = "white-space: nowrap;"))
+}
 
 ```
 
@@ -67,21 +91,13 @@ Ingen funksjoner enda.
 ## *5.3 Kontrollere og validere*
 
 ```{r}
-# filter for dataediterings functions
-dt_kon <- dt[grepl("kontrollere", dt$keyword) | grepl("5.3", dt$keyword), -match("keyword", names(dt))]
-row.names(dt_kon) <- NULL
-kable(dt_kon, escape = F, allign="lllcl") %>%
-kable_styling()
+create_keyword_table(dt, c("kontrollere", "5.3"))
 ```
 
 
 ## *5.4 Editere og imputere*
 ```{r}
-# filter for dataediterings functions
-dt_kon <- dt[grepl("imputere", dt$keyword) | grepl("5.4", dt$keyword), -match("keyword", names(dt))]
-row.names(dt_kon) <- NULL
-kable(dt_kon, escape = F, allign="lllcl") %>%
-kable_styling()
+create_keyword_table(dt, c("imputere", "5.4"))
 ```
 
 ## *5.5 Avlede nye variabler*
@@ -89,11 +105,7 @@ Ingen funksjoner enda
 
 ## *5.6 Beregne vekter*
 ```{r}
-# filter for dataediterings functions
-dt_kon <- dt[grepl("vektberegning", dt$keyword) | grepl("5.6", dt$keyword), -match("keyword", names(dt))]
-row.names(dt_kon) <- NULL
-kable(dt_kon, escape = F, allign="lllcl") %>%
-kable_styling()
+create_keyword_table(dt, c("vektberegning", "5.6"))
 ```
 
 ## *5.7 Beregne aggregater*
@@ -108,21 +120,13 @@ Ingen funksjoner enda
 :::{.panel-tabset}
 ## *6.1 Utarbeid produktutkast*
 ```{r}
-# filter for dataediterings functions
-dt_sesong <- dt[grepl("6.1", dt$keyword), -match("keyword", names(dt))]
-row.names(dt_sesong) <- NULL
-kable(dt_sesong, escape = F, allign="lllcl") %>%
-kable_styling()
+create_keyword_table(dt, c("6.1"))
 ```
 
 
 ## *6.2 Kvalitetssikre produkter*
 ```{r}
-# filter for dataediterings functions
-dt_kon <- dt[grepl("6.2", dt$keyword), -match("keyword", names(dt))]
-row.names(dt_kon) <- NULL
-kable(dt_kon, escape = F, allign="lllcl") %>%
-kable_styling()
+create_keyword_table(dt, c("6.2"))
 ```
 
 ## *6.3 Tolke og forklarer produkter*
@@ -130,11 +134,7 @@ Ingen funksjoner enda.
 
 ## *6.4 Gjennomføre avslørings kontroll*
 ```{r}
-# filter for dataediterings functions
-dt_kon <- dt[grepl("6.4", dt$keyword), -match("keyword", names(dt))]
-row.names(dt_kon) <- NULL
-kable(dt_kon, escape = F, allign="lllcl") %>%
-kable_styling()
+create_keyword_table(dt, c("6.4"))
 ```
 
 ## *6.5 Ferdigstille produkter*
