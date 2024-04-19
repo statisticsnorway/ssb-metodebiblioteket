@@ -22,6 +22,8 @@ dt <- read.csv("../data/katalogdata.csv")
 
 # Add columns for language and new names
 dt["Språk"] <- stringr::word(dt$keyword)[1]
+dt["Språk"] <- ifelse(dt["Språk"] == "rfunc", "R", "Python")
+
 dt$Funksjon = kableExtra::cell_spec(dt$func, link = dt$url, new_tab = T)
 dt$Pakke <- dt$pack
 dt$Navn <- dt$navn
