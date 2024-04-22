@@ -247,11 +247,25 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">Calculating aggregated values for two numerical variables, useful for comparison of the variables</td>
 </tr>
 <tr class="even">
+<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/validate/man/confront.html">confront</a></td>
+<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/validate/index.html">validate</a></td>
+<td style="text-align: left;">Confront data with a (set of) expressionset(s)</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">An expressionset is a general class storing rich expressions (basically expressions and some meta data) which we call 'rules'. Examples of expressionset implementations are 'validator' objects, storing validation rules and 'indicator' objects, storing data quality indicators. The 'confront' function evaluates the expressions one by one on a dataset while recording some process meta data. All results are stored in a (subclass of a) 'confrontation' object.</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/Diff2NumVar.html">Diff2NumVar</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://github.com/statisticsnorway/Kostra/">Kostra</a></td>
 <td style="text-align: left;">Difference between two numerical variables</td>
 <td style="text-align: left;">R</td>
 <td style="text-align: left;">Calculating the difference between two numerical variables Listing units with big difference, either the k units with the biggest absolute difference, or units with a absolute difference greater than a threshold Only units with value on both variables are used in the calculations</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; white-space: nowrap;"><a href="https://statisticsnorway.github.io/struktuR/reference/get_extremes.html">get_extremes</a></td>
+<td style="text-align: left; white-space: nowrap;"><a href="https://statisticsnorway.github.io/struktuR/">struktuR</a></td>
+<td style="text-align: left;">Get extreme values Get extreme values in the sample dataset</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Get extreme values Get extreme values in the sample dataset</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/Hb.html">Hb</a></td>
@@ -296,20 +310,6 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">Detects units with possible 1000-error by comparing values in period t with revised values from period t-1</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/validate/man/confront.html">confront</a></td>
-<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/validate/index.html">validate</a></td>
-<td style="text-align: left;">Confront data with a (set of) expressionset(s)</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;">An expressionset is a general class storing rich expressions (basically expressions and some meta data) which we call 'rules'. Examples of expressionset implementations are 'validator' objects, storing validation rules and 'indicator' objects, storing data quality indicators. The 'confront' function evaluates the expressions one by one on a dataset while recording some process meta data. All results are stored in a (subclass of a) 'confrontation' object.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; white-space: nowrap;"><a href="https://statisticsnorway.github.io/struktuR/reference/get_extremes.html">get_extremes</a></td>
-<td style="text-align: left; white-space: nowrap;"><a href="https://statisticsnorway.github.io/struktuR/">struktuR</a></td>
-<td style="text-align: left;">Get extreme values Get extreme values in the sample dataset</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;">Get extreme values Get extreme values in the sample dataset</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/validate/man/validator.html">validator</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/validate/index.html">validate</a></td>
 <td style="text-align: left;">Define validation rules for data</td>
@@ -340,6 +340,34 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/simputation/man/impute_hotdeck.html">impute_knn</a></td>
+<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/simputation/index.html">simputation</a></td>
+<td style="text-align: left;">Hot deck imputation</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Hot-deck imputation methods include random and sequential hot deck, k-nearest neighbours imputation and predictive mean matching.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/simputation/man/impute_proxy.html">impute_proxy</a></td>
+<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/simputation/index.html">simputation</a></td>
+<td style="text-align: left;">Impute by variable derivation</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Impute missing values by a constant, by copying another variable computing transformations from other variables.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/simputation/man/impute_hotdeck.html">impute_rhd</a></td>
+<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/simputation/index.html">simputation</a></td>
+<td style="text-align: left;">Hot deck imputation</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Hot-deck imputation methods include random and sequential hot deck, k-nearest neighbours imputation and predictive mean matching.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; white-space: nowrap;"><a href="https://search.r-project.org/R/refmans/stats/html/lm.html">lm</a></td>
+<td style="text-align: left; white-space: nowrap;"><a href="https://search.r-project.org/R/refmans/stats/html/00Index.html">stats</a></td>
+<td style="text-align: left;">Fitting Linear Models</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">'lm' is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance (although aov may provide a more convenient interface for these).</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/github/statisticsnorway/Kostra/man/LmImpute.html">LmImpute</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://github.com/statisticsnorway/Kostra/">Kostra</a></td>
 <td style="text-align: left;">INTERNAL FUNCTION: Regeression imputation.</td>
@@ -347,53 +375,25 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">Imputation by weighted regeression, using lm, allowing multiple explanatory variables and multiple response variables. Impute missing and wrong values (category 3) by the model based on representative data (category 1). Some data are considered correct but not representative (category 2).</td>
 </tr>
 <tr class="even">
+<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/dcmodify/man/modifier.html">modifier</a></td>
+<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/dcmodify/index.html">dcmodify</a></td>
+<td style="text-align: left;">Create or read a set of data modification rules</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Create or read a set of data modification rules</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left; white-space: nowrap;"><a href="https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.OLS.html">OLS</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://www.statsmodels.org/stable/index.html">statsmodels.regression.linear_model</a></td>
 <td style="text-align: left;">Ordinary Least Squares</td>
 <td style="text-align: left;">R</td>
 <td style="text-align: left;">Convert a collection of text documents to a matrix of token counts.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left; white-space: nowrap;"><a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC">SVC</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://scikit-learn.org/stable/index.html">sklearn.svm</a></td>
 <td style="text-align: left;">C-Support Vector Classification.</td>
 <td style="text-align: left;">R</td>
 <td style="text-align: left;">The implementation is based on libsvm. The fit time scales at least quadratically with the number of samples and may be impractical beyond tens of thousands of samples.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/simputation/man/impute_hotdeck.html">impute_knn</a></td>
-<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/simputation/index.html">simputation</a></td>
-<td style="text-align: left;">Hot deck imputation</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;">Hot-deck imputation methods include random and sequential hot deck, k-nearest neighbours imputation and predictive mean matching.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/simputation/man/impute_proxy.html">impute_proxy</a></td>
-<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/simputation/index.html">simputation</a></td>
-<td style="text-align: left;">Impute by variable derivation</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;">Impute missing values by a constant, by copying another variable computing transformations from other variables.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/simputation/man/impute_hotdeck.html">impute_rhd</a></td>
-<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/simputation/index.html">simputation</a></td>
-<td style="text-align: left;">Hot deck imputation</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;">Hot-deck imputation methods include random and sequential hot deck, k-nearest neighbours imputation and predictive mean matching.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; white-space: nowrap;"><a href="https://search.r-project.org/R/refmans/stats/html/lm.html">lm</a></td>
-<td style="text-align: left; white-space: nowrap;"><a href="https://search.r-project.org/R/refmans/stats/html/00Index.html">stats</a></td>
-<td style="text-align: left;">Fitting Linear Models</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;">'lm' is used to fit linear models. It can be used to carry out regression, single stratum analysis of variance and analysis of covariance (although aov may provide a more convenient interface for these).</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/dcmodify/man/modifier.html">modifier</a></td>
-<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/dcmodify/index.html">dcmodify</a></td>
-<td style="text-align: left;">Create or read a set of data modification rules</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;">Create or read a set of data modification rules</td>
 </tr>
 </tbody>
 </table>
@@ -497,7 +497,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left; white-space: nowrap;"><a href="https://github.com/statisticsnorway/pickmdl/">pickmdl</a></td>
 <td style="text-align: left;">Lage faktorer for kalendereffekter</td>
 <td style="text-align: left;">R</td>
-<td style="text-align: left;">Fleksibel funksjon som lager ulike kalendervariable, som f.eks. TD-, WD- og p?skevariable, tilpasset norske forhold.</td>
+<td style="text-align: left;">Fleksibel funksjon som lager ulike kalendervariable, som f.eks. TD-, WD- og påskevariable, tilpasset norske forhold.</td>
 </tr>
 <tr class="even">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/RJDemetra/man/x13.html">x13</a></td>
@@ -539,7 +539,7 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left; white-space: nowrap;"><a href="https://github.com/statisticsnorway/pickmdl/">pickmdl</a></td>
 <td style="text-align: left;">Multiple x13_both runs with code input from a data frame</td>
 <td style="text-align: left;">R</td>
-<td style="text-align: left;">Gj?r det mulig med sesongjustering av mange serier basert p? parametere i en data.frame (f.eks lest inn fra en excel-fil).</td>
+<td style="text-align: left;">Gjør det mulig med sesongjustering av mange serier basert på parametere i en data.frame (f.eks lest inn fra en excel-fil).</td>
 </tr>
 </tbody>
 </table>
@@ -654,25 +654,25 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">This function provides functionality for suppressing volume tables based on the few contributors rule ('NContributorsRule').</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressionFromDecimals.html">SuppressionFromDecimals</a></td>
+<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/GaussSuppression/index.html">GaussSuppression</a></td>
+<td style="text-align: left;">Cell suppression from synthetic decimal numbers</td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Decimal numbers, as calculated by 'GaussSuppressDec', are used to decide suppression (whole numbers or not). Technically, the calculations are done via 'GaussSuppressionFromData', but without running 'GaussSuppression'. All suppressed cells are primary suppressed.</td>
+</tr>
+<tr class="even">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressKDisclosure.html">SuppressKDisclosure</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/GaussSuppression/index.html">GaussSuppression</a></td>
 <td style="text-align: left;">K-disclosure suppression</td>
 <td style="text-align: left;">R</td>
 <td style="text-align: left;">A function for suppressing frequency tables using the k-disclosure method.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressSmallCounts.html">SuppressSmallCounts</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/GaussSuppression/index.html">GaussSuppression</a></td>
 <td style="text-align: left;">Small count frequency table suppression.</td>
 <td style="text-align: left;">R</td>
 <td style="text-align: left;">This is a wrapper function of 'GaussSuppressionFromData' for small count frequency suppression. For common applications, the 'spec' parameter can be adjusted, see 'PackageSpecs' for more information. See Details for more information on function call customization.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressionFromDecimals.html">SuppressionFromDecimals</a></td>
-<td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/GaussSuppression/index.html">GaussSuppression</a></td>
-<td style="text-align: left;">Cell suppression from synthetic decimal numbers</td>
-<td style="text-align: left;">R</td>
-<td style="text-align: left;">Decimal numbers, as calculated by 'GaussSuppressDec', are used to decide suppression (whole numbers or not). Technically, the calculations are done via 'GaussSuppressionFromData', but without running 'GaussSuppression'. All suppressed cells are primary suppressed.</td>
 </tr>
 </tbody>
 </table>
