@@ -1,5 +1,8 @@
 # Create/add to table
 
+# Ensure Norwegian language encoding
+Sys.setlocale("LC_ALL", "nb-NO.UTF-8")
+
 #### Install packages if missing ####
 devtools::install_github("statisticsnorway/struktuR")
 devtools::install_github("statisticsnorway/Kostra")
@@ -107,7 +110,6 @@ add_func("x13_both", "pickmdl", keyword = "rfunc sesongjustering 6.1", url="http
     name = "x13_spec and x13_pickmdl wrapped as a single function",
     descrip = "Output is determined by the parameter: both_output.",
     export = FALSE)
-
 add_func("x13_text_frame", "pickmdl", keyword = "rfunc sesongjustering 6.1", url="https://github.com/statisticsnorway/pickmdl/blob/main/man/x13_text_frame.Rd",
          pack_url="https://github.com/statisticsnorway/pickmdl/",
          name = "Multiple x13_both runs with code input from a data frame",
