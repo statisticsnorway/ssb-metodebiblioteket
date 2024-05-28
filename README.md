@@ -1,13 +1,13 @@
 
 # metodebiblioteket
 
-[![R-CMD-check](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml)
-[![pytest](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest.yaml)
+[![R-CMD-check](https://github.com/statisticsnorway/ssb-metodebiblioteket/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statisticsnorway/ssb-metodebiblioteket/actions/workflows/R-CMD-check.yaml)
+[![pytest](https://github.com/statisticsnorway/ssb-metodebiblioteket/actions/workflows/pytest-check.yaml/badge.svg)](https://github.com/statisticsnorway/ssb-metodebiblioteket/actions/workflows/pytest.yaml)
 
 Denne repo-en inneholder informasjon om funksjoner som danne SSBs
 Metodebiblioteket. Du kan se på biblioteket her:
 
-**<https://statisticsnorway.github.io/metodebiblioteket/>**
+**<https://statisticsnorway.github.io/ssb-metodebiblioteket/>**
 
 ## Installasjon
 
@@ -15,10 +15,14 @@ Repoen er organiserte som en R-pakke. For å installere det og alle
 avhengige metode pakke
 
 Du kan installere R-pakken metodebiblioteket fra
-[GitHub](https://github.com/statisticsnorway/metodebiblioteket/) ved:
+[GitHub](https://github.com/statisticsnorway/ssb-metodebiblioteket/) ved:
 
 ``` r
-renv::install("statisticsnorway/metodebiblioteket")
+renv::install("statisticsnorway/ssb-metodebiblioteket")
+```
+Dette trenger du å gjøre kun en gang. For å ta i bruk R funksjoner i Metodebiblioteket må du kalle inn pakken hver gang du starte en ny R sesjon med:
+```r
+library(metodebiblioteket)
 ```
 
 ## Nøkkelord
