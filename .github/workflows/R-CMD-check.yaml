@@ -20,7 +20,7 @@ jobs:
       matrix:
         config:
           #- {os: windows-latest, r: 'release'}
-          #- {os: ubuntu-latest, r: 'release'}
+          - {os: ubuntu-latest, r: 'release'}
           - {os: ubuntu-latest, r: '4.2.3'}
           #- {os: ubuntu-latest, r: '3.6'}  
           #- {os: macOS-latest, r: 'release'}
@@ -42,7 +42,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::sessioninfo, any::rcmdcheck, local::. 
+          extra-packages: any::sessioninfo, any::rcmdcheck, local::., any::simputation
           needs: check
 
       - name: Session info
