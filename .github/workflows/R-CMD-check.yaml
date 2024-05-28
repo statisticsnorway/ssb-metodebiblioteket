@@ -19,11 +19,11 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          #- {os: windows-latest, r: 'release'}
+          - {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest, r: 'release'}
-          - {os: ubuntu-latest, r: '4.2.3'}
+          #- {os: ubuntu-latest, r: '4.2.3'}
           #- {os: ubuntu-latest, r: '3.6'}  
-          #- {os: macOS-latest, r: 'release'}
+          - {os: macOS-latest, r: 'release'}
   
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -42,7 +42,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::sessioninfo, any::rcmdcheck, local::., any::simputation
+          extra-packages: any::sessioninfo, any::rcmdcheck, local::.
           needs: check
 
       - name: Session info
