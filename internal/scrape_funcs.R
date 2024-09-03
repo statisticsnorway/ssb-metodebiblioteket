@@ -1,3 +1,7 @@
+# Test for getting users
+if (Sys.getenv("GITHUB_PAT") == ""){
+  Sys.setenv(GITHUB_PAT = getPass::getPass("PAT: "))
+}
 
 
 #' Get url to R, python and ipynb in a repo
