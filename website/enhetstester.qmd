@@ -1,0 +1,13 @@
+---
+title: "Enhetstester i R"
+format: html
+editor: source
+---
+
+## Introduksjon
+
+En enhetstest er en type programvaretesting hvor en liten del av kode blir individuelt og uavhengig undersøkt for riktighet. Dette er mest ofte brukt til å teste funksjoner.
+
+En viktig fordel med enhetstesting er at den gjør det mulig for utviklere å teste logikken i koden er riktig og at utfall er som forventet. Dermed kan det brukes til å identifisere feil på et tidlig stadium i utviklingsprosessen som kan spare tid og frustrasjoner i programvareutviklingsprosessen. Ved å bruke enhetstester kan utviklere også dokumentere koden og forstå hvordan den fungerer. Dette kan være spesielt nyttig når nye utviklere begynner å arbeide med koden, eller når funksjoner skal vedlikeholdes over tid. Det også gir en sikekrhet for når koden skal endres, at endringene ikke bryte eksisternede funksjonalitet.
+
+[Du finner mer informasjon om standard og anbefaling til enhetstester i SSB på KVAKK-sidene](https://statistics-norway.atlassian.net/wiki/spaces/KOD/pages/3911122953/Test+og+kodekvalitet)
