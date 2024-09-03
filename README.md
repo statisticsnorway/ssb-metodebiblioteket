@@ -51,6 +51,6 @@ Har du en metodiske funksjon som du mener bør ligge inn i Metodebiblioteket? He
 
 ## Status
 
-Status på Metodebiblioteket ligger på [status siden](https://github.com/statisticsnorway/metodebiblioteket/blob/master/status.md)
+Status på Metodebiblioteket ligger på [status siden](https://github.com/statisticsnorway/metodebiblioteket/blob/master/status/status.md)
 
 
