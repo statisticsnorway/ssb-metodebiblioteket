@@ -14,3 +14,4 @@
 ^\.git$
 ^data/katalogdata\.csv$
 ^README\.Rmd$
+^status$
