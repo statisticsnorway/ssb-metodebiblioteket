@@ -179,8 +179,8 @@ get_name <- function(func, package){
   navn
 }
 
-get_bad_links <- function(){
-  katalog <- utils::read.csv("./data/katalogdata.csv")
+get_bad_links <- function(katalog_path){
+  katalog <- utils::read.csv(katalog_path)
   bad_links <- NULL
   for (i in 1:nrow(katalog)){
     r <- httr::GET(katalog$url[i])
