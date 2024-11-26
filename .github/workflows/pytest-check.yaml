@@ -42,6 +42,7 @@ jobs:
       - name: Install dependencies
         run: |
           source venv/bin/activate
+          pip install --upgrade pip
           pip install -r python/requirements.txt
           pip install pytest
         
