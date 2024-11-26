@@ -1,0 +1,10 @@
+---
+title: "Kjøre en R funksjon fra Python"
+format:
+  html:
+    echo: false
+    page-layout: full
+editor: source
+---
+
+Kommer snart...

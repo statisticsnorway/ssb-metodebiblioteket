@@ -1,5 +1,5 @@
 ---
-title: "Dataeditering"
+title: "Estimering og vekting"
 format:
   html:
     echo: false
@@ -7,9 +7,9 @@ format:
 ---
 <br>
 
-Dataeditering er kontroll, granskning og retting av data. Det omfatter editering av populasjon, editering av åpenbare og systematiske feil, seleksjon av verdier med stort avvik og høy innflytelse og kontroll av aggregater som skal bli publisert. Metodene som blir brukt til dataeditering spenner fra logisk kontroll av gyldig verdiområde til maskinlæring. All statistikk som publiseres er basert på data som har blitt kontrollert og i de fleste tilfeller også korrigert. 
+Estimering er å finne verdi for en populasjonsstørrelse basert på den informasjonen vi har samlet inn fra (utvalgs)undersøkelsen. Vanligvis er vi interessert i forskjellige størrelser - totaler, gjennomsnitt, andeler og varianser er mest vanlig - for ulike variabler. Estimering innebærer ofte at hver enhet i utvalget tildeles en vekt, dette gjøres så godt som alltid for person- og husholdningsundersøkelser. Vi kan også basere estimeringen på en statistisk modell, noe som er vanlig å gjøre i næringslivsundersøkelser. 
 
-Du kan finne mer information om dataediteringsprosess på [Byrånettet](https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Dataeditering.aspx). 
+Du kan finne mer information om estimering og vekting på [Byrånettet](https://ssbno.sharepoint.com/:u:/r/sites/Metodikkistatistikkproduksjonen/SitePages/Estimering-og-vekting.aspx?csf=1&web=1&e=Ohp74U). 
 
 
 ```{r}
@@ -20,7 +20,7 @@ library(rmarkdown)
 dt <- read.csv("../data/katalogdata.csv")
 
 # filter for dataediterings functions
-dt <- dt[grepl("impute", dt$keyword) | grepl("kontrollere", dt$keyword), ]
+dt <- dt[grepl("vektberegning", dt$keyword), ]
 
 # Add column for language
 dt["språk"] <- stringr::word(dt$keyword)[1]
@@ -41,14 +41,9 @@ testdata = JSON.parse(my_ojs_data)
 
 ```{ojs}
 
-viewof tema = Inputs.radio(["kontrollere", "imputere"],
-  {label: "Metodeområde: ", value: "kontrollere"} 
+viewof tema = Inputs.radio(["vektberegning", "usikkerhetsberegning"],
+  {label: "Metodeområde: ", value: "vektberegning"} 
 )
-
-viewof metode = Inputs.radio(tema === "imputere" ? ["donor", "modellbasert"] : ["regelbasert", "statistisk"],
-{label: "Metode: ", value: "regelbasert"}
-)
-
 
 ```
 
@@ -56,7 +51,7 @@ viewof metode = Inputs.radio(tema === "imputere" ? ["donor", "modellbasert"] : [
 
 ```{ojs}
 
-filtered = testdata.filter(r => r.keyword.includes(metode) && r.keyword.includes(tema))
+filtered = testdata.filter(r => r.keyword.includes(tema))
 
 ```
 

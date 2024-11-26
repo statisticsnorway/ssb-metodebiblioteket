@@ -1,9 +1,6 @@
 project:
   type: website
   output-dir: docs
-  
-execute:
-  freeze: auto
 
 website:
   title: "Metodebiblioteket"
@@ -16,17 +13,12 @@ website:
     logo: "pictures/logo_kule.jpg"
     logo-href: index.html
     left:
-      - text: "Katalog"
+      - text: "Alle funksjoner"
         href: catalog.qmd
-      - text: "Metodeområde"
-        menu:
-        - text: "Dataeditering"
-          href: catalogue_edit.html
-        - text: "Konfidensialitet"
-          href: catalogue_conf.html
-        - text: "Sesongjustering og tidsserieanalyse"
-          href: catalogue_sesong.html
-
+      - text: "Veiledning"
+        href: daplalab.qmd
+      - text: "Status"
+        href: status.qmd
     right:
       - icon: github
         menu:
@@ -35,18 +27,38 @@ website:
           - text: "Report a Bug"
             url:  https://github.com/statisticsnorway/metodebibliotek/issues
     pinned: true
-
-  sidebar:
-    id: Katalog
-    title: "Katalog"
-    style: "docked"
-    background: light
-    search: false
-    contents:
-      - text: "Katalog"
+    
+  sidebar: 
+    - title: "Alle funksjoner"
+      style: "docked"
+      background: light
+      search: false
+      collapse-level: 2
+      contents:
+      - text: Katalog
         href: catalog.qmd
-      - text: "Prosessmodell"
+      - text: Processmodell
         href: prosess.qmd
+      - text: Metodeområde
+        contents:
+        - text: "Dataeditering"
+          href: catalogue_edit.qmd
+        - text: "Vekting og estimering"
+          href: catalogue_est.qmd
+        - text: "Konfidensialitet"
+          href: catalogue_conf.qmd
+        - text: "Sesongjustering og tidsserieanalyse"
+          href: catalogue_sesong.qmd 
+    
+    - title: "Veiledning"
+      contents:
+        - daplalab.qmd
+        - rogpython.qmd
+        - bidra.qmd
+    
+    - title: "Status"
+      contents: 
+        - status.qmd
         
 format: 
   html: 

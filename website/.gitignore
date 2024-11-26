@@ -1,1 +1,4 @@
 /.quarto/
+_freeze/*
+!_freeze/status/
+!_freeze/site_libs/

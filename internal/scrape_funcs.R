@@ -1,4 +1,9 @@
 
+# Check for github pat
+if (Sys.getenv("GITHUB_PAT") == ""){
+  Sys.setenv(GITHUB_PAT = getPass::getPass())
+}
+
 
 #' Get url to R, python and ipynb in a repo
 #'
@@ -59,29 +64,43 @@ get_urls <- function(repos, github_token, silent=TRUE){
 
 
 
-traverse_directory <- function(contents, github_token) {
-  #file_names <- character()
-  file_url <- character()
-  for (item in contents) {
-    if (item[["type"]] == "file") {
-      #file_names <- c(file_names, item[["name"]])
-      file_url <- c(file_url, item[["url"]])
-    } else if ((item[["type"]] == "dir") & (!item[["name"]] %in% c(".poetry", ".renv"))) {
-      # Fetch the contents of the nested folder
-      nested_url <- item[["url"]]
-      nested_response <- httr::GET(nested_url, httr::add_headers(Authorization = paste0("Bearer ", github_token)))
-      nested_contents <- httr::content(nested_response)
+#traverse_directory <- function(contents, github_token) {
+#  #file_names <- character()
+#  file_url <- character()
+#  for (item in contents) {
+#    if (item[["type"]] == "file") {
+#      #file_names <- c(file_names, item[["name"]])
+#      file_url <- c(file_url, item[["url"]])
+#    } else if ((item[["type"]] == "dir") & (!item[["name"]] %in% c(".poetry", ".renv"))) {
+#      # Fetch the contents of the nested folder
+#      nested_url <- item[["url"]]
+#      nested_response <- httr::GET(nested_url, httr::add_headers(Authorization = paste0("Bearer ", github_token)))
+#      nested_contents <- httr::content(nested_response)
       
-      # Recursively traverse the nested folder
-      nested_files <- traverse_directory(nested_contents, github_token)
-      #file_names <- c(file_names, nested_files)
-      file_url <- c(file_url, nested_files)
-    }
-  }
-  
-  return(file_url)
-}
+#      # Recursively traverse the nested folder
+#      nested_files <- traverse_directory(nested_contents, github_token)
+#      #file_names <- c(file_names, nested_files)
+#      file_url <- c(file_url, nested_files)
+#    }
+#  }
+##  
+#  return(file_url)
+#}
 
+
+get_repo_tree <- function(repo, branch) {
+  url <- paste0("https://api.github.com/repos/statisticsnorway/", repo, "/git/trees/", branch, "?recursive=1")
+  response <- httr::GET(url, httr::add_headers(Authorization = paste0("Bearer ", Sys.getenv("GITHUB_PAT"))))
+  
+  if (httr::status_code(response) == 200) {
+    content <- httr::content(response, as = "text", encoding = "UTF-8")
+    json_content <- jsonlite::fromJSON(content)
+    return(json_content$tree)
+  } else {
+    print(paste(repo, "not found"))
+    return(NULL)
+  }
+}
 
 
 #' Check which repos a function is found in
@@ -128,8 +147,13 @@ check_func <- function(func, url_data, github_token, type = "R", silent = TRUE){
 #' @param type What type of repos to return. Can be "all", "stat" or "kurs".
 #'
 #' @return repository names
-get_repos <- function(org, github_token, type = "all"){
-  url <- paste0("https://api.github.com/orgs/", org, "/repos")
+get_repos <- function(github_token = Sys.getenv("GITHUB_PAT"), type = "all"){
+  
+  if (github_token == ""){
+    github_token = Sys.setenv(GITHUB_PAT = getPass::getPass("Github token:"))
+  }
+  
+  url <- paste0("https://api.github.com/orgs/statisticsnorway/repos")
   
   repository_names <- character()
   page <- 1
@@ -168,4 +192,162 @@ get_repos <- function(org, github_token, type = "all"){
     return(repository_names[grepl("^kurs-", repository_names)])
   }
 }
+
+# from dapla-kompetanse
+get_repo_info <- function(repo){
+  url <- paste0("https://api.github.com/repos/statisticsnorway/", repo)
+  response <- httr::GET(url, httr::add_headers(
+    Authorization = paste0("Bearer ", Sys.getenv("GITHUB_PAT")))
+  )
+  if (httr::status_code(response) == 200){
+    repo_info <- jsonlite::fromJSON(httr::content(response, as = "text"))
+    branch <- repo_info$default_branch
+    notempty <- ifelse(repo_info$size == 0, 0, 1)
+    return(c(branch, notempty))
+  } else {
+    return(c("invalid", "invalid"))
+  }
+}
+
+find_functions <- function(repos_to_check){
+
+  # Collect functions to find from katalog
+  katalog <- read.csv("data/katalogdata.csv")
+  cond_r <- grepl("^rfunc", katalog$keyword)
+  cond_py <- grepl("^python", katalog$keyword)
+  
+  r_funcs <- katalog$func[cond_r]
+  py_funcs <- katalog$func[cond_py]
+
+  # Set up datasets
+  r_data <- create_empty_data(r_funcs, repos_to_check)
+  py_data <- create_empty_data(py_funcs, repos_to_check)
+  
+  t <- Sys.time()
+  
+  n <- length(repos_to_check)
+  
+  # Loop through repos to find functions
+  for (i in 1:n){
+    r <- repos_to_check[i]
+    
+    # get branch name
+    info <- get_repo_info(r)
+    
+    # Get structure of repo and identify R and python files (and ipynb)
+    tree <- get_repo_tree(r, branch = info[1])
+    r_urls <- fetch_url(tree, type ="R")
+    py_urls <- fetch_url(tree, type = "python")
+    nb_urls <- fetch_url(tree, type = "nb")
+    
+    # Check for functions in the R files
+    if (length(r_urls) > 0){
+      for (u in r_urls){
+        code <- fetch_code(u)
+        func_in_code <- sapply(r_funcs, FUN=in_code, code=code)
+        r_data[func_in_code, i] <- 1
+      }
+    }
+    
+    # Check for functions in the python files
+    if (length(py_urls) > 0){ 
+      for (u in py_urls){
+        code <- fetch_code(u)
+        func_in_code <- sapply(py_funcs, FUN=in_code, code=code)
+        py_data[func_in_code, i] <- 1
+      }
+    }
+    
+    # Check for functions in the ipynb files
+    if (length(nb_urls) > 0){ 
+      for (u in nb_urls){
+        code <- fetch_code(u)
+        
+        func_in_code <- sapply(r_funcs, FUN=in_code, code=code)
+        r_data[func_in_code, i] <- 1
+        
+        func_in_code <- sapply(py_funcs, FUN=in_code, code=code)
+        py_data[func_in_code, i] <- 1
+      }
+    }
+    
+    # Wait if 50 urls have been called (to avoid rate limit)
+    if (i%%50 == 0){
+      rate_limit_info <- check_rate_limit()
+      print("Rate limit information: ")
+      print(rate_limit_info)
+      
+      if (rate_limit_info$remaining < 1000){
+        print("Sleeping for 45 minutes")
+        Sys.sleep(2700) # sleep for 45 mins
+      }
+    }
+    print(paste0("Scraping ", r, " completed (", i, "/", n, ")"))
+  }
+  
+  print(paste0("Scraping completed with time: ", round(Sys.time() - t), " seconds."))
+  rbind(r_data, py_data)
+}
+
+
+in_code <- function(func, code){
+  found <- grepl(paste0(func,"\\("), code)
+  found
+}
+
+
+create_empty_data <- function(func_list, repo_list){
+  dt <- data.frame(matrix(0, nrow = length(func_list), ncol = length(repo_list)))
+  colnames(dt) <- repo_list
+  rownames(dt) <- func_list
+  dt
+}
+
+
+fetch_code <- function(url, github_token = Sys.getenv("GITHUB_PAT")){
+  response <- httr::GET(url, httr::add_headers(Authorization = paste0("Bearer ", github_token)))
+  if (httr::status_code(response) == 200){
+    file_content <- httr::content(response)$content
+    function_code <- rawToChar(base64enc::base64decode(file_content))
+    return (function_code)
+  } else {
+    return (NULL)
+  }
+}  
+
+fetch_url <- function(tree, type){
+  if (type == "R") {
+    r_files <- (grepl("\\.R$", tree$path, ignore.case = TRUE)) &
+      (!grepl("eksperimentell", tree$path, ignore.case = TRUE))
+    fil <- tree$url[r_files]
+  } else if (type == "python"){
+    py_files <- (grepl("\\.py$", tree$path, ignore.case = TRUE)) & 
+      (!grepl("eksperimentell", tree$path, ignore.case = TRUE)) &
+      (!grepl("__init__", tree$path, ignore.case = TRUE))
+    fil <- tree$url[py_files]
+  } else if (type == "nb"){
+    nb_files <- (grepl("\\.ipynb$", tree$path, ignore.case = TRUE)) & 
+      (!grepl("eksperimentell", tree$path, ignore.case = TRUE))
+    fil <- tree$url[nb_files]
+  } else {
+    fil <- NULL
+  }
+  fil
+}  
+
+# Function to check rate limit
+check_rate_limit <- function(token = Sys.getenv("GITHUB_PAT")) {
+  url <- "https://api.github.com/rate_limit"
+  
+  response <- httr::GET(url, httr::add_headers(Authorization = paste("token", token)))
+  
+  # Check if the request was successful
+  if (httr::status_code(response) == 200) {
+    content <- jsonlite::fromJSON(httr::content(response, "text", encoding = "UTF-8"))
+    return(content$rate)
+  } else {
+    stop("Error: Unable to fetch rate limit status")
+  }
+}
+
 

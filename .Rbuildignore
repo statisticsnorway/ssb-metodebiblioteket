@@ -14,3 +14,6 @@
 ^\.git$
 ^data/katalogdata\.csv$
 ^README\.Rmd$
+LICENSE.md
+SECURITY.md
+.nojekyll
