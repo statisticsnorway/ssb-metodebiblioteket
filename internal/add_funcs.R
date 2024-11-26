@@ -41,7 +41,6 @@ add_func <- function(func, package, keyword = "r", url = NULL, update=T,
     python = TRUE
   }
   
-
   if (check_func(func, package, kat) > 0) {
     if (!update) {
        stop("Function already in library. Use parameter 'update=T' to override")
@@ -77,12 +76,10 @@ add_func <- function(func, package, keyword = "r", url = NULL, update=T,
                        url = url,
                        pack_url=pack_url)
   kat <- rbind(kat, new_row)
-  kat <- kat[order(kat$func), ]
+  kat <- kat[order(tolower(kat$func)), ]
   utils::write.csv(kat, file = "data/katalogdata.csv",row.names=F)
   
   # Add to reexports list
-
-  
   if (export) {
     write_reexport(func, package)
   }
