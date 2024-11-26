@@ -161,7 +161,7 @@ Følgende funksjoner ble sjekket om de finnes på SSBs github (under "stat-" rep
 Tabellen under viser hvor mange bruker funksjoner i Metodebiblioteket basert på SSBs GitHUb. Vi har hentet data baserte på om det finnes kall til funksjoner i kode på repo som begynner med "stat-" per: **`r dato`**
 
 ```{r scraping, echo=FALSE}
-load(paste0("../data/", dato, "/function_counts.RData"))
+load(paste0(dato, "/function_counts.RData"))
 katalog <- read.csv("../data/katalogdata.csv")
 
 cond_r <- grepl("^rfunc", katalog$keyword)

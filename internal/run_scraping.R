@@ -5,7 +5,7 @@
 #######################################################
 # Sett opp data folder
 dato <- Sys.Date()
-filer <- list.files("data")
+filer <- list.files("website")
 if (!dato %in% filer){
   dir.create(file.path("./data", dato))
 }
@@ -39,7 +39,7 @@ dt_all$repo_used <- apply(dt_all[, cond],
 View(dt_all[, c("repo_counts", "repo_used")])
 
 function_counts <- dt_all[, c("repo_counts", "repo_used")]
-save(function_counts, file = paste0("./data/", dato, "/function_counts.RData"))
+save(function_counts, file = paste0("./website/", dato, "/function_counts.RData"))
 
 
 
