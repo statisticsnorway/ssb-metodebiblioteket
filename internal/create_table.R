@@ -10,14 +10,13 @@ devtools::install_github("statisticsnorway/SmallCountRounding")
 devtools::install_github("statisticsnorway/easySdcTable")
 devtools::install_github("statisticsnorway/SSBpris")
 devtools::install_github("statisticsnorway/SdcForetakPerson")
-devtools::install_github("DiegoZardetto/ReGenesees")
+devtools::install_github("statisticsnorway/ReGenesees")
 install.packages("GISSB")
 install.packages("GaussSupression")
 
 # RJDemetra litt vanskelig å installere pga avhengighet på java versjon
 # devtools::install_github("statisticsnorway/pickmdl")
 # install.packages("RJDemetra")
-
 
 
 #### Add functions ####
@@ -35,6 +34,11 @@ add_func('Rank2NumVar', 'Kostra', keyword = "rfunc kontrollere statistisk" )
 add_func("Diff2NumVar", "Kostra", keyword = "rfunc kontrollere statistisk" )
 add_func("AggrSml2NumVar", "Kostra", keyword = "rfunc kontrollere statistisk" )
 add_func("get_extremes", "struktuR", keyword = "rfunc kontrollere statistisk" )
+add_func("get_extremes", "statstruk", keyword = "python kontrollere statistisk 5.3",
+         name="Get extremes",
+         url = "https://statisticsnorway.github.io/ssb-statstruk/reference.html#statstruk.ratemodel.ratemodel.get_extremes",
+         pack_url="https://statisticsnorway.github.io/ssb-statstruk/",
+         descrip = "Get observations with extreme values based on their rstudized residual value or G value.")
 
 # Imputere
 add_func('modifier', 'dcmodify', keyword = "rfunc imputere regelbasert")
@@ -121,7 +125,6 @@ add_func("konstruksjon", "pickmdl", keyword = "rfunc sesongjustering 6.1", url="
          descrip = "Fleksibel funksjon som lager ulike kalendervariable, som f.eks. TD-, WD- og påskevariable, tilpasset norske forhold.",
          export = FALSE)
 
-
 # Analyse
 add_func("shortest_path_igraph", "GISSB", keyword = "rfunc analyse romlig")
 add_func("shortest_path_cppRouting", "GISSB", keyword = "rfunc analyse romlig")
@@ -134,6 +137,22 @@ add_func("CalcIndS2", "SSBpris", keyword = "rfunc indeksberegning usikkerhetsber
 add_func("struktur_model", "struktuR", keyword = "rfunc vektberegning modellbasert", 
          url = "https://statisticsnorway.github.io/struktuR/reference/struktur_model.html")
 add_func("quantile_weighted", "SSBtools", keyword = "rfunc analyse vektberegning")
+add_func("ratemodel", "statstruk", keyword = "python vektberegning modellbasert 5.7",
+         name="ratemodel module",
+         url = "https://statisticsnorway.github.io/ssb-statstruk/reference.html#statstruk.ratemodel.ratemodel",
+         pack_url="https://statisticsnorway.github.io/ssb-statstruk/",
+         descrip = "Class for estimating statistics for business surveys using a rate model.")
+add_func("get_estimates", "statstruk", keyword = "python vektberegning modellbasert usikkerhetsberegning 5.7",
+         name="Get Estimates",
+         url = "https://statisticsnorway.github.io/ssb-statstruk/reference.html#statstruk.ratemodel.ratemodel.get_estimates",
+         pack_url="https://statisticsnorway.github.io/ssb-statstruk/",
+         descrip = "Get estimates for previously run model within strata or domains. Variance and CV estimates are returned for each domain.")
+add_func("get_weights", "statstruk", keyword = "python vektberegning modellbasert 5.6",
+         name="Get weights",
+         url = "https://statisticsnorway.github.io/ssb-statstruk/reference.html#statstruk.ratemodel.ratemodel.get_weights",
+         pack_url="https://statisticsnorway.github.io/ssb-statstruk/",
+         descrip = "Get sample data with weights based on model.")
+
 
 # Usikkerhetsberegning
 add_func("CalibrateSSB", "CalibrateSSB", keyword = "rfunc vektberegning usikkerhetsberegning designbasert")
