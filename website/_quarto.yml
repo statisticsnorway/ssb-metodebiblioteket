@@ -35,20 +35,16 @@ website:
       search: false
       collapse-level: 2
       contents:
-      - text: Katalog
-        href: catalog.qmd
-      - text: Processmodell
-        href: prosess.qmd
-      - text: Metodeområde
-        contents:
-          - text: "Dataeditering"
-            href: catalogue_edit.qmd
-          - text: "Vekting og estimering"
-            href: catalogue_est.qmd
-          - text: "Konfidensialitet"
-            href: catalogue_conf.qmd
-          - text: "Sesongjustering og tidsserieanalyse"
-            href: catalogue_sesong.qmd 
+        - text: Katalog
+          href: catalog.qmd
+        - text: Processmodell
+          href: prosess.qmd
+        - text: Metodeområde
+          contents:
+            - catalogue_edit.qmd
+            - catalogue_est.qmd
+            - catalogue_conf.qmd
+            - catalogue_sesong.qmd 
     
     - title: "Veiledning"
       contents:
