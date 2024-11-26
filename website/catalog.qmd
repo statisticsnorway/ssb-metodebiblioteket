@@ -6,7 +6,7 @@ format:
     page-layout: full
 ---
 
-Her finner du en liste over alle funksjoner i Metodebiblioteket.
+Her finner du en liste over alle funksjoner i Metodebiblioteket. Bruk alternativknappen for å filtrere funksjoner.
 
 ```{r}
 library(stringr)
@@ -18,7 +18,7 @@ dt <- read.csv("../data/katalogdata.csv")
 # Add column for combination of function name and link
 dt["func_link"] <- str_trim(do.call(paste, c(dt[c("func", "url")], sep = ";")))
 
-# Add column for combination of pacakge name and link
+# Add column for combination of package name and link
 dt["pack_link"] <- str_trim(do.call(paste, c(dt[c("pack", "pack_url")], sep = ";")))
 
 
@@ -35,15 +35,15 @@ testdata = JSON.parse(my_ojs_data)
 //| panel: input
 
 
-viewof lang = Inputs.radio(new Map([["R", "rfunc"], ["python", "python"]]),
-  {label: "Språk: ", value: "rfunc"}
+viewof lang = Inputs.radio(new Map([["ALLE", " "], ["R", "rfunc"], ["python", "python"]]),
+  {label: "Programmeringsspråk: ", value: " "}
 )
 
 
 viewof tema = Inputs.radio(new Map([["ALLE", " "], ["kontrollere","kontrollere"],
 ["imputere","imputere"],
 ["strukturere","strukturere"],
-["vektberegning","vektberegning"],
+["vekting og estimering","vektberegning"],
 ["indeksberegning","indeksberegning"],
 ["usikkerhetsberegning","usikkerhetsberegning"],
 ["sesongjustering","sesongjustering"],

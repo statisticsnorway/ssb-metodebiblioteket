@@ -4,7 +4,6 @@ format:
   html:
     echo: false
     page-layout: full
-sidebar: false
 ---
 
 Statistikkloven [§ 7. Statistisk konfidensialitet ved formidling av offisiell statistikk](https://lovdata.no/lov/2019-06-21-32/§7) pålegger at vi ikke publiserer statistikk slik at statistisk informasjon kan føres tilbake til enkeltpersoner eller andre typer statistiske enheter. Hvis dette likevel skjer sier vi at det har funnet sted en avsløring.
