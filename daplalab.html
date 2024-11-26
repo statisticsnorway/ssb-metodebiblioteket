@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sesongjustering og tidsserieanalyse – Metodebiblioteket</title>
+<title>Bruk en funksjon i kode på Dapla Lab – Metodebiblioteket</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -94,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Alle funksjoner</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./daplalab.html"> 
+    <a class="nav-link active" href="./daplalab.html" aria-current="page"> 
 <span class="menu-text">Veiledning</span></a>
   </li>  
   <li class="nav-item">
@@ -126,23 +160,58 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./daplalab.html">Bruk en funksjon i kode på Dapla Lab</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./daplalab.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Bruk en funksjon i kode på Dapla Lab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rogpython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kjøre en R funksjon fra Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bidra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bidra til Metodebiblioteket</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./catalogue_edit.html">Metodeområde</a></li><li class="breadcrumb-item"><a href="./catalogue_sesong.html">Sesongjustering og tidsserieanalyse</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sesongjustering og tidsserieanalyse</h1>
+<h1 class="title">Bruk en funksjon i kode på Dapla Lab</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -154,11 +223,50 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><br></p>
-<p>Sesongjustering er å bruke statistiske metoder for å fjerne systematiske sesongvariasjoner fra en månedlig eller kvartalsvis tidsserie, slik at tidsserien i størst mulig grad uttrykker den reelle utviklingen over tid. I tillegg forsøker man å fjerne kalendereffektene som varierer fra år til år, slik som påske. I sesongjusteringsprosessen spaltes den prekorrigerte (kalenderjusterte) tidsserien opp i tre komponenter: sesong, en irregulær og trend-syklus. Når dataene er korrigert for de sesongrelaterte forholdene, vil man stå igjen med et klarere bilde av den underliggende utviklingen i tidsserien som består av trend-syklus og irregulær komponent. Sesongjusterte data brukes ofte som utgangspunkt for opprettelse eller revidering av økonomisk politikk og økonomisk forskning på høyt nivå. Trend-syklus-komponenten er glattere enn sesongjusterte tall, og kan evt. formidles til brukerne i tillegg. I tidsserieanalyse kan en også justere tidsseriene for evt. brudd.</p>
-<p>Du kan finne mer informasjon om Sesongjustering og tidsserieanalyse på <a href="https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Sesongjustering.aspx">Byrånettet</a>.</p>
+<section id="om-dapla-lab" class="level3">
+<h3 class="anchored" data-anchor-id="om-dapla-lab">Om Dapla Lab</h3>
+<p>Dapla Lab er SSBs arbeidsbenk for statistikkproduksjon og forskning. Dapla Lab gir brukeren en enkel oversikt over hvilke verktøy som tilbys, både internt utviklet programvare og velkjente open-source verktøy.</p>
+<p>For å starte Dapla Lab, åpne en web-browser og går inn til <a href="https://lab.dapla.ssb.no/">https://lab.dapla.ssb.no/</a>. Velge Logg inn øverst i høyre hjørne. Mer detaljer finner du i <a href="https://manual.dapla.ssb.no/statistikkere/dapla-lab.html#innlogging">Dapla-manualen</a>.</p>
+<p>Alle funksjoner i Metodebiblioteket kan brukes på Dapla Lab. Men - R funksjoner kan kun kjøres i Rstudio og Jupyter miljøene. - Python funksjoner kan kun kjøres på Jupyter og VSCode miljøene.</p>
+</section>
+<section id="installere-pakken" class="level3">
+<h3 class="anchored" data-anchor-id="installere-pakken">Installere Pakken</h3>
+<p>Metodebiblioteket er bygd som en R-pakke og (snart) Python-pakke. Disse kan installeres for å få tilgang til alle anbefalte metodiske funksjoner i Metodebiblioteket.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">R installasjon</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Python installasjon (kommer snart)</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>R-pakker installasjon skal gjøres i et renv-miljø.</p>
+<div class="sourceCode" id="cb1" data-eval="FALSE," data-echo="TRUE"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"statisticsnorway/ssb-metodebiblioteket"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Python-pakke installasjon skal gjøre i et poetry-miljø.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add ssb-metodebiblioeteket</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Alternativ er å installere pakkene som funkjsoner du ønsker å bruke er en del av. Disse finner du i tabellen på <a href="">Metodebiblioteket katalogen</a></p>
+</section>
+<section id="bruke-metodebiblioteket-funksjoner" class="level2">
+<h2 class="anchored" data-anchor-id="bruke-metodebiblioteket-funksjoner">Bruke Metodebiblioteket funksjoner</h2>
+<p>Her finner du en eksempel om bruk av en funksjon i Metodebiblioteket.</p>
+<p>Mer info kommmer… ::: {.panel-tabset}</p>
+</section>
+<section id="r-eksempel" class="level2">
+<h2 class="anchored" data-anchor-id="r-eksempel">R eksempel</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metodebiblioteket)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="python-eksempel-kommer-snart" class="level2">
+<h2 class="anchored" data-anchor-id="python-eksempel-kommer-snart">Python eksempel (kommer snart)</h2>
+<div class="cell" data-python.reticulate="false">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> metodebiblioteket <span class="im">as</span> mb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>:::</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

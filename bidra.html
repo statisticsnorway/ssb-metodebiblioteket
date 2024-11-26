@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sesongjustering og tidsserieanalyse – Metodebiblioteket</title>
+<title>Bidra til Metodebiblioteket – Metodebiblioteket</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,7 +69,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -94,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Alle funksjoner</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./daplalab.html"> 
+    <a class="nav-link active" href="./daplalab.html" aria-current="page"> 
 <span class="menu-text">Veiledning</span></a>
   </li>  
   <li class="nav-item">
@@ -126,23 +126,58 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bidra.html">Bidra til Metodebiblioteket</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./daplalab.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bruk en funksjon i kode på Dapla Lab</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rogpython.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kjøre en R funksjon fra Python</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bidra.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Bidra til Metodebiblioteket</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-right" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./catalogue_edit.html">Metodeområde</a></li><li class="breadcrumb-item"><a href="./catalogue_sesong.html">Sesongjustering og tidsserieanalyse</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sesongjustering og tidsserieanalyse</h1>
+<h1 class="title">Bidra til Metodebiblioteket</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-right">
 
     
   
@@ -154,9 +189,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><br></p>
-<p>Sesongjustering er å bruke statistiske metoder for å fjerne systematiske sesongvariasjoner fra en månedlig eller kvartalsvis tidsserie, slik at tidsserien i størst mulig grad uttrykker den reelle utviklingen over tid. I tillegg forsøker man å fjerne kalendereffektene som varierer fra år til år, slik som påske. I sesongjusteringsprosessen spaltes den prekorrigerte (kalenderjusterte) tidsserien opp i tre komponenter: sesong, en irregulær og trend-syklus. Når dataene er korrigert for de sesongrelaterte forholdene, vil man stå igjen med et klarere bilde av den underliggende utviklingen i tidsserien som består av trend-syklus og irregulær komponent. Sesongjusterte data brukes ofte som utgangspunkt for opprettelse eller revidering av økonomisk politikk og økonomisk forskning på høyt nivå. Trend-syklus-komponenten er glattere enn sesongjusterte tall, og kan evt. formidles til brukerne i tillegg. I tidsserieanalyse kan en også justere tidsseriene for evt. brudd.</p>
-<p>Du kan finne mer informasjon om Sesongjustering og tidsserieanalyse på <a href="https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Sesongjustering.aspx">Byrånettet</a>.</p>
+<p>Har du brukt en metodiske funksjon som du mener kan være nyttig for andre i SSB? Da kan det vurderes for Metodebiblioteket. Selve kode for funksjonen skal ikke ligge i biblioteket siden dette er en metapakke. Den referere til andres pakker men samle en liste over nyttige metodiske funksjoner for offisiell statistikk.</p>
+<p>Her finner du veiledning om hvordan du kan bidra til Metodebiblioteket med en funksjon.</p>
+<ul>
+<li><ol type="1">
+<li><strong>Clone repository og lage en ny branch</strong>: Clone repository fra <a href="https://github.com/statisticsnorway/metodebiblioteket">github</a>. Dette kan du gjøre fra terminalet eller fra RStudio for eksempel. Lage en ny branch for endringer.</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li><strong>Legg funksjonen inn i create_table.R</strong>: Åpne filen som ligger under “internal” som heter “create_table.R”. Legg inn en ny rad med funksjonen “add_func()”. Skriv navn av funksjonen, pakkenavn og stikkord. Standard stikkord som skal brukkes ligger på <a href="https://github.com/statisticsnorway/metodebiblioteket/blob/master/README.md#n%C3%B8kkelord">Readme filen til repository</a>. Skriv gjerne inn (GSBPM) prosessnummer i stikkord også.</li>
+</ol></li>
+<li><ol start="3" type="1">
+<li><strong>Kjør add_func()</strong>: Kjør den nye raden du har skrevet som inkludere <em>add_func()</em>. Dette oppdatere datafil som ligger bak Metodebiblioteket.</li>
+</ol></li>
+<li><ol start="4" type="1">
+<li><strong>Legg pakken som brukes inn i DESCRIPTION fil</strong>: Hvis du har lagt inn en ny R funksjon skal pakken også ligge i DESCRIPTION filen under imports. Dette er for at Metodebiblioteket skal også fungere som en metapakke. Hvis pakken ligger der fra før er det ikke nødvendig å legge det inn på nytt.</li>
+</ol></li>
+<li><ol start="5" type="1">
+<li><strong>Skriv en enhetstest til funksjonen</strong>: For å forsikre kvalitet til funksjonene vi inkluderer i Metodebiblioteket har vi et mål at alle funksjoner skal har minst en enhetstest. Disse testene kjøres automatisk ved endring til hoved branch for å sjekke at funksjoner fungere som de skal. For mer informasjon om enhetstest skriving se <a href="https://r-pkgs.org/testing-basics.html">Hadley Wickhams veiledning til testthat</a> for R eller <a href="https://docs.pytest.org/en/7.4.x/getting-started.html">veiledning til pytest</a> for python. Enhetstester i R skal ligge under mappen tests &gt; testthat. Python enhetstester skal ligge under python &gt; tests.</li>
+</ol></li>
+<li><ol start="6" type="1">
+<li><strong>Commit og push endringer til github</strong>: Commit og push endringer til github. Alle endringer til create_table.R filen, data filen (“katalogdata.csv”), hjelpefiler (DESCRIPTION og reexports.R), og enhetstester skal inkluderes. Til slutt, lage en pull request for å merge branch inn til main som da starter oppdatering av nettsiden automatisk.</li>
+</ol></li>
+</ul>
 
 
 
