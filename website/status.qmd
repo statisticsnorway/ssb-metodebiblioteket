@@ -1,0 +1,190 @@
+---
+title: Status på metodebiblioteket
+execute: 
+  freeze: true
+format:
+  html:
+    toc: true
+    echo: false
+    page-layout: full
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+
+library(rvest)
+library(httr)
+library(base64enc)
+library(stringr)
+library(magrittr)
+library(kableExtra)
+library(metodebiblioteket)
+
+suppressMessages(
+library(ggplot2),
+library(plotly)
+)
+
+source("../internal/add_funcs.R")
+
+# Date for scraped data
+dato <- "2024-11-25"
+run_scraping <- FALSE
+if (run_scraping){
+  dato <- Sys.Date()
+}
+```
+
+
+[![R-CMD-check](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml)
+[![pytest](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest.yaml)
+
+Denne siden inneholder informasjon om status på funksjoner i SSBs Metodebiblioteket. Den er status som er genererte `r Sys.Date()`. 
+
+
+## Oversikt
+```{r, echo=FALSE}
+met <- read.csv("../data/katalogdata.csv")
+
+```
+Det er **`r nrow(met)`** funksjoner i Metodebiblioteket
+
+
+## Nøkkelord
+Nøkkelord brukes til å organisere Metodebiblioteket. Følgende ord brukes i Metodebiblioteket. GSDPM steg nummer ikke inkluderes her.
+```{r, echo=FALSE}
+nokkel <- c("rfunc","python",
+            "kontrollere","regelbasert" , "statistisk",
+            "imputere", "modellbasert", "donor",
+            "strukturere",   
+            "indeksberegning",  
+            "vektberegning", "modelbasert" , "designbasert",
+            "usikkerhetsberegning",      
+            "sesongjustering",  
+            "analyse", "romlig",
+            "maskinlaering",
+            "konfidensialitet", "undertrykking", "avrunding" ,"støylegging")
+
+keywords <- read.csv("../data/katalogdata.csv")$keyword
+keywords <- unlist(strsplit(keywords, " "))             # Split into words
+keywords <- keywords[!grepl("^[0-9]", keywords)]        # Remove numberseywords, " "))
+
+kw_tab <- data.frame(table(keywords))
+row.names(kw_tab) <- NULL
+kw_tab <- data.frame(table(keywords))
+names(kw_tab) <- c("Nokkelord", "Antall")
+kableExtra::kbl(kw_tab, format = "pipe")
+
+```
+
+<br>
+Følgende ord er nøkkelord knyttet til en funksjon men er ikke inn i standardlisten
+
+```{r, echo=FALSE}
+cond <- keywords %in% nokkel
+kw <- data.frame(keywords[!cond])
+row.names(kw) <- NULL
+names(kw) <- "Nokkelord:"
+
+kableExtra::kbl(kw, format = "pipe")
+```
+
+
+## Enhetstester
+Hver funksjon i Metodebiblioteket skal ha minst en enhetstest knyttet til den. Dette er for å forsikre kvalitet og kunne tester funksjoner på nye og gamle R installasjoner. 
+
+Følgende tabellen viser hvilke funksjoner mangler enhetstester eller har enhetstester som feiler
+
+
+```{r enhetstest, echo=FALSE}
+
+all_funcs <- read.csv("../data/katalogdata.csv")$func
+func_tab <- data.frame(funksjon_navn = all_funcs, status = "mangler", detaljer = "")
+test_files <- list.files("../tests/testthat/")
+test_files <- test_files[test_files != "_snaps"]
+
+for (t in test_files){
+  con <- file(file.path("../tests/testthat", t))
+  line <- readLines(con)
+  
+  for (i in 1:nrow(func_tab)){
+    f <-  func_tab$funksjon_navn[i]
+    func_patt <- paste0(f, "\\(")
+    found <- grep(func_patt, line)
+    if (length(found) != 0){
+      for (l in line[found]){
+        if (!grepl('^\\#', l)) {
+          func_tab$status[i] <- "testet"
+        }
+      }
+    }
+  }
+  close(con)
+}
+
+failed <- get_failing()
+m <- match(failed$func, func_tab$funksjon_navn)
+func_tab[m, "status"] <- "feil"
+func_tab[m, "detaljer"] <- failed$test
+func_tab <- func_tab[func_tab$status %in% c("mangler", "feil"),]
+
+row.names(func_tab) <- NULL
+suppressWarnings(
+kableExtra::kbl(func_tab, format = "pipe") %>%
+  kableExtra::kable_paper("striped", full_width = F)
+)
+```
+
+## Linker
+Metodebiblioteket innholder mange linker til dokumentasjon av funksjoner. Følgende funksjoner har linker som feiler:
+
+```{r links, echo = FALSE}
+bb <- get_bad_links("../data/katalogdata.csv")
+row.names(bb) <- NULL
+names(bb) <- c("funksjon_navn", "pakke")
+kableExtra::kbl(bb, format = "pipe")
+```
+
+
+## Antall som bruker funksjoner på GitHub
+Følgende funksjoner ble sjekket om de finnes på SSBs github (under "stat-" repoer). Det sjekkes på både interne og public repoer (men ikke de med mer begrenset tilgang).
+- LmImpute
+- struktur_model
+- Hb
+
+
+Tabellen under viser hvor mange bruker funksjoner i Metodebiblioteket basert på SSBs GitHUb. Vi har hentet data baserte på om det finnes kall til funksjoner i kode på repo som begynner med "stat-" per: **`r dato`**
+
+```{r scraping, echo=FALSE}
+load(paste0("../data/", dato, "/function_counts.RData"))
+katalog <- read.csv("../data/katalogdata.csv")
+
+cond_r <- grepl("^rfunc", katalog$keyword)
+cond_py <- grepl("^python", katalog$keyword)
+r_funcs <- katalog$func[cond_r]
+py_funcs <- katalog$func[cond_py]
+
+function_counts$spraak <- "Python"
+condr <- row.names(function_counts) %in% r_funcs
+function_counts$spraak[condr] <- "R"
+function_counts$funksjon <- row.names(function_counts)
+
+
+# Create Bar Plot
+p <- ggplot2::ggplot(function_counts, aes(x = funksjon, y = repo_counts, fill = spraak, text = repo_used)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("R" = "#9582bb", "Python" = "#1a9d49")) +
+  labs(x = "", y = "Nr. av repoer", title = "") +
+  theme(axis.text.x = element_text(angle = 70, hjust = 1))
+
+# Convert ggplot to interactive plotly
+plotly::ggplotly(p, tooltip = c("x", "y", "repo_used"))
+
+#kableExtra::kbl(function_counts)
+
+```
