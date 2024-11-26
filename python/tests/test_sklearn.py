@@ -29,7 +29,3 @@ def test_SVC():
     pred_test = classifier_svm.predict(test_vec)
     assert all(pred_test == ['g1','g2']), "SVC model predicts correctly"
     
-
-if __name__ == '__main__':
-    test_CountVectorizer()
-    test_SVC()
