@@ -179,20 +179,6 @@ $web-font-path: "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0
   margin-top: 15px;
 }
 
-// Sidebar collapse
-.sidebar .has-children > a::after {
-  content: "▼"; /* Adds an arrow to indicate collapsibility */
-  float: right;
-}
-
-.sidebar .collapse {
-  display: none;
-}
-
-.sidebar .has-children.open .collapse {
-  display: block;
-}
-
 
 // Indicators
 

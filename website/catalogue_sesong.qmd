@@ -4,7 +4,6 @@ format:
   html:
     echo: false
     page-layout: full
-sidebar: false
 ---
 <br>
 
