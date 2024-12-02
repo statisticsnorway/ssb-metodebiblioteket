@@ -24,9 +24,9 @@ get_repo_urls <- function(repo, github_token, silent = TRUE){
   }
   all_files <- traverse_directory(contents, github_token = github_token)
   
-  r_files <- all_files[grepl("\\.R\\?ref\\=ma", all_files, ignore.case = TRUE)]
-  py_files <- all_files[grepl("\\.py\\?ref\\=ma", all_files, ignore.case = TRUE)]
-  nb_files <- all_files[grepl("\\.ipynb\\?ref\\=ma", all_files, ignore.case = TRUE)]
+  r_files <- all_files[grepl("\\.R\\?ref\\=", all_files, ignore.case = TRUE)]
+  py_files <- all_files[grepl("\\.py\\?ref\\=", all_files, ignore.case = TRUE)]
+  nb_files <- all_files[grepl("\\.ipynb\\?ref\\=", all_files, ignore.case = TRUE)]
   
   list(r_files = r_files, py_files=py_files, nb_files=nb_files)
 }
@@ -61,31 +61,6 @@ get_urls <- function(repos, github_token, silent=TRUE){
   }
   url_data
 }
-
-
-
-#traverse_directory <- function(contents, github_token) {
-#  #file_names <- character()
-#  file_url <- character()
-#  for (item in contents) {
-#    if (item[["type"]] == "file") {
-#      #file_names <- c(file_names, item[["name"]])
-#      file_url <- c(file_url, item[["url"]])
-#    } else if ((item[["type"]] == "dir") & (!item[["name"]] %in% c(".poetry", ".renv"))) {
-#      # Fetch the contents of the nested folder
-#      nested_url <- item[["url"]]
-#      nested_response <- httr::GET(nested_url, httr::add_headers(Authorization = paste0("Bearer ", github_token)))
-#      nested_contents <- httr::content(nested_response)
-      
-#      # Recursively traverse the nested folder
-#      nested_files <- traverse_directory(nested_contents, github_token)
-#      #file_names <- c(file_names, nested_files)
-#      file_url <- c(file_url, nested_files)
-#    }
-#  }
-##  
-#  return(file_url)
-#}
 
 
 get_repo_tree <- function(repo, branch) {

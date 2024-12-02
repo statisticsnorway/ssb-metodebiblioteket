@@ -86,14 +86,14 @@ Ingen funksjoner enda.
 
 ## *5.2 Klassifisere og kode*
 ```{r}
-create_keyword_table(dt, c("kontrollere", "5.2"))
+create_keyword_table(dt, c("5.2"))
 ```
 
 
 ## *5.3 Kontrollere og validere*
 
 ```{r}
-create_keyword_table(dt, c("kontrollere", "5.3"))
+create_keyword_table(dt, c("5.3"))
 ```
 
 
@@ -105,14 +105,9 @@ create_keyword_table(dt, c("imputere", "5.4"))
 ## *5.5 Avlede nye variabler*
 Ingen funksjoner enda
 
-## *5.6 Beregne vekter*
+## *5.6/5.7 Beregne vekter og aggregater*
 ```{r}
-create_keyword_table(dt, c("vektberegning", "5.6"))
-```
-
-## *5.7 Beregne aggregater*
-```{r}
-create_keyword_table(dt, c("5.7"))
+create_keyword_table(dt, c("vektberegning", "5.6", "5.7"))
 ```
 
 
