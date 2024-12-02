@@ -7,7 +7,7 @@
 dato <- Sys.Date()
 filer <- list.files("website")
 if (!dato %in% filer){
-  dir.create(file.path("./data", dato))
+  dir.create(file.path("./website", dato))
 }
 
 # Read in functions
@@ -40,6 +40,5 @@ View(dt_all[, c("repo_counts", "repo_used")])
 
 function_counts <- dt_all[, c("repo_counts", "repo_used")]
 save(function_counts, file = paste0("./website/", dato, "/function_counts.RData"))
-
 
 
