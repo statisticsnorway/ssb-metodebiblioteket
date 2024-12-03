@@ -33,7 +33,7 @@ library(plotly)
 source("../internal/add_funcs.R")
 
 # Date for scraped data
-dato <- "2024-11-25"
+dato <- "2024-11-28"
 run_scraping <- FALSE
 if (run_scraping){
   dato <- Sys.Date()

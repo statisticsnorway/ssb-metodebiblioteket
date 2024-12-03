@@ -49,8 +49,8 @@ Alternativ er å installere pakkene som funkjsoner du ønsker å bruke er en del
 Her finner du en eksempel om bruk av en funksjon i Metodebiblioteket. 
 
 Mer info kommmer...
-::: {.panel-tabset}
 
+::: {.panel-tabset}
 
 ## R eksempel
 
@@ -58,7 +58,6 @@ Mer info kommmer...
 library(metodebiblioteket)
 
 ```
-
 
 
 ## Python eksempel (kommer snart)
