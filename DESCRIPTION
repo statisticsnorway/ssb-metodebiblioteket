@@ -25,7 +25,9 @@ Imports:
   GaussSuppression,
   GISSB,
   Kostra,
+  ReGenesees,
   SdcForetakPerson,
+  sdclonn,
   simputation,
   SmallCountRounding, 
   SSBtools,
@@ -34,10 +36,12 @@ Imports:
   struktuR,
   validate
 Remotes:
-  statisticsnorway/SdcForetakPerson,
-  statisticsnorway/Kostra,
-  statisticsnorway/struktuR,
-  statisticsnorway/SSBpris
+  statisticsnorway/ReGenesees,
+  statisticsnorway/ssb-sdcforetakperson,
+  statisticsnorway/ssb-kostra,
+  statisticsnorway/ssb-struktur,
+  statisticsnorway/ssb-pris
+  statisticsnorway/ssb-sdclonn
 Suggests: 
     testthat (>= 3.0.0),
     base64enc,

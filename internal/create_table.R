@@ -10,6 +10,7 @@ devtools::install_github("statisticsnorway/ssb-smallcountrounding")
 devtools::install_github("statisticsnorway/ssb-easySdcTable")
 devtools::install_github("statisticsnorway/ssb-pris")
 devtools::install_github("statisticsnorway/ssb-sdcforetakperson")
+devtools::install_github("statisticsnorway/ssb-sdclonn")
 devtools::install_github("statisticsnorway/ReGenesees")
 install.packages("GISSB")
 install.packages("GaussSupression")
@@ -17,6 +18,7 @@ install.packages("GaussSupression")
 # RJDemetra litt vanskelig å installere pga avhengighet på java versjon
 # devtools::install_github("statisticsnorway/pickmdl")
 # install.packages("RJDemetra")
+
 
 
 #### Add functions ####
@@ -90,6 +92,10 @@ add_func("SuppressKDisclosure", "GaussSuppression", keyword = "rfunc konfidensia
 add_func("GaussSuppressionFromData", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4")
 add_func("GaussSuppressDec", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4")
 add_func("SuppressionFromDecimals", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4")
+add_func("sdc_lonn", "sdclonn", keyword = "rfunc konfidensialitet undertrykking 6.4", 
+         url="https://statisticsnorway.github.io/ssb-sdclonn/reference/sdc_lonn.html", 
+         pack_url = "https://statisticsnorway.github.io/ssb-sdclonn/reference/index.html")
+
 
 # export = False for all in RJDemetra and pickmdl due to difficulties in installing 
 add_func("x13", "RJDemetra", keyword = "rfunc sesongjustering 6.1",
@@ -155,28 +161,21 @@ add_func("get_weights", "statstruk", keyword = "python vektberegning modellbaser
          pack_url="https://statisticsnorway.github.io/ssb-statstruk/",
          descrip = "Get sample data with weights based on model.")
 
-# ReGenesees functions not exported as a little difficult because not on CRAN
+# ReGenesees functions
 add_func("e.svydesign", "ReGenesees", keyword = "rfunc vektberegning 5.6", 
-         url="https://diegozardetto.github.io/ReGenesees/reference/e.svydesign.html",
-         export = F)
+         url="https://diegozardetto.github.io/ReGenesees/reference/e.svydesign.html")
 add_func("pop.template", "ReGenesees", keyword = "rfunc vektberegning 5.6 5.7", 
-         url="https://diegozardetto.github.io/ReGenesees/reference/pop.template.html",
-         export = F)
+         url="https://diegozardetto.github.io/ReGenesees/reference/pop.template.html")
 add_func("fill.template", "ReGenesees", keyword = "rfunc vektberegning 5.6 5.7", 
-         url="https://diegozardetto.github.io/ReGenesees/reference/fill.template.html",
-         export = F)
+         url="https://diegozardetto.github.io/ReGenesees/reference/fill.template.html")
 add_func("e.calibrate", "ReGenesees", keyword = "rfunc vektberegning 5.6 5.7", 
-         url="https://diegozardetto.github.io/ReGenesees/reference/e.calibrate.html",
-         export = F)
+         url="https://diegozardetto.github.io/ReGenesees/reference/e.calibrate.html")
 add_func("weights", "ReGenesees", keyword = "rfunc vektberegning 5.6", 
-         url="https://diegozardetto.github.io/ReGenesees/reference/weights.html",
-         export = F)
+         url="https://diegozardetto.github.io/ReGenesees/reference/weights.html")
 add_func("svystatTM", "ReGenesees", keyword = "rfunc vektberegning 5.7", 
-         url="https://diegozardetto.github.io/ReGenesees/reference/svystatTM.html",
-         export = F)
+         url="https://diegozardetto.github.io/ReGenesees/reference/svystatTM.html")
 add_func("svystatL", "ReGenesees", keyword = "rfunc vektberegning 5.7", 
-         url="https://diegozardetto.github.io/ReGenesees/reference/svystatL.html",
-         export = F)
+         url="https://diegozardetto.github.io/ReGenesees/reference/svystatL.html")
 
 # Usikkerhetsberegning
 add_func("CalibrateSSB", "CalibrateSSB", keyword = "rfunc vektberegning usikkerhetsberegning designbasert 5.6")
