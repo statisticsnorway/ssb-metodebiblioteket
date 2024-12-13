@@ -197,3 +197,43 @@ dcmodify::modifier
 
 
 
+#' @importFrom sdclonn sdc_lonn
+# @export
+sdclonn::sdc_lonn
+
+
+#' @importFrom ReGenesees e.svydesign
+# @export
+ReGenesees::e.svydesign
+
+
+#' @importFrom ReGenesees pop.template
+# @export
+ReGenesees::pop.template
+
+
+#' @importFrom ReGenesees fill.template
+# @export
+ReGenesees::fill.template
+
+
+#' @importFrom ReGenesees e.calibrate
+# @export
+ReGenesees::e.calibrate
+
+
+#' @importFrom ReGenesees weights
+# @export
+ReGenesees::weights
+
+
+#' @importFrom ReGenesees svystatTM
+# @export
+ReGenesees::svystatTM
+
+
+#' @importFrom ReGenesees svystatL
+# @export
+ReGenesees::svystatL
+
+
