@@ -16,7 +16,7 @@ Maintainer: Susie Jentoft <Susie.Jentoft@ssb.no>
 Description: This is a package for presenting and testing R and python functions useful for official statistics.
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Depends: R (>= 3.5.0)
 Imports: 
   CalibrateSSB,
