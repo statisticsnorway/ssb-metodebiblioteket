@@ -40,12 +40,14 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::sessioninfo, any::rcmdcheck, local::.
-          needs: check
-          cache-version: 2
-          lockfile: "renv.lock"
+      - name: Install pak
+        run: Rscript -e 'install.packages("pak")'
+
+      - name: Install Kostra package
+        run: Rscript -e 'pak::pkg_install(c("statisticsnorway/ReGenesees", "statisticsnorway/ssb-sdcforetakperson", "statisticsnorway/ssb-kostra", "statisticsnorway/ssb-struktur", "statisticsnorway/ssb-pris", "statisticsnorway/ssb-sdclonn"))'
+
+      - name: Install dependencies
+        run: Rscript -e 'pak::pkg_install()'
 
       - name: Session info
         run: |
