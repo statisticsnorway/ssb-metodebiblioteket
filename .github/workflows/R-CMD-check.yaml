@@ -39,7 +39,10 @@ jobs:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
-      
+          
+      - name: Install remotes package
+        run: Rscript -e 'if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")'
+
       - name: Install dependencies from Remotes
         run: |
           Rscript -e 'remotes::install_github("statisticsnorway/ReGenesees")'
