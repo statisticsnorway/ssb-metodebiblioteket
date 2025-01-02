@@ -47,7 +47,7 @@ jobs:
         run: Rscript -e 'pak::pkg_install(c("statisticsnorway/ReGenesees", "statisticsnorway/ssb-sdcforetakperson", "statisticsnorway/ssb-kostra", "statisticsnorway/ssb-struktur", "statisticsnorway/ssb-pris", "statisticsnorway/ssb-sdclonn"))'
 
       - name: Install dependencies
-        run: Rscript -e 'pak::pkg_install()'
+        run: Rscript -e 'pak::pkg_install(dependencies = TRUE)'
 
       - name: Session info
         run: |
