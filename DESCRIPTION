@@ -40,7 +40,7 @@ Remotes:
   statisticsnorway/ssb-sdcforetakperson,
   statisticsnorway/ssb-kostra,
   statisticsnorway/ssb-struktur,
-  statisticsnorway/ssb-pris
+  statisticsnorway/ssb-pris,
   statisticsnorway/ssb-sdclonn
 Suggests: 
     testthat (>= 3.0.0),
