@@ -39,23 +39,13 @@ jobs:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
-          
-      - name: Install remotes package
-        run: Rscript -e 'if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")'
-
-      - name: Install dependencies from Remotes
-        run: |
-          Rscript -e 'remotes::install_github("statisticsnorway/ReGenesees")'
-          Rscript -e 'remotes::install_github("statisticsnorway/ssb-kostra")'
-          Rscript -e 'remotes::install_github("statisticsnorway/ssb-sdcforetakperson")'
-          Rscript -e 'remotes::install_github("statisticsnorway/ssb-sdclonn")'
-          Rscript -e 'remotes::install_github("statisticsnorway/ssb-pris")'
-          Rscript -e 'remotes::install_github("statisticsnorway/ssb-struktur")'
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::sessioninfo, any::rcmdcheck, local::.
           needs: check
+          cache-version: 2
+          lockfile: "renv.lock"
 
       - name: Session info
         run: |
