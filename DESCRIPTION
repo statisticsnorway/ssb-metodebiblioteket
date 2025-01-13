@@ -16,7 +16,7 @@ Maintainer: Susie Jentoft <Susie.Jentoft@ssb.no>
 Description: This is a package for presenting and testing R and python functions useful for official statistics.
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Depends: R (>= 3.5.0)
 Imports: 
   CalibrateSSB,
@@ -25,7 +25,9 @@ Imports:
   GaussSuppression,
   GISSB,
   Kostra,
+  ReGenesees,
   SdcForetakPerson,
+  sdclonn,
   simputation,
   SmallCountRounding, 
   SSBtools,
@@ -34,10 +36,12 @@ Imports:
   struktuR,
   validate
 Remotes:
-  statisticsnorway/SdcForetakPerson,
-  statisticsnorway/Kostra,
-  statisticsnorway/struktuR,
-  statisticsnorway/SSBpris
+  statisticsnorway/ReGenesees,
+  statisticsnorway/ssb-sdcforetakperson,
+  statisticsnorway/ssb-kostra,
+  statisticsnorway/ssb-struktur,
+  statisticsnorway/ssb-pris,
+  statisticsnorway/ssb-sdclonn
 Suggests: 
     testthat (>= 3.0.0),
     base64enc,
