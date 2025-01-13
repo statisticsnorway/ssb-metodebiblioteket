@@ -1,5 +1,5 @@
 ---
-title: "Kjøre en R funksjon fra Python"
+title: "Kjøre en R-funksjon fra Python"
 format:
   html:
     echo: false
@@ -7,4 +7,59 @@ format:
 editor: source
 ---
 
-Kommer snart...
+Mange utvikler produksjonsløpet sitt i Python mens ønsker å benytte R funksjoner i deler av løpet. Her er eksempler på to ulike måte å gjøre dette:
+
+- Alternativ 1: [Kjøring av R-skriptfiler](#sec-alt1)
+- Alternativ 2: [Bruk av RWrapR](#sec-alt2)
+
+Det er anbefalt å bruke alternativ 1 om R-funksjon(er) er litt mer kompleks, eller involvere flere steg. Alternativ 2 kan vurderes om det er en enkelt R-funksjon som skal as i bruk i produksjonsløpet.
+
+## Kjøring av R-skriptfiler {#sec-alt1}
+Selvstendige R-skriptfiler kan kjøres fra Python ved hjelp av et kall til terminalen med `Rscript`. Med "selvstendige" mener vi programmer som kan kjøres alene uten å være avhengig av andre systemer og variabler i minne fra før. Fordelen med dette er at det vil benytte seg av renv-miljøet, i tillegg til å ha god kontroll over håndtering av datatyper, manglende data, osv., siden dette også kan sjekkes ved å kjøre programmet i R.
+
+Vi anbefaler å bruk [subprocess](https://docs.python.org/3/library/subprocess.html) i python for å kjøre programmet. For å kjøre en R-skript som heter "lage_statistikk.R" vil det ser ut som dette:
+
+```python
+import subprocess
+
+subprocess.run(["Rscript", "lager_statistikk.R"])
+```
+
+## Bruk av RWrapR {#sec-alt2}
+Python pakke [rwrapr](https://pypi.org/project/rwrapr/) var utviklet under Hack4SSB 2024. Det har kommet ut på PYPI og er tilgjengelig for alle. Det gjøre R-funksjoner tilgjengelig direkte i Python-miljø. Det kan være en god lsøning når det er kun én R-funksjon du ønsker å bruke i en ellers Python produksjonsløp. 
+
+Det er fortsatt noen funksjonalitet som mangler, f.eks. bruk i et renv-miljø og håndtering av manglende data, så vær forsiktig og teste godt. Pakken RWrapR kan installeres fra PYPI ved:
+
+
+```bash
+poetry add rwrapr
+```
+
+Følgende viser en kort eksempel om bruk av imputerings funksjonen, ´impute_rhd()´, fra R i Python. Vi først lage noen eksempel data:
+
+```python
+import pandas as pd
+import rwrapr as wr
+
+data = {
+    'x': ["A","A","A","B","B","B"],
+    'y': [None, 2, 3, 4, 3, 5]
+}
+
+df = pd.DataFrame(data)
+```
+
+ Og så henter vi inn R-bibliotek for imputering, `simputation`:
+ 
+ 
+```python
+simputation = wr.library("simputation")
+```
+
+Deretter bruker vi funksjonen `impute_rhd` i Python miljø:
+
+```python
+data_imp = simputation.impute_rhd(df, formula=wr.Lazily('y ~ x'))
+```
+
+Mange parameter til funksjoner kan skrives på vanlig måte, mens for mer spesifike typer, som f.eks. formel som input, må det spesifiseres innen `wr.Lazily()`. Se mer detaljer på [dokumentsidene for RWrapR](https://statisticsnorway.github.io/ssb-rwrapr/).
