@@ -1,0 +1,72 @@
+---
+title: "Hvordan å skrive enhetstester"
+format: html
+editor: source
+---
+
+En enhetstest er en type **programvaretesting hvor en liten del av kode blir individuelt og uavhengig undersøkt** for riktighet. Dette er mest ofte brukt til å teste funksjoner.
+
+En  fordel med enhetstesting er at den gjør det mulig for utviklere å teste logikken i koden er riktig og at utfall er som forventet. Dermed kan det brukes til å identifisere feil på et tidlig stadium i utviklingsprosessen som kan spare tid og frustrasjoner i programvareutviklingsprosessen. Ved å bruke enhetstester kan utviklere også dokumentere koden og forstå hvordan den fungerer. Dette kan være spesielt nyttig når nye utviklere begynner å arbeide med koden, eller når funksjoner skal vedlikeholdes over tid. Det også gir en sikekrhet for når koden skal endres, at endringene ikke bryte eksisternede funksjonalitet.
+
+
+::: {.callout-tip title="Plassering av enhetstester"}
+I Metodebiblioteket kjøres all enhetstester automatisk ved endring i repoen. For at dette skal fungere, må enhetstester i R ligge under mappen **tests > testthat** og for Python skal de ligge under **python > tests**.
+:::
+
+
+::: {.panel-tabset}
+
+## R
+Importere [`testthat`](https://testthat.r-lib.org/) pakken med
+```{r eval=FALSE, echo=TRUE}
+renv::install("testthat")
+```
+
+Koden under tester funksjonen `add_floats()`
+
+```{r eval=FALSE, echo=TRUE}
+library(testthat)
+
+test_that("add_floats summere korrekt", { 
+  result <- add_floats(2, 3) 
+  expect_equal(result, 5) 
+  result <- add_floats(-1, 1) 
+  expect_equal(result, 0) 
+  })
+```
+
+Se [Eksempler på enhetstester i R](https://statistics-norway.atlassian.net/wiki/spaces/BEST/pages/3930423362/Eksempler+p+enhetstester+i+R) (internt SSB) for mer detaljer.
+
+## Python
+Importerer pakken [`pytest`](https://docs.pytest.org/en/stable/).
+```{python eval=FALSE, echo=TRUE, python.reticulate = FALSE}
+import pytest
+
+```
+
+Koden under tester funksjonen `is_prime` ved bruk av `assert`.
+
+```{python eval=FALSE, echo=TRUE, python.reticulate = FALSE}
+from pathlib import Path
+
+import pandas as pd
+import pytest
+from pandas import testing as tm
+
+from pytest_examples.functions import is_prime, valuta_omv
+
+def test_is_prime():
+    assert is_prime(2) is True
+    assert is_prime(3) is True
+    assert is_prime(4) is False
+    assert is_prime(0) is False
+    assert is_prime(-5) is False
+```
+
+Se [Eksempler på bruk av pytest](https://statistics-norway.atlassian.net/wiki/spaces/BEST/pages/3913941162/Eksempler+p+bruk+av+pytest) (internt SSB) for mer detaljer.
+
+:::
+
+For generelle informasjon om enhetstest skriving se [Hadley Wickhams veiledning til testthat](https://r-pkgs.org/testing-basics.html) for R eller [veiledning til pytest](https://docs.pytest.org/en/7.4.x/getting-started.html) for Python.
+
+Du finner mer informasjon om standard og anbefaling til enhetstester i SSB på [KVAKK-sidene](https://statistics-norway.atlassian.net/wiki/spaces/KOD/pages/3911122953/Test+og+kodekvalitet) (internt SSB)

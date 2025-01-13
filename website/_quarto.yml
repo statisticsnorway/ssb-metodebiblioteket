@@ -51,6 +51,7 @@ website:
         - daplalab.qmd
         - rogpython.qmd
         - bidra.qmd
+        - enhetstester.qmd
     
     - title: "Status"
       contents: 
