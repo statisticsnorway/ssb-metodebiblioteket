@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,10 +34,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d6b834cc45ec55d233f4a5b4186a1b16.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8e0bf435e1ddcaa844cc2b06cdf35130.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -755,41 +755,48 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">'GaussSuppression', 'protectTable' or 'protect_linked_tables' is run with a data set as the only required input. One (stacked) or several (unstacked) input variables can hold cell counts. 'ProtectTableData' is a tidy wrapper function, which returns a single data frame instead of a list ('info' omitted).</td>
 </tr>
 <tr class="even">
+<td style="text-align: left; white-space: nowrap;"><a href="https://statisticsnorway.github.io/ssb-sdclonn/reference/sdc_lonn.html">sdc_lonn</a></td>
+<td style="text-align: left; white-space: nowrap;"><a href="https://statisticsnorway.github.io/ssb-sdclonn/reference/index.html">sdclonn</a></td>
+<td style="text-align: left;">Undertrykking i l<c3><b8>nnsstatistikk </b8></c3></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Input er mikrodata og output er (samordnede) tabell(er) med alle <c3><b8>nskede aggregeringsniv<c3><a5>er. </a5></c3></b8></c3></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left; white-space: nowrap;"><a href="https://statisticsnorway.github.io/ssb-sdcforetakperson/reference/SdcForetakPerson.html">SdcForetakPerson</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://github.com/statisticsnorway/SdcForetakPerson/">SdcForetakPerson</a></td>
 <td style="text-align: left;">Prikking av foretak og avrunding eller prikking av personer</td>
 <td style="text-align: left;">R</td>
 <td style="text-align: left;">Prikking av foretak og avrunding eller prikking av personer. Sett parameteren 'allowTotal' til 'TRUE' for at kategorier innen ('within') foretak skal prikkes samtidig som totalverdier over disse grupperingene tillates publisert.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressDominantCells.html">SuppressDominantCells</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/GaussSuppression/index.html">GaussSuppression</a></td>
 <td style="text-align: left;">Suppress magnitude tables using dominance (n,k) or p% rule for</td>
 <td style="text-align: left;">R</td>
 <td style="text-align: left;">Suppress magnitude tables using dominance (n,k) or p% rule for primary suppression.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressFewContributors.html">SuppressFewContributors</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/GaussSuppression/index.html">GaussSuppression</a></td>
 <td style="text-align: left;">Few contributors suppression</td>
 <td style="text-align: left;">R</td>
 <td style="text-align: left;">This function provides functionality for suppressing volume tables based on the few contributors rule ('NContributorsRule').</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressionFromDecimals.html">SuppressionFromDecimals</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/GaussSuppression/index.html">GaussSuppression</a></td>
 <td style="text-align: left;">Cell suppression from synthetic decimal numbers</td>
 <td style="text-align: left;">R</td>
 <td style="text-align: left;">Decimal numbers, as calculated by 'GaussSuppressDec', are used to decide suppression (whole numbers or not). Technically, the calculations are done via 'GaussSuppressionFromData', but without running 'GaussSuppression'. All suppressed cells are primary suppressed.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressKDisclosure.html">SuppressKDisclosure</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/GaussSuppression/index.html">GaussSuppression</a></td>
 <td style="text-align: left;">K-disclosure suppression</td>
 <td style="text-align: left;">R</td>
 <td style="text-align: left;">A function for suppressing frequency tables using the k-disclosure method.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left; white-space: nowrap;"><a href="https://rdrr.io/cran/GaussSuppression/man/SuppressSmallCounts.html">SuppressSmallCounts</a></td>
 <td style="text-align: left; white-space: nowrap;"><a href="https://cran.r-project.org/web/packages/GaussSuppression/index.html">GaussSuppression</a></td>
 <td style="text-align: left;">Small count frequency table suppression.</td>
