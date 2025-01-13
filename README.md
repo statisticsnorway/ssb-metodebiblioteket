@@ -46,11 +46,11 @@ statistikkproduksjonen](https://www.ssb.no/teknologi-og-innovasjon/artikler-og-p
 
 ## Legg inn en ny funksjon
 
-Har du en metodiske funksjon som du mener bør ligge inn i Metodebiblioteket? Her finne du [instruks om hvordan å legge inn en ny funkjson](https://statisticsnorway.github.io/metodebiblioteket/bidra.html). Husk at et av kravene er at funksjoner brukes i minst et produksjonsløp eller i et av SSBs metode-kursene. Funksjoner kan være i R eller Python. 
+Har du en metodiske funksjon som du mener bør ligge inn i Metodebiblioteket? Her finne du [instruks om hvordan å legge inn en ny funkjson](https://statisticsnorway.github.io/ssb-metodebiblioteket/bidra.html). Husk at et av kravene er at funksjoner brukes i minst et produksjonsløp eller i et av SSBs metode-kursene. Funksjoner kan være i R eller Python. 
 
 
 ## Status
 
-Status på Metodebiblioteket ligger på [status siden](https://statisticsnorway.github.io/metodebiblioteket/status.html)
+Status på Metodebiblioteket ligger på [status siden](https://statisticsnorway.github.io/ssb-metodebiblioteket/status.html)
 
 
