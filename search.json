@@ -112,7 +112,7 @@
     "href": "status.html",
     "title": "Status på metodebiblioteket",
     "section": "",
-    "text": "Denne siden inneholder informasjon om status på funksjoner i SSBs Metodebiblioteket. Den er status som er genererte 2024-12-03.",
+    "text": "Denne siden inneholder informasjon om status på funksjoner i SSBs Metodebiblioteket. Den er status som er genererte 2025-01-15.",
     "crumbs": [
       "Status",
       "Status på metodebiblioteket"
@@ -123,7 +123,7 @@
     "href": "status.html#oversikt",
     "title": "Status på metodebiblioteket",
     "section": "Oversikt",
-    "text": "Oversikt\nDet er 58 funksjoner i Metodebiblioteket",
+    "text": "Oversikt\nDet er 59 funksjoner i Metodebiblioteket",
     "crumbs": [
       "Status",
       "Status på metodebiblioteket"
@@ -134,7 +134,7 @@
     "href": "status.html#nøkkelord",
     "title": "Status på metodebiblioteket",
     "section": "Nøkkelord",
-    "text": "Nøkkelord\nNøkkelord brukes til å organisere Metodebiblioteket. Følgende ord brukes i Metodebiblioteket. GSDPM steg nummer ikke inkluderes her.\n\n\n\n\n\nNokkelord\nAntall\n\n\n\n\nanalyse\n5\n\n\navrunding\n2\n\n\ndesignbasert\n2\n\n\ndonor\n3\n\n\nimputere\n8\n\n\nindeksberegning\n2\n\n\nkonfidensialitet\n11\n\n\nkontrollere\n12\n\n\nmaskinlaering\n2\n\n\nmodellbasert\n7\n\n\npython\n7\n\n\nregelbasert\n3\n\n\nrfunc\n51\n\n\nromlig\n2\n\n\nsesongjustering\n7\n\n\nstatistisk\n10\n\n\nstrukturere\n3\n\n\nundertrykking\n10\n\n\nusikkerhetsberegning\n4\n\n\nvektberegning\n15\n\n\n\n\n\n Følgende ord er nøkkelord knyttet til en funksjon men er ikke inn i standardlisten\n\n\n\n\n\nNokkelord:",
+    "text": "Nøkkelord\nNøkkelord brukes til å organisere Metodebiblioteket. Følgende ord brukes i Metodebiblioteket. GSDPM steg nummer ikke inkluderes her.\n\n\n\n\n\nNokkelord\nAntall\n\n\n\n\nanalyse\n5\n\n\navrunding\n2\n\n\ndesignbasert\n2\n\n\ndonor\n3\n\n\nimputere\n8\n\n\nindeksberegning\n2\n\n\nkonfidensialitet\n12\n\n\nkontrollere\n12\n\n\nmaskinlaering\n2\n\n\nmodellbasert\n7\n\n\npython\n7\n\n\nregelbasert\n3\n\n\nrfunc\n52\n\n\nromlig\n2\n\n\nsesongjustering\n7\n\n\nstatistisk\n10\n\n\nstrukturere\n3\n\n\nundertrykking\n11\n\n\nusikkerhetsberegning\n4\n\n\nvektberegning\n15\n\n\n\n\n\n Følgende ord er nøkkelord knyttet til en funksjon men er ikke inn i standardlisten\n\n\n\n\n\nNokkelord:",
     "crumbs": [
       "Status",
       "Status på metodebiblioteket"
@@ -145,7 +145,7 @@
     "href": "status.html#enhetstester",
     "title": "Status på metodebiblioteket",
     "section": "Enhetstester",
-    "text": "Enhetstester\nHver funksjon i Metodebiblioteket skal ha minst en enhetstest knyttet til den. Dette er for å forsikre kvalitet og kunne tester funksjoner på nye og gamle R installasjoner.\nFølgende tabellen viser hvilke funksjoner mangler enhetstester eller har enhetstester som feiler\n\n\n\n\n\nfunksjon_navn\nstatus\ndetaljer\n\n\n\n\nCalcIndS2\nmangler\n\n\n\nconfront\nmangler\n\n\n\nCountVectorizer\nmangler\n\n\n\ne.calibrate\nmangler\n\n\n\ne.svydesign\nmangler\n\n\n\nfill.template\nmangler\n\n\n\nget_estimates\nmangler\n\n\n\nget_extremes\nmangler\n\n\n\nget_extremes\nmangler\n\n\n\nget_weights\nmangler\n\n\n\nHb\nmangler\n\n\n\nimpute_knn\nmangler\n\n\n\nimpute_proxy\nmangler\n\n\n\nimpute_rhd\nmangler\n\n\n\nkonstruksjon\nmangler\n\n\n\nlm\nmangler\n\n\n\nLmImpute\nmangler\n\n\n\nmodifier\nmangler\n\n\n\nOLS\nmangler\n\n\n\nOutlierRegressionMicro\nmangler\n\n\n\npop.template\nmangler\n\n\n\nratemodel\nmangler\n\n\n\nSVC\nmangler\n\n\n\nsvystatL\nmangler\n\n\n\nsvystatTM\nmangler\n\n\n\nvalidator\nmangler\n\n\n\nweights\nmangler\n\n\n\nx13\nmangler\n\n\n\nx13_automdl\nmangler\n\n\n\nx13_both\nmangler\n\n\n\nx13_pickmdl\nmangler\n\n\n\nx13_spec\nmangler\n\n\n\nx13_text_frame\nmangler",
+    "text": "Enhetstester\nHver funksjon i Metodebiblioteket skal ha minst en enhetstest knyttet til den. Dette er for å forsikre kvalitet og kunne tester funksjoner på nye og gamle R installasjoner.\nFølgende tabellen viser hvilke funksjoner mangler enhetstester eller har enhetstester som feiler\n\n\n\n\n\nfunksjon_navn\nstatus\ndetaljer\n\n\n\n\nCalcIndS2\nmangler\n\n\n\nconfront\nmangler\n\n\n\nCountVectorizer\nmangler\n\n\n\ne.calibrate\nmangler\n\n\n\ne.svydesign\nmangler\n\n\n\nfill.template\nmangler\n\n\n\nget_estimates\nmangler\n\n\n\nget_extremes\nmangler\n\n\n\nget_extremes\nmangler\n\n\n\nget_weights\nmangler\n\n\n\nHb\nmangler\n\n\n\nimpute_proxy\nmangler\n\n\n\nkonstruksjon\nmangler\n\n\n\nLmImpute\nmangler\n\n\n\nmodifier\nmangler\n\n\n\nOLS\nmangler\n\n\n\nOutlierRegressionMicro\nmangler\n\n\n\npop.template\nmangler\n\n\n\nratemodel\nmangler\n\n\n\nsdc_lonn\nmangler\n\n\n\nSVC\nmangler\n\n\n\nsvystatL\nmangler\n\n\n\nsvystatTM\nmangler\n\n\n\nvalidator\nmangler\n\n\n\nweights\nmangler\n\n\n\nx13\nmangler\n\n\n\nx13_automdl\nmangler\n\n\n\nx13_both\nmangler\n\n\n\nx13_pickmdl\nmangler\n\n\n\nx13_spec\nmangler\n\n\n\nx13_text_frame\nmangler",
     "crumbs": [
       "Status",
       "Status på metodebiblioteket"
@@ -167,7 +167,7 @@
     "href": "status.html#antall-som-bruker-funksjoner-på-github",
     "title": "Status på metodebiblioteket",
     "section": "Antall som bruker funksjoner på GitHub",
-    "text": "Antall som bruker funksjoner på GitHub\nFiguren under viser hvor mange bruker funksjoner i Metodebiblioteket basert på SSBs GitHUb. Vi har hentet data baserte på om funksjonen finnes i script-filene på repo som begynner med “stat-”. Status er per: 2024-11-28",
+    "text": "Antall som bruker funksjoner på GitHub\nFiguren under viser hvor mange bruker funksjoner i Metodebiblioteket basert på SSBs GitHUb. Vi har hentet data baserte på om funksjonen finnes i script-filene på repo som begynner med “stat-”. Status er per: 2025-01-15",
     "crumbs": [
       "Status",
       "Status på metodebiblioteket"
