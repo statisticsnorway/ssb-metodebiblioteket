@@ -13,12 +13,34 @@
   {
     "objectID": "rogpython.html",
     "href": "rogpython.html",
-    "title": "Kjøre en R funksjon fra Python",
+    "title": "Kjøre en R-funksjon fra Python",
     "section": "",
-    "text": "Kommer snart…",
+    "text": "Mange utvikler produksjonsløpet sitt i Python mens ønsker å benytte R funksjoner i deler av løpet. Her er eksempler på to ulike måte å gjøre dette:\nDet er anbefalt å bruke alternativ 1 om R-funksjon(er) er litt mer kompleks, eller involvere flere steg. Alternativ 2 kan vurderes om det er en enkelt R-funksjon som skal as i bruk i produksjonsløpet.",
     "crumbs": [
       "Veiledning",
-      "Kjøre en R funksjon fra Python"
+      "Kjøre en R-funksjon fra Python"
+    ]
+  },
+  {
+    "objectID": "rogpython.html#sec-alt1",
+    "href": "rogpython.html#sec-alt1",
+    "title": "Kjøre en R-funksjon fra Python",
+    "section": "Kjøring av R-skriptfiler",
+    "text": "Kjøring av R-skriptfiler\nSelvstendige R-skriptfiler kan kjøres fra Python ved hjelp av et kall til terminalen med Rscript. Med “selvstendige” mener vi programmer som kan kjøres alene uten å være avhengig av andre systemer og variabler i minne fra før. Fordelen med dette er at det vil benytte seg av renv-miljøet, i tillegg til å ha god kontroll over håndtering av datatyper, manglende data, osv., siden dette også kan sjekkes ved å kjøre programmet i R.\nVi anbefaler å bruk subprocess i python for å kjøre programmet. For å kjøre en R-skript som heter “lage_statistikk.R” vil det ser ut som dette:\nimport subprocess\n\nsubprocess.run([\"Rscript\", \"lager_statistikk.R\"])",
+    "crumbs": [
+      "Veiledning",
+      "Kjøre en R-funksjon fra Python"
+    ]
+  },
+  {
+    "objectID": "rogpython.html#sec-alt2",
+    "href": "rogpython.html#sec-alt2",
+    "title": "Kjøre en R-funksjon fra Python",
+    "section": "Bruk av RWrapR",
+    "text": "Bruk av RWrapR\nPython pakke rwrapr var utviklet under Hack4SSB 2024. Det har kommet ut på PYPI og er tilgjengelig for alle. Det gjøre R-funksjoner tilgjengelig direkte i Python-miljø. Det kan være en god lsøning når det er kun én R-funksjon du ønsker å bruke i en ellers Python produksjonsløp.\nDet er fortsatt noen funksjonalitet som mangler, f.eks. bruk i et renv-miljø og håndtering av manglende data, så vær forsiktig og teste godt. Pakken RWrapR kan installeres fra PYPI ved:\npoetry add rwrapr\nFølgende viser en kort eksempel om bruk av imputerings funksjonen, ´impute_rhd()´, fra R i Python. Vi først lage noen eksempel data:\nimport pandas as pd\nimport rwrapr as wr\n\ndata = {\n    'x': [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"],\n    'y': [None, 2, 3, 4, 3, 5]\n}\n\ndf = pd.DataFrame(data)\nOg så henter vi inn R-bibliotek for imputering, simputation:\nsimputation = wr.library(\"simputation\")\nDeretter bruker vi funksjonen impute_rhd i Python miljø:\ndata_imp = simputation.impute_rhd(df, formula=wr.Lazily('y ~ x'))\nMange parameter til funksjoner kan skrives på vanlig måte, mens for mer spesifike typer, som f.eks. formel som input, må det spesifiseres innen wr.Lazily(). Se mer detaljer på dokumentsidene for RWrapR.",
+    "crumbs": [
+      "Veiledning",
+      "Kjøre en R-funksjon fra Python"
     ]
   },
   {
@@ -52,11 +74,22 @@
     ]
   },
   {
+    "objectID": "enhetstester.html",
+    "href": "enhetstester.html",
+    "title": "Hvordan å skrive enhetstester",
+    "section": "",
+    "text": "En enhetstest er en type programvaretesting hvor en liten del av kode blir individuelt og uavhengig undersøkt for riktighet. Dette er mest ofte brukt til å teste funksjoner.\nEn fordel med enhetstesting er at den gjør det mulig for utviklere å teste logikken i koden er riktig og at utfall er som forventet. Dermed kan det brukes til å identifisere feil på et tidlig stadium i utviklingsprosessen som kan spare tid og frustrasjoner i programvareutviklingsprosessen. Ved å bruke enhetstester kan utviklere også dokumentere koden og forstå hvordan den fungerer. Dette kan være spesielt nyttig når nye utviklere begynner å arbeide med koden, eller når funksjoner skal vedlikeholdes over tid. Det også gir en sikekrhet for når koden skal endres, at endringene ikke bryte eksisternede funksjonalitet.\n\n\n\n\n\n\nPlassering av enhetstester\n\n\n\nI Metodebiblioteket kjøres all enhetstester automatisk ved endring i repoen. For at dette skal fungere, må enhetstester i R ligge under mappen tests &gt; testthat og for Python skal de ligge under python &gt; tests.\n\n\n\nRPython\n\n\nImportere testthat pakken med\n\nrenv::install(\"testthat\")\n\nKoden under tester funksjonen add_floats()\n\nlibrary(testthat)\n\ntest_that(\"add_floats summere korrekt\", { \n  result &lt;- add_floats(2, 3) \n  expect_equal(result, 5) \n  result &lt;- add_floats(-1, 1) \n  expect_equal(result, 0) \n  })\n\nSe Eksempler på enhetstester i R (internt SSB) for mer detaljer.\n\n\nImporterer pakken pytest.\n\nimport pytest\n\nKoden under tester funksjonen is_prime ved bruk av assert.\n\nfrom pathlib import Path\n\nimport pandas as pd\nimport pytest\nfrom pandas import testing as tm\n\nfrom pytest_examples.functions import is_prime, valuta_omv\n\ndef test_is_prime():\n    assert is_prime(2) is True\n    assert is_prime(3) is True\n    assert is_prime(4) is False\n    assert is_prime(0) is False\n    assert is_prime(-5) is False\n\nSe Eksempler på bruk av pytest (internt SSB) for mer detaljer.\n\n\n\nFor generelle informasjon om enhetstest skriving se Hadley Wickhams veiledning til testthat for R eller veiledning til pytest for Python.\nDu finner mer informasjon om standard og anbefaling til enhetstester i SSB på KVAKK-sidene (internt SSB)",
+    "crumbs": [
+      "Veiledning",
+      "Hvordan å skrive enhetstester"
+    ]
+  },
+  {
     "objectID": "bidra.html",
     "href": "bidra.html",
     "title": "Bidra til Metodebiblioteket",
     "section": "",
-    "text": "Har du brukt en metodiske funksjon som du mener kan være nyttig for andre i SSB? Da kan det vurderes for Metodebiblioteket. Selve kode for funksjonen skal ikke ligge i biblioteket siden dette er en metapakke. Den referere til andres pakker men samle en liste over nyttige metodiske funksjoner for offisiell statistikk.\nHer finner du veiledning om hvordan du kan bidra til Metodebiblioteket med en funksjon.\n\n\nClone repository og lage en ny branch: Clone repository fra github. Dette kan du gjøre fra terminalet eller fra RStudio for eksempel. Lage en ny branch for endringer.\n\n\nLegg funksjonen inn i create_table.R: Åpne filen som ligger under “internal” som heter “create_table.R”. Legg inn en ny rad med funksjonen “add_func()”. Skriv navn av funksjonen, pakkenavn og stikkord. Standard stikkord som skal brukkes ligger på Readme filen til repository. Skriv gjerne inn (GSBPM) prosessnummer i stikkord også.\n\n\nKjør add_func(): Kjør den nye raden du har skrevet som inkludere add_func(). Dette oppdatere datafil som ligger bak Metodebiblioteket.\n\n\nLegg pakken som brukes inn i DESCRIPTION fil: Hvis du har lagt inn en ny R funksjon skal pakken også ligge i DESCRIPTION filen under imports. Dette er for at Metodebiblioteket skal også fungere som en metapakke. Hvis pakken ligger der fra før er det ikke nødvendig å legge det inn på nytt.\n\n\nSkriv en enhetstest til funksjonen: For å forsikre kvalitet til funksjonene vi inkluderer i Metodebiblioteket har vi et mål at alle funksjoner skal har minst en enhetstest. Disse testene kjøres automatisk ved endring til hoved branch for å sjekke at funksjoner fungere som de skal. For mer informasjon om enhetstest skriving se Hadley Wickhams veiledning til testthat for R eller veiledning til pytest for python. Enhetstester i R skal ligge under mappen tests &gt; testthat. Python enhetstester skal ligge under python &gt; tests.\n\n\nCommit og push endringer til github: Commit og push endringer til github. Alle endringer til create_table.R filen, data filen (“katalogdata.csv”), hjelpefiler (DESCRIPTION og reexports.R), og enhetstester skal inkluderes. Til slutt, lage en pull request for å merge branch inn til main som da starter oppdatering av nettsiden automatisk.",
+    "text": "Har du brukt en metodiske funksjon som du mener kan være nyttig for andre i SSB? Da kan det vurderes for Metodebiblioteket. Selve kode for funksjonen skal ikke ligge i biblioteket siden dette er en metapakke. Den referere til andres pakker men samle en liste over nyttige metodiske funksjoner for offisiell statistikk.\nHer finner du veiledning om hvordan du kan bidra til Metodebiblioteket med en funksjon.\n\nClone repository og lage en ny branch: Clone repository fra github. Dette kan du gjøre fra terminalet eller fra RStudio for eksempel. Lage en ny branch for endringer.\nLegg funksjonen inn i create_table.R: Åpne filen som ligger under “internal” som heter “create_table.R”. Legg inn en ny rad med funksjonen “add_func()”. Skriv navn av funksjonen, pakkenavn og stikkord. Standard stikkord som skal brukkes ligger på Readme filen til repository. Skriv gjerne inn (GSBPM) prosessnummer i stikkord også.\nKjør add_func(): Kjør den nye raden du har skrevet som inkludere add_func(). Dette oppdatere datafil som ligger bak Metodebiblioteket.\nLegg pakken som brukes inn i DESCRIPTION fil: Hvis du har lagt inn en ny R funksjon skal pakken også ligge i DESCRIPTION filen under imports. Dette er for at Metodebiblioteket skal også fungere som en metapakke. Hvis pakken ligger der fra før er det ikke nødvendig å legge det inn på nytt.\nSkriv en enhetstest til funksjonen: For å forsikre kvalitet til funksjonene vi inkluderer i Metodebiblioteket har vi et mål at alle funksjoner skal har minst en enhetstest. Disse testene kjøres automatisk ved endring til hoved branch for å sjekke at funksjoner fungere som de skal. For mer informasjon om enhetstest se Hvordan å skrive enhetstester.\nCommit og push endringer til github: Commit og push endringer til github. Alle endringer til create_table.R filen, data filen (“katalogdata.csv”), hjelpefiler (DESCRIPTION og reexports.R), og enhetstester skal inkluderes. Til slutt, lage en pull request for å merge branch inn til main som da starter oppdatering av nettsiden automatisk.",
     "crumbs": [
       "Veiledning",
       "Bidra til Metodebiblioteket"
