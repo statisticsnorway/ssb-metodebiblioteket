@@ -33,18 +33,18 @@ test_that("KNN imputation returns occuring values in nearest neighbour", {
   expect_true(all(imputed_values %in% value_options))
 })
 
-# Bug in impute_pmm still!
-# test_that("PMM imputation returns closest values", {
-#   dat <- iris[1:10, ]
-#   dat[1,1] <- NA
-#   
-#   form <- Sepal.Length ~ Sepal.Width + Petal.Length
-#   fit <- lm(form, data = dat)
-#   preds <- predict(fit, dat)
-#   
-#   differences <- abs(preds - preds[1])
-#   ind <- order(differences)[2]
-#   expected_value <- dat$Sepal.Length[ind]
-#   observed_value <- impute_pmm(dat, form)$Sepal.Length[1]
-#   expect_true(expected_value == observed_value)
-# })
+
+test_that("PMM imputation returns closest values", {
+   dat <- iris[1:10, ]
+   dat[1,1] <- NA
+   
+   form <- Sepal.Length ~ Sepal.Width + Petal.Length
+   fit <- lm(form, data = dat)
+   preds <- predict(fit, dat)
+   
+   differences <- abs(preds - preds[1])
+   ind <- order(differences)[2]
+   expected_value <- dat$Sepal.Length[ind]
+   observed_value <- impute_pmm(dat, form)$Sepal.Length[1]
+   expect_true(expected_value == observed_value)
+ })
