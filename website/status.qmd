@@ -30,10 +30,12 @@ library(ggplot2),
 library(plotly)
 )
 
+suppressWarnings(library(testthat))
+
 source("../internal/add_funcs.R")
 
 # Date for scraped data
-dato <- "2024-11-28"
+dato <- "2025-01-15"
 run_scraping <- FALSE
 if (run_scraping){
   dato <- Sys.Date()
