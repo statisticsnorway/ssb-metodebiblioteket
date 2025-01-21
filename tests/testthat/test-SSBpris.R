@@ -57,3 +57,14 @@ test_that("CalcInd returns vector of length, equal to consumVar", {
   )
   expect_equal(length(ind), 2)
 })
+
+
+## Testing of CalcIndS2 
+
+test_that("CalcIndS2 returns correct s2 in groupVar groups", {
+  data(priceData)
+  suppressWarnings(
+    s2 <- CalcIndS2(data = priceData, baseVar = "b1", pVar = "p1", groupVar = "varenr", type = "dutot")$s2
+  )
+  expect_equal(as.numeric(s2[1]), 0.54306481, tolerance = 1E-4)
+})
