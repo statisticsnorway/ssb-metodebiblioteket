@@ -196,26 +196,44 @@ test_that("Tests the ratio aggregated over the stratum for Quartile", {
   expect_equal(ratioStr2_strata4[1], expected_ratioStr2_str4, tolerance = 0.001)
 })
 
-#test_that("Tests the lower and upper limit of the ratio", {
-  #Test without strata
-  #Test with strata
-#  
-#})
-
-# test_that("Tests if outlier calculation is correct", {
-#   #Test without strata
-#   #Test with strata
-#   
-# })
-
-
 
 #### OutlierRegressionMicro ####
+library(testthat)
+
+test_that("OutlierRegressionMicro returns expected structure", {
+
+  z <- cbind(id = 1:34, KostraData("ratioTest")[, c(3, 1, 2)])
+  
+  # Run the function
+  result <- OutlierRegressionMicro(z, strataName = "k")
+  
+  # Check that result is a data frame
+  expect_s3_class(result, "data.frame")
+  
+  # Check that expected columns are present
+  expected_cols <- c("id", "x", "y", "strata", "outlier",
+                     "yHat", "rStud", "dffits", "hii", "leaveOutResid", "limLo", "limUp")
+  expect_true(all(expected_cols %in% names(result)))
+  
+  # Check that outlier is binary
+  expect_true(all(result$outlier %in% c(0, 1)))
+  
+  # Check that the number of rows matches input
+  expect_equal(nrow(result), nrow(z))
+})
+
+test_that("OutlierRegressionMicro handles missing x values", {
+  z <- data.frame(id = 1:10, x = c(1:5, NA, 7:10), y = rnorm(10), k = rep(1, 10))
+  result <- OutlierRegressionMicro(z, strataName = "k")
+  
+  expect_s3_class(result, "data.frame")
+  expect_equal(nrow(result), 10)
+})
+
+
 
 
 #### Rank2NumVar ####
-
-
 df_n <- df_quartile_strata[,-c(4, 5)]
 
 # uten strata
@@ -245,15 +263,7 @@ test_that("Tests that 'identiske' gives only values on both x and y for Rank2Num
   
   expect_true(all(r_result_identiske$x %in% region_list) & 
                 all(region_list %in% r_result_identiske$x))
-  
-  #Test with strata antall - sjekk dette!
-  #ant_r_result_identiske <- Rank2NumVar(data = df_n, idVar = "Region", xVar = "areal_130_eier_2014", yVar = "areal_130_eier_2015",
-  #                                      strataVar = "strata", antall = 5, grense = NULL, identiske = TRUE)
-  #expected_str1 <- c(0, 16299, 25306, 3179, 1205, 5400, 970, 4867, 2000)
-  
-  #values_str1 <- ant_r_result_identiske[ant_r_result_identiske$strata == 1, "x"]
-  #expect_true(all(values_str1 %in% expected_str1) & 
-  #              all(expected_str1 %in% values_str1))
+
 })
 
 test_that("Tests the ratio between x and y, 'forh' in function Rank2NumVar", {
@@ -286,18 +296,6 @@ test_that("Tests the ratio between x and y, 'forh' in function Rank2NumVar", {
 # 
 # 
 
-#test_that("Tests 'antall' and 'grense'", {
-  #Test without strata
-  #Test with strata
-  
-#})
-# 
-# 
-# test_that("Tests identiske", {
-#   #Test without strata
-#   #Test with strata
-#   
-# })
 
 
 #### Diff2NumVar ####
@@ -428,40 +426,23 @@ test_that("Tests that input 'antall' and 'grense' works for Diff2NumVar",{
 
 
 #### Hb ####
-#df_Hb <- df_quartile_strata
+test_that("Hb returns a valid result structure", {
+  dt <- KostraData("testdata")
+  dt$strata <- as.character(c(rep(1, 61), rep(2, 91), rep(3, 98), rep(4, 81), rep(5, 85)))
+  expect_warning(
+    result_hb <- Hb(data = dt, id = "Region", x1 = "areal_381_eier_2015", x2 = "areal_381_eier_2014")
+  )
+  # Check that result is a data frame
+  expect_true(is.data.frame(result_hb))
+  
+  # Check that it contains outlier columns
+  expect_true(any(grepl("outlier", names(result_hb), ignore.case = TRUE)))
+  
+  # Check 3 outliers are found
+  expect_equal(sum(result_hb$outlier, na.rm=T), 3)
+})
 
-#result_hb1 <- Hb(data = df_Hb, id = "Region", x1 = "areal_130_eier_2015", x2 = "areal_130_eier_2014")
 
-#result_hb2 <- Hb(data = df_Hb, id = "Region", 
-#                 x1 = "areal_130_eier_2015", 
-#                 x2 = "areal_130_eier_2014",
-#                 strataName = "strata")
-
-#result_hb3 <- Hb(data = df_Hb, id = "Region", 
-#                 x1 = "areal_130_eier_2015", 
-#                 x2 = "areal_130_eier_2014",
-#                 pU = 0.5, pA = 0.05, pC = 20, 
-#                 strataName = "strata")
-
-#test_that("x1 = x2 values included only if less than 50%", {
-#  
-#})
-# 
-# test_that("x1, x2 not missing and greater than 0", {
-#   
-# })
-# 
-# test_that("Tests that maxX and ratio works", {
-#   
-# })
-# 
-# test_that("Tests that lowerLimit and upperLimit of ratio works", {
-#   
-# })
-# 
-# test_that("Test that outlier indication works", {
-#   
-# })
 
 
 
@@ -493,12 +474,24 @@ test_that("Test that 'outlier' indication is correct for ThError", {
   expect_identical(result_not_in_outlier, rep(0, length(result_not_in_outlier)))
 })
 
-#test_that("Test that 'diffLog10' is correct", {
-#  
-#})
-
-# test_that("Test that 'lowerLimit' and 'upperLimit' is correct", {
-#   
-# })
-
+test_that("LmImpute performs simple and ratio model imputations correctly", {
+  # Example data
+  z <- data.frame(
+    x = c(1.1, 2.2, 3.3, 4.4, 5.5),
+    y = c(2.3, 3.1, 3.2, 3.7, 4.5)
+  )
+  
+  # Simple regression imputation
+  result_simple <- LmImpute(z)
+  expect_true(is.list(result_simple))
+  expect_true(all(c("category123", "yImputed", "estimate") %in% names(result_simple)))
+  expect_true(is.numeric(result_simple$yImputed))
+  expect_equal(length(result_simple$yImputed), nrow(z))
+  
+  # Ratio model imputation
+  result_ratio <- LmImpute(z, model = "y ~ x - 1", weights = "1/x")
+  expect_true(is.list(result_ratio))
+  expect_true("yImputed" %in% names(result_ratio))
+  expect_true(is.numeric(result_ratio$yImputed))
+})
 

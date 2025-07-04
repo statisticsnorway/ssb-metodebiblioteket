@@ -49,3 +49,16 @@ test_that("struktur_model handles strata with 1 observation", {
   expect_equal(as.numeric(test_results$job_vacancies_imp[10002]), 7.9)
 })
 
+test_that("struktur_model returns outlier dataset", {
+  data(pop_data, package="struktuR")
+  data(sample_data, package="struktuR")
+  suppressMessages(
+    test_results <- struktur_model(pop_data, sample_data,
+                                   x = "employees", y = "job_vacancies",
+                                   id = "id",
+                                   strata = "industry")
+  )
+  
+  ex = get_extremes(test_results, id = "id", x = "employees", y = "job_vacancies",strata="industry")
+  expect_equal(nrow(ex), 111)
+})

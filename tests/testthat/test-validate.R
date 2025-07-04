@@ -1,7 +1,26 @@
-
+# Test functions in validate package
+data(cars)
 
 #### validator ####
+rules <- validator(speed >= 0, 
+                   dist >= 0, 
+                   speed/dist <= 1.5, 
+                   cor(speed, dist) >= 0.2)
 
+test_that("validator() returns an object of class 'validator'", {
+  expect_true(inherits(rules, "validator"))
+  expect_true(is(rules, "validator"))
+})
 
-#### confront ####
+test_that("Validation rules work on cars dataset", {
+  out <- confront(cars, rules)
+  as.data.frame(out)
+  
+  # Check that all rules are evaluated
+  expect_equal(length(out), 4)
+  
+  # Check two are failing
+  expect_equal(sum(length(out)$fails), 2)
+  
+})
 
