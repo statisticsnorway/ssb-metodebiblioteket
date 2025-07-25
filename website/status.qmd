@@ -32,10 +32,10 @@ library(plotly)
 
 suppressWarnings(library(testthat))
 
-source("../internal/add_funcs.R")
+source("../internal/check_funcs.R")
 
 # Date for scraped data
-dato <- "2025-01-15"
+dato <- "2025-07-23"
 run_scraping <- FALSE
 if (run_scraping){
   dato <- Sys.Date()
@@ -46,7 +46,7 @@ if (run_scraping){
 [![R-CMD-check](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/R-CMD-check.yaml)
 [![pytest](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest-check.yaml/badge.svg)](https://github.com/statisticsnorway/metodebiblioteket/actions/workflows/pytest.yaml)
 
-Denne siden inneholder informasjon om status på funksjoner i SSBs Metodebiblioteket. Den er status som er genererte `r Sys.Date()`. 
+Denne siden inneholder informasjon om status på funksjoner i SSBs Metodebiblioteket. Den er status som er genererte `r dato`. 
 
 
 ## Oversikt
@@ -104,32 +104,38 @@ Følgende tabellen viser hvilke funksjoner mangler enhetstester eller har enhets
 
 
 ```{r enhetstest, echo=FALSE}
+all_funcs <- read.csv("../data/katalogdata.csv")
+func_tab <- data.frame(funksjon_navn = all_funcs$func, 
+                       funksjon_pakke = all_funcs$pack,
+                       funksjon_spraak = sapply(strsplit(all_funcs$keyword, " "), `[`, 1),
+                       status = "mangler", detaljer = "")
 
-all_funcs <- read.csv("../data/katalogdata.csv")$func
-func_tab <- data.frame(funksjon_navn = all_funcs, status = "mangler", detaljer = "")
-test_files <- list.files("../tests/testthat/")
-test_files <- test_files[test_files != "_snaps"]
+# Check R tests
+test_files_r <- list.files("../tests/testthat/")
+test_files_r <- test_files_r[test_files_r != "_snaps"]
 
-for (t in test_files){
+for (t in test_files_r){
   con <- file(file.path("../tests/testthat", t))
   line <- readLines(con)
   
-  for (i in 1:nrow(func_tab)){
-    f <-  func_tab$funksjon_navn[i]
-    func_patt <- paste0(f, "\\(")
-    found <- grep(func_patt, line)
-    if (length(found) != 0){
-      for (l in line[found]){
-        if (!grepl('^\\#', l)) {
-          func_tab$status[i] <- "testet"
-        }
-      }
-    }
-  }
+  func_tab$status <- check_func_test(func_tab, line)
+  
   close(con)
 }
 
-failed <- get_failing()
+# Check python tests
+test_files_py <- list.files("../python/tests/")
+test_files_py <- test_files_py[test_files_py != "__init__.py"]
+for (t in test_files_py){
+  con <- file(file.path("../python/tests", t))
+  line <- readLines(con)
+  
+  func_tab$status <- check_func_test(func_tab, line)
+  
+  close(con)
+}
+
+failed <- get_failing(path_kat = "../data/katalogdata.csv")
 m <- match(failed$func, func_tab$funksjon_navn)
 func_tab[m, "status"] <- "feil"
 func_tab[m, "detaljer"] <- failed$test
