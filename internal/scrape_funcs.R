@@ -252,7 +252,7 @@ find_functions <- function(repos_to_check){
       print("Rate limit information: ")
       print(rate_limit_info)
       
-      if (rate_limit_info$remaining < 1000){
+      if (rate_limit_info$remaining < 1200){
         print("Sleeping for 45 minutes")
         Sys.sleep(2700) # sleep for 45 mins
       }

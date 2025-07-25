@@ -33,7 +33,7 @@ test_that("KNN imputation returns occuring values in nearest neighbour", {
   expect_true(all(imputed_values %in% value_options))
 })
 
-
+# Note  version >0.2.9 must be installed
 test_that("PMM imputation returns closest values", {
    dat <- iris[1:10, ]
    dat[1,1] <- NA
@@ -48,3 +48,16 @@ test_that("PMM imputation returns closest values", {
    observed_value <- impute_pmm(dat, form)$Sepal.Length[1]
    expect_true(expected_value == observed_value)
  })
+
+test_that("PMM imputation returns closest values", {
+  irisNA <- iris
+  irisNA[1:3,1] <- irisNA[3:7,2] <- NA
+  
+  iris_imp <- impute_proxy(irisNA, Sepal.Width ~ 7)
+  expect_equal(nrow(irisNA), nrow(iris_imp))
+  expect_equal(iris_imp[3:7,2], rep(7, 5))
+  
+})
+
+
+
