@@ -5,6 +5,8 @@ data("df_empty")
 data("df_strata")
 data("df_quartile")
 data("df_quartile_strata")
+data("kostra_testdata")
+data("kostra_ratioTest")
 
 #### AggrSml2NumVar ####
 
@@ -202,7 +204,7 @@ library(testthat)
 
 test_that("OutlierRegressionMicro returns expected structure", {
 
-  z <- cbind(id = 1:34, KostraData("ratioTest")[, c(3, 1, 2)])
+  z <- cbind(id = 1:34, ratioTest[, c(3, 1, 2)])
   
   # Run the function
   result <- OutlierRegressionMicro(z, strataName = "k")
@@ -427,7 +429,7 @@ test_that("Tests that input 'antall' and 'grense' works for Diff2NumVar",{
 
 #### Hb ####
 test_that("Hb returns a valid result structure", {
-  dt <- KostraData("testdata")
+  dt <- testdata
   dt$strata <- as.character(c(rep(1, 61), rep(2, 91), rep(3, 98), rep(4, 81), rep(5, 85)))
   expect_warning(
     result_hb <- Hb(data = dt, id = "Region", x1 = "areal_381_eier_2015", x2 = "areal_381_eier_2014")

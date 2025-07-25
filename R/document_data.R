@@ -1,5 +1,23 @@
 #### Documentation ####
 
+#' Kostra test data
+#' 
+#' @docType data
+#'
+#' @usage data(kostra_testdata)
+#'
+#' @keywords datasets
+"testdata"
+
+#' Kostra ratio test data
+#' 
+#' @docType data
+#'
+#' @usage data(kostra_ratioTest)
+#'
+#' @keywords datasets
+"ratioTest"
+
 #' test data
 #' 
 #' @docType data
