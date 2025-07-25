@@ -19,5 +19,5 @@ test_that("Validation rules work on cars dataset", {
   expect_equal(length(out), 4)
   
   # Check two are failing
-  expect_equal(sum(summary(out)$fails), 2)
+  expect_equal(sum(summary(out)[, "fails"]), 2)
 })
