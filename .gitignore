@@ -39,6 +39,7 @@ rsconnect/
 # Datasets
 *.csv
 !katalogdata.csv
+!/python/tests/data/*.csv
 *.zip
 *.shp
 *.dbf
