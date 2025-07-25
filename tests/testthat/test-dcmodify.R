@@ -8,7 +8,7 @@ test_that("modifier creates a valid modifier object from inline rules", {
   )
   
   # Check class
-  expect_s3_class(m, "modifier")
+  expect_s4_class(m, "modifier")
   
   # Check that rules are stored
   expect_true(length(m) == 2)
@@ -30,7 +30,7 @@ test_that("modifier creates a valid modifier object from a data frame", {
   
   m <- modifier(.data = rules_df)
   
-  expect_s3_class(m, "modifier")
+  expect_s4_class(m, "modifier")
   expect_equal(length(m), 2)
 })
 
