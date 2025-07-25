@@ -14,13 +14,10 @@ test_that("validator() returns an object of class 'validator'", {
 
 test_that("Validation rules work on cars dataset", {
   out <- confront(cars, rules)
-  as.data.frame(out)
   
   # Check that all rules are evaluated
   expect_equal(length(out), 4)
   
   # Check two are failing
-  expect_equal(sum(length(out)$fails), 2)
-  
+  expect_equal(sum(summary(out)[, "fails"]), 2)
 })
-
