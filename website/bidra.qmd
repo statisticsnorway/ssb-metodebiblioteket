@@ -1,32 +1,52 @@
 ---
-title: "Bidra til Metodebiblioteket"
+title: "Vil du bidra til Metodebiblioteket?"
 format:
   html:
     echo: false
-    page-layout: full
+    toc: true
+    page-layout: article
 editor: source
 
 ---
 
-Har du brukt en metodiske funksjon som du mener kan være nyttig for andre i SSB? Da kan det vurderes for Metodebiblioteket. Selve kode for funksjonen skal ikke ligge i biblioteket siden dette er en metapakke. Den referere til andres pakker men samle en liste over nyttige metodiske funksjoner for offisiell statistikk. 
+Har du utviklet eller brukt en metodisk funksjon som kan være nyttig for andre i SSB? Da kan den vurderes for inkludering i **Metodebiblioteket**. 
 
-Her finner du veiledning om hvordan du kan bidra til Metodebiblioteket med en funksjon. 
+Metodebiblioteket er SSBs samling av funksjoner for statistiske metoder. Biblioteket forvaltes av seksjonen for metoder, og har som mål å samle og tilgjengeliggjøre funksjoner som er nyttig på tvers av statistikkproduksjoner. Det er en metapakke - det vil si at selve koden ligger ikke i biblioteket, men at vi samler og dokumenter nyttige funksjoner fra eksterne og interne pakker. Målet er å gjøre det enklere å finne og gjenbruke metodiske funksjoner som støtter produksjon av offisiell statistikk.
 
-1. **Clone repository og lage en ny branch**:
+Her finner du [inklusjonskriterier](#sec-inklusjon) og [veiledning om hvordan du kan bidra med en funksjon til Metodebiblioteket](#sec-add). 
+
+## Inklusjonskriterier {#sec-inklusjon}
+Funksjoner i Metodebiblioteket kan være utviklet både internt i SSB og av eksterne aktører. For at en funksjon skal inkluderes i Metodebiblioteket, må den
+
+- ✅ Benyttes i minst ett produksjonsløp i dag eller planlegges tatt i bruk innen kort tid, *eller*
+- ✅ Brukes i interne metodekurs.
+
+Og samtidig må funksjoner oppfylle alle følgende kriterier:
+
+- ✅ Være hovedsakelig en statistisk metodefunksjon. Wrapper-funksjoner kan også inkluderes etter behov.
+- ✅ Ha en generell utforming som gjøre den nyttig for flere statistikker. 
+- ✅ Være skrevet i R eller Python, eller kunne kalle andre applikasjoner tilgjengelig på Dapla som f.eks. JDemetra.
+- ✅ Kunne kjøres uavhengig, selv om den muligvis også har et brukergrensesnitt.
+- ✅ Være en del av en pakke som er offentlig tilgjengelig via offisielle kanaler som PyPI, CRAN, eller SSBs GitHub.
+
+
+## Hvordan kan jeg legge inn en funksjon? {#sec-add}
+
+#### 1. ⬇️ **Clone repository og lage en ny branch**
 Clone repository fra [github](https://github.com/statisticsnorway/metodebiblioteket). Dette kan du gjøre fra terminalet eller fra  RStudio for eksempel. Lage en ny branch for endringer. 
 
-2. **Legg funksjonen inn i create_table.R**: 
-Åpne filen som ligger under "internal" som heter "create_table.R". Legg inn en ny rad med funksjonen "add_func()". Skriv navn av funksjonen, pakkenavn og stikkord. Standard stikkord som skal brukkes ligger på [Readme filen til repository](https://github.com/statisticsnorway/metodebiblioteket/blob/master/README.md#n%C3%B8kkelord). Skriv gjerne inn (GSBPM) prosessnummer i stikkord også. 
+#### 2. ➕ **Legg funksjonen inn i create_table.R**
+Åpne filen som ligger under "internal" som heter "create_table.R". Legg inn en ny rad med funksjonen "add_func()". Skriv navn av funksjonen, pakkenavn og stikkord. Standard stikkord som skal brukkes ligger på [Readme filen til repository](https://github.com/statisticsnorway/ssb-metodebiblioteket/blob/master/README.md#n%C3%B8kkelord). Skriv gjerne inn (GSBPM) prosessnummer i stikkord også.
 
-3. **Kjør add_func()**:
+#### 3. 🏃 **Kjør add_func()**
 Kjør den nye raden du har skrevet som inkludere *add_func()*. Dette oppdatere datafil som ligger bak Metodebiblioteket.
 
-4. **Legg pakken som brukes inn i DESCRIPTION fil**: 
+#### 4. 📦 **Legg pakken som brukes inn i DESCRIPTION fil**
 Hvis du har lagt inn en ny R funksjon skal pakken også ligge i DESCRIPTION filen under imports. Dette er for at Metodebiblioteket skal også fungere som en metapakke. Hvis pakken ligger der fra før er det ikke nødvendig å legge det inn på nytt.
 
-5. **Skriv en enhetstest til funksjonen**: 
+#### 5. 🧪 **Skriv enhetstester til funksjonen**
 For å forsikre kvalitet til funksjonene vi inkluderer i Metodebiblioteket har vi et mål at alle funksjoner skal har minst en enhetstest. Disse testene kjøres automatisk ved endring til hoved branch for å sjekke at funksjoner fungere som de skal. For mer informasjon om enhetstest se [Hvordan å skrive enhetstester](https://statisticsnorway.github.io/ssb-metodebiblioteket/enhetstester.html).
 
-6. **Commit og push endringer til github**:
+#### 6. ✍ **Commit og push endringer til github**
 Commit og push endringer til github. Alle endringer til create_table.R filen, data filen ("katalogdata.csv"), hjelpefiler (DESCRIPTION og reexports.R), og enhetstester skal inkluderes. Til slutt, lage en pull request for å merge branch inn til main som da starter oppdatering av nettsiden automatisk.
 
