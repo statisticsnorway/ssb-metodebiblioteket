@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Create/add to table
 
 # Ensure Norwegian language encoding
@@ -97,6 +98,8 @@ add_func("sdc_lonn", "sdclonn", keyword = "rfunc konfidensialitet undertrykking 
          pack_url = "https://statisticsnorway.github.io/ssb-sdclonn/reference/index.html")
 
 
+# +
+### SESONGJUSTERING OG TIDSSERIEANALYSE ###
 # export = False for all in RJDemetra and pickmdl due to difficulties in installing 
 add_func("x13", "RJDemetra", keyword = "rfunc sesongjustering 6.1",
          name = "Seasonal Adjustment with X13-ARIMA",
@@ -110,6 +113,7 @@ add_func("x13_pickmdl", "pickmdl", keyword = "rfunc sesongjustering 6.1" , url="
     name = "x13 with PICKMDL and partial concurrent possibilities",
     descrip="x13 can be run as usual (automdl) or with a PICKMDL specification. The ARIMA model, outliers and filters can be identified at a certain date and then held fixed (with a new outlier-span).",
     export = FALSE)
+
 add_func("x13_automdl", "pickmdl", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-pickmdl/reference/x13_pickmdl.html",
     name = "x13 with PICKMDL and partial concurrent possibilities",
@@ -132,6 +136,33 @@ add_func("konstruksjon", "pickmdl", keyword = "rfunc sesongjustering 6.1",
          name = "Lage faktorer for kalendereffekter",
          descrip = "Fleksibel funksjon som lager ulike kalendervariable, som f.eks. TD-, WD- og påskevariable, tilpasset norske forhold.",
          export = FALSE)
+
+add_func("sa_quality_report", "sadashboard", keyword = "rfunc sesongjustering 6.1", 
+         url="https://statisticsnorway.github.io/ssb-sadashboard/reference/sa_quality_report.html",
+         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/",
+         name = "Quality Report for Seasonal Adjustment with RJDemetra",
+         descrip = "Wrapper function for creating a html-document with interactive quality report for seasonal adjustment with RJdemetra. The quality report includes tables with selected quality indicators. User may also choose to include interactive plots of seasonally adjusted time series.",
+         export = FALSE)
+add_func("make_paramfile", "sadashboard", keyword = "rfunc sesongjustering 6.1", 
+         url="https://statisticsnorway.github.io/ssb-sadashboard/reference/make_paramfile.html",
+         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/",
+         name = "Create an initial parameter file where all values in a column are the same",
+         descrip = "Oppretter en initial parameterfil der alle verdiene i en kolonne er de samme",
+         export = FALSE)
+add_func("add_constraint", "sadashboard", keyword = "rfunc sesongjustering 6.1", 
+         url="https://statisticsnorway.github.io/ssb-sadashboard/reference/add_constraint.html",
+         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/",
+         name = "Add a constraint to a constraint data frame object and open for editing.",
+         descrip = "Legger til en opsjon(kolonne) i spesifikasjonsfil objektet og åpner det for redigering med R-pakken DataEditR",
+         export = FALSE)
+add_func("edit_constraints", "sadashboard", keyword = "rfunc sesongjustering 6.1", 
+         url="https://statisticsnorway.github.io/ssb-sadashboard/reference/edit_constraints.html",
+         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/",
+         name = "Edit a constraint data frame object.",
+         descrip = "For redigering av celler spesifikasjonsfil objektet og åpner det for redigering med R-pakken DataEditR",
+         export = FALSE)
+
+# -
 
 #### Analyse ####
 add_func("shortest_path_igraph", "GISSB", keyword = "rfunc analyse romlig")
