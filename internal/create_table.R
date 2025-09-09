@@ -137,30 +137,35 @@ add_func("konstruksjon", "pickmdl", keyword = "rfunc sesongjustering 6.1",
          descrip = "Fleksibel funksjon som lager ulike kalendervariable, som f.eks. TD-, WD- og påskevariable, tilpasset norske forhold.",
          export = FALSE)
 
-add_func("sa_quality_report", "sadashboard", keyword = "rfunc sesongjustering 6.1", 
+add_func(func="sa_quality_report", package="sadashboard", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-sadashboard/reference/sa_quality_report.html",
-         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/",
-         name = "Quality Report for Seasonal Adjustment with RJDemetra",
          descrip = "Wrapper function for creating a html-document with interactive quality report for seasonal adjustment with RJdemetra. The quality report includes tables with selected quality indicators. User may also choose to include interactive plots of seasonally adjusted time series.",
-         export = FALSE)
-add_func("make_paramfile", "sadashboard", keyword = "rfunc sesongjustering 6.1", 
+         name = "Quality Report for Seasonal Adjustment with RJDemetra",
+         export = FALSE, 
+         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/")
+
+add_func(func="make_paramfile", package="sadashboard", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-sadashboard/reference/make_paramfile.html",
-         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/",
-         name = "Create an initial parameter file where all values in a column are the same",
          descrip = "Oppretter en initial parameterfil der alle verdiene i en kolonne er de samme",
-         export = FALSE)
-add_func("add_constraint", "sadashboard", keyword = "rfunc sesongjustering 6.1", 
+         name = "Create an initial parameter file where all values in a column are the same",
+         export = FALSE, 
+         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/")
+
+add_func(func="add_constraint", package="sadashboard", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-sadashboard/reference/add_constraint.html",
-         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/",
-         name = "Add a constraint to a constraint data frame object and open for editing.",
          descrip = "Legger til en opsjon(kolonne) i spesifikasjonsfil objektet og åpner det for redigering med R-pakken DataEditR",
-         export = FALSE)
-add_func("edit_constraints", "sadashboard", keyword = "rfunc sesongjustering 6.1", 
+         name = "Add a constraint to a constraint data frame object and open for editing.",
+         export = FALSE,
+         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/")
+
+add_func(func="edit_constraints", package="sadashboard", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-sadashboard/reference/edit_constraints.html",
-         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/",
-         name = "Edit a constraint data frame object.",
          descrip = "For redigering av celler spesifikasjonsfil objektet og åpner det for redigering med R-pakken DataEditR",
-         export = FALSE)
+         name = "Edit a constraint data frame object.",
+         export = FALSE, 
+         pack_url="https://github.com/statisticsnorway/ssb-sadashboard/")
+
+
 
 # -
 
