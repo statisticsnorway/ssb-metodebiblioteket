@@ -35,7 +35,9 @@ Imports:
   stats,
   struktuR,
   validate, 
-  RJDemetra
+  RJDemetra,
+  pickmdl,
+  sadashboard
 Remotes:
   statisticsnorway/ReGenesees,
   statisticsnorway/ssb-sdcforetakperson,
