@@ -101,68 +101,69 @@ add_func("sdc_lonn", "sdclonn", keyword = "rfunc konfidensialitet undertrykking 
 # +
 ### SESONGJUSTERING OG TIDSSERIEANALYSE ###
 # export = False for all in RJDemetra and pickmdl due to difficulties in installing 
+#  BUT NOW CHANGED TO export = TRUE
 add_func("x13", "RJDemetra", keyword = "rfunc sesongjustering 6.1",
          name = "Seasonal Adjustment with X13-ARIMA",
          descrip = "Functions to estimate the seasonally adjusted series (sa) with the X13-ARIMA method. This is achieved by decomposing the time series (y) into the trend-cycle (t), the seasonal component (s) and the irregular component (i). The final seasonally adjusted series shall be free of seasonal and calendar-related movements. x13 returns a preformatted result while jx13 returns the Java objects resulting from the seasonal adjustment.",
-         export = FALSE) # Currently not included in tests and imports in package. (problems)
+         export = TRUE) 
 add_func("x13_spec", "RJDemetra", keyword = "rfunc sesongjustering 6.1", 
         name = "X-13ARIMA model specification, SA/X13",
         descrip = 'Function to create (and/or modify) a c("SA_spec", "X13") class object with the SA model specification for the X13 method. It can be done from a pre-defined "JDemetra+" model specification (a character), a previous specification (c("SA_spec", "X13") object) or a seasonal adjustment model (c("SA", "X13") object).',
-        export = FALSE) # Currently not included in tests and imports in package. (problems)
+        export = TRUE) 
 add_func("x13_pickmdl", "pickmdl", keyword = "rfunc sesongjustering 6.1" , url="https://statisticsnorway.github.io/ssb-pickmdl/reference/x13_pickmdl.html",
     name = "x13 with PICKMDL and partial concurrent possibilities",
     descrip="x13 can be run as usual (automdl) or with a PICKMDL specification. The ARIMA model, outliers and filters can be identified at a certain date and then held fixed (with a new outlier-span).",
-    export = FALSE)
+    export = TRUE)
 
 add_func("x13_automdl", "pickmdl", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-pickmdl/reference/x13_pickmdl.html",
     name = "x13 with PICKMDL and partial concurrent possibilities",
     descrip = "x13 can be run as usual (automdl) or with a PICKMDL specification. The ARIMA model, outliers and filters can be identified at a certain date and then held fixed (with a new outlier-span).",
-    export = FALSE)
+    export = TRUE)
 add_func("x13_both", "pickmdl", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-pickmdl/reference/x13_both.html",
     name = "x13_spec and x13_pickmdl wrapped as a single function",
     descrip = "Output is determined by the parameter: both_output.",
-    export = FALSE)
+    export = TRUE)
 add_func("x13_text_frame", "pickmdl", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-pickmdl/reference/x13_text_frame.html",
          pack_url="https://github.com/statisticsnorway/pickmdl/",
          name = "Multiple x13_both runs with code input from a data frame",
          descrip = "Gjør det mulig med sesongjustering av mange serier basert på parametere i en data.frame (f.eks lest inn fra en excel-fil).",
-         export = FALSE)
+         export = TRUE)
 add_func("konstruksjon", "pickmdl", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-pickmdl/reference/konstruksjon.html",
          pack_url="https://github.com/statisticsnorway/pickmdl/",
          name = "Lage faktorer for kalendereffekter",
          descrip = "Fleksibel funksjon som lager ulike kalendervariable, som f.eks. TD-, WD- og påskevariable, tilpasset norske forhold.",
-         export = FALSE)
+         export = TRUE)
 
 add_func(func="sa_quality_report", package="sadashboard", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-sadashboard/reference/sa_quality_report.html",
          descrip = "Wrapper function for creating a html-document with interactive quality report for seasonal adjustment with RJdemetra. The quality report includes tables with selected quality indicators. User may also choose to include interactive plots of seasonally adjusted time series.",
          name = "Quality Report for Seasonal Adjustment with RJDemetra",
-         export = FALSE, 
+         export = TRUE, 
          pack_url="https://github.com/statisticsnorway/ssb-sadashboard/")
 
 add_func(func="make_paramfile", package="sadashboard", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-sadashboard/reference/make_paramfile.html",
          descrip = "Oppretter en initial parameterfil der alle verdiene i en kolonne er de samme",
          name = "Create an initial parameter file where all values in a column are the same",
-         export = FALSE, 
+         export = TRUE, 
          pack_url="https://github.com/statisticsnorway/ssb-sadashboard/")
 
 add_func(func="add_constraint", package="sadashboard", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-sadashboard/reference/add_constraint.html",
          descrip = "Legger til en opsjon(kolonne) i spesifikasjonsfil objektet og åpner det for redigering med R-pakken DataEditR",
          name = "Add a constraint to a constraint data frame object and open for editing.",
-         export = FALSE,
+         export = TRUE,
          pack_url="https://github.com/statisticsnorway/ssb-sadashboard/")
 
 add_func(func="edit_constraints", package="sadashboard", keyword = "rfunc sesongjustering 6.1", 
          url="https://statisticsnorway.github.io/ssb-sadashboard/reference/edit_constraints.html",
          descrip = "For redigering av celler spesifikasjonsfil objektet og åpner det for redigering med R-pakken DataEditR",
          name = "Edit a constraint data frame object.",
-         export = FALSE, 
+         export = TRUE, 
          pack_url="https://github.com/statisticsnorway/ssb-sadashboard/")
 
 
