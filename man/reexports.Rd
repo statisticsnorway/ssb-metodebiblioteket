@@ -51,6 +51,17 @@
 \alias{weights}
 \alias{svystatTM}
 \alias{svystatL}
+\alias{x13}
+\alias{x13_spec}
+\alias{x13_pickmdl}
+\alias{x13_automdl}
+\alias{x13_both}
+\alias{x13_text_frame}
+\alias{konstruksjon}
+\alias{sa_quality_report}
+\alias{make_paramfile}
+\alias{add_constraint}
+\alias{edit_constraints}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -66,6 +77,8 @@ below to see their documentation.
 
   \item{Kostra}{\code{\link[Kostra]{AggrSml2NumVar}}, \code{\link[Kostra]{Diff2NumVar}}, \code{\link[Kostra]{Hb}}, \code{\link[Kostra]{LmImpute}}, \code{\link[Kostra:OutlierRegression]{OutlierRegressionMicro}}, \code{\link[Kostra]{ProtectKostra}}, \code{\link[Kostra]{Quartile}}, \code{\link[Kostra]{Rank2NumVar}}, \code{\link[Kostra]{ThError}}}
 
+  \item{RJDemetra}{\code{\link[RJDemetra]{x13}}, \code{\link[RJDemetra]{x13_spec}}}
+
   \item{ReGenesees}{\code{\link[ReGenesees]{e.calibrate}}, \code{\link[ReGenesees]{e.svydesign}}, \code{\link[ReGenesees]{fill.template}}, \code{\link[ReGenesees]{pop.template}}, \code{\link[ReGenesees]{svystatL}}, \code{\link[ReGenesees]{svystatTM}}, \code{\link[ReGenesees]{weights}}}
 
   \item{SSBpris}{\code{\link[SSBpris]{CalcInd}}, \code{\link[SSBpris]{CalcIndS2}}}
@@ -79,6 +92,10 @@ below to see their documentation.
   \item{dcmodify}{\code{\link[dcmodify]{modifier}}}
 
   \item{easySdcTable}{\code{\link[easySdcTable]{EasyData}}, \code{\link[easySdcTable:ProtectTable]{ProtectTableData}}}
+
+  \item{pickmdl}{\code{\link[pickmdl]{konstruksjon}}, \code{\link[pickmdl:x13_pickmdl]{x13_automdl}}, \code{\link[pickmdl]{x13_both}}, \code{\link[pickmdl]{x13_pickmdl}}, \code{\link[pickmdl]{x13_text_frame}}}
+
+  \item{sadashboard}{\code{\link[sadashboard]{add_constraint}}, \code{\link[sadashboard]{edit_constraints}}, \code{\link[sadashboard]{make_paramfile}}, \code{\link[sadashboard]{sa_quality_report}}}
 
   \item{sdclonn}{\code{\link[sdclonn]{sdc_lonn}}}
 

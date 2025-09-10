@@ -237,3 +237,58 @@ ReGenesees::svystatTM
 ReGenesees::svystatL
 
 
+#' @importFrom RJDemetra x13
+# @export
+RJDemetra::x13
+
+
+#' @importFrom RJDemetra x13_spec
+# @export
+RJDemetra::x13_spec
+
+
+#' @importFrom pickmdl x13_pickmdl
+# @export
+pickmdl::x13_pickmdl
+
+
+#' @importFrom pickmdl x13_automdl
+# @export
+pickmdl::x13_automdl
+
+
+#' @importFrom pickmdl x13_both
+# @export
+pickmdl::x13_both
+
+
+#' @importFrom pickmdl x13_text_frame
+# @export
+pickmdl::x13_text_frame
+
+
+#' @importFrom pickmdl konstruksjon
+# @export
+pickmdl::konstruksjon
+
+
+#' @importFrom sadashboard sa_quality_report
+# @export
+sadashboard::sa_quality_report
+
+
+#' @importFrom sadashboard make_paramfile
+# @export
+sadashboard::make_paramfile
+
+
+#' @importFrom sadashboard add_constraint
+# @export
+sadashboard::add_constraint
+
+
+#' @importFrom sadashboard edit_constraints
+# @export
+sadashboard::edit_constraints
+
+

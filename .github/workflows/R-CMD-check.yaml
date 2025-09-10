@@ -44,7 +44,7 @@ jobs:
         run: Rscript -e 'install.packages("pak")'
 
       - name: Install Kostra package
-        run: Rscript -e 'pak::pkg_install(c("statisticsnorway/ReGenesees", "statisticsnorway/ssb-sdcforetakperson", "statisticsnorway/ssb-kostra", "statisticsnorway/ssb-struktur", "statisticsnorway/ssb-pris", "statisticsnorway/ssb-sdclonn"))'
+        run: Rscript -e 'pak::pkg_install(c("statisticsnorway/ReGenesees", "statisticsnorway/ssb-sdcforetakperson", "statisticsnorway/ssb-kostra", "statisticsnorway/ssb-struktur", "statisticsnorway/ssb-pris", "statisticsnorway/ssb-sdclonn", "statisticsnorway/ssb-pickmdl", "statisticsnorway/ssb-sadashboard"))'
 
       - name: Install dependencies
         run: Rscript -e 'pak::local_install_dev_deps()'

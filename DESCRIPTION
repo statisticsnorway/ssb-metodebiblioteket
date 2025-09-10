@@ -34,14 +34,19 @@ Imports:
   SSBpris,
   stats,
   struktuR,
-  validate
+  validate, 
+  RJDemetra,
+  pickmdl,
+  sadashboard
 Remotes:
   statisticsnorway/ReGenesees,
   statisticsnorway/ssb-sdcforetakperson,
   statisticsnorway/ssb-kostra,
   statisticsnorway/ssb-struktur,
   statisticsnorway/ssb-pris,
-  statisticsnorway/ssb-sdclonn
+  statisticsnorway/ssb-sdclonn, 
+  statisticsnorway/ssb-pickmdl, 
+  statisticsnorway/ssb-sadashboard 
 Suggests: 
     testthat (>= 3.0.0),
     base64enc,
