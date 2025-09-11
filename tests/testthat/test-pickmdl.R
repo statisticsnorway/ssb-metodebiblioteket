@@ -1,5 +1,5 @@
 
-test_that("RJDemetra and pickmdl functions", {
+test_that("pickmdl functions", {
 
   myseries <- pickmdl::pickmdl_data("myseries")
   spec_a <- RJDemetra::x13_spec(spec = "RSA3", transform.function = "Log")
