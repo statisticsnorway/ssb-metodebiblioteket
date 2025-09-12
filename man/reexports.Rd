@@ -62,6 +62,7 @@
 \alias{make_paramfile}
 \alias{add_constraint}
 \alias{edit_constraints}
+\alias{tables_by_formulas}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -83,7 +84,7 @@ below to see their documentation.
 
   \item{SSBpris}{\code{\link[SSBpris]{CalcInd}}, \code{\link[SSBpris]{CalcIndS2}}}
 
-  \item{SSBtools}{\code{\link[SSBtools]{HierarchyCompute}}, \code{\link[SSBtools]{model_aggregate}}, \code{\link[SSBtools]{quantile_weighted}}}
+  \item{SSBtools}{\code{\link[SSBtools]{HierarchyCompute}}, \code{\link[SSBtools]{model_aggregate}}, \code{\link[SSBtools]{quantile_weighted}}, \code{\link[SSBtools]{tables_by_formulas}}}
 
   \item{SdcForetakPerson}{\code{\link[SdcForetakPerson]{SdcForetakPerson}}}
 

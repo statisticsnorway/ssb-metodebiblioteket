@@ -78,6 +78,8 @@ add_func('OLS', 'statsmodels.regression.linear_model', keyword='python imputere 
 
 #### Strukturere ####
 add_func("HierarchyCompute", "SSBtools", keyword = "rfunc strukturere 5.7")
+add_func("tables_by_formulas", "SSBtools", keyword = "rfunc strukturere 5.7", 
+         url = "https://statisticsnorway.github.io/ssb-ssbtools/reference/tables_by_formulas.html")
 add_func("model_aggregate", "SSBtools", keyword = "rfunc strukturere 5.7 6.2")
 
 #### Konfidensialitet ####

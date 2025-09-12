@@ -50,3 +50,24 @@ test_that("model_aggregate", {
 
 
 
+test_that("tables_by_formulas", {
+  
+  out <- tables_by_formulas(SSBtools::SSBtoolsData("magnitude1"),
+                            table_fun = model_aggregate, 
+                            table_formulas = list(table_1 = ~ region * sector2, 
+                                                  table_2 = ~ sector4 - 1), 
+                            substitute_vars = list(region = c("geo", "eu")), 
+                            collapse_vars = list(sector = c("sector2", "sector4")), 
+                            fun_vars = "value",
+                            fun = c(mean = mean, median = median, n = length), 
+                            term_labels = TRUE, 
+                            verbose = FALSE)
+  
+  expect_equal(apply(out[c("median", "mean", "n")], 2, sum), 
+               c(median = 281.9, mean = 397.48375, n = 140)) 
+})
+
+
+
+
+
