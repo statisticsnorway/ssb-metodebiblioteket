@@ -86,7 +86,9 @@ add_func("model_aggregate", "SSBtools", keyword = "rfunc strukturere 5.7 6.2")
 
 add_func("PLSroundingPublish", "SmallCountRounding", keyword = "rfunc konfidensialitet avrunding 6.4", 
          url = "https://statisticsnorway.github.io/ssb-smallcountrounding/reference/PLSrounding.html")
-add_func("ProtectKostra", "Kostra", keyword = "rfunc konfidensialitet undertrykking 6.4" )
+add_func("ProtectKostra", "Kostra", keyword = "rfunc konfidensialitet undertrykking 6.4",
+         url = "https://statisticsnorway.github.io/ssb-kostra/reference/ProtectKostra.html",
+         pack_url = "https://statisticsnorway.github.io/ssb-kostra/index.html")
 add_func("ProtectTableData", "easySdcTable", keyword = "rfunc konfidensialitet undertrykking 6.4" )
 add_func("SdcForetakPerson", "SdcForetakPerson", keyword = "rfunc konfidensialitet undertrykking avrunding 6.4",
          url="https://statisticsnorway.github.io/ssb-sdcforetakperson/reference/SdcForetakPerson.html")
