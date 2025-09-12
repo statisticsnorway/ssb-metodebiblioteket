@@ -81,17 +81,27 @@ add_func("HierarchyCompute", "SSBtools", keyword = "rfunc strukturere 5.7")
 add_func("model_aggregate", "SSBtools", keyword = "rfunc strukturere 5.7 6.2")
 
 #### Konfidensialitet ####
-add_func("PLSroundingPublish", "SmallCountRounding", keyword = "rfunc konfidensialitet avrunding 6.4")
+
+
+
+add_func("PLSroundingPublish", "SmallCountRounding", keyword = "rfunc konfidensialitet avrunding 6.4", 
+         url = "https://statisticsnorway.github.io/ssb-smallcountrounding/reference/PLSrounding.html")
 add_func("ProtectKostra", "Kostra", keyword = "rfunc konfidensialitet undertrykking 6.4" )
 add_func("ProtectTableData", "easySdcTable", keyword = "rfunc konfidensialitet undertrykking 6.4" )
 add_func("SdcForetakPerson", "SdcForetakPerson", keyword = "rfunc konfidensialitet undertrykking avrunding 6.4",
          url="https://statisticsnorway.github.io/ssb-sdcforetakperson/reference/SdcForetakPerson.html")
-add_func("SuppressSmallCounts", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4")
-add_func("SuppressDominantCells", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4")
-add_func("SuppressFewContributors", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4")
-add_func("SuppressKDisclosure", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4")
-add_func("GaussSuppressionFromData", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4")
-add_func("GaussSuppressDec", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4")
+add_func("SuppressSmallCounts", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4",
+         url = "https://statisticsnorway.github.io/ssb-gausssuppression/reference/SuppressSmallCounts.html")
+add_func("SuppressDominantCells", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4",
+         url = "https://statisticsnorway.github.io/ssb-gausssuppression/reference/SuppressDominantCells.html")
+add_func("SuppressFewContributors", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4",
+         url = "https://statisticsnorway.github.io/ssb-gausssuppression/reference/SuppressFewContributors.html")
+add_func("SuppressKDisclosure", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4",
+         url = "https://statisticsnorway.github.io/ssb-gausssuppression/reference/SuppressKDisclosure.html")
+add_func("GaussSuppressionFromData", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4",
+         url = "https://statisticsnorway.github.io/ssb-gausssuppression/reference/GaussSuppressionFromData.html")
+add_func("GaussSuppressDec", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4",
+         url = "https://statisticsnorway.github.io/ssb-gausssuppression/reference/GaussSuppressDec.html")
 add_func("SuppressionFromDecimals", "GaussSuppression", keyword = "rfunc konfidensialitet undertrykking 6.4")
 add_func("sdc_lonn", "sdclonn", keyword = "rfunc konfidensialitet undertrykking 6.4", 
          url="https://statisticsnorway.github.io/ssb-sdclonn/reference/sdc_lonn.html", 
