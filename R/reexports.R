@@ -292,3 +292,13 @@ sadashboard::add_constraint
 sadashboard::edit_constraints
 
 
+#' @importFrom SSBtools tables_by_formulas
+# @export
+SSBtools::tables_by_formulas
+
+
+#' @importFrom GaussSuppression SuppressLinkedTables
+# @export
+GaussSuppression::SuppressLinkedTables
+
+
