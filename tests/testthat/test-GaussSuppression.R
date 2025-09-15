@@ -34,4 +34,15 @@ test_that("GaussSuppression functions", {
   
   expect_equal(a[c(1:3, 5)], b[c(1:3, 6)])
   
+  
+  a <- SuppressLinkedTables(data = d2, 
+                            fun = SuppressSmallCounts,
+                            maxN = 4, 
+                            withinArg = list(table_1 = list(dimVar = c(1, 2, 4)), 
+                                             table_2 = list(dimVar = c(1, 3, 4))),
+                            freqVar = "freq", 
+                            printInc = printInc)
+  
+  expect_equal(sum(a[[1]]$suppressed, a[[2]]$suppressed), 50)
+  
 })

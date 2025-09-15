@@ -63,6 +63,7 @@
 \alias{add_constraint}
 \alias{edit_constraints}
 \alias{tables_by_formulas}
+\alias{SuppressLinkedTables}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -74,7 +75,7 @@ below to see their documentation.
 
   \item{GISSB}{\code{\link[GISSB]{shortest_path_cppRouting}}, \code{\link[GISSB]{shortest_path_igraph}}}
 
-  \item{GaussSuppression}{\code{\link[GaussSuppression]{GaussSuppressDec}}, \code{\link[GaussSuppression]{GaussSuppressionFromData}}, \code{\link[GaussSuppression]{SuppressDominantCells}}, \code{\link[GaussSuppression]{SuppressFewContributors}}, \code{\link[GaussSuppression]{SuppressKDisclosure}}, \code{\link[GaussSuppression]{SuppressSmallCounts}}, \code{\link[GaussSuppression]{SuppressionFromDecimals}}}
+  \item{GaussSuppression}{\code{\link[GaussSuppression]{GaussSuppressDec}}, \code{\link[GaussSuppression]{GaussSuppressionFromData}}, \code{\link[GaussSuppression]{SuppressDominantCells}}, \code{\link[GaussSuppression]{SuppressFewContributors}}, \code{\link[GaussSuppression]{SuppressKDisclosure}}, \code{\link[GaussSuppression]{SuppressLinkedTables}}, \code{\link[GaussSuppression]{SuppressSmallCounts}}, \code{\link[GaussSuppression]{SuppressionFromDecimals}}}
 
   \item{Kostra}{\code{\link[Kostra]{AggrSml2NumVar}}, \code{\link[Kostra]{Diff2NumVar}}, \code{\link[Kostra]{Hb}}, \code{\link[Kostra]{LmImpute}}, \code{\link[Kostra:OutlierRegression]{OutlierRegressionMicro}}, \code{\link[Kostra]{ProtectKostra}}, \code{\link[Kostra]{Quartile}}, \code{\link[Kostra]{Rank2NumVar}}, \code{\link[Kostra]{ThError}}}
 
