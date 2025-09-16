@@ -29,13 +29,36 @@ source("internal/add_funcs.R")
 #### Kontrollere funksjoner ####
 add_func('validator', 'validate', keyword = "rfunc kontrollere regelbasert 5.3")
 add_func('confront', 'validate', keyword = "rfunc kontrollere regelbasert 5.3")
-add_func('ThError', 'Kostra', keyword = "rfunc kontrollere statistisk 5.3")
-add_func('Hb', 'Kostra', keyword = "rfunc kontrollere statistisk 5.3")
-add_func('Quartile', 'Kostra', keyword = "rfunc kontrollere statistisk 5.3")
-add_func('OutlierRegressionMicro', 'Kostra', keyword = "rfunc kontrollere statistisk 5.3")
-add_func('Rank2NumVar', 'Kostra', keyword = "rfunc kontrollere statistisk 5.3" )
-add_func("Diff2NumVar", "Kostra", keyword = "rfunc kontrollere statistisk 5.3" )
-add_func("AggrSml2NumVar", "Kostra", keyword = "rfunc kontrollere statistisk 5.3" )
+
+add_func('ThError', 'Kostra', keyword = "rfunc kontrollere statistisk 5.3",
+         url = "https://statisticsnorway.github.io/ssb-kostra/reference/ThError.html",
+         pack_url = "https://statisticsnorway.github.io/ssb-kostra/index.html")
+
+add_func('Hb', 'Kostra', keyword = "rfunc kontrollere statistisk 5.3",
+         url = "https://statisticsnorway.github.io/ssb-kostra/reference/Hb.html",
+         pack_url = "https://statisticsnorway.github.io/ssb-kostra/index.html")
+
+add_func('Quartile', 'Kostra', keyword = "rfunc kontrollere statistisk 5.3",
+         url = "https://statisticsnorway.github.io/ssb-kostra/reference/Quartile.html",
+         pack_url = "https://statisticsnorway.github.io/ssb-kostra/index.html")
+
+add_func('OutlierRegressionMicro', 'Kostra', keyword = "rfunc kontrollere statistisk 5.3",
+         url = "https://statisticsnorway.github.io/ssb-kostra/reference/OutlierRegressionMicro.html",
+         pack_url = "https://statisticsnorway.github.io/ssb-kostra/index.html")
+
+add_func('Rank2NumVar', 'Kostra', keyword = "rfunc kontrollere statistisk 5.3",
+         url = "https://statisticsnorway.github.io/ssb-kostra/reference/Rank2NumVar.html",
+         pack_url = "https://statisticsnorway.github.io/ssb-kostra/index.html")
+
+add_func("Diff2NumVar", "Kostra", keyword = "rfunc kontrollere statistisk 5.3",
+         url = "https://statisticsnorway.github.io/ssb-kostra/reference/Diff2NumVar.html",
+         pack_url = "https://statisticsnorway.github.io/ssb-kostra/index.html")
+
+add_func("AggrSml2NumVar", "Kostra", keyword = "rfunc kontrollere statistisk 5.3",
+         url = "https://statisticsnorway.github.io/ssb-kostra/reference/AggrSml2NumVar.html",
+         pack_url = "https://statisticsnorway.github.io/ssb-kostra/index.html")
+
+
 add_func("get_extremes", "struktuR", keyword = "rfunc kontrollere statistisk 5.3",
          url="https://statisticsnorway.github.io/ssb-struktur/reference/get_extremes.html")
 add_func("get_extremes", "statstruk", keyword = "python kontrollere statistisk 5.3",
@@ -56,7 +79,9 @@ add_func('lm', 'stats', keyword = "rfunc imputere analyse modellbasert 5.4 5.7",
          )
 #add_func('impute_pmm', 'simputation', keyword = "rfunc imputere donor") # bugs in function
 add_func('impute_rhd', 'simputation', keyword = "rfunc imputere donor 5.4")
-add_func('LmImpute', 'Kostra', keyword = "rfunc imputere modellbasert kontrollere statistisk 5.4")
+add_func('LmImpute', 'Kostra', keyword = "rfunc imputere modellbasert kontrollere statistisk 5.4",
+         url = "https://statisticsnorway.github.io/ssb-kostra/reference/LmImpute.html",
+         pack_url = "https://statisticsnorway.github.io/ssb-kostra/index.html")
 add_func('SVC', 'sklearn.svm', keyword='python imputere maskinlaering 5.2 5.4',
          name="C-Support Vector Classification.",
          descrip = 'The implementation is based on libsvm. The fit time scales at least quadratically with the number of samples and may be impractical beyond tens of thousands of samples.',
