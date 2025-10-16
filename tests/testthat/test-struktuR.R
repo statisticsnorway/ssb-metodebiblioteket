@@ -59,6 +59,7 @@ test_that("struktur_model returns outlier dataset", {
                                    strata = "industry")
   )
   
-  ex = get_extremes(test_results, id = "id", x = "employees", y = "job_vacancies",strata="industry")
+  ex = get_extremes(test_results, id = "id", x = "employees", y = "job_vacancies")
   expect_equal(nrow(ex), 111)
 })
+
