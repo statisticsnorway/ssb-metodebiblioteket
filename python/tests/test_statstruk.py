@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from statstruk import ratemodel
+from statstruk import RatioModel
 
 # Read in test data
 sample_file = Path(__file__).parent / "data" / "sample_data.csv"
