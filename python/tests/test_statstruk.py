@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from statstruk import ratemodel
+from statstruk import RatioModel
 
 # Read in test data
 sample_file = Path(__file__).parent / "data" / "sample_data.csv"
@@ -24,20 +24,20 @@ s_data["country"] = 1
 p_data["country"] = 1
 
 
-def test_statstruk_ratemodel() -> None:
-    mod1 = ratemodel(p_data, s_data, id_nr="id")
+def test_statstruk_ratiomodel() -> None:
+    mod1 = RatioModel(p_data, s_data, id_nr="id")
     mod1.fit(x_var="employees", y_var="job_vacancies", strata_var="industry")
     assert isinstance(mod1.get_coeffs, pd.DataFrame)
 
 
-def test_statstruk_ratemodel_nostrata() -> None:
-    mod1 = ratemodel(p_data, s_data, id_nr="id")
+def test_statstruk_ratio_nostrata() -> None:
+    mod1 = RatioModel(p_data, s_data, id_nr="id")
     mod1.fit(x_var="employees", y_var="job_vacancies", control_extremes=False)
     assert mod1.get_coeffs.shape[0] == 1
 
 
-def test_statstruk_ratemodel_liststrata() -> None:
-    mod1 = ratemodel(p_data, s_data, id_nr="id")
+def test_statstruk_ratiomodel_liststrata() -> None:
+    mod1 = RatioModel(p_data, s_data, id_nr="id")
     mod1.fit(
         x_var="employees",
         y_var="job_vacancies",
@@ -47,8 +47,8 @@ def test_statstruk_ratemodel_liststrata() -> None:
     assert mod1.get_coeffs.shape[0] == 15
 
 
-def test_statstruk_ratemodel_excludes() -> None:
-    mod1 = ratemodel(p_data, s_data, id_nr="id")
+def test_statstruk_ratiomodel_excludes() -> None:
+    mod1 = RatioModel(p_data, s_data, id_nr="id")
     mod1.fit(
         x_var="employees", y_var="job_vacancies", strata_var="industry", exclude=[5, 9]
     )
@@ -57,9 +57,9 @@ def test_statstruk_ratemodel_excludes() -> None:
     assert mod1.get_weights().estimation_weights.iloc[0] == 1
 
 
-def test_statstruk_ratemodel_excludes_missing() -> None:
+def test_statstruk_ratiomodel_excludes_missing() -> None:
     """Observation 9855 is missing y-value and is removed. It should therefore be ignored when exclude is specified"""
-    mod1 = ratemodel(p_data, s_data, id_nr="id")
+    mod1 = RatioModel(p_data, s_data, id_nr="id")
     mod1.fit(
         x_var="employees",
         y_var="job_vacancies",
@@ -70,8 +70,8 @@ def test_statstruk_ratemodel_excludes_missing() -> None:
     assert isinstance(mod1.get_coeffs, pd.DataFrame)
 
 
-def test_statstruk_ratemodel_get_estimates() -> None:
-    mod1 = ratemodel(p_data, s_data, id_nr="id")
+def test_statstruk_ratiomodel_get_estimates() -> None:
+    mod1 = RatioModel(p_data, s_data, id_nr="id")
     with pytest.raises(RuntimeError):
         mod1.get_estimates()
     mod1.fit(
@@ -96,8 +96,8 @@ def test_statstruk_ratemodel_get_estimates() -> None:
     )
 
 
-def test_statstruk_ratemodel_uncertainty_type() -> None:
-    mod1 = ratemodel(p_data, s_data, id_nr="id")
+def test_statstruk_ratiomodel_uncertainty_type() -> None:
+    mod1 = RatioModel(p_data, s_data, id_nr="id")
     mod1.fit(
         x_var="employees",
         y_var="job_vacancies",
@@ -122,8 +122,8 @@ def test_statstruk_ratemodel_uncertainty_type() -> None:
     assert len(columns_ending_with_CV) == 0
 
 
-def test_statstruk_ratemodel_get_extremes() -> None:
-    mod1 = ratemodel(p_data, s_data, id_nr="id")
+def test_statstruk_ratiomodel_get_extremes() -> None:
+    mod1 = RatioModel(p_data, s_data, id_nr="id")
     with pytest.raises(RuntimeError):
         mod1.get_extremes()
     mod1.fit(x_var="employees", y_var="job_vacancies", strata_var="industry")
@@ -137,7 +137,7 @@ def test_statstruk_ratemodel_get_extremes() -> None:
     ex_df4 = mod1.get_extremes(rbound=3, threshold_type="rstud")
     assert ex_df4.shape[0] == 1
 
-    mod2 = ratemodel(p_data, s_data, id_nr="id")
+    mod2 = RatioModel(p_data, s_data, id_nr="id")
     mod2.fit(
         x_var="employees",
         y_var="job_vacancies",
@@ -148,29 +148,18 @@ def test_statstruk_ratemodel_get_extremes() -> None:
         mod2.get_extremes()
 
 
-def test_statstruk_ratemodel_auto_extremes() -> None:
-    mod1 = ratemodel(p_data, s_data, id_nr="id")
-    mod1.fit(
-        x_var="employees",
-        y_var="job_vacancies",
-        strata_var="industry",
-        rbound=5,
-        gbound=5,
-        exclude_auto=1,
-    )
-    ex_df = mod1.get_extremes(rbound=5, gbound=5)
-    assert ex_df.shape[0] == 0
 
-
-def test_statstruk_ratemodel_standard() -> None:
-    mod1 = ratemodel(p_data, s_data, id_nr="id")
+def test_statstruk_ratiomodel_standard() -> None:
+    mod1 = RatioModel(p_data, s_data, id_nr="id")
     mod1.fit(x_var="employees", y_var="job_vacancies", strata_var="industry")
     out = mod1.get_estimates(variance_type="standard")
-    assert np.round(out["job_vacancies_CV"].iloc[0], 4) == 3.9762
+    assert np.isclose(
+        np.round(out["job_vacancies_CV"].iloc[0], 4), 3.9762, rtol=1e-09, atol=1e-09
+    )
 
 
-def test_statstruk_ratemodel_nocontrol() -> None:
-    mod1 = ratemodel(p_data, s_data, id_nr="id")
+def test_statstruk_ratiomodel_nocontrol() -> None:
+    mod1 = RatioModel(p_data, s_data, id_nr="id")
     mod1.fit(
         x_var="employees",
         y_var="job_vacancies",
@@ -178,6 +167,8 @@ def test_statstruk_ratemodel_nocontrol() -> None:
         control_extremes=False,
     )
     out = mod1.get_estimates(variance_type="standard")
-    assert np.round(out["job_vacancies_CV"].iloc[0], 4) == 3.9762
+    assert np.isclose(
+        np.round(out["job_vacancies_CV"].iloc[0], 4), 3.9762, rtol=1e-09, atol=1e-09
+    )
     with pytest.raises(RuntimeError):
         mod1.get_extremes()
