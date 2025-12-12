@@ -153,7 +153,7 @@ def test_statstruk_ratiomodel_standard() -> None:
     mod1 = RatioModel(p_data, s_data, id_nr="id")
     mod1.fit(x_var="employees", y_var="job_vacancies", strata_var="industry")
     out = mod1.get_estimates(variance_type="standard")
-     assert np.isclose(
+    assert np.isclose(
         np.round(out["job_vacancies_CV"].iloc[0], 4), 3.9762, rtol=1e-09, atol=1e-09
     )
 
