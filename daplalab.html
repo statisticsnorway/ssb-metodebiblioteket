@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -71,7 +36,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-7f1f66faa3eea958e645c130fbf22287.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -179,10 +144,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -194,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./rogpython.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Kjøre en R-funksjon fra Python</span></a>
+ <span class="menu-text">Integrering av R og Python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -239,47 +200,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="om-dapla-lab" class="level3">
 <h3 class="anchored" data-anchor-id="om-dapla-lab">Om Dapla Lab</h3>
-<p>Dapla Lab er SSBs arbeidsbenk for statistikkproduksjon og forskning. Dapla Lab gir brukeren en enkel oversikt over hvilke verktøy som tilbys, både internt utviklet programvare og velkjente open-source verktøy.</p>
-<p>For å starte Dapla Lab, åpne en web-browser og går inn til <a href="https://lab.dapla.ssb.no/">https://lab.dapla.ssb.no/</a>. Velge Logg inn øverst i høyre hjørne. Mer detaljer finner du i <a href="https://manual.dapla.ssb.no/statistikkere/dapla-lab.html#innlogging">Dapla-manualen</a>.</p>
-<p>Alle funksjoner i Metodebiblioteket kan brukes på Dapla Lab. Men - R funksjoner kan kun kjøres i Rstudio og Jupyter miljøene. - Python funksjoner kan kun kjøres på Jupyter og VSCode miljøene.</p>
+<p>Dapla Lab er SSBs ny arbeidsbenk for statistikkproduksjon og forskning. Dapla Lab gir brukeren tilgang til ulike verktøy for utvikling og kjøring av produksjonsløp i SSB.</p>
+<p>For å starte Dapla Lab, åpne en web-browser og navigere til <a href="https://lab.dapla.ssb.no/">https://lab.dapla.ssb.no/</a>. Velge Logg inn øverst i høyre hjørne. Mer detaljer finner du i <a href="https://manual.dapla.ssb.no/statistikkere/dapla-lab.html#innlogging">Dapla-manualen</a>.</p>
+<p>Alle funksjoner i Metodebiblioteket kan brukes på Dapla Lab. Men:</p>
+<ul>
+<li>R funksjoner kan kjøres i Rstudio, Jupyter og VSCode miljøene.</li>
+<li>Python funksjoner kan forløpig kun kjøres på Jupyter og VSCode miljøene.</li>
+</ul>
 </section>
 <section id="installere-pakken" class="level3">
 <h3 class="anchored" data-anchor-id="installere-pakken">Installere Pakken</h3>
-<p>Metodebiblioteket er bygd som en R-pakke og (snart) Python-pakke. Disse kan installeres for å få tilgang til alle anbefalte metodiske funksjoner i Metodebiblioteket.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">R installasjon</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Python installasjon (kommer snart)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>R-pakker installasjon skal gjøres i et renv-miljø.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-eval="FALSE," data-echo="TRUE"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">install</span>(<span class="st">"statisticsnorway/ssb-metodebiblioteket"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>Python-pakke installasjon skal gjøre i et poetry-miljø.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add ssb-metodebiblioeteket</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-<p>Alternativ er å installere pakkene som funkjsoner du ønsker å bruke er en del av. Disse finner du i tabellen på <a href="">Metodebiblioteket katalogen</a></p>
+<p>Metodebiblioteket er bygd som en R-pakke og kan installeres for å få tilgang til alle R-funksjoner. I generelt, anbefaler vi istedenfor å installere kun de pakkene til funksjoner som skal faktisk brukes. Dette er for å unngå unødvendige avhengighter.</p>
 </section>
-<section id="bruke-metodebiblioteket-funksjoner" class="level2">
-<h2 class="anchored" data-anchor-id="bruke-metodebiblioteket-funksjoner">Bruke Metodebiblioteket funksjoner</h2>
-<p>Her finner du en eksempel om bruk av en funksjon i Metodebiblioteket.</p>
-<p>Mer info kommmer…</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">R eksempel</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Python eksempel (kommer snart)</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metodebiblioteket)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="cell" data-python.reticulate="false">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> metodebiblioteket <span class="im">as</span> mb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</div>
+<section id="integrering-av-python-og-r" class="level3">
+<h3 class="anchored" data-anchor-id="integrering-av-python-og-r">Integrering av Python og R</h3>
+<p>Mange funksjoner i Metodebiblioteket er skrevet i R. Disse kan fortsatt brukes, selv om du skriver produksjonsløpet i Python. Se siden om <a href="https://statisticsnorway.github.io/ssb-metodebiblioteket/rogpython.html">hvordan å integrere R og Python</a> for mer detaljer.</p>
 
 
 </section>

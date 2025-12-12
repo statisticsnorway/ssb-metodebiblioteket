@@ -2,34 +2,45 @@
   {
     "objectID": "rogpython.html",
     "href": "rogpython.html",
-    "title": "Kjøre en R-funksjon fra Python",
+    "title": "Integrering av R og Python",
     "section": "",
-    "text": "Mange utvikler produksjonsløpet sitt i Python mens ønsker å benytte R funksjoner i deler av løpet. Her er eksempler på to ulike måte å gjøre dette:\nDet er anbefalt å bruke alternativ 1 om R-funksjon(er) er litt mer kompleks, eller involvere flere steg. Alternativ 2 kan vurderes om det er en enkelt R-funksjon som skal as i bruk i produksjonsløpet.",
+    "text": "Mange av funksjonene i Metodebiblioteket er skrevet i R, mens de fleste i SSB utvikler produksjonsløpene sine i Python. På denne siden finner du tips til hvordan du kan bruke R-funksjoner fra Python - og motsatt.",
     "crumbs": [
       "Veiledning",
-      "Kjøre en R-funksjon fra Python"
+      "Integrering av R og Python"
     ]
   },
   {
-    "objectID": "rogpython.html#sec-alt1",
-    "href": "rogpython.html#sec-alt1",
-    "title": "Kjøre en R-funksjon fra Python",
-    "section": "Kjøring av R-skriptfiler",
-    "text": "Kjøring av R-skriptfiler\nSelvstendige R-skriptfiler kan kjøres fra Python ved hjelp av et kall til terminalen med Rscript. Med “selvstendige” mener vi programmer som kan kjøres alene uten å være avhengig av andre systemer og variabler i minne fra før. Fordelen med dette er at det vil benytte seg av renv-miljøet, i tillegg til å ha god kontroll over håndtering av datatyper, manglende data, osv., siden dette også kan sjekkes ved å kjøre programmet i R.\nVi anbefaler å bruk subprocess i python for å kjøre programmet. For å kjøre en R-skript som heter “lage_statistikk.R” vil det ser ut som dette:\nimport subprocess\n\nsubprocess.run([\"Rscript\", \"lager_statistikk.R\"])",
-    "crumbs": [
-      "Veiledning",
-      "Kjøre en R-funksjon fra Python"
-    ]
-  },
-  {
-    "objectID": "rogpython.html#sec-alt2",
-    "href": "rogpython.html#sec-alt2",
-    "title": "Kjøre en R-funksjon fra Python",
+    "objectID": "rogpython.html#sec-rwrapr",
+    "href": "rogpython.html#sec-rwrapr",
+    "title": "Integrering av R og Python",
     "section": "Bruk av RWrapR",
-    "text": "Bruk av RWrapR\nPython pakke rwrapr var utviklet under Hack4SSB 2024. Det har kommet ut på PYPI og er tilgjengelig for alle. Det gjøre R-funksjoner tilgjengelig direkte i Python-miljø. Det kan være en god lsøning når det er kun én R-funksjon du ønsker å bruke i en ellers Python produksjonsløp.\nDet er fortsatt noen funksjonalitet som mangler, f.eks. bruk i et renv-miljø og håndtering av manglende data, så vær forsiktig og teste godt. Pakken RWrapR kan installeres fra PYPI ved:\npoetry add rwrapr\nFølgende viser en kort eksempel om bruk av imputerings funksjonen, ´impute_rhd()´, fra R i Python. Vi først lage noen eksempel data:\nimport pandas as pd\nimport rwrapr as wr\n\ndata = {\n    'x': [\"A\",\"A\",\"A\",\"B\",\"B\",\"B\"],\n    'y': [None, 2, 3, 4, 3, 5]\n}\n\ndf = pd.DataFrame(data)\nOg så henter vi inn R-bibliotek for imputering, simputation:\nsimputation = wr.library(\"simputation\")\nDeretter bruker vi funksjonen impute_rhd i Python miljø:\ndata_imp = simputation.impute_rhd(df, formula=wr.Lazily('y ~ x'))\nMange parameter til funksjoner kan skrives på vanlig måte, mens for mer spesifike typer, som f.eks. formel som input, må det spesifiseres innen wr.Lazily(). Se mer detaljer på dokumentsidene for RWrapR.",
+    "text": "Bruk av RWrapR\nPython-pakken RWrapR ble utviklet under Hack4SSB 2024. Den ligger på PyPI og er tilgjengelig for alle. Pakken gjør R-funksjoner tilgjengelige direkte i Python-miljøet. Dette kan være en god løsning når du kun ønsker å bruke én R-funksjon i et ellers Python-basert produksjonsløp.\nPakken er fortsatt under utvikling og mangler noe funksjonalitet, for eksempel håndtering av manglende data, så vær forsiktig og test godt. Pakken RWrapR kan installeres fra PYPI med:\npoetry add rwrapr\nSe videoen under og koden rwrapr_kjoring.py for eksempler.\n\n\n\n\n\nFor mer detaljer, se dokumentsidene for RWrapR.",
     "crumbs": [
       "Veiledning",
-      "Kjøre en R-funksjon fra Python"
+      "Integrering av R og Python"
+    ]
+  },
+  {
+    "objectID": "rogpython.html#sec-subprocess",
+    "href": "rogpython.html#sec-subprocess",
+    "title": "Integrering av R og Python",
+    "section": "Kjøring av R-skriptfiler fra Python",
+    "text": "Kjøring av R-skriptfiler fra Python\nSelvstendige R-skriptfiler kan kjøres fra Python ved hjelp av et kall til terminalen med Rscript. Med «selvstendige» menes programmer som kan kjøres uavhengig, uten avhengighet til andre systemer eller variabler som allerede ligger i minnet. Fordelen med denne metoden er at den benytter renv-miljøet og gi bedre kontroll over håndtering av datatyper, manglende verdier og lignende, ettersom dette kan verifiseres ved å kjøre programmet direkte i R.\nVi anbefaler å bruke subprocess i Python for å utføre kjøringen. For eksempel, for å kjøre et R-skript med navn lage_statistikk.R, kan følgende kode benyttes:\nimport subprocess\n\nsubprocess.run([\"Rscript\", \"lager_statistikk.R\"])\nSe videoen under og kode subprocess_kjoring.py for eksempler.",
+    "crumbs": [
+      "Veiledning",
+      "Integrering av R og Python"
+    ]
+  },
+  {
+    "objectID": "rogpython.html#sec-reticulate",
+    "href": "rogpython.html#sec-reticulate",
+    "title": "Integrering av R og Python",
+    "section": "Kjøring av Python-funksjoner i R med reticulate",
+    "text": "Kjøring av Python-funksjoner i R med reticulate\nPython-funksjoner kan kjøres direkte fra R ved hjelp av pakken reticulate. Denne pakken gjør det mulig å integrere Python-kode i R-skript, og gir dermed en fleksibel løsning når R-produksjonsløp krever funksjonalitet fra Python. Fordelen med denne metoden er at den gir sømløs integrasjon mellom R og Python, inkludert deling av objekter mellom språkene. Dette gjør det enklere å kombinere styrkene fra begge miljøer i én arbeidsflyt. For å bruke reticulate, må pakken installeres i R:\nrenv::install(\"reticulate\")\nSe videoen under og koden reticulate_kjoring.R for eksempler.",
+    "crumbs": [
+      "Veiledning",
+      "Integrering av R og Python"
     ]
   },
   {
@@ -124,18 +135,7 @@
     "href": "daplalab.html",
     "title": "Bruk en funksjon i kode på Dapla Lab",
     "section": "",
-    "text": "Dapla Lab er SSBs arbeidsbenk for statistikkproduksjon og forskning. Dapla Lab gir brukeren en enkel oversikt over hvilke verktøy som tilbys, både internt utviklet programvare og velkjente open-source verktøy.\nFor å starte Dapla Lab, åpne en web-browser og går inn til https://lab.dapla.ssb.no/. Velge Logg inn øverst i høyre hjørne. Mer detaljer finner du i Dapla-manualen.\nAlle funksjoner i Metodebiblioteket kan brukes på Dapla Lab. Men - R funksjoner kan kun kjøres i Rstudio og Jupyter miljøene. - Python funksjoner kan kun kjøres på Jupyter og VSCode miljøene.",
-    "crumbs": [
-      "Veiledning",
-      "Bruk en funksjon i kode på Dapla Lab"
-    ]
-  },
-  {
-    "objectID": "daplalab.html#bruke-metodebiblioteket-funksjoner",
-    "href": "daplalab.html#bruke-metodebiblioteket-funksjoner",
-    "title": "Bruk en funksjon i kode på Dapla Lab",
-    "section": "Bruke Metodebiblioteket funksjoner",
-    "text": "Bruke Metodebiblioteket funksjoner\nHer finner du en eksempel om bruk av en funksjon i Metodebiblioteket.\nMer info kommmer…\n\nR eksempelPython eksempel (kommer snart)\n\n\n\nlibrary(metodebiblioteket)\n\n\n\n\nimport metodebiblioteket as mb",
+    "text": "Om Dapla Lab\nDapla Lab er SSBs ny arbeidsbenk for statistikkproduksjon og forskning. Dapla Lab gir brukeren tilgang til ulike verktøy for utvikling og kjøring av produksjonsløp i SSB.\nFor å starte Dapla Lab, åpne en web-browser og navigere til https://lab.dapla.ssb.no/. Velge Logg inn øverst i høyre hjørne. Mer detaljer finner du i Dapla-manualen.\nAlle funksjoner i Metodebiblioteket kan brukes på Dapla Lab. Men:\n\nR funksjoner kan kjøres i Rstudio, Jupyter og VSCode miljøene.\nPython funksjoner kan forløpig kun kjøres på Jupyter og VSCode miljøene.\n\n\n\nInstallere Pakken\nMetodebiblioteket er bygd som en R-pakke og kan installeres for å få tilgang til alle R-funksjoner. I generelt, anbefaler vi istedenfor å installere kun de pakkene til funksjoner som skal faktisk brukes. Dette er for å unngå unødvendige avhengighter.\n\n\nIntegrering av Python og R\nMange funksjoner i Metodebiblioteket er skrevet i R. Disse kan fortsatt brukes, selv om du skriver produksjonsløpet i Python. Se siden om hvordan å integrere R og Python for mer detaljer.",
     "crumbs": [
       "Veiledning",
       "Bruk en funksjon i kode på Dapla Lab"
