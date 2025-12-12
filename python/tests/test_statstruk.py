@@ -137,7 +137,7 @@ def test_statstruk_ratiomodel_get_extremes() -> None:
     ex_df4 = mod1.get_extremes(rbound=3, threshold_type="rstud")
     assert ex_df4.shape[0] == 1
 
-    mod2 = ratemodel(p_data, s_data, id_nr="id")
+    mod2 = RatioModel(p_data, s_data, id_nr="id")
     mod2.fit(
         x_var="employees",
         y_var="job_vacancies",
