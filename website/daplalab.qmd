@@ -9,62 +9,18 @@ editor: source
 ---
 
 ### Om Dapla Lab
-Dapla Lab er SSBs arbeidsbenk for statistikkproduksjon og forskning. Dapla Lab gir brukeren en enkel oversikt over hvilke verktøy som tilbys, både internt utviklet programvare og velkjente open-source verktøy.
+Dapla Lab er SSBs ny arbeidsbenk for statistikkproduksjon og forskning. Dapla Lab gir brukeren tilgang til ulike verktøy for utvikling og kjøring av produksjonsløp i SSB.
 
-For å starte Dapla Lab, åpne en web-browser og går inn til [https://lab.dapla.ssb.no/](https://lab.dapla.ssb.no/). Velge Logg inn øverst i høyre hjørne. Mer detaljer finner du i [Dapla-manualen](https://manual.dapla.ssb.no/statistikkere/dapla-lab.html#innlogging).
+For å starte Dapla Lab, åpne en web-browser og navigere til [https://lab.dapla.ssb.no/](https://lab.dapla.ssb.no/). Velge Logg inn øverst i høyre hjørne. Mer detaljer finner du i [Dapla-manualen](https://manual.dapla.ssb.no/statistikkere/dapla-lab.html#innlogging).
 
-Alle funksjoner i Metodebiblioteket kan brukes på Dapla Lab. Men 
-- R funksjoner kan kun kjøres i Rstudio og Jupyter miljøene.
-- Python funksjoner kan kun kjøres på Jupyter og VSCode miljøene.
+Alle funksjoner i Metodebiblioteket kan brukes på Dapla Lab. Men:
+
+- R funksjoner kan kjøres i Rstudio, Jupyter og VSCode miljøene.
+- Python funksjoner kan forløpig kun kjøres på Jupyter og VSCode miljøene.
 
 
 ### Installere Pakken
-Metodebiblioteket er bygd som en R-pakke og (snart) Python-pakke. Disse kan installeres for å få tilgang til alle anbefalte metodiske funksjoner i Metodebiblioteket. 
+Metodebiblioteket er bygd som en R-pakke og kan installeres for å få tilgang til alle R-funksjoner. I generelt, anbefaler vi istedenfor å installere kun de pakkene til funksjoner som skal faktisk brukes. Dette er for å unngå unødvendige avhengighter. 
 
-
-::: {.panel-tabset}
-Installasjon av pakker
-
-## R installasjon
-R-pakker installasjon skal gjøres i et renv-miljø. 
-
-```{.r eval=FALSE, echo=TRUE}
-renv::install("statisticsnorway/ssb-metodebiblioteket")
-
-```
-
-## Python installasjon (kommer snart)
-Python-pakke installasjon skal gjøre i et poetry-miljø. 
-
-```{.bash}
-poetry add ssb-metodebiblioeteket
-
-```
-
-:::
-
-Alternativ er å installere pakkene som funkjsoner du ønsker å bruke er en del av. Disse finner du i tabellen på [Metodebiblioteket katalogen]()
-
-## Bruke Metodebiblioteket funksjoner
-Her finner du en eksempel om bruk av en funksjon i Metodebiblioteket. 
-
-Mer info kommmer...
-
-::: {.panel-tabset}
-
-## R eksempel
-
-```{r eval=FALSE, echo=TRUE}
-library(metodebiblioteket)
-
-```
-
-
-## Python eksempel (kommer snart)
-
-```{python eval=FALSE, echo=TRUE, python.reticulate = FALSE}
-import metodebiblioteket as mb
-
-```
-
-:::
+### Integrering av Python og R
+Mange funksjoner i Metodebiblioteket er skrevet i R. Disse kan fortsatt brukes, selv om du skriver produksjonsløpet i Python. Se siden om [hvordan å integrere R og Python](https://statisticsnorway.github.io/ssb-metodebiblioteket/rogpython.html) for mer detaljer.
