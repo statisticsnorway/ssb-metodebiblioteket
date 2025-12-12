@@ -24,30 +24,7 @@ import subprocess
 # Kjøre skript
 subprocess.run(["Rscript", "beskytte_tabellen.R"])
 
-# %% [markdown]
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;&nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
+
 # ### Kjøring med henting av output
 #
 
@@ -58,30 +35,7 @@ output = subprocess.run(["Rscript", "beskytte_tabellen.R"],
 # %%
 output
 
-# %% [markdown]
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
-#
-# &nbsp;
+
 # ### Kjøring med argumenter
 
 # %%
