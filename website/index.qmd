@@ -10,7 +10,7 @@ sidebar: false
 knitr::include_graphics("pictures/logo.png")
 ```
 
-Metodebiblioteket er SSBs bibliotek for funksjoner innen statistiske metoder. Alle metodene i biblioteket er funksjoner utviklet i R eller Python, og er tilpasset SSBs IT-platform. Funksjonene er testet og kvalitetssikret av Seksjon for metode for bruk i produksjon av offisiell statistikk. Hver funksjon er brukt i minst én produksjonsløp, eller i SSBs interne metodekurs.
+Metodebiblioteket er SSBs bibliotek for funksjoner innen statistiske metoder. Alle metodene i biblioteket er funksjoner utviklet i R eller Python, og er tilpasset SSBs IT-platform. Funksjonene er testet og kvalitetssikret av Seksjon for metode for bruk i produksjon av offisiell statistikk. Hver funksjon er brukt i minst ett produksjonsløp, eller i SSBs interne metodekurs.
 
 <br><br>
 
