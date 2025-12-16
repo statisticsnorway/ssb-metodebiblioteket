@@ -10,5 +10,20 @@ sidebar: false
 knitr::include_graphics("pictures/logo.png")
 ```
 
-Metodebiblioteket er SSBs bibliotek for statistiske metode funksjoner. Metodene på liste er funksjoner skrevet i R eller python som passer i SSBs IT-platform. Alle funksjoner er testet av Seksjon for Metode for bruk i produksjon av offisielle statistikk. Alle er brukt i minst én produksjonsløp/eller brukt i SSBs interne metodekurs. 
+Metodebiblioteket er SSBs bibliotek for funksjoner innen statistiske metoder. Alle metodene i biblioteket er funksjoner utviklet i R eller Python, og er tilpasset SSBs IT-platform. Funksjonene er testet og kvalitetssikret av Seksjon for metode for bruk i produksjon av offisiell statistikk. Hver funksjon er brukt i minst én produksjonsløp, eller i SSBs interne metodekurs.
+
+<br><br>
+
+---
+
+**Videre ressurser**
+
+- [Katalog over tilgjengelige metoder](https://statisticsnorway.github.io/ssb-metodebiblioteket/catalog.html) - Full oversikt over R- og Python-funksjonene i biblioteket.
+
+- [Veiledning om kombinering R og Python](https://statisticsnorway.github.io/ssb-metodebiblioteket/rogpython.html) - Tips til hvordan å kjøre R-funksjoner i et Python produksjonsløp, og motsatt.
+
+- [Prinsipper for Metodebiblioteket](Prinsipper_for_Metodebiblioteket.pdf) - Retningslinjer for funksjonalitet og valg av programmeringsspråk i Metodebiblioteket.
+
+
+
 
