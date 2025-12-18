@@ -44,7 +44,12 @@ jobs:
 
       - name: Install pak
         run: Rscript -e 'install.packages("pak")'
-
+      
+      - name: Install xfun from source as fallback
+        run: |
+          Rscript -e "options(pkgType = 'source'); pak::pkg_install('xfun')"
+          Rscript -e "options(pkgType = 'binary')"
+      
       - name: Install Kostra package
         run: Rscript -e 'pak::pkg_install(c("statisticsnorway/ReGenesees", "statisticsnorway/ssb-sdcforetakperson", "statisticsnorway/ssb-kostra", "statisticsnorway/ssb-struktur", "statisticsnorway/ssb-pris", "statisticsnorway/ssb-sdclonn", "statisticsnorway/ssb-pickmdl", "statisticsnorway/ssb-sadashboard"))'
 
