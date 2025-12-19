@@ -253,7 +253,9 @@ find_functions <- function(repos_to_check){
       print(rate_limit_info)
       
       if (rate_limit_info$remaining < 1200){
-        print("Sleeping for 45 minutes")
+        newtime = Sys.time() + 45*60
+        newtime_format = format(newtime, "%H:%M")
+        print(paste0("Sleeping for 45 minutes, process will start up at approx. ", newtime_format))
         Sys.sleep(2700) # sleep for 45 mins
       }
     }

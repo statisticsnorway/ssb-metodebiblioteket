@@ -35,7 +35,7 @@ suppressWarnings(library(testthat))
 source("../internal/check_funcs.R")
 
 # Date for scraped data
-dato <- "2025-07-23"
+dato <- "2025-12-18"
 run_scraping <- FALSE
 if (run_scraping){
   dato <- Sys.Date()
@@ -125,7 +125,7 @@ for (t in test_files_r){
 
 # Check python tests
 test_files_py <- list.files("../python/tests/")
-test_files_py <- test_files_py[test_files_py != "__init__.py"]
+test_files_py <- test_files_py[!test_files_py %in% c("__init__.py", "data")]
 for (t in test_files_py){
   con <- file(file.path("../python/tests", t))
   line <- readLines(con)
@@ -178,14 +178,19 @@ function_counts$funksjon <- row.names(function_counts)
 
 
 # Create Bar Plot
-p <- ggplot2::ggplot(function_counts, aes(x = funksjon, y = repo_counts, fill = spraak, text = repo_used)) +
+function_counts$repo_used[function_counts$repo_used == ""] <- "Ingen 'stat-' repos"
+
+p <- ggplot2::ggplot(function_counts, aes(x = funksjon, y = repo_counts, 
+                                          fill = spraak, 
+                                          text = sprintf("Repo: %s", repo_used))) +
   geom_bar(stat = "identity") +
   scale_fill_manual(values = c("R" = "#9582bb", "Python" = "#1a9d49")) +
   labs(x = "", y = "Nr. av repoer", title = "") +
   theme(axis.text.x = element_text(angle = 70, hjust = 1))
 
 # Convert ggplot to interactive plotly
-plotly::ggplotly(p, tooltip = c("x", "y", "repo_used"))
+plotly::ggplotly(p, tooltip = c("x", "fill", "text"))
+
 
 #kableExtra::kbl(function_counts)
 
