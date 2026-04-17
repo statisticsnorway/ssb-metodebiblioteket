@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.26">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Sesongjustering og tidsserieanalyse – Metodebiblioteket</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -31,15 +34,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7f1f66faa3eea958e645c130fbf22287.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1c0d2192b5eddbb2d89ad9f20c7ad8fd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -224,6 +226,106 @@ ul.task-list li input[type="checkbox"] {
 <p><br></p>
 <p>Sesongjustering er å bruke statistiske metoder for å fjerne systematiske sesongvariasjoner fra en månedlig eller kvartalsvis tidsserie, slik at tidsserien i størst mulig grad uttrykker den reelle utviklingen over tid. I tillegg forsøker man å fjerne kalendereffektene som varierer fra år til år, slik som påske. I sesongjusteringsprosessen spaltes den prekorrigerte (kalenderjusterte) tidsserien opp i tre komponenter: sesong, en irregulær og trend-syklus. Når dataene er korrigert for de sesongrelaterte forholdene, vil man stå igjen med et klarere bilde av den underliggende utviklingen i tidsserien som består av trend-syklus og irregulær komponent. Sesongjusterte data brukes ofte som utgangspunkt for opprettelse eller revidering av økonomisk politikk og økonomisk forskning på høyt nivå. Trend-syklus-komponenten er glattere enn sesongjusterte tall, og kan evt. formidles til brukerne i tillegg. I tidsserieanalyse kan en også justere tidsseriene for evt. brudd.</p>
 <p>Du kan finne mer informasjon om Sesongjustering og tidsserieanalyse på <a href="https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Sesongjustering.aspx">Byrånettet</a>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped caption-top small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Funksjon</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Pakke</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Språk</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Navn</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Beskrivelse</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://rdrr.io/cran/RJDemetra/man/x13.html" target="_blank">x13</a></td>
+<td style="text-align: left;"><a href="https://cran.r-project.org/web/packages/RJDemetra/index.html" target="_blank">RJDemetra</a></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Seasonal Adjustment with X13-ARIMA</td>
+<td style="text-align: left;">Functions to estimate the seasonally adjusted series (sa) with the X13-ARIMA method. This is achieved by decomposing the time series (y) into the trend-cycle (t), the seasonal component (s) and the irregular component (i). The final seasonally adjusted series shall be free of seasonal and calendar-related movements. x13 returns a preformatted result while jx13 returns the Java objects resulting from the seasonal adjustment.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://rdrr.io/cran/RJDemetra/man/x13_spec.html" target="_blank">x13_spec</a></td>
+<td style="text-align: left;"><a href="https://cran.r-project.org/web/packages/RJDemetra/index.html" target="_blank">RJDemetra</a></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">X-13ARIMA model specification, SA/X13</td>
+<td style="text-align: left;">Function to create (and/or modify) a c("SA_spec", "X13") class object with the SA model specification for the X13 method. It can be done from a pre-defined "JDemetra+" model specification (a character), a previous specification (c("SA_spec", "X13") object) or a seasonal adjustment model (c("SA", "X13") object).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://statisticsnorway.github.io/ssb-pickmdl/reference/konstruksjon.html" target="_blank">konstruksjon</a></td>
+<td style="text-align: left;"><a href="https://github.com/statisticsnorway/pickmdl/" target="_blank">pickmdl</a></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Lage faktorer for kalendereffekter</td>
+<td style="text-align: left;">Fleksibel funksjon som lager ulike kalendervariable, som f.eks. TD-, WD- og påskevariable, tilpasset norske forhold.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://statisticsnorway.github.io/ssb-pickmdl/reference/x13_pickmdl.html" target="_blank">x13_automdl</a></td>
+<td style="text-align: left;"><a href="https://github.com/statisticsnorway/pickmdl/" target="_blank">pickmdl</a></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">x13 with PICKMDL and partial concurrent possibilities</td>
+<td style="text-align: left;">x13 can be run as usual (automdl) or with a PICKMDL specification. The ARIMA model, outliers and filters can be identified at a certain date and then held fixed (with a new outlier-span).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://statisticsnorway.github.io/ssb-pickmdl/reference/x13_both.html" target="_blank">x13_both</a></td>
+<td style="text-align: left;"><a href="https://github.com/statisticsnorway/pickmdl/" target="_blank">pickmdl</a></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">x13_spec and x13_pickmdl wrapped as a single function</td>
+<td style="text-align: left;">Output is determined by the parameter: both_output.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://statisticsnorway.github.io/ssb-pickmdl/reference/x13_pickmdl.html" target="_blank">x13_pickmdl</a></td>
+<td style="text-align: left;"><a href="https://github.com/statisticsnorway/pickmdl/" target="_blank">pickmdl</a></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">x13 with PICKMDL and partial concurrent possibilities</td>
+<td style="text-align: left;">x13 can be run as usual (automdl) or with a PICKMDL specification. The ARIMA model, outliers and filters can be identified at a certain date and then held fixed (with a new outlier-span).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://statisticsnorway.github.io/ssb-pickmdl/reference/x13_text_frame.html" target="_blank">x13_text_frame</a></td>
+<td style="text-align: left;"><a href="https://github.com/statisticsnorway/pickmdl/" target="_blank">pickmdl</a></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Multiple x13_both runs with code input from a data frame</td>
+<td style="text-align: left;">Gjør det mulig med sesongjustering av mange serier basert på parametere i en data.frame (f.eks lest inn fra en excel-fil).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://statisticsnorway.github.io/ssb-sadashboard/reference/add_constraint.html" target="_blank">add_constraint</a></td>
+<td style="text-align: left;"><a href="https://github.com/statisticsnorway/ssb-sadashboard/" target="_blank">sadashboard</a></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Add a constraint to a constraint data frame object and open for editing.</td>
+<td style="text-align: left;">Legger til en opsjon(kolonne) i spesifikasjonsfil objektet og åpner det for redigering med R-pakken DataEditR</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://statisticsnorway.github.io/ssb-sadashboard/reference/edit_constraints.html" target="_blank">edit_constraints</a></td>
+<td style="text-align: left;"><a href="https://github.com/statisticsnorway/ssb-sadashboard/" target="_blank">sadashboard</a></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Edit a constraint data frame object.</td>
+<td style="text-align: left;">For redigering av celler spesifikasjonsfil objektet og åpner det for redigering med R-pakken DataEditR</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://statisticsnorway.github.io/ssb-sadashboard/reference/make_paramfile.html" target="_blank">make_paramfile</a></td>
+<td style="text-align: left;"><a href="https://github.com/statisticsnorway/ssb-sadashboard/" target="_blank">sadashboard</a></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Create an initial parameter file where all values in a column are the same</td>
+<td style="text-align: left;">Oppretter en initial parameterfil der alle verdiene i en kolonne er de samme</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://statisticsnorway.github.io/ssb-sadashboard/reference/sa_quality_report.html" target="_blank">sa_quality_report</a></td>
+<td style="text-align: left;"><a href="https://github.com/statisticsnorway/ssb-sadashboard/" target="_blank">sadashboard</a></td>
+<td style="text-align: left;">R</td>
+<td style="text-align: left;">Quality Report for Seasonal Adjustment with RJDemetra</td>
+<td style="text-align: left;">Wrapper function for creating a html-document with interactive quality report for seasonal adjustment with RJdemetra. The quality report includes tables with selected quality indicators. User may also choose to include interactive plots of seasonally adjusted time series.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output-display">
+<style>
+table td:nth-child(1) { width: 28%; white-space: nowrap; }
+table td:nth-child(2) { width: 18%; white-space: nowrap; }
+</style>
+</div>
+</div>
 
 
 
