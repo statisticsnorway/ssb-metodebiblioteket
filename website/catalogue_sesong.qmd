@@ -10,3 +10,72 @@ format:
 Sesongjustering er å bruke statistiske metoder for å fjerne systematiske sesongvariasjoner fra en månedlig eller kvartalsvis tidsserie, slik at tidsserien i størst mulig grad uttrykker den reelle utviklingen over tid. I tillegg forsøker man å fjerne kalendereffektene som varierer fra år til år, slik som påske. I sesongjusteringsprosessen spaltes den prekorrigerte (kalenderjusterte) tidsserien opp i tre komponenter: sesong, en irregulær og trend-syklus. Når dataene er korrigert for de sesongrelaterte forholdene, vil man stå igjen med et klarere bilde av den underliggende utviklingen i tidsserien som består av trend-syklus og irregulær komponent. Sesongjusterte data brukes ofte som utgangspunkt for opprettelse eller revidering av økonomisk politikk og økonomisk forskning på høyt nivå. Trend-syklus-komponenten er glattere enn sesongjusterte tall, og kan evt. formidles til brukerne i tillegg. I tidsserieanalyse kan en også justere tidsseriene for evt. brudd. 
 
 Du kan finne mer informasjon om Sesongjustering og tidsserieanalyse på [Byrånettet](https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Sesongjustering.aspx).
+
+
+
+```{r}
+#| echo: false
+
+
+library(stringr)
+library(rmarkdown)
+
+# Read data
+dt <- read.csv("../data/katalogdata.csv", stringsAsFactors = FALSE)
+
+# Filter for sesongjustering
+dt <- dt[grepl("sesongjustering", tolower(dt$keyword)), ]
+
+
+# Bestemt rekkefølge på pakker
+order_pack <- c("RJDemetra", "pickmdl", "sadashboard")
+dt <- dt[order(match(dt$pack, order_pack)), ]
+
+
+# Language column
+Språk <- ifelse(grepl("^rfunc", dt$keyword), "R", "Python")
+
+# ✅ Correct HTML hyperlinks (FIXED)
+Funksjon <- sprintf(
+  '<a href="%s" target="_blank">%s</a>',
+  dt$url,
+  dt$func
+)
+
+Pakke <- sprintf(
+  '<a href="%s" target="_blank">%s</a>',
+  dt$pack_url,
+  dt$pack
+)
+
+
+# Build output table safely
+dt_out <- data.frame(
+  Funksjon    = Funksjon,
+  Pakke       = Pakke,
+  Språk       = Språk,
+  Navn        = dt$navn,
+  Beskrivelse = dt$description,
+  stringsAsFactors = FALSE
+)
+
+# Render table
+knitr::kable(
+  dt_out,
+  format = "html",
+  escape = FALSE,
+  table.attr = 'class="table table-sm table-striped" style="table-layout: fixed;"'
+)
+
+# Column width + no wrap for first two columns
+
+knitr::asis_output("
+<style>
+table td:nth-child(1) { width: 28%; white-space: nowrap; }
+table td:nth-child(2) { width: 18%; white-space: nowrap; }
+</style>
+")
+
+
+```
+

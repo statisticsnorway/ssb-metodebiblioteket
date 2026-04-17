@@ -12,19 +12,14 @@ permissions:
 
 jobs:
   R-CMD-check:
-  
     runs-on: ${{ matrix.config.os }}
-
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
-
     strategy:
       fail-fast: false
       matrix:
         config:
           - {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest, r: 'release'}
-          #- {os: ubuntu-latest, r: '4.2.3'}
-          #- {os: ubuntu-latest, r: '3.6'}  
           - {os: macOS-latest, r: 'release'}
   
     env:
@@ -41,6 +36,36 @@ jobs:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
+      
+      - name: Install system dependencies (Ubuntu only)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            libxml2-dev \
+            libfontconfig1-dev \
+            libharfbuzz-dev \
+            libfribidi-dev \
+            libfreetype6-dev \
+            libpng-dev \
+            libtiff5-dev \
+            libjpeg-dev
+
+      - name: Set up Java (macOS only)
+        if: runner.os == 'macOS'
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'   # Eclipse Temurin ships native ARM64 builds
+          java-version: '17'
+
+      - name: Configure R Java (macOS only)
+        if: runner.os == 'macOS'
+        run: |
+          JAVA_HOME=$(/usr/libexec/java_home)
+          echo "JAVA_HOME=$JAVA_HOME" >> $GITHUB_ENV
+          sudo R CMD javareconf
 
       - name: Install pak
         run: Rscript -e 'install.packages("pak")'
