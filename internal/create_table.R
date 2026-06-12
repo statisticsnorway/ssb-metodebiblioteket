@@ -239,6 +239,12 @@ add_func("get_weights", "statstruk", keyword = "python vektberegning modellbaser
          url = "https://statisticsnorway.github.io/ssb-statstruk/reference.html#statstruk.ratemodel.ratemodel.get_weights",
          pack_url="https://statisticsnorway.github.io/ssb-statstruk/",
          descrip = "Get sample data with weights based on model.")
+add_func("svydesign", "survey", keyword = "rfunc vektberegning 5.7", name = "Svydesign", 
+         url = "https://rdrr.io/cran/survey/man/svydesign.html", 
+         pack_url = "https://cran.r-project.org/package=survey")
+add_func("calibrate", "survey", keyword = "rfunc vektberegning 5.7", name = "Calibrate", 
+         url = "https://rdrr.io/cran/survey/man/calibrate.html", 
+         pack_url = "https://cran.r-project.org/package=survey")
 
 # ReGenesees functions
 add_func("e.svydesign", "ReGenesees", keyword = "rfunc vektberegning 5.6", 
