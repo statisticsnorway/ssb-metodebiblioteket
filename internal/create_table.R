@@ -260,6 +260,7 @@ add_func("svystatL", "ReGenesees", keyword = "rfunc vektberegning 5.7",
 add_func("CalibrateSSB", "CalibrateSSB", keyword = "rfunc vektberegning usikkerhetsberegning designbasert 5.6",
          url="https://statisticsnorway.github.io/ssb-calibratessb/reference/CalibrateSSB.html",
          pack_url = "https://statisticsnorway.github.io/ssb-calibratessb/")
-add_func("PanelEstimation", "CalibrateSSB", keyword = "rfunc vektberegning usikkerhetsberegning designbasert 5.7")
-
+add_func("PanelEstimation", "CalibrateSSB", keyword = "rfunc vektberegning usikkerhetsberegning designbasert 5.7", 
+         url = "https://statisticsnorway.github.io/ssb-calibratessb/reference/PanelEstimation.html",
+         pack_url = "https://statisticsnorway.github.io/ssb-calibratessb/")
 
