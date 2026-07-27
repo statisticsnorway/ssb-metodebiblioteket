@@ -1,5 +1,7 @@
 # .github/workflows/app.yaml
 name: PyTest
+permissions:
+  contents: read
 on:
   push:
     branches: [main, master]
