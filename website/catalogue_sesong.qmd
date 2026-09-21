@@ -7,11 +7,13 @@ format:
 ---
 <br>
 
-Sesongjustering er å bruke statistiske metoder for å fjerne systematiske sesongvariasjoner fra en månedlig eller kvartalsvis tidsserie, slik at tidsserien i størst mulig grad uttrykker den reelle utviklingen over tid. I tillegg forsøker man å fjerne kalendereffektene som varierer fra år til år, slik som påske. I sesongjusteringsprosessen spaltes den prekorrigerte (kalenderjusterte) tidsserien opp i tre komponenter: sesong, en irregulær og trend-syklus. Når dataene er korrigert for de sesongrelaterte forholdene, vil man stå igjen med et klarere bilde av den underliggende utviklingen i tidsserien som består av trend-syklus og irregulær komponent. Sesongjusterte data brukes ofte som utgangspunkt for opprettelse eller revidering av økonomisk politikk og økonomisk forskning på høyt nivå. Trend-syklus-komponenten er glattere enn sesongjusterte tall, og kan evt. formidles til brukerne i tillegg. I tidsserieanalyse kan en også justere tidsseriene for evt. brudd. 
+Sesongjustering er å bruke statistiske metoder for å fjerne systematiske sesongvariasjoner fra en månedlig eller kvartalsvis tidsserie, slik at tidsserien i størst mulig grad uttrykker den reelle utviklingen over tid. I tillegg forsøker man å fjerne kalendereffektene som varierer fra år til år, slik som påske. I sesongjusteringsprosessen spaltes den prekorrigerte (kalenderjusterte) tidsserien opp i tre komponenter: sesong, irregulær og trend-syklus. Når dataene er korrigert for de sesongrelaterte forholdene, vil man stå igjen med et klarere bilde av den underliggende utviklingen i tidsserien som består av trend-syklus og irregulær komponent. Trend-syklus-komponenten er glattere enn sesongjusterte tall, og kan evt. formidles til brukerne i tillegg. I tidsserieanalyse kan en også justere tidsseriene for evt. brudd. Metodebiblioteket inneholder de viktigste R-funksjonene knyttet til sesongjustering med JDemetra+ 3.X. Pakkestrukturen og mange funksjonsnavn er vesentlig endret sammenlignet med forrige versjon, knyttet til JDemetra+ 2.2.X. Begge versjonene er tilgjengelige i Dapla. For en fullstendig oversikt over funksjonene vises det til dokumentasjonen for pakkene: [rjd3toolkit](https://cran.r-project.org/web/packages/rjd3toolkit/index.html), [rjd3x13](https://cran.r-project.org/web/packages/rjd3x13/index.html) og [pickmdl3](https://github.com/statisticsnorway/ssb-pickmdl3). 
+
+(R-funksjonene knyttet til versjon 2.2.X av JDemetra+ i R-pakkene RJDemetra, pickmdl og sadashboard er ikke lenger med på funksjonsoversikten. De kan fortsatt brukes, men vedlikeholdes ikke etter 2026.) 
+
+For informasjon om ARIMA-seleksjonsprosedyren pickmodel se evt. vignett-sidene (kun engelsk): [What is pickmodel?](https://statisticsnorway.github.io/ssb-pickmdl3/articles/introduction.html) og [pickmdl-method](https://statisticsnorway.github.io/ssb-pickmdl3/articles/pickmdl_method.html) 
 
 Du kan finne mer informasjon om Sesongjustering og tidsserieanalyse på [Byrånettet](https://ssbno.sharepoint.com/sites/Metodikkistatistikkproduksjonen/SitePages/Sesongjustering.aspx).
-
-
 
 ```{r}
 #| echo: false
@@ -28,7 +30,7 @@ dt <- dt[grepl("sesongjustering", tolower(dt$keyword)), ]
 
 
 # Bestemt rekkefølge på pakker
-order_pack <- c("RJDemetra", "pickmdl", "sadashboard")
+order_pack <- c("pickmdl3", "rjd3x13", "rjd3toolkit")
 dt <- dt[order(match(dt$pack, order_pack)), ]
 
 
@@ -78,4 +80,3 @@ table td:nth-child(2) { width: 18%; white-space: nowrap; }
 
 
 ```
-

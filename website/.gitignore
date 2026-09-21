@@ -2,3 +2,5 @@
 _freeze/*
 !_freeze/status/
 !_freeze/site_libs/
+
+**/*.quarto_ipynb
