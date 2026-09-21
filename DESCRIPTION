@@ -16,7 +16,6 @@ Maintainer: Susie Jentoft <Susie.Jentoft@ssb.no>
 Description: This is a package for presenting and testing R and python functions useful for official statistics.
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.3.2
 Depends: R (>= 3.5.0)
 Imports: 
   CalibrateSSB,
@@ -35,9 +34,9 @@ Imports:
   stats,
   struktuR,
   validate, 
-  RJDemetra,
-  pickmdl,
-  sadashboard
+  rjd3toolkit,
+  rjd3x13,
+  pickmdl3
 Remotes:
   statisticsnorway/ReGenesees,
   statisticsnorway/ssb-sdcforetakperson,
@@ -45,8 +44,7 @@ Remotes:
   statisticsnorway/ssb-struktur,
   statisticsnorway/ssb-pris,
   statisticsnorway/ssb-sdclonn, 
-  statisticsnorway/ssb-pickmdl, 
-  statisticsnorway/ssb-sadashboard 
+  statisticsnorway/ssb-pickmdl3 
 Suggests: 
     testthat (>= 3.0.0),
     base64enc,
@@ -58,3 +56,4 @@ Suggests:
     rmarkdown,
     knitr
 Config/testthat/edition: 3
+Config/roxygen2/version: 8.1.0

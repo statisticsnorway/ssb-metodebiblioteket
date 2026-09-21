@@ -3,67 +3,72 @@
 \docType{import}
 \name{reexports}
 \alias{reexports}
+\alias{AggrSml2NumVar}
+\alias{CalcIndS2}
+\alias{CalcInd}
 \alias{CalibrateSSB}
-\alias{PanelEstimation}
+\alias{Diff2NumVar}
 \alias{EasyData}
+\alias{GaussSuppressDec}
+\alias{GaussSuppressionFromData}
+\alias{Hb}
+\alias{HierarchyCompute}
+\alias{LmImpute}
+\alias{OutlierRegressionMicro}
+\alias{PLSroundingPublish}
+\alias{PLSrounding}
+\alias{PanelEstimation}
+\alias{ProtectKostra}
 \alias{ProtectTableData}
-\alias{SuppressSmallCounts}
+\alias{Quartile}
+\alias{Rank2NumVar}
+\alias{SdcForetakPerson}
 \alias{SuppressDominantCells}
 \alias{SuppressFewContributors}
 \alias{SuppressKDisclosure}
-\alias{GaussSuppressDec}
-\alias{GaussSuppressionFromData}
-\alias{SuppressionFromDecimals}
-\alias{shortest_path_igraph}
-\alias{shortest_path_cppRouting}
-\alias{ThError}
-\alias{Hb}
-\alias{LmImpute}
-\alias{ProtectKostra}
-\alias{Quartile}
-\alias{OutlierRegressionMicro}
-\alias{Rank2NumVar}
-\alias{Diff2NumVar}
-\alias{AggrSml2NumVar}
-\alias{get_extremes}
-\alias{impute_proxy}
-\alias{impute_knn}
-\alias{lm}
-\alias{impute_pmm}
-\alias{impute_rhd}
-\alias{SdcForetakPerson}
-\alias{CalcInd}
-\alias{CalcIndS2}
-\alias{struktur_model}
-\alias{model_aggregate}
-\alias{quantile_weighted}
-\alias{HierarchyCompute}
-\alias{PLSrounding}
-\alias{PLSroundingPublish}
-\alias{validator}
-\alias{confront}
-\alias{modifier}
-\alias{sdc_lonn}
-\alias{e.svydesign}
-\alias{pop.template}
-\alias{fill.template}
-\alias{e.calibrate}
-\alias{weights}
-\alias{svystatTM}
-\alias{svystatL}
-\alias{x13}
-\alias{x13_spec}
-\alias{x13_pickmdl}
-\alias{x13_automdl}
-\alias{x13_both}
-\alias{x13_text_frame}
-\alias{konstruksjon}
-\alias{sa_quality_report}
-\alias{make_paramfile}
-\alias{add_constraint}
-\alias{edit_constraints}
-\alias{tables_by_formulas}
 \alias{SuppressLinkedTables}
+\alias{SuppressSmallCounts}
+\alias{SuppressionFromDecimals}
+\alias{ThError}
+\alias{add_constraint}
+\alias{add_outlier}
+\alias{confront}
+\alias{e.calibrate}
+\alias{e.svydesign}
+\alias{edit_constraints}
+\alias{fill.template}
+\alias{get_extremes}
+\alias{impute_knn}
+\alias{impute_pmm}
+\alias{impute_proxy}
+\alias{impute_rhd}
+\alias{lm}
+\alias{make_paramfile}
+\alias{model_aggregate}
+\alias{modelling_context}
+\alias{modifier}
+\alias{national_calendar}
+\alias{pop.template}
+\alias{quantile_weighted}
+\alias{sdc_lonn}
+\alias{set_arima}
+\alias{set_automodel}
+\alias{set_outlier}
+\alias{set_tradingdays}
+\alias{set_transform}
+\alias{set_x11}
+\alias{shortest_path_cppRouting}
+\alias{shortest_path_igraph}
+\alias{struktur_model}
+\alias{svystatL}
+\alias{svystatTM}
+\alias{tables_by_formulas}
+\alias{validator}
+\alias{weights}
+\alias{x13_pickmdl}
+\alias{x13_spec}
+\alias{x13_text_frame}
+\alias{x13}
 \title{Objects exported from other packages}
 \keyword{internal}
 \description{
@@ -79,7 +84,6 @@ below to see their documentation.
 
   \item{Kostra}{\code{\link[Kostra]{AggrSml2NumVar}}, \code{\link[Kostra]{Diff2NumVar}}, \code{\link[Kostra]{Hb}}, \code{\link[Kostra]{LmImpute}}, \code{\link[Kostra:OutlierRegression]{OutlierRegressionMicro}}, \code{\link[Kostra]{ProtectKostra}}, \code{\link[Kostra]{Quartile}}, \code{\link[Kostra]{Rank2NumVar}}, \code{\link[Kostra]{ThError}}}
 
-  \item{RJDemetra}{\code{\link[RJDemetra]{x13}}, \code{\link[RJDemetra]{x13_spec}}}
 
   \item{ReGenesees}{\code{\link[ReGenesees]{e.calibrate}}, \code{\link[ReGenesees]{e.svydesign}}, \code{\link[ReGenesees]{fill.template}}, \code{\link[ReGenesees]{pop.template}}, \code{\link[ReGenesees]{svystatL}}, \code{\link[ReGenesees]{svystatTM}}, \code{\link[ReGenesees]{weights}}}
 
@@ -95,9 +99,7 @@ below to see their documentation.
 
   \item{easySdcTable}{\code{\link[easySdcTable]{EasyData}}, \code{\link[easySdcTable:ProtectTable]{ProtectTableData}}}
 
-  \item{pickmdl}{\code{\link[pickmdl]{konstruksjon}}, \code{\link[pickmdl:x13_pickmdl]{x13_automdl}}, \code{\link[pickmdl]{x13_both}}, \code{\link[pickmdl]{x13_pickmdl}}, \code{\link[pickmdl]{x13_text_frame}}}
 
-  \item{sadashboard}{\code{\link[sadashboard]{add_constraint}}, \code{\link[sadashboard]{edit_constraints}}, \code{\link[sadashboard]{make_paramfile}}, \code{\link[sadashboard]{sa_quality_report}}}
 
   \item{sdclonn}{\code{\link[sdclonn]{sdc_lonn}}}
 
@@ -108,5 +110,10 @@ below to see their documentation.
   \item{struktuR}{\code{\link[struktuR]{get_extremes}}, \code{\link[struktuR]{struktur_model}}}
 
   \item{validate}{\code{\link[validate]{confront}}, \code{\link[validate]{validator}}}
+
+  \item{pickmdl3}{\code{\link[pickmdl3]{add_constraint}}, \code{\link[pickmdl3]{edit_constraints}}, \code{\link[pickmdl3]{make_paramfile}}, \code{\link[pickmdl3]{x13_pickmdl}}, \code{\link[pickmdl3]{x13_text_frame}}}
+  \item{rjd3toolkit}{\code{\link[rjd3toolkit]{add_outlier}}, \code{\link[rjd3toolkit]{modelling_context}}, \code{\link[rjd3toolkit]{national_calendar}}, \code{\link[rjd3toolkit]{set_arima}}, \code{\link[rjd3toolkit]{set_automodel}}, \code{\link[rjd3toolkit]{set_outlier}}, \code{\link[rjd3toolkit]{set_tradingdays}}, \code{\link[rjd3toolkit]{set_transform}}}
+  \item{rjd3x13}{\code{\link[rjd3x13]{set_x11}}, \code{\link[rjd3x13]{x13}}, \code{\link[rjd3x13]{x13_spec}}}
+
 }}
 

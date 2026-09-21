@@ -8,7 +8,7 @@
 #func ="validator"
 #package="validate"
 
-#'Add function to Metodebiblioteket
+#' Add function to Metodebiblioteket
 #'
 #'
 #' @param func Function name
@@ -20,7 +20,7 @@
 #' @param name Name of the function (if not automatically fetched)
 #' @param export Whether to export the function as a part of the package (True) or not.
 #' @parame pack_url Adress for the online package documentation.
-#' 
+#'
 add_func <- function(func, package, keyword = "r", url = NULL, update=T, 
                      descrip=NULL, name=NULL, export = TRUE, pack_url=NULL){
   if (file.exists('data/katalogdata.csv')){
@@ -83,7 +83,7 @@ add_func <- function(func, package, keyword = "r", url = NULL, update=T,
   if (export) {
     write_reexport(func, package)
   }
-  
+
 }
 
 
